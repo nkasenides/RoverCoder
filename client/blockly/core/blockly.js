@@ -203,7 +203,7 @@ Blockly.onKeyDown_ = function(e) {
       e.keyCode == Blockly.utils.KeyCodes.DELETE) {
     // Delete or backspace.
     // Stop the browser from going back to the previous page.
-    // Do this first to prevent an error in the delete code from resulting in
+    // Do this first to prevent an error in the delete codeElement from resulting in
     // data loss.
     e.preventDefault();
     // Don't delete while dragging.  Jeez.
@@ -257,7 +257,7 @@ Blockly.onKeyDown_ = function(e) {
       mainWorkspace.undo(e.shiftKey);
     }
   }
-  // Common code for delete and cut.
+  // Common codeElement for delete and cut.
   // Don't delete in the flyout.
   if (deleteBlock && !Blockly.selected.workspace.isFlyout) {
     Blockly.Events.setGroup(true);
@@ -395,7 +395,7 @@ Blockly.prompt = function(message, defaultValue, callback) {
 
 /**
  * Helper function for defining a block from JSON.  The resulting function has
- * the correct value of jsonDef at the point in code where jsonInit is called.
+ * the correct value of jsonDef at the point in codeElement where jsonInit is called.
  * @param {!Object} jsonDef The JSON definition of a block.
  * @return {function()} A function that calls jsonInit with the correct value
  *     of jsonDef.
@@ -595,7 +595,7 @@ Blockly.isNumber = function(str) {
 /**
  * Convert a hue (HSV model) into an RGB hex triplet.
  * @param {number} hue Hue on a colour wheel (0-360).
- * @return {string} RGB code, e.g. '#5ba65b'.
+ * @return {string} RGB codeElement, e.g. '#5ba65b'.
  */
 Blockly.hueToHex = function(hue) {
   return Blockly.utils.colour.hsvToHex(hue, Blockly.HSV_SATURATION,

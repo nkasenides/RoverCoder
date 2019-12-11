@@ -43,7 +43,7 @@ Minimap.init = function(workspace, minimap) {
     this.svgHandle_.setAttribute(this.positionAttribute_, this.handlePosition_);
 
     // Code above is same as the original setHandlePosition function in core/scrollbar.js.
-    // New code starts from here.
+    // New codeElement starts from here.
 
     // Get the absolutePosition.
     var absolutePosition = (this.handlePosition_ / this.ratio_);
@@ -58,7 +58,7 @@ Minimap.init = function(workspace, minimap) {
     this.svgHandle_.setAttribute(this.positionAttribute_, this.handlePosition_);
 
     // Code above is same as the original setHandlePosition function in core/scrollbar.js.
-    // New code starts from here.
+    // New codeElement starts from here.
 
     // Get the absolutePosition.
     var absolutePosition = (this.handlePosition_ / this.ratio_);

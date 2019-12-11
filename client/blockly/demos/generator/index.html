@@ -123,14 +123,14 @@
                                demoWorkspace);
 
     function showCode() {
-      // Generate JavaScript code and display it.
+      // Generate JavaScript codeElement and display it.
       Blockly.JavaScript.INFINITE_LOOP_TRAP = null;
       var code = Blockly.JavaScript.workspaceToCode(demoWorkspace);
       alert(code);
     }
 
     function runCode() {
-      // Generate JavaScript code and run it.
+      // Generate JavaScript codeElement and run it.
       window.LoopTrap = 1000;
       Blockly.JavaScript.INFINITE_LOOP_TRAP =
           'if (--window.LoopTrap == 0) throw "Infinite loop.";\n';

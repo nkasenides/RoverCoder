@@ -192,7 +192,7 @@
     }
 
     function generateCodeAndLoadIntoInterpreter() {
-      // Generate JavaScript code and parse it.
+      // Generate JavaScript codeElement and parse it.
       Blockly.JavaScript.STATEMENT_PREFIX = 'highlightBlock(%1);\n';
       Blockly.JavaScript.addReservedWords('highlightBlock');
       latestCode = Blockly.JavaScript.workspaceToCode(demoWorkspace);
@@ -201,12 +201,12 @@
 
     function stepCode() {
       if (!myInterpreter) {
-        // First statement of this code.
+        // First statement of this codeElement.
         // Clear the program output.
         resetStepUi(true);
         myInterpreter = new Interpreter(latestCode, initApi);
 
-        // And then show generated code in an alert.
+        // And then show generated codeElement in an alert.
         // In a timeout to allow the outputArea.value to reset first.
         setTimeout(function() {
           alert('Ready to execute the following code\n' +
@@ -222,7 +222,7 @@
           var hasMoreCode = myInterpreter.step();
         } finally {
           if (!hasMoreCode) {
-            // Program complete, no more code to execute.
+            // Program complete, no more codeElement to execute.
             outputArea.value += '\n\n<< Program complete >>';
 
             myInterpreter = null;
@@ -238,7 +238,7 @@
           }
         }
         // Keep executing until a highlight statement is reached,
-        // or the code completes or errors.
+        // or the codeElement completes or errors.
       } while (hasMoreCode && !highlightPause);
     }
 

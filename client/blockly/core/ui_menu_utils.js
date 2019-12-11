@@ -49,7 +49,7 @@ Blockly.utils.uiMenu.getSize = function(menu) {
  * Adjust the bounding boxes used to position the widget div to deal with RTL
  * goog.ui.Menu positioning.  In RTL mode the menu renders down and to the left
  * of its start point, instead of down and to the right.  Adjusting all of the
- * bounding boxes accordingly allows us to use the same code for all widgets.
+ * bounding boxes accordingly allows us to use the same codeElement for all widgets.
  * This function in-place modifies the provided bounding boxes.
  * @param {!Object} viewportBBox The bounding rectangle of the current viewport,
  *     in window coordinates.

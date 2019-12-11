@@ -295,7 +295,7 @@ Blockly.Block.prototype.domToMutation;
 
 /**
  * An optional property for suppressing adding STATEMENT_PREFIX and
- * STATEMENT_SUFFIX to generated code.
+ * STATEMENT_SUFFIX to generated codeElement.
  * @type {?boolean}
  */
 Blockly.Block.prototype.suppressPrefixSuffix;

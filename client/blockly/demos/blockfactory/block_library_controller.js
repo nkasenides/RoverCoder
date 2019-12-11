@@ -16,7 +16,7 @@
  */
 
 /**
- * @fileoverview Contains the code for Block Library Controller, which
+ * @fileoverview Contains the codeElement for Block Library Controller, which
  * depends on Block Library Storage and Block Library UI. Provides the
  * interfaces for the user to
  *  - save their blocks to the browser

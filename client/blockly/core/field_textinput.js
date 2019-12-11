@@ -173,7 +173,7 @@ Blockly.FieldTextInput.prototype.doValueUpdate_ = function(newValue) {
 Blockly.FieldTextInput.prototype.render_ = function() {
   Blockly.FieldTextInput.superClass_.render_.call(this);
   // This logic is done in render_ rather than doValueInvalid_ or
-  // doValueUpdate_ so that the code is more centralized.
+  // doValueUpdate_ so that the codeElement is more centralized.
   if (this.isBeingEdited_) {
     if (this.sourceBlock_.RTL) {
       // in RTL, we need to let the browser reflow before resizing

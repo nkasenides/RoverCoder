@@ -28,7 +28,7 @@ goog.require('Blockly.Lua');
 
 /**
  * This is the text used to implement a <pre>continue</pre>.
- * It is also used to recognise <pre>continue</pre>s in generated code so that
+ * It is also used to recognise <pre>continue</pre>s in generated codeElement so that
  * the appropriate label can be put at the end of the loop body.
  * @const {string}
  */
@@ -40,7 +40,7 @@ Blockly.Lua.CONTINUE_STATEMENT = 'goto continue\n';
  * in all outer loops, but this is safer than duplicating the logic of
  * blockToCode.
  *
- * @param {string} branch Generated code of the loop body
+ * @param {string} branch Generated codeElement of the loop body
  * @return {string} Generated label or '' if unnecessary
  * @private
  */

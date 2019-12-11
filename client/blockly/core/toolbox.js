@@ -668,7 +668,7 @@ Blockly.Toolbox.prototype.getClientRect = function() {
   var right = left + toolboxRect.width;
 
   // Assumes that the toolbox is on the SVG edge.  If this changes
-  // (e.g. toolboxes in mutators) then this code will need to be more complex.
+  // (e.g. toolboxes in mutators) then this codeElement will need to be more complex.
   if (this.toolboxPosition == Blockly.TOOLBOX_AT_TOP) {
     return new Blockly.utils.Rect(-BIG_NUM, bottom, -BIG_NUM, BIG_NUM);
   } else if (this.toolboxPosition == Blockly.TOOLBOX_AT_BOTTOM) {

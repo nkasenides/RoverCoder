@@ -24,7 +24,7 @@ module.exports = runJsUnitTestsInBrowser;
 
 /**
  * Runs the JsUnit tests in this directory in Chrome. It uses webdriverio to
- * launch Chrome and load code.html. Outputs a summary of the test results
+ * launch Chrome and load codeElement.html. Outputs a summary of the test results
  * to the console.
  * @return 0 on success, 1 on failure.
  */
@@ -41,7 +41,7 @@ async function runJsUnitTestsInBrowser() {
     };
   }
 
-  var url = 'file://' + __dirname + '/code.html';
+  var url = 'file://' + __dirname + '/codeElement.html';
   console.log('Starting webdriverio...');
   const browser = await webdriverio.remote(options);
   console.log('Initialized.\nLoading url: ' + url);

@@ -189,7 +189,7 @@ Blockly.Lua['math_number_property'] = function(block) {
     case 'DIVISIBLE_BY':
       var divisor = Blockly.Lua.valueToCode(block, 'DIVISOR',
           Blockly.Lua.ORDER_MULTIPLICATIVE);
-      // If 'divisor' is some code that evals to 0, Lua will produce a nan.
+      // If 'divisor' is some codeElement that evals to 0, Lua will produce a nan.
       // Let's produce nil if we can determine this at compile-time.
       if (!divisor || divisor == '0') {
         return ['nil', Blockly.Lua.ORDER_ATOMIC];

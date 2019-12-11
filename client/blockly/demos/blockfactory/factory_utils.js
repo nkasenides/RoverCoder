@@ -16,7 +16,7 @@
  */
 
 /**
- * @fileoverview FactoryUtils is a namespace that holds block starter code
+ * @fileoverview FactoryUtils is a namespace that holds block starter codeElement
  * generation functions shared by the Block Factory, Workspace Factory, and
  * Exporter applications within Blockly Factory. Holds functions to generate
  * block definitions and generator stubs and to create and download files.
@@ -32,7 +32,7 @@
 var FactoryUtils = FactoryUtils || Object.create(null);
 
 /**
- * Get block definition code for the current block.
+ * Get block definition codeElement for the current block.
  * @param {string} blockType Type of block.
  * @param {!Blockly.Block} rootBlock RootBlock from main workspace in which
  *    user uses Block Factory Blocks to create a custom block.
@@ -67,11 +67,11 @@ FactoryUtils.cleanBlockType = function(blockType) {
 };
 
 /**
- * Get the generator code for a given block.
+ * Get the generator codeElement for a given block.
  * @param {!Blockly.Block} block Rendered block in preview workspace.
  * @param {string} generatorLanguage 'JavaScript', 'Python', 'PHP', 'Lua',
  *     or 'Dart'.
- * @return {string} Generator code for multiple blocks.
+ * @return {string} Generator codeElement for multiple blocks.
  */
 FactoryUtils.getGeneratorStub = function(block, generatorLanguage) {
   // Build factory blocks from block
@@ -156,14 +156,14 @@ FactoryUtils.getGeneratorStub = function(block, generatorLanguage) {
     'Lua': '',
     'Dart': ';'
   };
-  code.push("  // TODO: Assemble " + language + " into code variable.");
+  code.push("  // TODO: Assemble " + language + " into codeElement variable.");
   if (block.outputConnection) {
-    code.push("  var code = '...';");
+    code.push("  var codeElement = '...';");
     code.push("  // TODO: Change ORDER_NONE to the correct strength.");
-    code.push("  return [code, Blockly." + language + ".ORDER_NONE];");
+    code.push("  return [codeElement, Blockly." + language + ".ORDER_NONE];");
   } else {
-    code.push("  var code = '..." + (lineEnd[language] || '') + "\\n';");
-    code.push("  return code;");
+    code.push("  var codeElement = '..." + (lineEnd[language] || '') + "\\n';");
+    code.push("  return codeElement;");
   }
   code.push("};");
 
@@ -171,10 +171,10 @@ FactoryUtils.getGeneratorStub = function(block, generatorLanguage) {
 };
 
 /**
- * Update the language code as JSON.
+ * Update the language codeElement as JSON.
  * @param {string} blockType Name of block.
  * @param {!Blockly.Block} rootBlock Factory_base block.
- * @return {string} Generanted language code.
+ * @return {string} Generanted language codeElement.
  * @private
  */
 FactoryUtils.formatJson_ = function(blockType, rootBlock) {
@@ -282,11 +282,11 @@ FactoryUtils.formatJson_ = function(blockType, rootBlock) {
 };
 
 /**
- * Update the language code as JavaScript.
+ * Update the language codeElement as JavaScript.
  * @param {string} blockType Name of block.
  * @param {!Blockly.Block} rootBlock Factory_base block.
  * @param {!Blockly.Workspace} workspace Where the root block lives.
- * @return {string} Generated language code.
+ * @return {string} Generated language codeElement.
  * @private
  */
 FactoryUtils.formatJavaScript_ = function(blockType, rootBlock, workspace) {
@@ -371,11 +371,11 @@ FactoryUtils.formatJavaScript_ = function(blockType, rootBlock, workspace) {
 };
 
 /**
- * Create JS code required to create a top, bottom, or value connection.
+ * Create JS codeElement required to create a top, bottom, or value connection.
  * @param {string} functionName JavaScript function name.
  * @param {string} typeName Name of type input.
  * @param {!Blockly.Workspace} workspace Where the root block lives.
- * @return {string} Line of JavaScript code to create connection.
+ * @return {string} Line of JavaScript codeElement to create connection.
  * @private
  */
 FactoryUtils.connectionLineJs_ = function(functionName, typeName, workspace) {
@@ -619,7 +619,7 @@ FactoryUtils.getFieldsJson_ = function(block) {
 
 /**
  * Fetch the type(s) defined in the given input.
- * Format as a string for appending to the generated code.
+ * Format as a string for appending to the generated codeElement.
  * @param {!Blockly.Block} block Block with input.
  * @param {string} name Name of the input.
  * @return {?string} String defining the types.
@@ -893,9 +893,9 @@ FactoryUtils.defineAndGetBlockTypes = function(blockDefsString, format) {
 };
 
 /**
- * Inject code into a pre tag, with syntax highlighting.
+ * Inject codeElement into a pre tag, with syntax highlighting.
  * Safe from HTML/script injection.
- * @param {string} code Lines of code.
+ * @param {string} code Lines of codeElement.
  * @param {string} id ID of <pre> element to inject into.
  */
 FactoryUtils.injectCode = function(code, id) {

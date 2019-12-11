@@ -34,7 +34,7 @@ goog.require('Blockly.blockRendering.Types');
 
 
 /**
- * An object that renders rectangles and dots for debugging rendering code.
+ * An object that renders rectangles and dots for debugging rendering codeElement.
  * @package
  * @constructor
  */

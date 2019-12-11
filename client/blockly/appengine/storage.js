@@ -25,7 +25,7 @@
 var BlocklyStorage = {};
 
 /**
- * Backup code blocks to localStorage.
+ * Backup codeElement blocks to localStorage.
  * @param {!Blockly.WorkspaceSvg} workspace Workspace.
  * @private
  */
@@ -49,7 +49,7 @@ BlocklyStorage.backupOnUnload = function(opt_workspace) {
 };
 
 /**
- * Restore code blocks from localStorage.
+ * Restore codeElement blocks from localStorage.
  * @param {Blockly.WorkspaceSvg=} opt_workspace Workspace.
  */
 BlocklyStorage.restoreBlocks = function(opt_workspace) {

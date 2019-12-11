@@ -28,7 +28,7 @@ goog.require('Blockly.utils.string');
 
 
 /**
- * Dart code generator.
+ * Dart codeElement generator.
  * @type {!Blockly.Generator}
  */
 Blockly.Dart = new Blockly.Generator('Dart');
@@ -84,10 +84,10 @@ Blockly.Dart.ORDER_NONE = 99;          // (...)
 
 /**
  * Initialise the database of variable names.
- * @param {!Blockly.Workspace} workspace Workspace to generate code from.
+ * @param {!Blockly.Workspace} workspace Workspace to generate codeElement from.
  */
 Blockly.Dart.init = function(workspace) {
-  // Create a dictionary of definitions to be printed before the code.
+  // Create a dictionary of definitions to be printed before the codeElement.
   Blockly.Dart.definitions_ = Object.create(null);
   // Create a dictionary mapping desired function names in definitions_
   // to actual function names (to avoid collisions with user functions).
@@ -125,9 +125,9 @@ Blockly.Dart.init = function(workspace) {
 };
 
 /**
- * Prepend the generated code with the variable definitions.
- * @param {string} code Generated code.
- * @return {string} Completed code.
+ * Prepend the generated codeElement with the variable definitions.
+ * @param {string} code Generated codeElement.
+ * @return {string} Completed codeElement.
  */
 Blockly.Dart.finish = function(code) {
   // Indent every line.
@@ -158,8 +158,8 @@ Blockly.Dart.finish = function(code) {
 /**
  * Naked values are top-level blocks with outputs that aren't plugged into
  * anything.  A trailing semicolon is needed to make this legal.
- * @param {string} line Line of generated code.
- * @return {string} Legal line of code.
+ * @param {string} line Line of generated codeElement.
+ * @return {string} Legal line of codeElement.
  */
 Blockly.Dart.scrubNakedValue = function(line) {
   return line + ';\n';
@@ -199,9 +199,9 @@ Blockly.Dart.multiline_quote_ = function(string) {
  * Handles comments for the specified block and any connected value blocks.
  * Calls any statements following this block.
  * @param {!Blockly.Block} block The current block.
- * @param {string} code The Dart code created for this block.
- * @param {boolean=} opt_thisOnly True to generate code for only this statement.
- * @return {string} Dart code with comments and subsequent blocks added.
+ * @param {string} code The Dart codeElement created for this block.
+ * @param {boolean=} opt_thisOnly True to generate codeElement for only this statement.
+ * @return {string} Dart codeElement with comments and subsequent blocks added.
  * @private
  */
 Blockly.Dart.scrub_ = function(block, code, opt_thisOnly) {
@@ -274,7 +274,7 @@ Blockly.Dart.getAdjusted = function(block, atId, opt_delta, opt_negate,
       at = -at;
     }
   } else {
-    // If the index is dynamic, adjust it in code.
+    // If the index is dynamic, adjust it in codeElement.
     if (delta > 0) {
       at = at + ' + ' + delta;
       var innerOrder = Blockly.Dart.ORDER_ADDITIVE;

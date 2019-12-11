@@ -352,7 +352,7 @@ Blockly.defineBlocksWithJsonArray([  // BEGIN JSON EXTRACT
   },
   {
     "type": "test_fields_multilinetext",
-    "message0": "code %1",
+    "message0": "codeElement %1",
     "args0": [
       {
         "type": "field_multilinetext",

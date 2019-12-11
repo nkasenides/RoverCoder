@@ -21,15 +21,15 @@
  *
  * <p>
  * The top portion of this file contains utilities for Soy users:<ul>
- *   <li> soy.StringBuilder: Compatible with the 'stringbuilder' code style.
+ *   <li> soy.StringBuilder: Compatible with the 'stringbuilder' codeElement style.
  *   <li> soy.renderElement: Render template and set as innerHTML of an element.
  *   <li> soy.renderAsFragment: Render template and return as HTML fragment.
  * </ul>
  *
  * <p>
  * The bottom portion of this file contains utilities that should only be called
- * by Soy-generated JS code. Please do not use these functions directly from
- * your hand-writen code. Their names all start with '$$'.
+ * by Soy-generated JS codeElement. Please do not use these functions directly from
+ * your hand-writen codeElement. Their names all start with '$$'.
  *
  * @author Garrett Boyer
  * @author Mike Samuel
@@ -341,7 +341,7 @@ goog.i18n.bidi.toDir = function(givenDir, opt_noNeutral) {
  * @param {string} str The string to be checked.
  * @param {boolean=} opt_isHtml Whether str is HTML / HTML-escaped.
  *     Default: false.
- * @return {goog.i18n.bidi.Dir} Estimated overall directionality of {@code str}.
+ * @return {goog.i18n.bidi.Dir} Estimated overall directionality of {@codeElement str}.
  */
 goog.i18n.bidi.estimateDirection = function(str, opt_isHtml) {
   var rtlCount = 0;
@@ -440,11 +440,11 @@ goog.i18n.BidiFormatter.prototype.mark = function () {
 
 /**
  * Returns a Unicode bidi mark matching the context directionality (LRM or RLM)
- * if the directionality or the exit directionality of {@code text} are opposite
+ * if the directionality or the exit directionality of {@codeElement text} are opposite
  * to the context directionality. Otherwise returns the empty string.
  * If opt_isHtml, makes sure to ignore the LTR nature of the mark-up and escapes
  * in text, making the logic suitable for HTML and HTML-escaped text.
- * @param {?goog.i18n.bidi.Dir} textDir {@code text}'s overall directionality,
+ * @param {?goog.i18n.bidi.Dir} textDir {@codeElement text}'s overall directionality,
  *     or null if unknown and needs to be estimated.
  * @param {string} text The text whose directionality is to be estimated.
  * @param {boolean=} opt_isHtml Whether text is HTML/HTML-escaped.
@@ -471,7 +471,7 @@ goog.i18n.BidiFormatter.prototype.markAfterKnownDir = function (
  * so an opposite-directionality string is neither garbled nor garbles what
  * follows it.
  *
- * @param {?goog.i18n.bidi.Dir} textDir {@code str}'s overall directionality, or
+ * @param {?goog.i18n.bidi.Dir} textDir {@codeElement str}'s overall directionality, or
  *     null if unknown and needs to be estimated.
  * @param {string} str The input text (HTML or HTML-escaped).
  * @param {boolean=} placeholder This argument exists for consistency with the
@@ -509,10 +509,10 @@ goog.i18n.BidiFormatter.prototype.startEdge = function () {
  * formatting characters. In HTML, it should only be used inside attribute
  * values and elements that do not allow markup, e.g. an 'option' tag.
  *
- * @param {?goog.i18n.bidi.Dir} textDir {@code str}'s overall directionality, or
+ * @param {?goog.i18n.bidi.Dir} textDir {@codeElement str}'s overall directionality, or
  *     null if unknown and needs to be estimated.
  * @param {string} str The input text (HTML-escaped).
- * @param {boolean=} opt_isHtml Whether {@code str} is HTML / HTML-escaped.
+ * @param {boolean=} opt_isHtml Whether {@codeElement str} is HTML / HTML-escaped.
  *     Default: false.
  * @return {string} The input text after applying the above processing.
  */
@@ -537,7 +537,7 @@ if (!goog.string) {
      * Converts \r\n, \r, and \n to <br>s
      * @param {*} str The string in which to convert newlines.
      * @param {boolean=} opt_xml Whether to use XML compatible tags.
-     * @return {string} A copy of {@code str} with converted newlines.
+     * @return {string} A copy of {@codeElement str} with converted newlines.
      */
     newLineToBr: function(str, opt_xml) {
 
@@ -676,8 +676,8 @@ if (!goog.soy) goog.soy = {
    * Helper function to render a Soy template and then set the
    * output string as the innerHTML of an element. It is recommended
    * to use this helper function instead of directly setting
-   * innerHTML in your hand-written code, so that it will be easier
-   * to audit the code for cross-site scripting vulnerabilities.
+   * innerHTML in your hand-written codeElement, so that it will be easier
+   * to audit the codeElement for cross-site scripting vulnerabilities.
    *
    * @param {Function} template The Soy template defining element's content.
    * @param {Object=} opt_templateData The data for the template.
@@ -714,10 +714,10 @@ if (!goog.soy) goog.soy = {
   /**
    * Helper function to render a Soy template and then set the output string as
    * the innerHTML of an element. It is recommended to use this helper function
-   * instead of directly setting innerHTML in your hand-written code, so that it
-   * will be easier to audit the code for cross-site scripting vulnerabilities.
+   * instead of directly setting innerHTML in your hand-written codeElement, so that it
+   * will be easier to audit the codeElement for cross-site scripting vulnerabilities.
    *
-   * NOTE: New code should consider using goog.soy.renderElement instead.
+   * NOTE: New codeElement should consider using goog.soy.renderElement instead.
    *
    * @param {Element} element The element whose content we are rendering.
    * @param {Function} template The Soy template defining the element's content.
@@ -743,13 +743,13 @@ goog.soy.data.SanitizedContentKind = {
 
   /**
    * A snippet of HTML that does not start or end inside a tag, comment, entity,
-   * or DOCTYPE; and that does not contain any executable code
-   * (JS, {@code <object>}s, etc.) from a different trust domain.
+   * or DOCTYPE; and that does not contain any executable codeElement
+   * (JS, {@codeElement <object>}s, etc.) from a different trust domain.
    */
   HTML: goog.DEBUG ? {sanitizedContentKindHtml: true} : {},
 
   /**
-   * Executable Javascript code or expression, safe for insertion in a
+   * Executable Javascript codeElement or expression, safe for insertion in a
    * script-tag or event handler context, known to be free of any
    * attacker-controlled scripts. This can either be side-effect-free
    * Javascript (such as JSON) or Javascript that's entirely under Google's
@@ -758,7 +758,7 @@ goog.soy.data.SanitizedContentKind = {
   JS: goog.DEBUG ? {sanitizedContentJsChars: true} : {},
 
   /**
-   * A sequence of code units that can appear between quotes (either kind) in a
+   * A sequence of codeElement units that can appear between quotes (either kind) in a
    * JS program without causing a parse error, and without causing any side
    * effects.
    * <p>
@@ -767,7 +767,7 @@ goog.soy.data.SanitizedContentKind = {
    * string its parsing inside the content.
    * <p>
    * The content must also not end inside an escape sequence ; no partial octal
-   * escape sequences or odd number of '{@code \}'s at the end.
+   * escape sequences or odd number of '{@codeElement \}'s at the end.
    */
   JS_STR_CHARS: goog.DEBUG ? {sanitizedContentJsStrChars: true} : {},
 
@@ -776,7 +776,7 @@ goog.soy.data.SanitizedContentKind = {
 
   /**
    * Repeated attribute names and values. For example,
-   * {@code dir="ltr" foo="bar" onclick="trustedFunction()" checked}.
+   * {@codeElement dir="ltr" foo="bar" onclick="trustedFunction()" checked}.
    */
   ATTRIBUTES: goog.DEBUG ? {sanitizedContentHtmlAttribute: true} : {},
 
@@ -928,7 +928,7 @@ soyshim.$$BIDI_HTML_SKIP_RE_ = /<[^>]*>|&[^;]+;/g;
 /**
  * A practical pattern to identify strong LTR character. This pattern is not
  * theoretically correct according to unicode standard. It is simplified for
- * performance and small code size.
+ * performance and small codeElement size.
  * Copied from goog.i18n.bidi.ltrChars_.
  * @type {string}
  * @private
@@ -941,7 +941,7 @@ soyshim.$$bidiLtrChars_ =
 /**
  * A practical pattern to identify strong RTL character. This pattern is not
  * theoretically correct according to unicode standard. It is simplified for
- * performance and small code size.
+ * performance and small codeElement size.
  * Copied from goog.i18n.bidi.rtlChars_.
  * @type {string}
  * @private
@@ -1069,7 +1069,7 @@ soyshim.$$bidiIsRtlExitText_ = function(str, opt_isHtml) {
 
 
 // -----------------------------------------------------------------------------
-// StringBuilder (compatible with the 'stringbuilder' code style).
+// StringBuilder (compatible with the 'stringbuilder' codeElement style).
 
 
 /**
@@ -1085,8 +1085,8 @@ soy.StringBuilder = goog.string.StringBuffer;
 
 
 // -----------------------------------------------------------------------------
-// soydata: Defines typed strings, e.g. an HTML string {@code "a<b>c"} is
-// semantically distinct from the plain text string {@code "a<b>c"} and smart
+// soydata: Defines typed strings, e.g. an HTML string {@codeElement "a<b>c"} is
+// semantically distinct from the plain text string {@codeElement "a<b>c"} and smart
 // templates can take that distinction into account.
 
 /**
@@ -1148,9 +1148,9 @@ soydata.getContentDir = function(value) {
  *
  * The content is a string of HTML that can safely be embedded in a PCDATA
  * context in your app.  If you would be surprised to find that an HTML
- * sanitizer produced {@code s} (e.g.  it runs code or fetches bad URLs) and
- * you wouldn't write a template that produces {@code s} on security or privacy
- * grounds, then don't pass {@code s} here. The default content direction is
+ * sanitizer produced {@codeElement s} (e.g.  it runs codeElement or fetches bad URLs) and
+ * you wouldn't write a template that produces {@codeElement s} on security or privacy
+ * grounds, then don't pass {@codeElement s} here. The default content direction is
  * unknown, i.e. to be estimated when necessary.
  *
  * @constructor
@@ -1274,7 +1274,7 @@ soydata.SanitizedHtmlAttribute.prototype.contentDir = goog.i18n.bidi.Dir.LTR;
 /**
  * Content of type {@link soydata.SanitizedContentKind.CSS}.
  *
- * The content is non-attacker-exploitable CSS, such as {@code color:#c3d9ff}.
+ * The content is non-attacker-exploitable CSS, such as {@codeElement color:#c3d9ff}.
  * The content direction is LTR.
  *
  * @constructor
@@ -1437,9 +1437,9 @@ soydata.markUnsanitizedText = function(content, opt_contentDir) {
  *
  * @param {*} content A string of HTML that can safely be embedded in
  *     a PCDATA context in your app. If you would be surprised to find that an
- *     HTML sanitizer produced {@code s} (e.g. it runs code or fetches bad URLs)
- *     and you wouldn't write a template that produces {@code s} on security or
- *     privacy grounds, then don't pass {@code s} here.
+ *     HTML sanitizer produced {@codeElement s} (e.g. it runs codeElement or fetches bad URLs)
+ *     and you wouldn't write a template that produces {@codeElement s} on security or
+ *     privacy grounds, then don't pass {@codeElement s} here.
  * @param {?goog.i18n.bidi.Dir=} opt_contentDir The content direction; null if
  *     unknown and thus to be estimated when necessary. Default: null.
  * @return {!soydata.SanitizedHtml} Sanitized content wrapper that
@@ -1506,7 +1506,7 @@ soydata.VERY_UNSAFE.ordainSanitizedUri =
  * HTML attribute.
  *
  * @param {*} content An attribute name and value, such as
- *     {@code dir="ltr"}.
+ *     {@codeElement dir="ltr"}.
  * @return {!soydata.SanitizedHtmlAttribute} Sanitized content wrapper that
  *     indicates to Soy not to escape when printed as an HTML attribute.
  */
@@ -1519,7 +1519,7 @@ soydata.VERY_UNSAFE.ordainSanitizedHtmlAttribute =
  * Takes a leap of faith that the provided content is "safe" to use as CSS
  * in a style attribute or block.
  *
- * @param {*} content CSS, such as {@code color:#c3d9ff}.
+ * @param {*} content CSS, such as {@codeElement color:#c3d9ff}.
  * @return {!soydata.SanitizedCss} Sanitized CSS wrapper that indicates to
  *     Soy there is no need to escape or filter when printed in CSS context.
  */
@@ -1535,10 +1535,10 @@ soydata.VERY_UNSAFE.ordainSanitizedCss =
 /**
  * Helper function to render a Soy template and then set the output string as
  * the innerHTML of an element. It is recommended to use this helper function
- * instead of directly setting innerHTML in your hand-written code, so that it
- * will be easier to audit the code for cross-site scripting vulnerabilities.
+ * instead of directly setting innerHTML in your hand-written codeElement, so that it
+ * will be easier to audit the codeElement for cross-site scripting vulnerabilities.
  *
- * NOTE: New code should consider using goog.soy.renderElement instead.
+ * NOTE: New codeElement should consider using goog.soy.renderElement instead.
  *
  * @param {Element} element The element whose content we are rendering.
  * @param {Function} template The Soy template defining the element's content.
@@ -1555,7 +1555,7 @@ soy.renderElement = goog.soy.renderElement;
  * the method). Otherwise a document fragment is returned containing the
  * rendered nodes.
  *
- * NOTE: New code should consider using goog.soy.renderAsFragment
+ * NOTE: New codeElement should consider using goog.soy.renderAsFragment
  * instead (note that the arguments are different).
  *
  * @param {Function} template The Soy template defining the element's content.
@@ -1578,7 +1578,7 @@ soy.renderAsFragment = function(
  * HTML string represents a single node, then that node is returned. Otherwise,
  * a DIV element is returned containing the rendered nodes.
  *
- * NOTE: New code should consider using goog.soy.renderAsElement
+ * NOTE: New codeElement should consider using goog.soy.renderAsElement
  * instead (note that the arguments are different).
  *
  * @param {Function} template The Soy template defining the element's content.
@@ -1598,7 +1598,7 @@ soy.renderAsElement = function(
 
 
 // -----------------------------------------------------------------------------
-// Below are private utilities to be used by Soy-generated code only.
+// Below are private utilities to be used by Soy-generated codeElement only.
 
 
 /**
@@ -2012,13 +2012,13 @@ soy.$$cleanHtml = function(value) {
  * RCDATA.
  * <p>
  * Escapes HTML special characters so that the value will not prematurely end
- * the body of a tag like {@code <textarea>} or {@code <title>}. RCDATA tags
+ * the body of a tag like {@codeElement <textarea>} or {@codeElement <title>}. RCDATA tags
  * cannot contain other HTML entities, so it is not strictly necessary to escape
  * HTML special characters except when part of that text looks like an HTML
- * entity or like a close tag : {@code </textarea>}.
+ * entity or like a close tag : {@codeElement </textarea>}.
  * <p>
  * Will normalize known safe HTML to make sure that sanitized HTML (which could
- * contain an innocuous {@code </textarea>} don't prematurely end an RCDATA
+ * contain an innocuous {@codeElement </textarea>} don't prematurely end an RCDATA
  * element.
  *
  * @param {*} value The string-like value to be escaped. May not be a string,
@@ -2053,7 +2053,7 @@ soy.$$HTML5_VOID_ELEMENTS_ = new RegExp(
  * @param {*} value The HTML to be escaped. May not be a string, but the
  *     value will be coerced to a string.
  * @param {Object.<string, number>=} opt_tagWhitelist Has an own property whose
- *     name is a lower-case tag name and whose value is {@code 1} for
+ *     name is a lower-case tag name and whose value is {@codeElement 1} for
  *     each element that is allowed in the output.
  * @return {string} A representation of value without disallowed tags,
  *     HTML comments, or other non-text content.
@@ -2115,8 +2115,8 @@ soy.$$stripHtmlTags = function(value, opt_tagWhitelist) {
 
 /**
  * Throw out any close tags that don't correspond to start tags.
- * If {@code <table>} is used for formatting, embedded HTML shouldn't be able
- * to use a mismatched {@code </table>} to break page layout.
+ * If {@codeElement <table>} is used for formatting, embedded HTML shouldn't be able
+ * to use a mismatched {@codeElement </table>} to break page layout.
  *
  * @param {Array.<string>} tags an array of tags that will be modified in place
  *    include tags, the empty string, or concatenations of empty tags.
@@ -2194,7 +2194,7 @@ soy.$$escapeHtmlAttributeNospace = function(value) {
  * @param {*} value The value to escape. May not be a string, but the value
  *     will be coerced to a string.
  * @return {string} A valid HTML attribute name part or name/value pair.
- *     {@code "zSoyz"} if the input is invalid.
+ *     {@codeElement "zSoyz"} if the input is invalid.
  */
 soy.$$filterHtmlAttributes = function(value) {
   // NOTE: Explicitly no support for SanitizedContentKind.HTML, since that is
@@ -2220,7 +2220,7 @@ soy.$$filterHtmlAttributes = function(value) {
  * @param {*} value The value to escape. May not be a string, but the value
  *     will be coerced to a string.
  * @return {string} A valid HTML element name part.
- *     {@code "zSoyz"} if the input is invalid.
+ *     {@codeElement "zSoyz"} if the input is invalid.
  */
 soy.$$filterHtmlElementName = function(value) {
   // NOTE: We don't accept any SanitizedContent here. HTML indicates valid
@@ -2271,7 +2271,7 @@ soy.$$escapeJsString = function(value) {
  *
  * @param {*} value The value to escape. May not be a string, but the value
  *     will be coerced to a string.
- * @return {string} A JavaScript code representation of the input.
+ * @return {string} A JavaScript codeElement representation of the input.
  */
 soy.$$escapeJsValue = function(value) {
   // We surround values with spaces so that they can't be interpolated into
@@ -2462,8 +2462,8 @@ soy.$$filterNoAutoescape = function(value) {
 /**
  * Converts \r\n, \r, and \n to <br>s
  * @param {*} value The string in which to convert newlines.
- * @return {string|!soydata.SanitizedHtml} A copy of {@code value} with
- *     converted newlines. If {@code value} is SanitizedHtml, the return value
+ * @return {string|!soydata.SanitizedHtml} A copy of {@codeElement value} with
+ *     converted newlines. If {@codeElement value} is SanitizedHtml, the return value
  *     is also SanitizedHtml, of the same known directionality.
  */
 soy.$$changeNewlineToBr = function(value) {
@@ -2487,7 +2487,7 @@ soy.$$changeNewlineToBr = function(value) {
  * @param {number} maxCharsBetweenWordBreaks Maximum number of non-space
  *     characters to allow before adding a word break.
  * @return {string|!soydata.SanitizedHtml} The string including word
- *     breaks. If {@code value} is SanitizedHtml, the return value
+ *     breaks. If {@codeElement value} is SanitizedHtml, the return value
  *     is also SanitizedHtml, of the same known directionality.
  */
 soy.$$insertWordBreaks = function(value, maxCharsBetweenWordBreaks) {
@@ -2779,7 +2779,7 @@ soy.$$bidiUnicodeWrap = function(bidiGlobalDir, text) {
 
 
 // -----------------------------------------------------------------------------
-// Generated code.
+// Generated codeElement.
 
 
 

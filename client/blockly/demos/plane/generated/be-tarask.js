@@ -17,7 +17,7 @@ if (goog.DEBUG) {
 
 
 planepage.start = function(opt_data, opt_ignored, opt_ijData) {
-  var output = planepage.messages(null, null, opt_ijData) + '<table width="100%"><tr><td><h1><a href="https://developers.google.com/blockly/">Blockly</a>&rlm; &gt; <a href="../code.html">Demos</a>&rlm; &gt; <span id="title">\u041A\u0430\u043B\u044C\u043A\u0443\u043B\u044F\u0442\u0430\u0440 \u043C\u0435\u0441\u0446\u0430\u045E \u0443 \u0441\u0430\u043C\u0430\u043B\u0451\u0446\u0435</span> &nbsp; ';
+  var output = planepage.messages(null, null, opt_ijData) + '<table width="100%"><tr><td><h1><a href="https://developers.google.com/blockly/">Blockly</a>&rlm; &gt; <a href="../codeElement.html">Demos</a>&rlm; &gt; <span id="title">\u041A\u0430\u043B\u044C\u043A\u0443\u043B\u044F\u0442\u0430\u0440 \u043C\u0435\u0441\u0446\u0430\u045E \u0443 \u0441\u0430\u043C\u0430\u043B\u0451\u0446\u0435</span> &nbsp; ';
   var iLimit47 = opt_ijData.maxLevel + 1;
   for (var i47 = 1; i47 < iLimit47; i47++) {
     output += ' ' + ((i47 == opt_ijData.level) ? '<span class="tab" id="selected">' + soy.$$escapeHtml(i47) + '</span>' : (i47 < opt_ijData.level) ? '<a class="tab previous" href="?lang=' + soy.$$escapeHtml(opt_ijData.lang) + '&level=' + soy.$$escapeHtml(i47) + '">' + soy.$$escapeHtml(i47) + '</a>' : '<a class="tab" href="?lang=' + soy.$$escapeHtml(opt_ijData.lang) + '&level=' + soy.$$escapeHtml(i47) + '">' + soy.$$escapeHtml(i47) + '</a>');

@@ -28,7 +28,7 @@ module.exports = runGeneratorsInBrowser;
  * @param {Thenable} browser A Thenable managing the processing of the browser
  *     tests.
  * @param {string} filename Where to write the output file.
- * @param {Function} codegenFn The function to run for code generation for this
+ * @param {Function} codegenFn The function to run for codeElement generation for this
  *     language.
  */
 async function runLangGeneratorInBrowser(browser, filename, codegenFn) {
@@ -44,7 +44,7 @@ async function runLangGeneratorInBrowser(browser, filename, codegenFn) {
 
 /**
  * Runs the generator tests in Firefox. It uses webdriverio to
- * launch Firefox and load code.html. Outputs a summary of the test results
+ * launch Firefox and load codeElement.html. Outputs a summary of the test results
  * to the console and outputs files for later validation.
  * @return the Thenable managing the processing of the browser tests.
  */
@@ -61,7 +61,7 @@ async function runGeneratorsInBrowser() {
     };
   }
 
-  var url = 'file://' + __dirname + '/code.html';
+  var url = 'file://' + __dirname + '/codeElement.html';
   var prefix = 'tests/generators/tmp/generated';
 
   console.log('Starting webdriverio...');

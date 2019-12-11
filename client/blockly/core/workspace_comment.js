@@ -16,7 +16,7 @@
  */
 
 /**
- * @fileoverview Object representing a code comment on the workspace.
+ * @fileoverview Object representing a codeElement comment on the workspace.
  * @author fenichel@google.com (Rachel Fenichel)
  */
 'use strict';

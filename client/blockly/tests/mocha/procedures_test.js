@@ -237,7 +237,7 @@ suite('Procedures', function() {
     //  3) Create a lowercase definition and call block.
     //  4) Retrieve the uppercase call block from the trashcan.
     // (And vise versa for creating lowercase blocks first)
-    // When converted to code all function names will be lowercase, so a
+    // When converted to codeElement all function names will be lowercase, so a
     // caller should still be returned for a differently-cased procedure.
     test('Call Different Case', function() {
       this.callForAllTypes(function() {

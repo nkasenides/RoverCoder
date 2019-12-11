@@ -100,7 +100,7 @@ Blockly.Input.prototype.appendField = function(field, opt_name) {
  */
 Blockly.Input.prototype.insertFieldAt = function(index, field, opt_name) {
   if (index < 0 || index > this.fieldRow.length) {
-    throw Error('code.html ' + index + ' out of bounds.');
+    throw Error('codeElement.html ' + index + ' out of bounds.');
   }
 
   // Falsy field values don't generate a field, unless the field is an empty

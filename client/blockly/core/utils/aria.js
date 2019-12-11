@@ -401,7 +401,7 @@ Blockly.utils.aria.State = {
  * We encourage clients to call the goog.a11y.aria.removeRole
  * method instead of setting null and empty string values.
  * Special handling for this case is added to ensure
- * backword compatibility with existing code.
+ * backword compatibility with existing codeElement.
  *
  * Similar to Closure's goog.a11y.aria
  *

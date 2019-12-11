@@ -19,7 +19,7 @@
  * @fileoverview Javascript for the BlockExporter Tools class, which generates
  * block definitions and generator stubs for given block types.  Also generates
  * toolbox XML for the exporter's workspace.  Depends on the FactoryUtils for
- * its code generation functions.
+ * its codeElement generation functions.
  *
  * @author quachtina96 (Tina Quach)
  */
@@ -64,10 +64,10 @@ BlockExporterTools.prototype.getRootBlockFromXml_ = function(xml) {
 };
 
 /**
- * Return the given language code of each block type in an array.
+ * Return the given language codeElement of each block type in an array.
  * @param {!Object} blockXmlMap Map of block type to XML.
  * @param {string} definitionFormat 'JSON' or 'JavaScript'
- * @return {string} The concatenation of each block's language code in the
+ * @return {string} The concatenation of each block's language codeElement in the
  *    desired format.
  */
 BlockExporterTools.prototype.getBlockDefinitions =
@@ -108,11 +108,11 @@ BlockExporterTools.prototype.getBlockDefinitions =
 };
 
 /**
- * Return the generator code of each block type in an array in a given language.
+ * Return the generator codeElement of each block type in an array in a given language.
  * @param {!Object} blockXmlMap Map of block type to XML.
  * @param {string} generatorLanguage E.g. 'JavaScript', 'Python', 'PHP', 'Lua',
  *     'Dart'
- * @return {string} The concatenation of each block's generator code in the
+ * @return {string} The concatenation of each block's generator codeElement in the
  * desired format.
  */
 BlockExporterTools.prototype.getGeneratorCode =
@@ -128,7 +128,7 @@ BlockExporterTools.prototype.getGeneratorCode =
       // Render the preview block in the hidden workspace.
       var tempBlock =
           FactoryUtils.getDefinedBlock(blockType, this.hiddenWorkspace);
-      // Get generator stub for the given block and add to  generator code.
+      // Get generator stub for the given block and add to  generator codeElement.
       var blockGenCode =
           FactoryUtils.getGeneratorStub(tempBlock, generatorLanguage);
     } else {
@@ -144,7 +144,7 @@ BlockExporterTools.prototype.getGeneratorCode =
 };
 
 /**
- * Evaluates block definition code of each block in given object mapping
+ * Evaluates block definition codeElement of each block in given object mapping
  * block type to XML. Called in order to be able to create instances of the
  * blocks in the exporter workspace.
  * @param {!Object} blockXmlMap Map of block type to XML.

@@ -19,7 +19,7 @@
  * @fileoverview Javascript for the Block Exporter Controller class. Allows
  * users to export block definitions and generator stubs of their saved blocks
  * easily using a visual interface. Depends on Block Exporter View and Block
- * Exporter Tools classes. Interacts with Export Settings in the code.html.
+ * Exporter Tools classes. Interacts with Export Settings in the codeElement.html.
  *
  * @author quachtina96 (Tina Quach)
  */
@@ -34,7 +34,7 @@
 function BlockExporterController(blockLibStorage) {
   // BlockLibrary.Storage object containing user's saved blocks.
   this.blockLibStorage = blockLibStorage;
-  // Utils for generating code to export.
+  // Utils for generating codeElement to export.
   this.tools = new BlockExporterTools();
   // The ID of the block selector, a div element that will be populated with the
   // block options.
@@ -69,7 +69,7 @@ BlockExporterController.prototype.getBlockLibraryStorage =
 
 /**
  * Get selected blocks from block selector, pulls info from the Export
- * Settings form in Block Exporter, and downloads code accordingly.
+ * Settings form in Block Exporter, and downloads codeElement accordingly.
  */
 BlockExporterController.prototype.export = function() {
   // Get selected blocks' information.
@@ -95,7 +95,7 @@ BlockExporterController.prototype.export = function() {
       BlocklyDevTools.Analytics.onWarning(msg);
       alert(msg);
     } else {
-      // Get block definition code in the selected format for the blocks.
+      // Get block definition codeElement in the selected format for the blocks.
       var blockDefs = this.tools.getBlockDefinitions(blockXmlMap,
           definitionFormat);
       // Download the file, using .js file ending for JSON or Javascript.
@@ -120,7 +120,7 @@ BlockExporterController.prototype.export = function() {
       alert(msg);
     } else {
 
-      // Get generator stub code in the selected language for the blocks.
+      // Get generator stub codeElement in the selected language for the blocks.
       var genStubs = this.tools.getGeneratorCode(blockXmlMap,
           language);
 
@@ -251,12 +251,12 @@ BlockExporterController.prototype.selectUsedBlocks = function() {
   this.view.listSelectedBlocks();
 
   if (unstoredCustomBlockTypes.length > 0) {
-    // Warn user to import block definitions and generator code for blocks
+    // Warn user to import block definitions and generator codeElement for blocks
     // not in their Block Library nor Blockly's standard library.
     var blockTypesText = unstoredCustomBlockTypes.join(', ');
     var customWarning = 'Custom blocks used in workspace factory but not ' +
         'stored in block library:\n ' + blockTypesText +
-        '\n\nDon\'t forget to include block definitions and generator code ' +
+        '\n\nDon\'t forget to include block definitions and generator codeElement ' +
         'for these blocks.';
     alert(customWarning);
   }
@@ -272,15 +272,15 @@ BlockExporterController.prototype.setUsedBlockTypes =
 };
 
 /**
- * Updates preview code (block definitions and generator stubs) in the exporter
+ * Updates preview codeElement (block definitions and generator stubs) in the exporter
  * preview to reflect selected blocks.
  */
 BlockExporterController.prototype.updatePreview = function() {
-  // Generate preview code for selected blocks.
+  // Generate preview codeElement for selected blocks.
   var blockDefs = this.getBlockDefinitionsOfSelected();
   var genStubs = this.getGeneratorStubsOfSelected();
 
-  // Update the text areas containing the code.
+  // Update the text areas containing the codeElement.
   FactoryUtils.injectCode(blockDefs, 'blockDefs_textArea');
   FactoryUtils.injectCode(genStubs, 'genStubs_textArea');
 };
@@ -296,15 +296,15 @@ BlockExporterController.prototype.getSelectedBlockXmlMap = function() {
 };
 
 /**
- * Get block definition code in the selected format for selected blocks.
- * @return {string} The concatenation of each selected block's language code
+ * Get block definition codeElement in the selected format for selected blocks.
+ * @return {string} The concatenation of each selected block's language codeElement
  * in the format specified in export settings.
  */
 BlockExporterController.prototype.getBlockDefinitionsOfSelected = function() {
   // Get selected blocks' information.
   var blockXmlMap = this.getSelectedBlockXmlMap();
 
-  // Get block definition code in the selected format for the blocks.
+  // Get block definition codeElement in the selected format for the blocks.
   var definitionFormat = document.getElementById('exportFormat').value;
   return this.tools.getBlockDefinitions(blockXmlMap, definitionFormat);
 };
@@ -318,7 +318,7 @@ BlockExporterController.prototype.getGeneratorStubsOfSelected = function() {
   // Get selected blocks' information.
   var blockXmlMap = this.getSelectedBlockXmlMap();
 
-  // Get generator stub code in the selected language for the blocks.
+  // Get generator stub codeElement in the selected language for the blocks.
   var language = document.getElementById('exportLanguage').value;
   return this.tools.getGeneratorCode(blockXmlMap, language);
 };

@@ -59,7 +59,7 @@ suite('Key Map Tests', function() {
     assertEquals(Blockly.user.keyMap.map_['randomKey'], undefined);
   });
 
-  test('Test serialize key code with modifiers', function() {
+  test('Test serialize key codeElement with modifiers', function() {
     var mockEvent = {
       getModifierState: function(){
         return true;
@@ -70,7 +70,7 @@ suite('Key Map Tests', function() {
     assertEquals(serializedKey, 'ShiftControlAltMeta65');
   });
 
-  test('Test serialize key code without modifiers', function() {
+  test('Test serialize key codeElement without modifiers', function() {
     var mockEvent = {
       getModifierState: function(){
         return false;

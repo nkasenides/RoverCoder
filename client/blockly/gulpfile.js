@@ -65,7 +65,7 @@ const licenseRegex = `\\/\\*\\*
  */
 function stripApacheLicense() {
   // Strip out Google's and MIT's Apache licences.
-  // Closure Compiler preserves dozens of Apache licences in the Blockly code.
+  // Closure Compiler preserves dozens of Apache licences in the Blockly codeElement.
   // Remove these if they belong to Google or MIT.
   // MIT's permission to do this is logged in Blockly issue #2412.
   return gulp.replace(new RegExp(licenseRegex, "g"), '');
@@ -166,7 +166,7 @@ goog.provide('Blockly.Mutator');`;
 });
 
 /**
- * A helper method for building a Blockly code generator.
+ * A helper method for building a Blockly codeElement generator.
  * @param {string} language Generator language.
  * @param {string} namespace Language namespace.
  */
@@ -490,14 +490,14 @@ gulp.task('package-index', function() {
         amd: './browser',
         cjs: './node',
       }]))
-    .pipe(gulp.rename('code.html.js'))
+    .pipe(gulp.rename('codeElement.html.js'))
     .pipe(gulp.dest(packageDistribution));
 });
 
 /**
  * This task wraps package/browser/index.js into a UMD module.
  * By default, the module includes Blockly core and built-in blocks,
- * as well as the JavaScript code generator and the English block
+ * as well as the JavaScript codeElement generator and the English block
  * localization files.
  * This module is configured (in package.json) to replaces the module
  * built by package-node in browser environments.
@@ -548,7 +548,7 @@ gulp.task('package-core', function() {
 /**
  * This task wraps package/node/index.js into a CommonJS module for Node.js.
  * By default, the module includes Blockly core and built-in blocks,
- * as well as all the code generators and the English block localization files.
+ * as well as all the codeElement generators and the English block localization files.
  * This module is configured (in package.json) to be replaced by the module
  * built by package-browser in browser environments.
  * @example import * as Blockly from 'blockly/node';
@@ -604,7 +604,7 @@ gulp.task('package-node-core', function() {
 });
 
 /**
- * A helper method for packaging a Blockly code generator into a UMD module.
+ * A helper method for packaging a Blockly codeElement generator into a UMD module.
  * @param {string} file Source file name.
  * @param {string} rename Destination file name.
  * @param {string} generator Generator export namespace.
@@ -680,7 +680,7 @@ gulp.task('package-locales', function() {
 
 /**
  * This task creates a UMD bundle of Blockly which includes the Blockly
- * core files, the built-in blocks, the JavaScript code generator and the
+ * core files, the built-in blocks, the JavaScript codeElement generator and the
  * English localization files.
  * @example <script src="https://unpkg.com/blockly/blockly.min.js"></script>
  */

@@ -50,7 +50,7 @@ CustomFields.FieldTurtle = function(
   value.turtleName = opt_turtleName || CustomFields.FieldTurtle.NAMES[0];
 
   // A field constructor should always call its parent constructor, because
-  // that helps keep the code organized and DRY.
+  // that helps keep the codeElement organized and DRY.
   CustomFields.FieldTurtle.superClass_.constructor.call(
       this, value, opt_validator);
 
@@ -314,7 +314,7 @@ CustomFields.FieldTurtle.prototype.renderEditor_ = function() {
 
 // Used to update the size of the field. This function's logic could be simply
 // included inside render_ (it is not called anywhere else), but it is
-// usually separated to keep code more organized.
+// usually separated to keep codeElement more organized.
 CustomFields.FieldTurtle.prototype.updateSize_ = function() {
   var bbox = this.movableGroup_.getBBox();
   var width = bbox.width;
@@ -547,7 +547,7 @@ CustomFields.FieldTurtle.prototype.fromXml = function(fieldElement) {
 Blockly.fieldRegistry.register('field_turtle', CustomFields.FieldTurtle);
 
 // Called by initView to create all of the SVGs. This is just used to keep
-// the code more organized.
+// the codeElement more organized.
 CustomFields.FieldTurtle.prototype.createView_ = function() {
   this.movableGroup_ = Blockly.utils.dom.createSvgElement('g',
     {

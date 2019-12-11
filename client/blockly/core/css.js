@@ -604,7 +604,7 @@ Blockly.Css.CONTENT = [
   /*
    * Copyright 2009 The Closure Library Authors. All Rights Reserved.
    *
-   * Use of this source code is governed by the Apache License, Version 2.0.
+   * Use of this source codeElement is governed by the Apache License, Version 2.0.
    * See the COPYING file for details.
    */
 
@@ -647,7 +647,7 @@ Blockly.Css.CONTENT = [
   /*
    * Copyright 2009 The Closure Library Authors. All Rights Reserved.
    *
-   * Use of this source code is governed by the Apache License, Version 2.0.
+   * Use of this source codeElement is governed by the Apache License, Version 2.0.
    * See the COPYING file for details.
    */
 

@@ -28,7 +28,7 @@ goog.require('Blockly.utils.string');
 
 
 /**
- * PHP code generator.
+ * PHP codeElement generator.
  * @type {!Blockly.Generator}
  */
 Blockly.PHP = new Blockly.Generator('PHP');
@@ -131,10 +131,10 @@ Blockly.PHP.ORDER_OVERRIDES = [
 
 /**
  * Initialise the database of variable names.
- * @param {!Blockly.Workspace} workspace Workspace to generate code from.
+ * @param {!Blockly.Workspace} workspace Workspace to generate codeElement from.
  */
 Blockly.PHP.init = function(workspace) {
-  // Create a dictionary of definitions to be printed before the code.
+  // Create a dictionary of definitions to be printed before the codeElement.
   Blockly.PHP.definitions_ = Object.create(null);
   // Create a dictionary mapping desired function names in definitions_
   // to actual function names (to avoid collisions with user functions).
@@ -169,9 +169,9 @@ Blockly.PHP.init = function(workspace) {
 };
 
 /**
- * Prepend the generated code with the variable definitions.
- * @param {string} code Generated code.
- * @return {string} Completed code.
+ * Prepend the generated codeElement with the variable definitions.
+ * @param {string} code Generated codeElement.
+ * @return {string} Completed codeElement.
  */
 Blockly.PHP.finish = function(code) {
   // Convert the definitions dictionary into a list.
@@ -189,8 +189,8 @@ Blockly.PHP.finish = function(code) {
 /**
  * Naked values are top-level blocks with outputs that aren't plugged into
  * anything.  A trailing semicolon is needed to make this legal.
- * @param {string} line Line of generated code.
- * @return {string} Legal line of code.
+ * @param {string} line Line of generated codeElement.
+ * @return {string} Legal line of codeElement.
  */
 Blockly.PHP.scrubNakedValue = function(line) {
   return line + ';\n';
@@ -226,9 +226,9 @@ Blockly.PHP.multiline_quote_ = function(string) {
  * Handles comments for the specified block and any connected value blocks.
  * Calls any statements following this block.
  * @param {!Blockly.Block} block The current block.
- * @param {string} code The PHP code created for this block.
- * @param {boolean=} opt_thisOnly True to generate code for only this statement.
- * @return {string} PHP code with comments and subsequent blocks added.
+ * @param {string} code The PHP codeElement created for this block.
+ * @param {boolean=} opt_thisOnly True to generate codeElement for only this statement.
+ * @return {string} PHP codeElement with comments and subsequent blocks added.
  * @private
  */
 Blockly.PHP.scrub_ = function(block, code, opt_thisOnly) {
@@ -299,7 +299,7 @@ Blockly.PHP.getAdjusted = function(block, atId, opt_delta, opt_negate,
       at = -at;
     }
   } else {
-    // If the index is dynamic, adjust it in code.
+    // If the index is dynamic, adjust it in codeElement.
     if (delta > 0) {
       at = at + ' + ' + delta;
       var innerOrder = Blockly.PHP.ORDER_ADDITION;

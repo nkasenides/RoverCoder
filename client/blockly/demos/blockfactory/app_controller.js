@@ -413,7 +413,7 @@ AppController.prototype.assignExporterChangeListeners = function() {
   blockDefCheck.checked = true;
   genStubCheck.checked = true;
 
-  // Checking the block definitions checkbox displays preview of code to export.
+  // Checking the block definitions checkbox displays preview of codeElement to export.
   document.getElementById('blockDefCheck').addEventListener('change',
       function(e) {
         self.ifCheckedEnable(blockDefCheck.checked,
@@ -426,7 +426,7 @@ AppController.prototype.assignExporterChangeListeners = function() {
         self.exporter.updatePreview();
       });
 
-  // Checking the generator stub checkbox displays preview of code to export.
+  // Checking the generator stub checkbox displays preview of codeElement to export.
   document.getElementById('genStubCheck').addEventListener('change',
       function(e) {
         self.ifCheckedEnable(genStubCheck.checked,
@@ -546,7 +546,7 @@ AppController.prototype.assignBlockFactoryClickHandlers = function() {
  * Add event listeners for the block factory.
  */
 AppController.prototype.addBlockFactoryEventListeners = function() {
-  // Update code on changes to block being edited.
+  // Update codeElement on changes to block being edited.
   BlockFactory.mainWorkspace.addChangeListener(BlockFactory.updateLanguage);
 
   // Disable blocks not attached to the factory_base block.

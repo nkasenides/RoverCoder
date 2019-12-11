@@ -92,7 +92,7 @@ Blockly.Lua['procedures_callreturn'] = function(block) {
 
 Blockly.Lua['procedures_callnoreturn'] = function(block) {
   // Call a procedure with no return value.
-  // Generated code is for a function call as a statement is the same as a
+  // Generated codeElement is for a function call as a statement is the same as a
   // function call as a value, with the addition of line ending.
   var tuple = Blockly.Lua['procedures_callreturn'](block);
   return tuple[0] + '\n';

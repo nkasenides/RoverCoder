@@ -300,7 +300,7 @@ Blockly.Extensions.register('controls_forEach_tooltip',
 Blockly.Constants.Loops.CONTROL_FLOW_IN_LOOP_CHECK_MIXIN = {
   /**
    * List of block types that are loops and thus do not need warnings.
-   * To add a new loop type add this to your code:
+   * To add a new loop type add this to your codeElement:
    * Blockly.Constants.Loops.CONTROL_FLOW_IN_LOOP_CHECK_MIXIN.LOOP_TYPES.push('custom_loop');
    */
   LOOP_TYPES: [
@@ -313,7 +313,7 @@ Blockly.Constants.Loops.CONTROL_FLOW_IN_LOOP_CHECK_MIXIN = {
 
   /**
    * Don't automatically add STATEMENT_PREFIX and STATEMENT_SUFFIX to generated
-   * code.  These will be handled manually in this block's generators.
+   * codeElement.  These will be handled manually in this block's generators.
    */
   suppressPrefixSuffix: true,
 

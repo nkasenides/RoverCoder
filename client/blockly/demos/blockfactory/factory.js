@@ -18,9 +18,9 @@
 /**
  * @fileoverview JavaScript for Blockly's Block Factory application through
  * which users can build blocks using a visual interface and dynamically
- * generate a preview block and starter code for the block (block definition and
+ * generate a preview block and starter codeElement for the block (block definition and
  * generator stub. Uses the Block Factory namespace. Depends on the FactoryUtils
- * for its code generation functions.
+ * for its codeElement generation functions.
  *
  * @author fraser@google.com (Neil Fraser), quachtina96 (Tina Quach)
  */
@@ -91,7 +91,7 @@ BlockFactory.STARTER_BLOCK_XML_TEXT =
     '</block></value></block></xml>';
 
 /**
- * Change the language code format.
+ * Change the language codeElement format.
  */
 BlockFactory.formatChange = function() {
   var mask = document.getElementById('blocklyMask');
@@ -120,7 +120,7 @@ BlockFactory.formatChange = function() {
 };
 
 /**
- * Update the language code based on constructs made in Blockly.
+ * Update the language codeElement based on constructs made in Blockly.
  */
 BlockFactory.updateLanguage = function() {
   var rootBlock = FactoryUtils.getRootBlock(BlockFactory.mainWorkspace);
@@ -155,7 +155,7 @@ BlockFactory.updateLanguage = function() {
 };
 
 /**
- * Update the generator code.
+ * Update the generator codeElement.
  * @param {!Blockly.Block} block Rendered block in preview workspace.
  */
 BlockFactory.updateGenerator = function(block) {

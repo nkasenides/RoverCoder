@@ -39,7 +39,7 @@ Blockly.defineBlocksWithJsonArray([{
 
 /**
  * Generator for wait block creates call to new method
- * <code>waitForSeconds()</code>.
+ * <codeElement>waitForSeconds()</codeElement>.
  */
 Blockly.JavaScript['wait_seconds'] = function(block) {
   var seconds = Number(block.getFieldValue('SECONDS'));
@@ -49,7 +49,7 @@ Blockly.JavaScript['wait_seconds'] = function(block) {
 
 /**
  * Register the interpreter asynchronous function
- * <code>waitForSeconds()</code>.
+ * <codeElement>waitForSeconds()</codeElement>.
  */
 function initInterpreterWaitForSeconds(interpreter, scope) {
   // Ensure function name does not conflict with variable names.

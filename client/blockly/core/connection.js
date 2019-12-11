@@ -253,7 +253,7 @@ Blockly.Connection.prototype.isConnected = function() {
  * connection.
  * @param {Blockly.Connection} target Connection to check compatibility with.
  * @return {number} Blockly.Connection.CAN_CONNECT if the connection is legal,
- *    an error code otherwise.
+ *    an error codeElement otherwise.
  * @private
  */
 Blockly.Connection.prototype.canConnectWithReason_ = function(target) {

@@ -108,7 +108,7 @@ Blockly.Blocks['unittest_adjustindex'] = {
       "inputsInline": true,
       "output": "Number",
       "colour": 65,
-      "tooltip": "Adjusts the value based on whether generated code is using " +
+      "tooltip": "Adjusts the value based on whether generated codeElement is using " +
           "zero or one based indexing."
     });
   }

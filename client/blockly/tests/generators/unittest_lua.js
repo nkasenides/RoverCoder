@@ -172,6 +172,6 @@ Blockly.Lua['unittest_adjustindex'] = function(block) {
     // If the index is a naked number, adjust it right now.
     return [Number(index) + 1, Blockly.Lua.ORDER_ATOMIC];
   }
-  // If the index is dynamic, adjust it in code.
+  // If the index is dynamic, adjust it in codeElement.
   return [index + ' + 1', Blockly.Lua.ORDER_ATOMIC];
 };

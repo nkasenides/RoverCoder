@@ -318,7 +318,7 @@ Code.renderContent = function() {
 };
 
 /**
- * Attempt to generate the code and display it in the UI, pretty printed.
+ * Attempt to generate the codeElement and display it in the UI, pretty printed.
  * @param generator {!Blockly.Generator} The generator to use.
  */
 Code.attemptCodeGeneration = function(generator) {
@@ -350,7 +350,7 @@ Code.checkAllGeneratorFunctionsDefined = function(generator) {
 
   var valid = missingBlockGenerators.length == 0;
   if (!valid) {
-    var msg = 'The generator code for the following blocks not specified for ' +
+    var msg = 'The generator codeElement for the following blocks not specified for ' +
         generator.name_ + ':\n - ' + missingBlockGenerators.join('\n - ');
     Blockly.alert(msg);  // Assuming synchronous. No callback.
   }
@@ -423,7 +423,7 @@ Code.init = function() {
 
   // Add to reserved word list: Local variables in execution environment (runJS)
   // and the infinite loop detection function.
-  Blockly.JavaScript.addReservedWords('code,timeouts,checkTimeout');
+  Blockly.JavaScript.addReservedWords('codeElement,timeouts,checkTimeout');
 
   Code.loadBlocks('');
 
@@ -508,7 +508,7 @@ Code.initLanguage = function() {
 };
 
 /**
- * Execute the user's code.
+ * Execute the user's codeElement.
  * Just a quick and dirty eval.  Catch infinite loops.
  */
 Code.runJS = function() {

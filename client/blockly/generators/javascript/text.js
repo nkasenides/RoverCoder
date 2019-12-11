@@ -355,7 +355,7 @@ Blockly.JavaScript['text_replace'] = function(block) {
       Blockly.JavaScript.ORDER_NONE) || '\'\'';
   var to = Blockly.JavaScript.valueToCode(block, 'TO',
       Blockly.JavaScript.ORDER_NONE) || '\'\'';
-  // The regex escaping code below is taken from the implementation of
+  // The regex escaping codeElement below is taken from the implementation of
   // goog.string.regExpEscape.
   var functionName = Blockly.JavaScript.provideFunction_(
       'textReplace',

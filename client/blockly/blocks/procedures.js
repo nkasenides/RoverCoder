@@ -1118,7 +1118,7 @@ Blockly.Blocks['procedures_ifreturn'] = {
   },
   /**
    * List of block types that are functions and thus do not need warnings.
-   * To add a new function type add this to your code:
+   * To add a new function type add this to your codeElement:
    * Blockly.Blocks['procedures_ifreturn'].FUNCTION_TYPES.push('custom_func');
    */
   FUNCTION_TYPES: ['procedures_defnoreturn', 'procedures_defreturn']

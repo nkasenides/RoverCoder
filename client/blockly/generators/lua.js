@@ -29,7 +29,7 @@ goog.require('Blockly.utils.string');
 
 
 /**
- * Lua code generator.
+ * Lua codeElement generator.
  * @type {!Blockly.Generator}
  */
 Blockly.Lua = new Blockly.Generator('Lua');
@@ -92,10 +92,10 @@ Blockly.Lua.ORDER_NONE = 99;
 
 /**
  * Initialise the database of variable names.
- * @param {!Blockly.Workspace} workspace Workspace to generate code from.
+ * @param {!Blockly.Workspace} workspace Workspace to generate codeElement from.
  */
 Blockly.Lua.init = function(workspace) {
-  // Create a dictionary of definitions to be printed before the code.
+  // Create a dictionary of definitions to be printed before the codeElement.
   Blockly.Lua.definitions_ = Object.create(null);
   // Create a dictionary mapping desired function names in definitions_
   // to actual function names (to avoid collisions with user functions).
@@ -111,9 +111,9 @@ Blockly.Lua.init = function(workspace) {
 };
 
 /**
- * Prepend the generated code with the variable definitions.
- * @param {string} code Generated code.
- * @return {string} Completed code.
+ * Prepend the generated codeElement with the variable definitions.
+ * @param {string} code Generated codeElement.
+ * @return {string} Completed codeElement.
  */
 Blockly.Lua.finish = function(code) {
   // Convert the definitions dictionary into a list.
@@ -133,8 +133,8 @@ Blockly.Lua.finish = function(code) {
  * anything. In Lua, an expression is not a legal statement, so we must assign
  * the value to the (conventionally ignored) _.
  * http://lua-users.org/wiki/ExpressionsAsStatements
- * @param {string} line Line of generated code.
- * @return {string} Legal line of code.
+ * @param {string} line Line of generated codeElement.
+ * @return {string} Legal line of codeElement.
  */
 Blockly.Lua.scrubNakedValue = function(line) {
   return 'local _ = ' + line + '\n';
@@ -173,9 +173,9 @@ Blockly.Lua.multiline_quote_ = function(string) {
  * Handles comments for the specified block and any connected value blocks.
  * Calls any statements following this block.
  * @param {!Blockly.Block} block The current block.
- * @param {string} code The Lua code created for this block.
- * @param {boolean=} opt_thisOnly True to generate code for only this statement.
- * @return {string} Lua code with comments and subsequent blocks added.
+ * @param {string} code The Lua codeElement created for this block.
+ * @param {boolean=} opt_thisOnly True to generate codeElement for only this statement.
+ * @return {string} Lua codeElement with comments and subsequent blocks added.
  * @private
  */
 Blockly.Lua.scrub_ = function(block, code, opt_thisOnly) {

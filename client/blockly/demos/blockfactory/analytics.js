@@ -44,7 +44,7 @@ BlocklyDevTools.Analytics.BLOCK_FACTORY_LIBRARY = "Block Factory library";
  */
 BlocklyDevTools.Analytics.BLOCK_DEFINITIONS = "Block definitions";
 /**
- * An import/export type id for a code generation function, or a
+ * An import/export type id for a codeElement generation function, or a
  * boilerplate stub of the same.
  *
  * @package

@@ -66,7 +66,7 @@ Blockly.Python['math_arithmetic'] = function(block) {
   // in Python 2 and 3. However, is not an issue since Blockly does not
   // guarantee identical results in all languages.  To do otherwise would
   // require every operator to be wrapped in a function call.  This would kill
-  // legibility of the generated code.
+  // legibility of the generated codeElement.
 };
 
 Blockly.Python['math_single'] = function(block) {
@@ -89,7 +89,7 @@ Blockly.Python['math_single'] = function(block) {
         Blockly.Python.ORDER_NONE) || '0';
   }
   // First, handle cases which generate values that don't need parentheses
-  // wrapping the code.
+  // wrapping the codeElement.
   switch (operator) {
     case 'ABS':
       code = 'math.fabs(' + arg + ')';
@@ -132,7 +132,7 @@ Blockly.Python['math_single'] = function(block) {
     return [code, Blockly.Python.ORDER_FUNCTION_CALL];
   }
   // Second, handle cases which generate values that may need parentheses
-  // wrapping the code.
+  // wrapping the codeElement.
   switch (operator) {
     case 'ASIN':
       code = 'math.asin(' + arg + ') / math.pi * 180';
@@ -221,7 +221,7 @@ Blockly.Python['math_number_property'] = function(block) {
     case 'DIVISIBLE_BY':
       var divisor = Blockly.Python.valueToCode(block, 'DIVISOR',
           Blockly.Python.ORDER_MULTIPLICATIVE);
-      // If 'divisor' is some code that evals to 0, Python will raise an error.
+      // If 'divisor' is some codeElement that evals to 0, Python will raise an error.
       if (!divisor || divisor == '0') {
         return ['False', Blockly.Python.ORDER_ATOMIC];
       }

@@ -234,7 +234,7 @@ Blockly.FieldColour.COLOURS = [
 
 /**
  * An array of tooltip strings for the palette.  If not the same length as
- * COLOURS, the colour's hex code will be used for any missing titles.
+ * COLOURS, the colour's hex codeElement will be used for any missing titles.
  * All colour pickers use this unless overridden with setColours.
  * @type {!Array.<string>}
  */

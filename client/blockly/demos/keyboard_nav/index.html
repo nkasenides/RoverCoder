@@ -352,7 +352,7 @@
           newModifiers.push(key);
         }
       }
-      // Get the key code from the last dropdown.
+      // Get the key codeElement from the last dropdown.
       if (keyValue !== 'None') {
         if (keyValue === 'Escape') {
           newKeyCode = Blockly.utils.KeyCodes.ESC;
@@ -431,7 +431,7 @@
      * @package
      */
     function setKeyDropdown(actionKey, keyDropdown) {
-      // Strip off any modifier to just get the key code.
+      // Strip off any modifier to just get the key codeElement.
       var keyCode = actionKey.match(/\d+/)[0];
       var keyValue = String.fromCharCode(keyCode);
       if (parseInt(keyCode) === Blockly.utils.KeyCodes.ESC) {
@@ -444,7 +444,7 @@
 
     /**
      * Set the modifiers to be the correct value from the key map.
-     * @param {string} actionKey The key code holding the modifiers and key.
+     * @param {string} actionKey The key codeElement holding the modifiers and key.
      * @param {Array.<Element>} modifierDropdowns A list of dropdowns for
      *     the modifier values.
      * @package

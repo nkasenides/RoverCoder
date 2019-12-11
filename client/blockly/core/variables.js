@@ -97,7 +97,7 @@ Blockly.Variables.ALL_DEVELOPER_VARS_WARNINGS_BY_BLOCK_TYPE_ = {};
 /**
  * Find all developer variables used by blocks in the workspace.
  * Developer variables are never shown to the user, but are declared as global
- * variables in the generated code.
+ * variables in the generated codeElement.
  * To declare developer variables, define the getDeveloperVariables function on
  * your block and return a list of variable names.
  * For use by generators.

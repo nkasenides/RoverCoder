@@ -16,7 +16,7 @@
  */
 
 /**
- * @fileoverview Contains the controller code for workspace factory. Depends
+ * @fileoverview Contains the controller codeElement for workspace factory. Depends
  * on the model and view objects (created as internal variables) and interacts
  * with previewWorkspace and toolboxWorkspace (internal references stored to
  * both). Also depends on standard_categories.js for standard Blockly
@@ -364,7 +364,7 @@ WorkspaceFactoryController.prototype.exportXmlFile = function(exportMode) {
  * file name from the user and downloads the options object to that file.
  */
 WorkspaceFactoryController.prototype.exportInjectFile = function() {
-  var fileName = prompt('File Name for starter Blockly workspace code:',
+  var fileName = prompt('File Name for starter Blockly workspace codeElement:',
                         'workspace.js');
   if (!fileName) {  // If cancelled.
     return;

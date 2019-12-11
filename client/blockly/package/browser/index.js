@@ -17,7 +17,7 @@
 
 /**
  * @fileoverview Blockly module for the browser. This includes Blockly core
- * and built in blocks, the JavaScript code generator and the English block
+ * and built in blocks, the JavaScript codeElement generator and the English block
  * localization files.
  */
 

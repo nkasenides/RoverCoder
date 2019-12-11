@@ -10,7 +10,7 @@ planepage.messages = function(opt_data, opt_ignored, opt_ijData) {
 
 
 planepage.start = function(opt_data, opt_ignored, opt_ijData) {
-  var output = planepage.messages(null, null, opt_ijData) + '<table width="100%"><tr><td><h1><a href="https://developers.google.com/blockly/">Blockly</a>&rlm; &gt; <a href="../code.html">Demos</a>&rlm; &gt; <span id="title">Lennukiistmete kalkulaator</span> &nbsp; ';
+  var output = planepage.messages(null, null, opt_ijData) + '<table width="100%"><tr><td><h1><a href="https://developers.google.com/blockly/">Blockly</a>&rlm; &gt; <a href="../codeElement.html">Demos</a>&rlm; &gt; <span id="title">Lennukiistmete kalkulaator</span> &nbsp; ';
   var iLimit37 = opt_ijData.maxLevel + 1;
   for (var i37 = 1; i37 < iLimit37; i37++) {
     output += ' ' + ((i37 == opt_ijData.level) ? '<span class="tab" id="selected">' + soy.$$escapeHtml(i37) + '</span>' : (i37 < opt_ijData.level) ? '<a class="tab previous" href="?lang=' + soy.$$escapeHtml(opt_ijData.lang) + '&level=' + soy.$$escapeHtml(i37) + '">' + soy.$$escapeHtml(i37) + '</a>' : '<a class="tab" href="?lang=' + soy.$$escapeHtml(opt_ijData.lang) + '&level=' + soy.$$escapeHtml(i37) + '">' + soy.$$escapeHtml(i37) + '</a>');

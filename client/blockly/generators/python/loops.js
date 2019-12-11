@@ -100,7 +100,7 @@ Blockly.Python['controls_for'] = function(block) {
          '    yield start',
          '    start -= abs(step)']);
   };
-  // Arguments are legal Python code (numbers or strings returned by scrub()).
+  // Arguments are legal Python codeElement (numbers or strings returned by scrub()).
   var generateUpDownRange = function(start, end, inc) {
     return '(' + start + ' <= ' + end + ') and ' +
         defineUpRange() + '(' + start + ', ' + end + ', ' + inc + ') or ' +

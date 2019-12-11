@@ -204,14 +204,14 @@ Blockly.Gesture = function(e, creatorWorkspace) {
   this.flyout_ = null;
 
   /**
-   * Boolean for sanity-checking that some code is only called once.
+   * Boolean for sanity-checking that some codeElement is only called once.
    * @type {boolean}
    * @private
    */
   this.calledUpdateIsDragging_ = false;
 
   /**
-   * Boolean for sanity-checking that some code is only called once.
+   * Boolean for sanity-checking that some codeElement is only called once.
    * @type {boolean}
    * @private
    */
@@ -712,7 +712,7 @@ Blockly.Gesture.prototype.handleBubbleStart = function(e, bubble) {
 
 /* Begin functions defining what actions to take to execute clicks on each type
  * of target.  Any developer wanting to add behaviour on clicks should modify
- * only this code. */
+ * only this codeElement. */
 
 /**
  * Execute a bubble click.
@@ -878,7 +878,7 @@ Blockly.Gesture.prototype.setStartFlyout_ = function(flyout) {
 /* End functions for populating a gesture at mouse down. */
 
 /* Begin helper functions defining types of clicks.  Any developer wanting
- * to change the definition of a click should modify only this code. */
+ * to change the definition of a click should modify only this codeElement. */
 
 /**
  * Whether this gesture is a click on a bubble.  This should only be called when

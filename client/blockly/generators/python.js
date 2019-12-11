@@ -28,7 +28,7 @@ goog.require('Blockly.utils.string');
 
 
 /**
- * Python code generator.
+ * Python codeElement generator.
  * @type {!Blockly.Generator}
  */
 Blockly.Python = new Blockly.Generator('Python');
@@ -138,14 +138,14 @@ Blockly.Python.ORDER_OVERRIDES = [
 
 /**
  * Initialise the database of variable names.
- * @param {!Blockly.Workspace} workspace Workspace to generate code from.
+ * @param {!Blockly.Workspace} workspace Workspace to generate codeElement from.
  */
 Blockly.Python.init = function(workspace) {
   /**
    * Empty loops or conditionals are not allowed in Python.
    */
   Blockly.Python.PASS = this.INDENT + 'pass\n';
-  // Create a dictionary of definitions to be printed before the code.
+  // Create a dictionary of definitions to be printed before the codeElement.
   Blockly.Python.definitions_ = Object.create(null);
   // Create a dictionary mapping desired function names in definitions_
   // to actual function names (to avoid collisions with user functions).
@@ -179,9 +179,9 @@ Blockly.Python.init = function(workspace) {
 };
 
 /**
- * Prepend the generated code with the variable definitions.
- * @param {string} code Generated code.
- * @return {string} Completed code.
+ * Prepend the generated codeElement with the variable definitions.
+ * @param {string} code Generated codeElement.
+ * @return {string} Completed codeElement.
  */
 Blockly.Python.finish = function(code) {
   // Convert the definitions dictionary into a list.
@@ -206,8 +206,8 @@ Blockly.Python.finish = function(code) {
 /**
  * Naked values are top-level blocks with outputs that aren't plugged into
  * anything.
- * @param {string} line Line of generated code.
- * @return {string} Legal line of code.
+ * @param {string} line Line of generated codeElement.
+ * @return {string} Legal line of codeElement.
  */
 Blockly.Python.scrubNakedValue = function(line) {
   return line + '\n';
@@ -254,9 +254,9 @@ Blockly.Python.multiline_quote_ = function(string) {
  * Handles comments for the specified block and any connected value blocks.
  * Calls any statements following this block.
  * @param {!Blockly.Block} block The current block.
- * @param {string} code The Python code created for this block.
- * @param {boolean=} opt_thisOnly True to generate code for only this statement.
- * @return {string} Python code with comments and subsequent blocks added.
+ * @param {string} code The Python codeElement created for this block.
+ * @param {boolean=} opt_thisOnly True to generate codeElement for only this statement.
+ * @return {string} Python codeElement with comments and subsequent blocks added.
  * @private
  */
 Blockly.Python.scrub_ = function(block, code, opt_thisOnly) {
@@ -315,7 +315,7 @@ Blockly.Python.getAdjustedInt = function(block, atId, opt_delta, opt_negate) {
       at = -at;
     }
   } else {
-    // If the index is dynamic, adjust it in code.
+    // If the index is dynamic, adjust it in codeElement.
     if (delta > 0) {
       at = 'int(' + at + ' + ' + delta + ')';
     } else if (delta < 0) {

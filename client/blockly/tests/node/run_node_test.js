@@ -58,7 +58,7 @@ suite('Test Node.js', function() {
     const workspace = new Blockly.Workspace();
     Blockly.Xml.domToWorkspace(xml, workspace);
 
-    // Convert code
+    // Convert codeElement
     const code = Blockly.JavaScript.workspaceToCode(workspace);
     
     // Check output

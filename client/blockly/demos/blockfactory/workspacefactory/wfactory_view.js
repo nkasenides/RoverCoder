@@ -141,7 +141,7 @@ WorkspaceFactoryView.prototype.setCategoryTabSelection =
 
 /**
  * Used to bind a click to a certain DOM element (used for category tabs).
- * Taken directly from code.js
+ * Taken directly from codeElement.js
  * @param {string|!Element} e1 Tab element or corresponding ID string.
  * @param {!Function} func Function to be executed on click.
  */

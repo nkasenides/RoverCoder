@@ -16,8 +16,8 @@
  */
 
 /**
- * @fileoverview Utility functions for generating executable code from
- * Blockly code.
+ * @fileoverview Utility functions for generating executable codeElement from
+ * Blockly codeElement.
  * @author fraser@google.com (Neil Fraser)
  */
 'use strict';
@@ -28,7 +28,7 @@ goog.require('Blockly.Block');
 
 
 /**
- * Class for a code generator that translates the blocks into a language.
+ * Class for a codeElement generator that translates the blocks into a language.
  * @param {string} name Language name of this generator.
  * @constructor
  */
@@ -44,7 +44,7 @@ Blockly.Generator = function(name) {
 Blockly.Generator.NAME_TYPE = 'generated_function';
 
 /**
- * Arbitrary code to inject into locations that risk causing infinite loops.
+ * Arbitrary codeElement to inject into locations that risk causing infinite loops.
  * Any instances of '%1' will be replaced by the block ID that failed.
  * E.g. '  checkTimeout(%1);\n'
  * @type {?string}
@@ -52,7 +52,7 @@ Blockly.Generator.NAME_TYPE = 'generated_function';
 Blockly.Generator.prototype.INFINITE_LOOP_TRAP = null;
 
 /**
- * Arbitrary code to inject before every statement.
+ * Arbitrary codeElement to inject before every statement.
  * Any instances of '%1' will be replaced by the block ID of the statement.
  * E.g. 'highlight(%1);\n'
  * @type {?string}
@@ -60,7 +60,7 @@ Blockly.Generator.prototype.INFINITE_LOOP_TRAP = null;
 Blockly.Generator.prototype.STATEMENT_PREFIX = null;
 
 /**
- * Arbitrary code to inject after every statement.
+ * Arbitrary codeElement to inject after every statement.
  * Any instances of '%1' will be replaced by the block ID of the statement.
  * E.g. 'highlight(%1);\n'
  * @type {?string}
@@ -88,9 +88,9 @@ Blockly.Generator.prototype.COMMENT_WRAP = 60;
 Blockly.Generator.prototype.ORDER_OVERRIDES = [];
 
 /**
- * Generate code for all blocks in the workspace to the specified language.
- * @param {Blockly.Workspace} workspace Workspace to generate code from.
- * @return {string} Generated code.
+ * Generate codeElement for all blocks in the workspace to the specified language.
+ * @param {Blockly.Workspace} workspace Workspace to generate codeElement from.
+ * @return {string} Generated codeElement.
  */
 Blockly.Generator.prototype.workspaceToCode = function(workspace) {
   if (!workspace) {
@@ -104,13 +104,13 @@ Blockly.Generator.prototype.workspaceToCode = function(workspace) {
   for (var i = 0, block; block = blocks[i]; i++) {
     var line = this.blockToCode(block);
     if (Array.isArray(line)) {
-      // Value blocks return tuples of code and operator order.
+      // Value blocks return tuples of codeElement and operator order.
       // Top-level blocks don't care about operator order.
       line = line[0];
     }
     if (line) {
       if (block.outputConnection) {
-        // This block is a naked value.  Ask the language's code generator if
+        // This block is a naked value.  Ask the language's codeElement generator if
         // it wants to append a semicolon, or something.
         line = this.scrubNakedValue(line);
         if (this.STATEMENT_PREFIX && !block.suppressPrefixSuffix) {
@@ -136,11 +136,11 @@ Blockly.Generator.prototype.workspaceToCode = function(workspace) {
 // languages.
 
 /**
- * Prepend a common prefix onto each line of code.
- * Intended for indenting code or adding comment markers.
- * @param {string} text The lines of code.
+ * Prepend a common prefix onto each line of codeElement.
+ * Intended for indenting codeElement or adding comment markers.
+ * @param {string} text The lines of codeElement.
  * @param {string} prefix The common prefix.
- * @return {string} The prefixed lines of code.
+ * @return {string} The prefixed lines of codeElement.
  */
 Blockly.Generator.prototype.prefixLines = function(text, prefix) {
   return prefix + text.replace(/(?!\n$)\n/g, '\n' + prefix);
@@ -168,11 +168,11 @@ Blockly.Generator.prototype.allNestedComments = function(block) {
 };
 
 /**
- * Generate code for the specified block (and attached blocks).
- * @param {Blockly.Block} block The block to generate code for.
- * @param {boolean=} opt_thisOnly True to generate code for only this statement.
- * @return {string|!Array} For statement blocks, the generated code.
- *     For value blocks, an array containing the generated code and an
+ * Generate codeElement for the specified block (and attached blocks).
+ * @param {Blockly.Block} block The block to generate codeElement for.
+ * @param {boolean=} opt_thisOnly True to generate codeElement for only this statement.
+ * @return {string|!Array} For statement blocks, the generated codeElement.
+ *     For value blocks, an array containing the generated codeElement and an
  *     operator order value.  Returns '' if block is null.
  */
 Blockly.Generator.prototype.blockToCode = function(block, opt_thisOnly) {
@@ -187,7 +187,7 @@ Blockly.Generator.prototype.blockToCode = function(block, opt_thisOnly) {
   var func = this[block.type];
   if (typeof func != 'function') {
     throw Error('Language "' + this.name_ + '" does not know how to generate ' +
-        ' code for block type "' + block.type + '".');
+        ' codeElement for block type "' + block.type + '".');
   }
   // First argument to func.call is the value of 'this' in the generator.
   // Prior to 24 September 2013 'this' was the only way to access the block.
@@ -195,7 +195,7 @@ Blockly.Generator.prototype.blockToCode = function(block, opt_thisOnly) {
   // argument to func.call, which becomes the first parameter to the generator.
   var code = func.call(block, block);
   if (Array.isArray(code)) {
-    // Value blocks return tuples of code and operator order.
+    // Value blocks return tuples of codeElement and operator order.
     if (!block.outputConnection) {
       throw TypeError('Expecting string from statement block: ' + block.type);
     }
@@ -209,20 +209,20 @@ Blockly.Generator.prototype.blockToCode = function(block, opt_thisOnly) {
     }
     return this.scrub_(block, code, opt_thisOnly);
   } else if (code === null) {
-    // Block has handled code generation itself.
+    // Block has handled codeElement generation itself.
     return '';
   } else {
-    throw SyntaxError('Invalid code generated: ' + code);
+    throw SyntaxError('Invalid codeElement generated: ' + code);
   }
 };
 
 /**
- * Generate code representing the specified value input.
+ * Generate codeElement representing the specified value input.
  * @param {!Blockly.Block} block The block containing the input.
  * @param {string} name The name of the input.
  * @param {number} outerOrder The maximum binding strength (minimum order value)
  *     of any operators adjacent to "block".
- * @return {string} Generated code or '' if no blocks are connected or the
+ * @return {string} Generated codeElement or '' if no blocks are connected or the
  *     specified input does not exist.
  */
 Blockly.Generator.prototype.valueToCode = function(block, name, outerOrder) {
@@ -238,8 +238,8 @@ Blockly.Generator.prototype.valueToCode = function(block, name, outerOrder) {
     // Disabled block.
     return '';
   }
-  // Value blocks must return code and order of operations info.
-  // Statement blocks must only return code.
+  // Value blocks must return codeElement and order of operations info.
+  // Statement blocks must only return codeElement.
   if (!Array.isArray(tuple)) {
     throw TypeError('Expecting tuple from value block: ' + targetBlock.type);
   }
@@ -262,12 +262,12 @@ Blockly.Generator.prototype.valueToCode = function(block, name, outerOrder) {
         (outerOrderClass == 0 || outerOrderClass == 99)) {
       // Don't generate parens around NONE-NONE and ATOMIC-ATOMIC pairs.
       // 0 is the atomic order, 99 is the none order.  No parentheses needed.
-      // In all known languages multiple such code blocks are not order
+      // In all known languages multiple such codeElement blocks are not order
       // sensitive.  In fact in Python ('a' 'b') 'c' would fail.
     } else {
-      // The operators outside this code are stronger than the operators
-      // inside this code.  To prevent the code from being pulled apart,
-      // wrap the code in parentheses.
+      // The operators outside this codeElement are stronger than the operators
+      // inside this codeElement.  To prevent the codeElement from being pulled apart,
+      // wrap the codeElement in parentheses.
       parensNeeded = true;
       // Check for special exceptions.
       for (var i = 0; i < this.ORDER_OVERRIDES.length; i++) {
@@ -288,21 +288,21 @@ Blockly.Generator.prototype.valueToCode = function(block, name, outerOrder) {
 };
 
 /**
- * Generate a code string representing the blocks attached to the named
- * statement input. Indent the code.
- * This is mainly used in generators. When trying to generate code to evaluate
+ * Generate a codeElement string representing the blocks attached to the named
+ * statement input. Indent the codeElement.
+ * This is mainly used in generators. When trying to generate codeElement to evaluate
  * look at using workspaceToCode or blockToCode.
  * @param {!Blockly.Block} block The block containing the input.
  * @param {string} name The name of the input.
- * @return {string} Generated code or '' if no blocks are connected.
+ * @return {string} Generated codeElement or '' if no blocks are connected.
  */
 Blockly.Generator.prototype.statementToCode = function(block, name) {
   var targetBlock = block.getInputTargetBlock(name);
   var code = this.blockToCode(targetBlock);
-  // Value blocks must return code and order of operations info.
-  // Statement blocks must only return code.
+  // Value blocks must return codeElement and order of operations info.
+  // Statement blocks must only return codeElement.
   if (typeof code != 'string') {
-    throw TypeError('Expecting code from statement block: ' +
+    throw TypeError('Expecting codeElement from statement block: ' +
         (targetBlock && targetBlock.type));
   }
   if (code) {
@@ -366,7 +366,7 @@ Blockly.Generator.prototype.addReservedWords = function(words) {
 
 /**
  * This is used as a placeholder in functions defined using
- * Blockly.Generator.provideFunction_.  It must not be legal code that could
+ * Blockly.Generator.provideFunction_.  It must not be legal codeElement that could
  * legitimately appear in a function definition (or comment), and it must
  * not confuse the regular expression parser.
  * @type {string}
@@ -375,15 +375,15 @@ Blockly.Generator.prototype.addReservedWords = function(words) {
 Blockly.Generator.prototype.FUNCTION_NAME_PLACEHOLDER_ = '{leCUI8hutHZI4480Dc}';
 
 /**
- * Define a function to be included in the generated code.
- * The first time this is called with a given desiredName, the code is
+ * Define a function to be included in the generated codeElement.
+ * The first time this is called with a given desiredName, the codeElement is
  * saved and an actual name is generated.  Subsequent calls with the
  * same desiredName have no effect but have the same return value.
  *
  * It is up to the caller to make sure the same desiredName is not
- * used for different code values.
+ * used for different codeElement values.
  *
- * The code gets output when Blockly.Generator.finish() is called.
+ * The codeElement gets output when Blockly.Generator.finish() is called.
  *
  * @param {string} desiredName The desired name of the function (e.g., isPrime).
  * @param {!Array.<string>} code A list of statements.  Use '  ' for indents.
@@ -414,23 +414,23 @@ Blockly.Generator.prototype.provideFunction_ = function(desiredName, code) {
 };
 
 /**
- * Hook for code to run before code generation starts.
+ * Hook for codeElement to run before codeElement generation starts.
  * Subclasses may override this, e.g. to initialise the database of variable
  * names.
- * @param {!Blockly.Workspace} _workspace Workspace to generate code from.
+ * @param {!Blockly.Workspace} _workspace Workspace to generate codeElement from.
  */
 Blockly.Generator.prototype.init = function(_workspace) {
   // Optionally override
 };
 
 /**
- * Common tasks for generating code from blocks.  This is called from
+ * Common tasks for generating codeElement from blocks.  This is called from
  * blockToCode and is called on every block, not just top level blocks.
- * Subclasses may override this, e.g. to generate code for statements following
+ * Subclasses may override this, e.g. to generate codeElement for statements following
  * the block, or to handle comments for the specified block and any connected
  * value blocks.
  * @param {!Blockly.Block} _block The current block.
- * @param {string} code The code created for this block.
+ * @param {string} code The codeElement created for this block.
  * @return {string} Code with comments and subsequent blocks added.
  * @private
  */
@@ -440,11 +440,11 @@ Blockly.Generator.prototype.scrub_ = function(_block, code) {
 };
 
 /**
- * Hook for code to run at end of code generation.
- * Subclasses may override this, e.g. to prepend the generated code with the
+ * Hook for codeElement to run at end of codeElement generation.
+ * Subclasses may override this, e.g. to prepend the generated codeElement with the
  * variable definitions.
- * @param {string} code Generated code.
- * @return {string} Completed code.
+ * @param {string} code Generated codeElement.
+ * @return {string} Completed codeElement.
  */
 Blockly.Generator.prototype.finish = function(code) {
   // Optionally override
@@ -456,8 +456,8 @@ Blockly.Generator.prototype.finish = function(code) {
  * anything.
  * Subclasses may override this, e.g. if their language does not allow
  * naked values.
- * @param {string} line Line of generated code.
- * @return {string} Legal line of code.
+ * @param {string} line Line of generated codeElement.
+ * @return {string} Legal line of codeElement.
  */
 Blockly.Generator.prototype.scrubNakedValue = function(line) {
   // Optionally override

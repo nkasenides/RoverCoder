@@ -130,8 +130,8 @@ WorkspaceFactoryGenerator.prototype.generateWorkspaceXml = function() {
 
 /**
  * Generates a string representation of the options object for injecting the
- * workspace and starter code.
- * @return {string} String representation of starter code for injecting.
+ * workspace and starter codeElement.
+ * @return {string} String representation of starter codeElement for injecting.
  */
 WorkspaceFactoryGenerator.prototype.generateInjectString = function() {
   var addAttributes = function(obj, tabChar) {
@@ -167,7 +167,7 @@ WorkspaceFactoryGenerator.prototype.generateInjectString = function() {
   finalStr += '\n\n/* Inject your workspace */ \nvar workspace = Blockly.' +
       'inject(/* TODO: Add ID of div to inject Blockly into */, options);';
   finalStr += '\n\n/* Load Workspace Blocks from XML to workspace. ' +
-      'Remove all code below if no blocks to load */\n\n' +
+      'Remove all codeElement below if no blocks to load */\n\n' +
       '/* TODO: Change workspace blocks XML ID if necessary. Can export' +
       ' workspace blocks XML from Workspace Factory. */\n' +
       'var workspaceBlocks = document.getElementById("workspaceBlocks"); \n\n' +

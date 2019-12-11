@@ -288,7 +288,7 @@ Graph.drawVisualization = function() {
   new google.visualization.LineChart(document.getElementById('visualization')).
       draw(data, Graph.options_);
 
-  // Create the "y = ..." label.  Find the relevant part of the code.
+  // Create the "y = ..." label.  Find the relevant part of the codeElement.
   formula = formula.substring(formula.indexOf('y = '));
   formula = formula.substring(0, formula.indexOf(';'));
   var funcText = document.getElementById('funcText');
@@ -297,7 +297,7 @@ Graph.drawVisualization = function() {
 
 /**
  * Plot points on the function y = f(x).
- * @param {string} code JavaScript code.
+ * @param {string} code JavaScript codeElement.
  * @return {!Array.<!Array>} 2D Array of points on the graph.
  */
 Graph.plot = function(code) {

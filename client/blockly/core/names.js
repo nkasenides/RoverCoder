@@ -49,7 +49,7 @@ Blockly.Names = function(reservedWords, opt_variablePrefix) {
 /**
  * Constant to separate developer variable names from user-defined variable
  * names when running generators.
- * A developer variable will be declared as a global in the generated code, but
+ * A developer variable will be declared as a global in the generated codeElement, but
  * will never be shown to the user in the workspace or stored in the variable
  * map.
  */
@@ -93,7 +93,7 @@ Blockly.Names.prototype.setVariableMap = function(map) {
 Blockly.Names.prototype.getNameForUserVariable_ = function(id) {
   if (!this.variableMap_) {
     console.log('Deprecated call to Blockly.Names.prototype.getName without ' +
-        'defining a variable map. To fix, add the folowing code in your ' +
+        'defining a variable map. To fix, add the folowing codeElement in your ' +
         'generator\'s init() function:\n' +
         'Blockly.YourGeneratorName.variableDB_.setVariableMap(' +
         'workspace.getVariableMap());');

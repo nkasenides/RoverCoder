@@ -313,7 +313,7 @@ function test_mutator_mixin() {
       "mutator": "mutator_test"
     }]);
 
-    // Events code calls mutationToDom and expects it to give back a meaningful
+    // Events codeElement calls mutationToDom and expects it to give back a meaningful
     // value.
     Blockly.Events.disable();
     Blockly.Extensions.registerMutator('mutator_test',
@@ -360,7 +360,7 @@ function test_mutator_mixin_no_dialog() {
       "mutator": "mutator_test"
     }]);
 
-    // Events code calls mutationToDom and expects it to give back a meaningful
+    // Events codeElement calls mutationToDom and expects it to give back a meaningful
     // value.
     Blockly.Events.disable();
     assertUndefined(Blockly.Extensions.ALL_['mutator_test']);
@@ -512,7 +512,7 @@ function test_use_mutator_as_extension_fails() {
         }
       });
 
-    // Events code calls mutationToDom and expects it to give back a meaningful
+    // Events codeElement calls mutationToDom and expects it to give back a meaningful
     // value.
     block = new Blockly.Block(workspace, 'mutator_test_block');
   } catch (e) {
@@ -543,7 +543,7 @@ function test_use_mutator_mixin_as_extension_fails() {
       "extensions": ["mutator_test"]
     }]);
 
-    // Events code calls mutationToDom and expects it to give back a meaningful
+    // Events codeElement calls mutationToDom and expects it to give back a meaningful
     // value.
     Blockly.Events.disable();
     assertUndefined(Blockly.Extensions.ALL_['mutator_test']);
@@ -586,7 +586,7 @@ function test_use_extension_as_mutator_fails() {
       "mutator": ["extensions_test"]
     }]);
 
-    // Events code calls mutationToDom and expects it to give back a meaningful
+    // Events codeElement calls mutationToDom and expects it to give back a meaningful
     // value.
     Blockly.Events.disable();
     assertUndefined(Blockly.Extensions.ALL_['extensions_test']);
@@ -639,7 +639,7 @@ function test_mutator_mixin_plus_function() {
       }
     );
 
-    // Events code calls mutationToDom and expects it to give back a meaningful
+    // Events codeElement calls mutationToDom and expects it to give back a meaningful
     // value.
     block = new Blockly.Block(workspace, 'mutator_test_block');
   } finally {

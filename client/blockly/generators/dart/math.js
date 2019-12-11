@@ -102,7 +102,7 @@ Blockly.Dart['math_single'] = function(block) {
         Blockly.Dart.ORDER_NONE) || '0';
   }
   // First, handle cases which generate values that don't need parentheses
-  // wrapping the code.
+  // wrapping the codeElement.
   switch (operator) {
     case 'ABS':
       code = arg + '.abs()';
@@ -142,7 +142,7 @@ Blockly.Dart['math_single'] = function(block) {
     return [code, Blockly.Dart.ORDER_UNARY_POSTFIX];
   }
   // Second, handle cases which generate values that may need parentheses
-  // wrapping the code.
+  // wrapping the codeElement.
   switch (operator) {
     case 'LOG10':
       code = 'Math.log(' + arg + ') / Math.log(10)';

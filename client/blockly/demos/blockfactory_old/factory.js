@@ -39,7 +39,7 @@ var previewWorkspace = null;
 var UNNAMED = 'unnamed';
 
 /**
- * Change the language code format.
+ * Change the language codeElement format.
  */
 function formatChange() {
   var mask = document.getElementById('blocklyMask');
@@ -64,7 +64,7 @@ function formatChange() {
 }
 
 /**
- * Update the language code based on constructs made in Blockly.
+ * Update the language codeElement based on constructs made in Blockly.
  */
 function updateLanguage() {
   var rootBlock = getRootBlock();
@@ -89,10 +89,10 @@ function updateLanguage() {
 }
 
 /**
- * Update the language code as JSON.
+ * Update the language codeElement as JSON.
  * @param {string} blockType Name of block.
  * @param {!Blockly.Block} rootBlock Factory_base block.
- * @return {string} Generanted language code.
+ * @return {string} Generanted language codeElement.
  * @private
  */
 function formatJson_(blockType, rootBlock) {
@@ -191,10 +191,10 @@ function formatJson_(blockType, rootBlock) {
 }
 
 /**
- * Update the language code as JavaScript.
+ * Update the language codeElement as JavaScript.
  * @param {string} blockType Name of block.
  * @param {!Blockly.Block} rootBlock Factory_base block.
- * @return {string} Generanted language code.
+ * @return {string} Generanted language codeElement.
  * @private
  */
 function formatJavaScript_(blockType, rootBlock) {
@@ -270,10 +270,10 @@ function formatJavaScript_(blockType, rootBlock) {
 }
 
 /**
- * Create JS code required to create a top, bottom, or value connection.
+ * Create JS codeElement required to create a top, bottom, or value connection.
  * @param {string} functionName JavaScript function name.
  * @param {string} typeName Name of type input.
- * @return {string} Line of JavaScript code to create connection.
+ * @return {string} Line of JavaScript codeElement to create connection.
  * @private
  */
 function connectionLineJs_(functionName, typeName) {
@@ -506,7 +506,7 @@ function escapeString(string) {
 
 /**
  * Fetch the type(s) defined in the given input.
- * Format as a string for appending to the generated code.
+ * Format as a string for appending to the generated codeElement.
  * @param {!Blockly.Block} block Block with input.
  * @param {string} name Name of the input.
  * @return {?string} String defining the types.
@@ -558,7 +558,7 @@ function getTypesFrom_(block, name) {
 }
 
 /**
- * Update the generator code.
+ * Update the generator codeElement.
  * @param {!Blockly.Block} block Rendered block in preview workspace.
  */
 function updateGenerator(block) {
@@ -629,14 +629,14 @@ function updateGenerator(block) {
     'PHP': ';',
     'Dart': ';'
   };
-  code.push("  // TODO: Assemble " + language + " into code variable.");
+  code.push("  // TODO: Assemble " + language + " into codeElement variable.");
   if (block.outputConnection) {
-    code.push("  var code = '...';");
+    code.push("  var codeElement = '...';");
     code.push("  // TODO: Change ORDER_NONE to the correct strength.");
-    code.push("  return [code, Blockly." + language + ".ORDER_NONE];");
+    code.push("  return [codeElement, Blockly." + language + ".ORDER_NONE];");
   } else {
-    code.push("  var code = '..." + (lineEnd[language] || '') + "\\n';");
-    code.push("  return code;");
+    code.push("  var codeElement = '..." + (lineEnd[language] || '') + "\\n';");
+    code.push("  return codeElement;");
   }
   code.push("};");
 
@@ -667,11 +667,11 @@ function updatePreview() {
   }
   previewWorkspace.clear();
 
-  // Fetch the code and determine its format (JSON or JavaScript).
+  // Fetch the codeElement and determine its format (JSON or JavaScript).
   var format = document.getElementById('format').value;
   if (format == 'Manual') {
     var code = document.getElementById('languageTA').value;
-    // If the code is JSON, it will parse, otherwise treat as JS.
+    // If the codeElement is JSON, it will parse, otherwise treat as JS.
     try {
       JSON.parse(code);
       format = 'JSON';
@@ -738,9 +738,9 @@ function updatePreview() {
 }
 
 /**
- * Inject code into a pre tag, with syntax highlighting.
+ * Inject codeElement into a pre tag, with syntax highlighting.
  * Safe from HTML/script injection.
- * @param {string} code Lines of code.
+ * @param {string} code Lines of codeElement.
  * @param {string} id ID of <pre> element to inject into.
  */
 function injectCode(code, id) {

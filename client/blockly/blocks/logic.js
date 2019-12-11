@@ -308,7 +308,7 @@ Blockly.Constants.Logic.CONTROLS_IF_MUTATOR_MIXIN = {
 
   /**
    * Don't automatically add STATEMENT_PREFIX and STATEMENT_SUFFIX to generated
-   * code.  These will be handled manually in this block's generators.
+   * codeElement.  These will be handled manually in this block's generators.
    */
   suppressPrefixSuffix: true,
 

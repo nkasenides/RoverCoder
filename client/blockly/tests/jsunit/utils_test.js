@@ -108,7 +108,7 @@ function test_replaceMessageReferences() {
   assertEquals('Escaped %', '%{bky_string_ref}', resultString);
 
   resultString = Blockly.utils.replaceMessageReferences('%a');
-  assertEquals('Unrecognized % escape code treated as literal', '%a', resultString);
+  assertEquals('Unrecognized % escape codeElement treated as literal', '%a', resultString);
 
   resultString = Blockly.utils.replaceMessageReferences('%1');
   assertEquals('Interpolation tokens ignored.', '%1', resultString);

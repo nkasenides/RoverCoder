@@ -744,7 +744,7 @@ Blockly.Bubble.prototype.renderArrow_ = function() {
 
 /**
  * Change the colour of a bubble.
- * @param {string} hexColour Hex code of colour.
+ * @param {string} hexColour Hex codeElement of colour.
  */
 Blockly.Bubble.prototype.setColour = function(hexColour) {
   this.bubbleBack_.setAttribute('fill', hexColour);

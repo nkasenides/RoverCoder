@@ -9,13 +9,13 @@
  * suitable for the BlockFactory's block editor, derived from an example
  * Blockly.Block.
  *
- * <code>
+ * <codeElement>
  * var workspaceDom = new BlockDefinitionExtractor()
  *     .buildBlockFactoryWorkspace(exampleBlocklyBlock);
  * Blockly.Xml.domToWorkspace(workspaceDom, BlockFactory.mainWorkspace);
- * </code>
+ * </codeElement>
  *
- * The <code>exampleBlocklyBlock</code> is usually the block loaded into the
+ * The <codeElement>exampleBlocklyBlock</codeElement> is usually the block loaded into the
  * preview workspace after manually entering the block definition.
  *
  * @author JC-Orozco (Juan Carlos Orozco), AnmAtAnm (Andrew n marshall)

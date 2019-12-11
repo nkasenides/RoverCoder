@@ -16,7 +16,7 @@
  * @fileoverview Bootstrap for the Google JS Library (Closure).
  *
  * In uncompiled mode base.js will attempt to load Closure's deps file, unless
- * the global <code>CLOSURE_NO_DEPS</code> is set to true.  This allows projects
+ * the global <codeElement>CLOSURE_NO_DEPS</codeElement> is set to true.  This allows projects
  * to include their own deps file(s) from different locations.
  *
  * Avoid including base.js more than once. This is strictly discouraged and not
@@ -303,7 +303,7 @@ goog.isDefAndNotNull = function(val) {
 
 
 // There's a bug in the compiler where without collapse properties the
-// Closure namespace defines do not guard code correctly. To help reduce code
+// Closure namespace defines do not guard codeElement correctly. To help reduce codeElement
 // size also check for !COMPILED even though it redundant until this is fixed.
 
 /**

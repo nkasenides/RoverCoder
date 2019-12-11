@@ -225,7 +225,7 @@ declare module Blockly {
     
             /**
              * An optional property for suppressing adding STATEMENT_PREFIX and
-             * STATEMENT_SUFFIX to generated code.
+             * STATEMENT_SUFFIX to generated codeElement.
              * @type {?boolean}
              */
             suppressPrefixSuffix: boolean;
@@ -1967,7 +1967,7 @@ declare module Blockly {
     /**
      * Convert a hue (HSV model) into an RGB hex triplet.
      * @param {number} hue Hue on a colour wheel (0-360).
-     * @return {string} RGB code, e.g. '#5ba65b'.
+     * @return {string} RGB codeElement, e.g. '#5ba65b'.
      */
     function hueToHex(hue: number): string;
 
@@ -2063,7 +2063,7 @@ declare module Blockly {
     
             /**
              * Change the colour of a bubble.
-             * @param {string} hexColour Hex code of colour.
+             * @param {string} hexColour Hex codeElement of colour.
              */
             setColour(hexColour: string): void;
     
@@ -4408,7 +4408,7 @@ declare module Blockly.FieldColour {
 
     /**
      * An array of tooltip strings for the palette.  If not the same length as
-     * COLOURS, the colour's hex code will be used for any missing titles.
+     * COLOURS, the colour's hex codeElement will be used for any missing titles.
      * All colour pickers use this unless overridden with setColours.
      * @type {!Array.<string>}
      */
@@ -5994,14 +5994,14 @@ declare module Blockly {
     class Generator__Class  { 
     
             /**
-             * Class for a code generator that translates the blocks into a language.
+             * Class for a codeElement generator that translates the blocks into a language.
              * @param {string} name Language name of this generator.
              * @constructor
              */
             constructor(name: string);
     
             /**
-             * Arbitrary code to inject into locations that risk causing infinite loops.
+             * Arbitrary codeElement to inject into locations that risk causing infinite loops.
              * Any instances of '%1' will be replaced by the block ID that failed.
              * E.g. '  checkTimeout(%1);\n'
              * @type {?string}
@@ -6009,7 +6009,7 @@ declare module Blockly {
             INFINITE_LOOP_TRAP: string;
     
             /**
-             * Arbitrary code to inject before every statement.
+             * Arbitrary codeElement to inject before every statement.
              * Any instances of '%1' will be replaced by the block ID of the statement.
              * E.g. 'highlight(%1);\n'
              * @type {?string}
@@ -6017,7 +6017,7 @@ declare module Blockly {
             STATEMENT_PREFIX: string;
     
             /**
-             * Arbitrary code to inject after every statement.
+             * Arbitrary codeElement to inject after every statement.
              * Any instances of '%1' will be replaced by the block ID of the statement.
              * E.g. 'highlight(%1);\n'
              * @type {?string}
@@ -6045,18 +6045,18 @@ declare module Blockly {
             ORDER_OVERRIDES: number[][];
     
             /**
-             * Generate code for all blocks in the workspace to the specified language.
-             * @param {Blockly.Workspace} workspace Workspace to generate code from.
-             * @return {string} Generated code.
+             * Generate codeElement for all blocks in the workspace to the specified language.
+             * @param {Blockly.Workspace} workspace Workspace to generate codeElement from.
+             * @return {string} Generated codeElement.
              */
             workspaceToCode(workspace: Blockly.Workspace): string;
     
             /**
-             * Prepend a common prefix onto each line of code.
-             * Intended for indenting code or adding comment markers.
-             * @param {string} text The lines of code.
+             * Prepend a common prefix onto each line of codeElement.
+             * Intended for indenting codeElement or adding comment markers.
+             * @param {string} text The lines of codeElement.
              * @param {string} prefix The common prefix.
-             * @return {string} The prefixed lines of code.
+             * @return {string} The prefixed lines of codeElement.
              */
             prefixLines(text: string, prefix: string): string;
     
@@ -6068,34 +6068,34 @@ declare module Blockly {
             allNestedComments(block: Blockly.Block): string;
     
             /**
-             * Generate code for the specified block (and attached blocks).
-             * @param {Blockly.Block} block The block to generate code for.
-             * @param {boolean=} opt_thisOnly True to generate code for only this statement.
-             * @return {string|!Array} For statement blocks, the generated code.
-             *     For value blocks, an array containing the generated code and an
+             * Generate codeElement for the specified block (and attached blocks).
+             * @param {Blockly.Block} block The block to generate codeElement for.
+             * @param {boolean=} opt_thisOnly True to generate codeElement for only this statement.
+             * @return {string|!Array} For statement blocks, the generated codeElement.
+             *     For value blocks, an array containing the generated codeElement and an
              *     operator order value.  Returns '' if block is null.
              */
             blockToCode(block: Blockly.Block, opt_thisOnly?: boolean): string|any[];
     
             /**
-             * Generate code representing the specified value input.
+             * Generate codeElement representing the specified value input.
              * @param {!Blockly.Block} block The block containing the input.
              * @param {string} name The name of the input.
              * @param {number} outerOrder The maximum binding strength (minimum order value)
              *     of any operators adjacent to "block".
-             * @return {string} Generated code or '' if no blocks are connected or the
+             * @return {string} Generated codeElement or '' if no blocks are connected or the
              *     specified input does not exist.
              */
             valueToCode(block: Blockly.Block, name: string, outerOrder: number): string;
     
             /**
-             * Generate a code string representing the blocks attached to the named
-             * statement input. Indent the code.
-             * This is mainly used in generators. When trying to generate code to evaluate
+             * Generate a codeElement string representing the blocks attached to the named
+             * statement input. Indent the codeElement.
+             * This is mainly used in generators. When trying to generate codeElement to evaluate
              * look at using workspaceToCode or blockToCode.
              * @param {!Blockly.Block} block The block containing the input.
              * @param {string} name The name of the input.
-             * @return {string} Generated code or '' if no blocks are connected.
+             * @return {string} Generated codeElement or '' if no blocks are connected.
              */
             statementToCode(block: Blockly.Block, name: string): string;
     
@@ -6127,19 +6127,19 @@ declare module Blockly {
             addReservedWords(words: string): void;
     
             /**
-             * Hook for code to run before code generation starts.
+             * Hook for codeElement to run before codeElement generation starts.
              * Subclasses may override this, e.g. to initialise the database of variable
              * names.
-             * @param {!Blockly.Workspace} _workspace Workspace to generate code from.
+             * @param {!Blockly.Workspace} _workspace Workspace to generate codeElement from.
              */
             init(_workspace: Blockly.Workspace): void;
     
             /**
-             * Hook for code to run at end of code generation.
-             * Subclasses may override this, e.g. to prepend the generated code with the
+             * Hook for codeElement to run at end of codeElement generation.
+             * Subclasses may override this, e.g. to prepend the generated codeElement with the
              * variable definitions.
-             * @param {string} code Generated code.
-             * @return {string} Completed code.
+             * @param {string} code Generated codeElement.
+             * @return {string} Completed codeElement.
              */
             finish(code: string): string;
     
@@ -6148,8 +6148,8 @@ declare module Blockly {
              * anything.
              * Subclasses may override this, e.g. if their language does not allow
              * naked values.
-             * @param {string} line Line of generated code.
-             * @return {string} Legal line of code.
+             * @param {string} line Line of generated codeElement.
+             * @return {string} Legal line of codeElement.
              */
             scrubNakedValue(line: string): string;
     } 
@@ -6889,7 +6889,7 @@ declare module Blockly.Names {
     /**
      * Constant to separate developer variable names from user-defined variable
      * names when running generators.
-     * A developer variable will be declared as a global in the generated code, but
+     * A developer variable will be declared as a global in the generated codeElement, but
      * will never be shown to the user in the workspace or stored in the variable
      * map.
      */
@@ -8138,7 +8138,7 @@ declare module Blockly.utils.uiMenu {
      * Adjust the bounding boxes used to position the widget div to deal with RTL
      * goog.ui.Menu positioning.  In RTL mode the menu renders down and to the left
      * of its start point, instead of down and to the right.  Adjusting all of the
-     * bounding boxes accordingly allows us to use the same code for all widgets.
+     * bounding boxes accordingly allows us to use the same codeElement for all widgets.
      * This function in-place modifies the provided bounding boxes.
      * @param {!Object} viewportBBox The bounding rectangle of the current viewport,
      *     in window coordinates.
@@ -8689,7 +8689,7 @@ declare module Blockly.Variables {
     /**
      * Find all developer variables used by blocks in the workspace.
      * Developer variables are never shown to the user, but are declared as global
-     * variables in the generated code.
+     * variables in the generated codeElement.
      * To declare developer variables, define the getDeveloperVariables function on
      * your block and return a list of variable names.
      * For use by generators.
@@ -11377,7 +11377,7 @@ declare module Blockly {
              * `createDom` will automatically be invoked on the parent before
              * rendering the child.
              *
-             * Invoking {@code parent.addChild(child, true)} will throw an error if the
+             * Invoking {@codeElement parent.addChild(child, true)} will throw an error if the
              * child component is already in the document, regardless of the parent's DOM
              * state.
              *
@@ -11919,9 +11919,9 @@ declare module Blockly.user.keyMap {
 
     /**
      * Update the key map to contain the new action.
-     * @param {string} keyCode The key code serialized by the serializeKeyEvent.
+     * @param {string} keyCode The key codeElement serialized by the serializeKeyEvent.
      * @param {!Blockly.Action} action The action to be executed when the keys
-     *     corresponding to the serialized key code is pressed.
+     *     corresponding to the serialized key codeElement is pressed.
      * @package
      */
     function setActionForKey(keyCode: string, action: Blockly.Action): void;
@@ -11943,8 +11943,8 @@ declare module Blockly.user.keyMap {
     function getKeyMap(): { [key: string]: Blockly.Action };
 
     /**
-     * Get the action by the serialized key code.
-     * @param {string} keyCode The serialized key code.
+     * Get the action by the serialized key codeElement.
+     * @param {string} keyCode The serialized key codeElement.
      * @return {Blockly.Action|undefined} The action holding the function to
      *     call when the given keyCode is used or undefined if no action exists.
      * @package
@@ -11963,17 +11963,17 @@ declare module Blockly.user.keyMap {
 
     /**
      * Serialize the key event.
-     * @param {!Event} e A key up event holding the key code.
+     * @param {!Event} e A key up event holding the key codeElement.
      * @return {string} A string containing the serialized key event.
      */
     function serializeKeyEvent(e: Event): string;
 
     /**
-     * Create the serialized key code that will be used in the key map.
-     * @param {number} keyCode Number code representing the key.
+     * Create the serialized key codeElement that will be used in the key map.
+     * @param {number} keyCode Number codeElement representing the key.
      * @param {!Array.<string>} modifiers List of modifiers to be used with the key.
      *     All valid modifiers can be found in the Blockly.user.keyMap.modifierKeys.
-     * @return {string} The serialized key code for the given modifiers and key.
+     * @return {string} The serialized key codeElement for the given modifiers and key.
      */
     function createSerializedKey(keyCode: number, modifiers: string[]): string;
 
@@ -12208,7 +12208,7 @@ declare module Blockly.utils.aria {
      * We encourage clients to call the goog.a11y.aria.removeRole
      * method instead of setting null and empty string values.
      * Special handling for this case is added to ensure
-     * backword compatibility with existing code.
+     * backword compatibility with existing codeElement.
      *
      * Similar to Closure's goog.a11y.aria
      *
@@ -13996,7 +13996,7 @@ declare module Blockly.blockRendering {
     class Debug__Class  { 
     
             /**
-             * An object that renders rectangles and dots for debugging rendering code.
+             * An object that renders rectangles and dots for debugging rendering codeElement.
              * @package
              * @constructor
              */

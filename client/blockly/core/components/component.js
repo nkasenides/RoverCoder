@@ -415,7 +415,7 @@ Blockly.Component.prototype.addChild = function(child, opt_render) {
  * `createDom` will automatically be invoked on the parent before
  * rendering the child.
  *
- * Invoking {@code parent.addChild(child, true)} will throw an error if the
+ * Invoking {@codeElement parent.addChild(child, true)} will throw an error if the
  * child component is already in the document, regardless of the parent's DOM
  * state.
  *

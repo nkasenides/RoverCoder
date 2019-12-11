@@ -19,11 +19,11 @@
   let currentButton;
 
   function handlePlay(event) {
-    // Add code for playing sound.
+    // Add codeElement for playing sound.
   }
 
   function save(button) {
-    // Add code for saving the behavior of a button.
+    // Add codeElement for saving the behavior of a button.
   }
 
   function handleSave() {

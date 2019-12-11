@@ -47,9 +47,9 @@ Blockly.user.keyMap.modifierKeys = {
 
 /**
  * Update the key map to contain the new action.
- * @param {string} keyCode The key code serialized by the serializeKeyEvent.
+ * @param {string} keyCode The key codeElement serialized by the serializeKeyEvent.
  * @param {!Blockly.Action} action The action to be executed when the keys
- *     corresponding to the serialized key code is pressed.
+ *     corresponding to the serialized key codeElement is pressed.
  * @package
  */
 Blockly.user.keyMap.setActionForKey = function(keyCode, action) {
@@ -84,8 +84,8 @@ Blockly.user.keyMap.getKeyMap = function() {
 };
 
 /**
- * Get the action by the serialized key code.
- * @param {string} keyCode The serialized key code.
+ * Get the action by the serialized key codeElement.
+ * @param {string} keyCode The serialized key codeElement.
  * @return {Blockly.Action|undefined} The action holding the function to
  *     call when the given keyCode is used or undefined if no action exists.
  * @package
@@ -114,7 +114,7 @@ Blockly.user.keyMap.getKeyByAction = function(action) {
 
 /**
  * Serialize the key event.
- * @param {!Event} e A key up event holding the key code.
+ * @param {!Event} e A key up event holding the key codeElement.
  * @return {string} A string containing the serialized key event.
  */
 Blockly.user.keyMap.serializeKeyEvent = function(e) {
@@ -130,11 +130,11 @@ Blockly.user.keyMap.serializeKeyEvent = function(e) {
 };
 
 /**
- * Create the serialized key code that will be used in the key map.
- * @param {number} keyCode Number code representing the key.
+ * Create the serialized key codeElement that will be used in the key map.
+ * @param {number} keyCode Number codeElement representing the key.
  * @param {!Array.<string>} modifiers List of modifiers to be used with the key.
  *     All valid modifiers can be found in the Blockly.user.keyMap.modifierKeys.
- * @return {string} The serialized key code for the given modifiers and key.
+ * @return {string} The serialized key codeElement for the given modifiers and key.
  */
 Blockly.user.keyMap.createSerializedKey = function(keyCode, modifiers) {
   var key = '';

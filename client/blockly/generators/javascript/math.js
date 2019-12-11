@@ -82,7 +82,7 @@ Blockly.JavaScript['math_single'] = function(block) {
         Blockly.JavaScript.ORDER_NONE) || '0';
   }
   // First, handle cases which generate values that don't need parentheses
-  // wrapping the code.
+  // wrapping the codeElement.
   switch (operator) {
     case 'ABS':
       code = 'Math.abs(' + arg + ')';
@@ -122,7 +122,7 @@ Blockly.JavaScript['math_single'] = function(block) {
     return [code, Blockly.JavaScript.ORDER_FUNCTION_CALL];
   }
   // Second, handle cases which generate values that may need parentheses
-  // wrapping the code.
+  // wrapping the codeElement.
   switch (operator) {
     case 'LOG10':
       code = 'Math.log(' + arg + ') / Math.log(10)';

@@ -36,8 +36,13 @@
     </div>
 </div>
 
+<a class="btn waves-effect green white-text" onclick="compile()">Compile to JS</a>
+
+<div id="code" style="font-family: 'Courier New',serif;"></div>
+
 <script>
 
+    const codeElement = document.getElementById("code");
     let workspace = null;
 
     /**
@@ -50,7 +55,6 @@
                 let lines = data.split("\n");
                 lines[0] = ""; lines[lines.length-1] = "";
                 lines.join("\n");
-                console.log(lines);
                 const bodyElement = document.body;
                 let xmlElement = document.createElement("xml");
                 xmlElement.innerHTML = data;
@@ -83,6 +87,11 @@
                 trashcan: true
             }
         );
+    }
+
+    function compile() {
+        const jsCode = Blockly.JavaScript.workspaceToCode(workspace);
+        codeElement.innerText = jsCode;
     }
 
 

@@ -56,7 +56,7 @@ Blockly.blockRendering.PathObject = function(root) {
       {'class': 'blocklyPath'}, this.svgRoot);
 
   // The light and dark paths need to exist (for now) because there is colouring
-  // code in block_svg that depends on them.  But we will always set them to
+  // codeElement in block_svg that depends on them.  But we will always set them to
   // display: none, and eventually we want to remove them entirely.
 
   /**
