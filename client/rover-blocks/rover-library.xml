@@ -695,4 +695,84 @@
         <field name="HUE">230</field>
       </block>
     </value>
+  </block><block type="factory_base" id="+.]ssQM`7*HiUt)|0{m`" deletable="false" movable="false" x="10" y="10">
+    <mutation connections="NONE"/>
+    <field name="NAME">initialize</field>
+    <field name="INLINE">AUTO</field>
+    <field name="CONNECTIONS">NONE</field>
+    <statement name="INPUTS">
+      <block type="input_dummy" id="gm)hE)RHkoi`)X;R,4M,">
+        <field name="ALIGN">LEFT</field>
+        <statement name="FIELDS">
+          <block type="field_static" id="A~EJd`Y-e.Kf1@E`Y#x@">
+            <field name="TEXT">Initialize</field>
+          </block>
+        </statement>
+        <next>
+          <block type="input_statement" id="_Fz|G`wh2(yw[v@9}b46">
+            <field name="INPUTNAME">initialize</field>
+            <field name="ALIGN">LEFT</field>
+            <value name="TYPE">
+              <shadow type="type_null" id="2T`f@P@MnN^}[z$=]$QL"/>
+            </value>
+          </block>
+        </next>
+      </block>
+    </statement>
+    <value name="TOOLTIP">
+      <block type="text" id="[%Vk~okneGoL]bxANH82" deletable="false" movable="false">
+        <field name="TEXT">Initialize your rover.</field>
+      </block>
+    </value>
+    <value name="HELPURL">
+      <block type="text" id="+~lhT8lp]Fq!q#Ko`B)l" deletable="false" movable="false">
+        <field name="TEXT"/>
+      </block>
+    </value>
+    <value name="COLOUR">
+      <block type="colour_hue" id="4,N9CJ6Sow35)%PfSuB+">
+        <mutation colour="#a55ba5"/>
+        <field name="HUE">300</field>
+      </block>
+    </value>
+  </block><block type="factory_base" id=";iTGbe{3!5k.T7_sAiFe" deletable="false" movable="false" x="10" y="10">
+    <mutation connections="NONE"/>
+    <field name="NAME">run</field>
+    <field name="INLINE">AUTO</field>
+    <field name="CONNECTIONS">NONE</field>
+    <statement name="INPUTS">
+      <block type="input_dummy" id="+i]JC^jY3cqU(_3zde]C">
+        <field name="ALIGN">LEFT</field>
+        <statement name="FIELDS">
+          <block type="field_static" id="tm*`5/LeYNA}16K_;cmO">
+            <field name="TEXT">Run</field>
+          </block>
+        </statement>
+        <next>
+          <block type="input_statement" id="6Wg!Hy.^2B}%S7[0D7!$">
+            <field name="INPUTNAME">run</field>
+            <field name="ALIGN">LEFT</field>
+            <value name="TYPE">
+              <shadow type="type_null" id="uz;YemRM9R|6?I4%L6mF"/>
+            </value>
+          </block>
+        </next>
+      </block>
+    </statement>
+    <value name="TOOLTIP">
+      <block type="text" id="/65{j[lb_1(+~[!6}%fa" deletable="false" movable="false">
+        <field name="TEXT">Run commands to explore Mars.</field>
+      </block>
+    </value>
+    <value name="HELPURL">
+      <block type="text" id="SC^^9v,]?`W?_=eN;1_V" deletable="false" movable="false">
+        <field name="TEXT"/>
+      </block>
+    </value>
+    <value name="COLOUR">
+      <block type="colour_hue" id="{BFNlk}J1RwVoYO}joIg">
+        <mutation colour="#a55ba5"/>
+        <field name="HUE">300</field>
+      </block>
+    </value>
   </block></xml>
