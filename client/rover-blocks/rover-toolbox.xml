@@ -1,5 +1,7 @@
 <xml xmlns="https://developers.google.com/blockly/xml" id="toolbox" style="display: none">
-  <category name="Rover cover">
+  <category name="Rover coder" colour="#FF7F00">
+    <block type="initialize"></block>
+    <block type="run"></block>
     <block type="move_forward"></block>
     <block type="turn_anticlockwise"></block>
     <block type="turn_clockwise"></block>

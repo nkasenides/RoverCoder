@@ -127,3 +127,17 @@ Blockly.JavaScript['scan'] = function(block) {
   // TODO: Change ORDER_NONE to the correct strength.
   return [code, Blockly.JavaScript.ORDER_NONE];
 };
+
+Blockly.JavaScript['initialize'] = function(block) {
+  var statements_initialize = Blockly.JavaScript.statementToCode(block, 'initialize');
+  // TODO: Assemble JavaScript into code variable.
+  var code = '...;\n';
+  return code;
+};
+
+Blockly.JavaScript['run'] = function(block) {
+  var statements_run = Blockly.JavaScript.statementToCode(block, 'run');
+  // TODO: Assemble JavaScript into code variable.
+  var code = '...;\n';
+  return code;
+};
