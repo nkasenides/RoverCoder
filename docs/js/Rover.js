@@ -1,15 +1,33 @@
 import {Direction} from "./Direction.js";
+import {Move} from "./Move.js";
+import {Position2D} from "./Position2D.js";
 
 export class Rover {
 
     constructor(position, gameGrid) {
-        this.position = position;
+        this.position = new Position2D(position.x, position.y);
         this.gameGrid = gameGrid;
         this.direction = Direction.NORTH;
     }
 
+    doMove(move) {
+        switch (move) {
+            case Move.MOVE_FORWARD:
+                this.moveForward();
+                break;
+            case Move.TURN_ANTICLOCKWISE:
+                this.turnAntiClockwise();
+                break;
+            case Move.TURN_CLOCKWISE:
+                this.turnClockwise();
+                break;
+            default:
+                console.error("Invalid move '" + move + "'.");
+        }
+    }
+
     turnClockwise() {
-        switch (direction) {
+        switch (this.direction) {
             case Direction.NORTH:
                 this.direction = Direction.EAST;
                 break;
@@ -28,7 +46,7 @@ export class Rover {
     }
 
     turnAntiClockwise() {
-        switch (direction) {
+        switch (this.direction) {
             case Direction.NORTH:
                 this.direction = Direction.WEST;
                 break;
@@ -47,7 +65,20 @@ export class Rover {
     }
 
     moveForward() {
-        //TODO
+        switch (this.direction) {
+            case Direction.NORTH:
+                this.position.y = this.position.y - 1;
+                break;
+            case Direction.SOUTH:
+                this.position.y = this.position.y + 1;
+                break;
+            case Direction.WEST:
+                this.position.x = this.position.x - 1;
+                break;
+            case Direction.EAST:
+                this.position.x = this.position.x + 1;
+                break;
+        }
     }
 
 }

@@ -10,12 +10,14 @@
 import {Position2D} from "./Position2D.js";
 import {Rover} from "./Rover.js";
 import {GameGrid} from "./GameGrid.js";
+import {Direction} from "./Direction.js";
+import {Move} from "./Move.js";
 
 //Constants:
 export const CONTEXT = "2d";
 export const DEFAULT_SIZE = 500;
 export const NUM_OF_CELLS = 20;
-export const UPDATE_DELAY = 20;
+export const UPDATE_DELAY = 1000;
 
 const ROVER_IMAGE_PATH = "images/ev3.png";
 
@@ -61,6 +63,7 @@ export class Game {
         game.context.clearRect(0, 0, game.canvas.width, game.canvas.height); //Clear the scene
 
         //--- Step 2 - Game logic:
+        game.rover.doMove(Move.MOVE_FORWARD);
 
         //--- Step 3 - Re-draw scene:
 
@@ -87,6 +90,8 @@ export class Game {
         this.canvas.width = scaledSize;
         this.canvas.height = scaledSize;
         this.cellSize = scaledSize / NUM_OF_CELLS;
+        this.roverImage.width = this.cellSize; //TODO NOT SURE IF WORKING
+        this.roverImage.height = this.cellSize; //TODO NOT SURE IF WORKING
     }
 
     getCoordinateFromPosition(position) {
@@ -112,20 +117,56 @@ export class Game {
         let xCoord = 0;
         let yCoord = 0;
         if (this.startPosition.x > 0) {
-            xCoord = this.getCoordinateFromPosition(this.startPosition.x);
+            xCoord = this.getCoordinateFromPosition(this.rover.position.x);
         }
         if (this.startPosition.y > 0) {
-            yCoord = this.getCoordinateFromPosition(this.startPosition.y);
+            yCoord = this.getCoordinateFromPosition(this.rover.position.y);
         }
-        // this.context.drawImage(this.roverImage, xCoord, yCoord, this.cellSize, this.cellSize);
+        this.drawRotatedRover(this.roverImage, xCoord, yCoord, this.rover.direction);
+    }
 
-        //TODO ROTATION!
+    //Kept as generic:
+    drawRotatedImage(image, x, y, angle) {
+        console.log("X,Y: " + x + ", " + y);
         this.context.save();
-        this.context.translate(xCoord,yCoord);
-        this.context.rotate(90*Math.PI/180);
-        this.context.drawImage(this.roverImage, -xCoord, -yCoord, this.cellSize, this.cellSize);
+        this.context.translate(x, y);
+        this.context.rotate(angle * (Math.PI / 180));
+        let xOffset = 0;
+        let yOffset = 0;
+        switch (angle) {
+            case 90:
+                yOffset = -this.cellSize;
+                break;
+            case 180:
+                yOffset = -this.cellSize;
+                xOffset = -this.cellSize;
+                break;
+            case 270:
+                xOffset = -this.cellSize;
+                break;
+            case 360:
+            case 0:
+                break;
+        }
+        this.context.drawImage(this.roverImage, xOffset, yOffset, this.cellSize, this.cellSize);
         this.context.restore();
+    }
 
+    drawRotatedRover(image, x, y, direction) {
+        switch (direction) {
+            case Direction.NORTH:
+                this.drawRotatedImage(image, x, y, 0);
+                break;
+            case Direction.EAST:
+                this.drawRotatedImage(image, x, y, 90);
+                break;
+            case Direction.SOUTH:
+                this.drawRotatedImage(image, x, y, 180);
+                break;
+            case Direction.WEST:
+                this.drawRotatedImage(image, x, y, 270);
+                break;
+        }
     }
 
     writeText(text, color, size, x, y) {

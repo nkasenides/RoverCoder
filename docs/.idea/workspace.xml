@@ -2,13 +2,10 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="2b70388a-6e3f-4ab8-87fa-0a625bb1399b" name="Default Changelist" comment="">
-      <change afterPath="$PROJECT_DIR$/js/Direction.js" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/js/GameGrid.js" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/js/Rover.js" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/js/Move.js" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/js/Position2D.js" beforeDir="false" afterPath="$PROJECT_DIR$/js/Position2D.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/js/Rover.js" beforeDir="false" afterPath="$PROJECT_DIR$/js/Rover.js" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/js/rover-coder.js" beforeDir="false" afterPath="$PROJECT_DIR$/js/rover-coder.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/training.html" beforeDir="false" afterPath="$PROJECT_DIR$/training.html" afterDir="false" />
     </list>
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
     <option name="SHOW_DIALOG" value="false" />
@@ -21,8 +18,8 @@
       <file pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/training.html">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="119">
-              <caret line="7" column="48" lean-forward="true" selection-start-line="7" selection-start-column="48" selection-end-line="7" selection-end-column="48" />
+            <state relative-caret-position="187">
+              <caret line="11" lean-forward="true" selection-start-line="11" selection-end-line="11" />
             </state>
           </provider>
         </entry>
@@ -30,11 +27,12 @@
       <file pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/js/rover-coder.js">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="498">
-              <caret line="121" column="24" selection-start-line="121" selection-start-column="24" selection-end-line="121" selection-end-column="24" />
+            <state relative-caret-position="464">
+              <caret line="124" column="71" lean-forward="true" selection-start-line="124" selection-start-column="71" selection-end-line="124" selection-end-column="71" />
               <folding>
                 <element signature="n#!!doc" expanded="true" />
-                <element signature="e#226#235#0" expanded="true" />
+                <element signature="e#177#220#0" expanded="true" />
+                <element signature="n#!!block;n#drawRotatedImage#0;n#Game#0" />
               </folding>
             </state>
           </provider>
@@ -42,15 +40,6 @@
       </file>
       <file pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/js/GameGrid.js">
-          <provider selected="true" editor-type-id="text-editor">
-            <state>
-              <caret column="7" selection-start-column="7" selection-end-column="7" />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/js/Position2D.js">
           <provider selected="true" editor-type-id="text-editor">
             <state>
               <caret column="7" selection-start-column="7" selection-end-column="7" />
@@ -70,8 +59,11 @@
       <file pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/js/Rover.js">
           <provider selected="true" editor-type-id="text-editor">
-            <state>
-              <caret column="41" selection-start-column="41" selection-end-column="41" />
+            <state relative-caret-position="-420">
+              <caret line="13" column="23" lean-forward="true" selection-start-line="13" selection-start-column="23" selection-end-line="13" selection-end-column="23" />
+              <folding>
+                <element signature="e#0#41#0" expanded="true" />
+              </folding>
             </state>
           </provider>
         </entry>
@@ -124,13 +116,14 @@
         <option value="$PROJECT_DIR$/js/GameGrid.js" />
         <option value="$PROJECT_DIR$/js/Position2D.js" />
         <option value="$PROJECT_DIR$/js/Direction.js" />
-        <option value="$PROJECT_DIR$/js/Rover.js" />
         <option value="$PROJECT_DIR$/training.html" />
+        <option value="$PROJECT_DIR$/js/Move.js" />
+        <option value="$PROJECT_DIR$/js/Rover.js" />
         <option value="$PROJECT_DIR$/js/rover-coder.js" />
       </list>
     </option>
   </component>
-  <component name="ProjectFrameBounds" extendedState="7">
+  <component name="ProjectFrameBounds" extendedState="6">
     <option name="x" value="57" />
     <option name="y" value="-20" />
     <option name="width" value="1939" />
@@ -143,6 +136,7 @@
       <foldersAlwaysOnTop value="true" />
     </navigator>
     <panes>
+      <pane id="Scope" />
       <pane id="ProjectPane">
         <subPane>
           <expand>
@@ -164,7 +158,6 @@
           <select />
         </subPane>
       </pane>
-      <pane id="Scope" />
     </panes>
   </component>
   <component name="PropertiesComponent">
@@ -216,12 +209,13 @@
       <workItem from="1576079213528" duration="1068000" />
       <workItem from="1576578950853" duration="1210000" />
       <workItem from="1576961345475" duration="8279000" />
-      <workItem from="1577004779718" duration="5789000" />
+      <workItem from="1577004779718" duration="6660000" />
+      <workItem from="1577011964790" duration="4792000" />
     </task>
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="14068000" />
+    <option name="totallyTimeSpent" value="19731000" />
   </component>
   <component name="ToolWindowManager">
     <frame x="-8" y="-8" width="1936" height="1056" extended-state="6" />
@@ -308,6 +302,13 @@
         </state>
       </provider>
     </entry>
+    <entry file="file://$APPLICATION_HOME_DIR$/plugins/JavaScriptLanguage/jsLanguageServicesImpl/external/lib.dom.d.ts">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="17">
+          <caret line="3052" column="4" selection-start-line="3052" selection-start-column="4" selection-end-line="3052" selection-end-column="4" />
+        </state>
+      </provider>
+    </entry>
     <entry file="file://$PROJECT_DIR$/js/Position2D.js">
       <provider selected="true" editor-type-id="text-editor">
         <state>
@@ -315,10 +316,10 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/training.html">
+    <entry file="file://$PROJECT_DIR$/js/Move.js">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="119">
-          <caret line="7" column="48" lean-forward="true" selection-start-line="7" selection-start-column="48" selection-end-line="7" selection-end-column="48" />
+        <state relative-caret-position="68">
+          <caret line="4" column="2" selection-start-line="4" selection-start-column="2" selection-end-line="4" selection-end-column="2" />
         </state>
       </provider>
     </entry>
@@ -329,10 +330,10 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/js/Rover.js">
+    <entry file="file://$PROJECT_DIR$/training.html">
       <provider selected="true" editor-type-id="text-editor">
-        <state>
-          <caret column="41" selection-start-column="41" selection-end-column="41" />
+        <state relative-caret-position="187">
+          <caret line="11" lean-forward="true" selection-start-line="11" selection-end-line="11" />
         </state>
       </provider>
     </entry>
@@ -343,20 +344,24 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$APPLICATION_HOME_DIR$/plugins/JavaScriptLanguage/jsLanguageServicesImpl/external/lib.dom.d.ts">
+    <entry file="file://$PROJECT_DIR$/js/Rover.js">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="17">
-          <caret line="3193" column="4" selection-start-line="3193" selection-start-column="4" selection-end-line="3193" selection-end-column="4" />
+        <state relative-caret-position="-420">
+          <caret line="13" column="23" lean-forward="true" selection-start-line="13" selection-start-column="23" selection-end-line="13" selection-end-column="23" />
+          <folding>
+            <element signature="e#0#41#0" expanded="true" />
+          </folding>
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/js/rover-coder.js">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="498">
-          <caret line="121" column="24" selection-start-line="121" selection-start-column="24" selection-end-line="121" selection-end-column="24" />
+        <state relative-caret-position="464">
+          <caret line="124" column="71" lean-forward="true" selection-start-line="124" selection-start-column="71" selection-end-line="124" selection-end-column="71" />
           <folding>
             <element signature="n#!!doc" expanded="true" />
-            <element signature="e#226#235#0" expanded="true" />
+            <element signature="e#177#220#0" expanded="true" />
+            <element signature="n#!!block;n#drawRotatedImage#0;n#Game#0" />
           </folding>
         </state>
       </provider>
