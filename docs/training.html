@@ -9,14 +9,21 @@
     <script src="https://code.jquery.com/jquery-2.1.1.min.js"></script>
     <script src="js/materialize.min.js"></script>
     <script src="js/init.js"></script>
-    <script src="js/Position2D.js"></script>
-    <script src="js/rover-coder.js"></script>
+
+<!--    <script type="module" src="js/rover-coder.js"></script>-->
 </head>
 <body>
 
     <div id="canvasWrapper"></div>
 
-    <script>startGame();</script>
+    <script type="module">
+
+        import {Game} from "./js/rover-coder.js";
+
+        let game = new Game("canvas", 20);
+        game.start();
+
+    </script>
 
 </body>
 </html>
