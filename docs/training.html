@@ -4,13 +4,8 @@
     <meta charset="UTF-8">
     <title>Rover Coder</title>
     <meta name="viewport" content="width=device-width, initial-scale=1">
-    <link rel="stylesheet" href="css/materialize.css">
     <link rel="stylesheet" href="css/style.css">
-    <script src="https://code.jquery.com/jquery-2.1.1.min.js"></script>
-    <script src="js/materialize.min.js"></script>
-    <script src="js/init.js"></script>
-
-<!--    <script type="module" src="js/rover-coder.js"></script>-->
+    <script src="interpreter/acorn_interpreter.js"></script>
 </head>
 <body>
 
@@ -20,8 +15,32 @@
 
         import {Game} from "./js/rover-coder.js";
 
+        //Get player code:
+        let code = sessionStorage.getItem("code");
+        console.log(code);
+
+        function initAPI(interpreter, scope) {
+
+            // Add an API function for the alert() block.
+            let wrapper = function(text) {
+                return alert(arguments.length ? text : '');
+            };
+            interpreter.setProperty(scope, 'alert', interpreter.createNativeFunction(wrapper));
+
+
+
+            // Add an API function for the prompt() block.
+            wrapper = function(text) {
+                return prompt(text);
+            };
+            interpreter.setProperty(scope, 'prompt', interpreter.createNativeFunction(wrapper));
+        }
+
+        let interpreter = new Interpreter(code, initAPI);
+
+        //Start the game:
         let game = new Game("canvas", 20);
-        game.start();
+        game.start(code);
 
     </script>
 

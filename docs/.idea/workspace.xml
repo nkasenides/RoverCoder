@@ -2,10 +2,32 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="2b70388a-6e3f-4ab8-87fa-0a625bb1399b" name="Default Changelist" comment="">
-      <change afterPath="$PROJECT_DIR$/js/Move.js" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/interpreter/.gitignore" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/interpreter/CONTRIBUTING.md" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/interpreter/LICENSE" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/interpreter/README.md" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/interpreter/acorn.js" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/interpreter/acorn_interpreter.js" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/interpreter/demos/async.html" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/interpreter/demos/async.txt" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/interpreter/demos/json.html" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/interpreter/demos/node.js" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/interpreter/demos/regexp.html" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/interpreter/demos/serialize.html" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/interpreter/demos/serialize.js" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/interpreter/demos/style.css" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/interpreter/demos/thread.html" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/interpreter/docs.html" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/interpreter/index.html" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/interpreter/interpreter.js" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/interpreter/logo.png" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/code.html" beforeDir="false" afterPath="$PROJECT_DIR$/code.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/js/GameGrid.js" beforeDir="false" afterPath="$PROJECT_DIR$/js/GameGrid.js" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/js/Rover.js" beforeDir="false" afterPath="$PROJECT_DIR$/js/Rover.js" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/js/rover-coder.js" beforeDir="false" afterPath="$PROJECT_DIR$/js/rover-coder.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/rover-blocks/rover-block-codes.js" beforeDir="false" afterPath="$PROJECT_DIR$/rover-blocks/rover-block-codes.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/training.html" beforeDir="false" afterPath="$PROJECT_DIR$/training.html" afterDir="false" />
     </list>
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
     <option name="SHOW_DIALOG" value="false" />
@@ -13,22 +35,65 @@
     <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
     <option name="LAST_RESOLUTION" value="IGNORE" />
   </component>
+  <component name="FUSProjectUsageTrigger">
+    <session id="1649126110">
+      <usages-collector id="statistics.lifecycle.project">
+        <counts>
+          <entry key="project.open.time.8" value="1" />
+          <entry key="project.opened" value="1" />
+        </counts>
+      </usages-collector>
+      <usages-collector id="statistics.file.extensions.edit">
+        <counts>
+          <entry key="html" value="540" />
+          <entry key="js" value="479" />
+        </counts>
+      </usages-collector>
+      <usages-collector id="statistics.file.types.edit">
+        <counts>
+          <entry key="HTML" value="540" />
+          <entry key="JavaScript" value="479" />
+        </counts>
+      </usages-collector>
+      <usages-collector id="statistics.file.extensions.open">
+        <counts>
+          <entry key="html" value="1" />
+          <entry key="js" value="3" />
+        </counts>
+      </usages-collector>
+      <usages-collector id="statistics.file.types.open">
+        <counts>
+          <entry key="HTML" value="1" />
+          <entry key="JavaScript" value="3" />
+        </counts>
+      </usages-collector>
+    </session>
+  </component>
   <component name="FileEditorManager">
     <leaf SIDE_TABS_SIZE_LIMIT_KEY="300">
       <file pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/training.html">
+        <entry file="file://$PROJECT_DIR$/code.html">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="187">
-              <caret line="11" lean-forward="true" selection-start-line="11" selection-end-line="11" />
+            <state relative-caret-position="628">
+              <caret line="105" selection-start-line="105" selection-end-line="105" />
             </state>
           </provider>
         </entry>
       </file>
       <file pinned="false" current-in-tab="true">
+        <entry file="file://$PROJECT_DIR$/training.html">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="560">
+              <caret line="35" column="53" selection-start-line="35" selection-start-column="53" selection-end-line="35" selection-end-column="53" />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/js/rover-coder.js">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="464">
-              <caret line="124" column="71" lean-forward="true" selection-start-line="124" selection-start-column="71" selection-end-line="124" selection-end-column="71" />
+            <state relative-caret-position="-63">
+              <caret line="41" column="26" lean-forward="true" selection-start-line="41" selection-start-column="26" selection-end-line="41" selection-end-column="26" />
               <folding>
                 <element signature="n#!!doc" expanded="true" />
                 <element signature="e#177#220#0" expanded="true" />
@@ -39,10 +104,10 @@
         </entry>
       </file>
       <file pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/js/GameGrid.js">
+        <entry file="file://$PROJECT_DIR$/rover-blocks/rover-block-codes.js">
           <provider selected="true" editor-type-id="text-editor">
-            <state>
-              <caret column="7" selection-start-column="7" selection-end-column="7" />
+            <state relative-caret-position="548">
+              <caret line="128" column="9" selection-start-line="128" selection-start-column="9" selection-end-line="128" selection-end-column="9" />
             </state>
           </provider>
         </entry>
@@ -59,8 +124,8 @@
       <file pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/js/Rover.js">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="-420">
-              <caret line="13" column="23" lean-forward="true" selection-start-line="13" selection-start-column="23" selection-end-line="13" selection-end-column="23" />
+            <state relative-caret-position="548">
+              <caret line="83" column="32" selection-start-line="83" selection-start-column="32" selection-end-line="83" selection-end-column="32" />
               <folding>
                 <element signature="e#0#41#0" expanded="true" />
               </folding>
@@ -71,7 +136,7 @@
       <file pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/css/style.css">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="170">
+            <state relative-caret-position="160">
               <caret line="10" column="1" selection-start-line="10" selection-start-column="1" selection-end-line="10" selection-end-column="1" />
             </state>
           </provider>
@@ -96,6 +161,7 @@
       <find>selectRandom</find>
       <find>dra</find>
       <find>resize</find>
+      <find>jscode</find>
     </findStrings>
     <replaceStrings>
       <replace>let</replace>
@@ -107,27 +173,39 @@
   <component name="IdeDocumentHistory">
     <option name="CHANGED_PATHS">
       <list>
-        <option value="$PROJECT_DIR$/code.html" />
         <option value="$PROJECT_DIR$/index.html" />
         <option value="$PROJECT_DIR$/js/game.js" />
         <option value="$PROJECT_DIR$/css/style.css" />
         <option value="$PROJECT_DIR$/js/Image.js" />
         <option value="$PROJECT_DIR$/js/rover.js" />
-        <option value="$PROJECT_DIR$/js/GameGrid.js" />
         <option value="$PROJECT_DIR$/js/Position2D.js" />
         <option value="$PROJECT_DIR$/js/Direction.js" />
-        <option value="$PROJECT_DIR$/training.html" />
         <option value="$PROJECT_DIR$/js/Move.js" />
+        <option value="$PROJECT_DIR$/js/GameGrid.js" />
         <option value="$PROJECT_DIR$/js/Rover.js" />
         <option value="$PROJECT_DIR$/js/rover-coder.js" />
+        <option value="$PROJECT_DIR$/rover-blocks/rover-block-codes.js" />
+        <option value="$PROJECT_DIR$/code.html" />
+        <option value="$PROJECT_DIR$/training.html" />
       </list>
     </option>
   </component>
+  <component name="JsBuildToolGruntFileManager" detection-done="true" sorting="DEFINITION_ORDER" />
+  <component name="JsBuildToolPackageJson" detection-done="true" sorting="DEFINITION_ORDER" />
+  <component name="JsGulpfileManager">
+    <detection-done>true</detection-done>
+    <sorting>DEFINITION_ORDER</sorting>
+  </component>
+  <component name="NodePackageJsonFileManager">
+    <packageJsonPaths>
+      <path value="$PROJECT_DIR$/blockly/package.json" />
+    </packageJsonPaths>
+  </component>
   <component name="ProjectFrameBounds" extendedState="6">
-    <option name="x" value="57" />
-    <option name="y" value="-20" />
-    <option name="width" value="1939" />
-    <option name="height" value="1059" />
+    <option name="x" value="56" />
+    <option name="y" value="-21" />
+    <option name="width" value="1941" />
+    <option name="height" value="1060" />
   </component>
   <component name="ProjectId" id="1UqLWSHf8kgLXdrmVGDhJeXEB4c" />
   <component name="ProjectLevelVcsManager" settingsEditedManually="true" />
@@ -154,6 +232,11 @@
               <item name="docs" type="462c0819:PsiDirectoryNode" />
               <item name="js" type="462c0819:PsiDirectoryNode" />
             </path>
+            <path>
+              <item name="docs" type="b2602c69:ProjectViewProjectNode" />
+              <item name="docs" type="462c0819:PsiDirectoryNode" />
+              <item name="rover-blocks" type="462c0819:PsiDirectoryNode" />
+            </path>
           </expand>
           <select />
         </subPane>
@@ -164,7 +247,7 @@
     <property name="DefaultHtmlFileTemplate" value="HTML File" />
     <property name="SHARE_PROJECT_CONFIGURATION_FILES" value="true" />
     <property name="WebServerToolWindowFactoryState" value="false" />
-    <property name="last_opened_file_path" value="$PROJECT_DIR$/images" />
+    <property name="last_opened_file_path" value="$PROJECT_DIR$" />
     <property name="node.js.detected.package.eslint" value="true" />
     <property name="node.js.detected.package.tslint" value="true" />
     <property name="node.js.path.for.package.eslint" value="project" />
@@ -178,6 +261,7 @@
   </component>
   <component name="RecentsManager">
     <key name="CopyFile.RECENT_KEYS">
+      <recent name="C:\Users\hfnov\Desktop\Projects\rovercoder\docs" />
       <recent name="D:\Users\hfnov\Software Development\Projects\RoverCoder\docs\images" />
       <recent name="D:\Users\hfnov\Software Development\Projects\RoverCoder\client\rover-blocks" />
       <recent name="D:\Users\hfnov\Software Development\Projects\RoverCoder\client" />
@@ -211,17 +295,18 @@
       <workItem from="1576961345475" duration="8279000" />
       <workItem from="1577004779718" duration="6660000" />
       <workItem from="1577011964790" duration="4792000" />
+      <workItem from="1577124347871" duration="3767000" />
     </task>
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="19731000" />
+    <option name="totallyTimeSpent" value="23498000" />
   </component>
   <component name="ToolWindowManager">
-    <frame x="-8" y="-8" width="1936" height="1056" extended-state="6" />
+    <frame x="-7" y="-7" width="1753" height="954" extended-state="6" />
     <editor active="true" />
     <layout>
-      <window_info active="true" content_ui="combo" id="Project" order="0" visible="true" weight="0.24973656" />
+      <window_info active="true" content_ui="combo" id="Project" order="0" visible="true" weight="0.24927199" />
       <window_info id="Structure" order="1" side_tool="true" weight="0.25" />
       <window_info id="Favorites" order="2" side_tool="true" />
       <window_info anchor="bottom" id="Message" order="0" />
@@ -261,20 +346,9 @@
         </entry>
       </map>
     </option>
-    <option name="RECENT_FILTERS">
-      <map>
-        <entry key="Branch">
-          <value>
-            <list />
-          </value>
-        </entry>
-        <entry key="User">
-          <value>
-            <list />
-          </value>
-        </entry>
-      </map>
-    </option>
+  </component>
+  <component name="VcsContentAnnotationSettings">
+    <option name="myLimit" value="2678400000" />
   </component>
   <component name="editorHistoryManager">
     <entry file="file://$PROJECT_DIR$/index.html">
@@ -284,24 +358,10 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/code.html">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="340">
-          <caret line="20" column="48" selection-start-line="20" selection-start-column="48" selection-end-line="20" selection-end-column="48" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/../../../../Office 365/Nearchos Paspallis [UCLan Cyprus Ltd] Computing and Mathematics - CO1111 restructure/2019-20/[Worksheets]/04b.HTML5 Games [optional]/Solutions/Spectrum - Solved/js/Block.js">
+    <entry file="file://$USER_HOME$/Office 365/Nearchos Paspallis [UCLan Cyprus Ltd] Computing and Mathematics - CO1111 restructure/2019-20/[Worksheets]/04b.HTML5 Games [optional]/Solutions/Spectrum - Solved/js/Block.js">
       <provider selected="true" editor-type-id="text-editor" />
     </entry>
     <entry file="file://$PROJECT_DIR$/js/Image.js" />
-    <entry file="file://$PROJECT_DIR$/css/style.css">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="170">
-          <caret line="10" column="1" selection-start-line="10" selection-start-column="1" selection-end-line="10" selection-end-column="1" />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$APPLICATION_HOME_DIR$/plugins/JavaScriptLanguage/jsLanguageServicesImpl/external/lib.dom.d.ts">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="17">
@@ -323,6 +383,33 @@
         </state>
       </provider>
     </entry>
+    <entry file="file://$PROJECT_DIR$/css/style.css">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="160">
+          <caret line="10" column="1" selection-start-line="10" selection-start-column="1" selection-end-line="10" selection-end-column="1" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/js/GameGrid.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="48">
+          <caret line="3" column="25" selection-start-line="3" selection-start-column="25" selection-end-line="3" selection-end-column="25" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/js/Rover.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="548">
+          <caret line="83" column="32" selection-start-line="83" selection-start-column="32" selection-end-line="83" selection-end-column="32" />
+          <folding>
+            <element signature="e#0#41#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/interpreter/demos/node.js">
+      <provider selected="true" editor-type-id="text-editor" />
+    </entry>
     <entry file="file://$PROJECT_DIR$/js/Direction.js">
       <provider selected="true" editor-type-id="text-editor">
         <state>
@@ -330,39 +417,43 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/training.html">
+    <entry file="file://$PROJECT_DIR$/rover-blocks/rover-block-codes.js">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="187">
-          <caret line="11" lean-forward="true" selection-start-line="11" selection-end-line="11" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/js/GameGrid.js">
-      <provider selected="true" editor-type-id="text-editor">
-        <state>
-          <caret column="7" selection-start-column="7" selection-end-column="7" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/js/Rover.js">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="-420">
-          <caret line="13" column="23" lean-forward="true" selection-start-line="13" selection-start-column="23" selection-end-line="13" selection-end-column="23" />
-          <folding>
-            <element signature="e#0#41#0" expanded="true" />
-          </folding>
+        <state relative-caret-position="548">
+          <caret line="128" column="9" selection-start-line="128" selection-start-column="9" selection-end-line="128" selection-end-column="9" />
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/js/rover-coder.js">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="464">
-          <caret line="124" column="71" lean-forward="true" selection-start-line="124" selection-start-column="71" selection-end-line="124" selection-end-column="71" />
+        <state relative-caret-position="-63">
+          <caret line="41" column="26" lean-forward="true" selection-start-line="41" selection-start-column="26" selection-end-line="41" selection-end-column="26" />
           <folding>
             <element signature="n#!!doc" expanded="true" />
             <element signature="e#177#220#0" expanded="true" />
             <element signature="n#!!block;n#drawRotatedImage#0;n#Game#0" />
           </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/code.html">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="628">
+          <caret line="105" selection-start-line="105" selection-end-line="105" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/interpreter/interpreter.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="265">
+          <caret line="31" column="4" selection-start-line="31" selection-start-column="4" selection-end-line="31" selection-end-column="4" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/training.html">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="560">
+          <caret line="35" column="53" selection-start-line="35" selection-start-column="53" selection-end-line="35" selection-end-column="53" />
         </state>
       </provider>
     </entry>

@@ -67,16 +67,24 @@ export class Rover {
     moveForward() {
         switch (this.direction) {
             case Direction.NORTH:
-                this.position.y = this.position.y - 1;
+                if (this.position.y - 1 >= 0) {
+                    this.position.y = this.position.y - 1;
+                }
                 break;
             case Direction.SOUTH:
-                this.position.y = this.position.y + 1;
+                if (this.position.y + 1 < this.gameGrid.size) {
+                    this.position.y = this.position.y + 1;
+                }
                 break;
             case Direction.WEST:
-                this.position.x = this.position.x - 1;
+                if (this.position.x - 1 >= 0) {
+                    this.position.x = this.position.x - 1;
+                }
                 break;
             case Direction.EAST:
-                this.position.x = this.position.x + 1;
+                if (this.position.x + 1 < this.gameGrid.size) {
+                    this.position.x = this.position.x + 1;
+                }
                 break;
         }
     }

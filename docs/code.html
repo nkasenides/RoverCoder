@@ -36,7 +36,9 @@
     </div>
 </div>
 
-<a class="btn waves-effect green white-text" onclick="compile()">Compile to JS</a>
+<a class="btn waves-effect purple white-text" onclick="compile()">Compile to JS</a>
+<a class="btn waves-effect green white-text" onclick="runTraining(code)">Run in training</a>
+
 
 <div id="code" style="font-family: 'Courier New',serif;"></div>
 
@@ -44,6 +46,7 @@
 
     const codeElement = document.getElementById("code");
     let workspace = null;
+    let code;
 
     /**
      * Loads the toolbox from rover-toolbox.xml into the page.
@@ -90,11 +93,18 @@
     }
 
     function compile() {
-        const jsCode = Blockly.JavaScript.workspaceToCode(workspace);
-        codeElement.innerText = jsCode;
+        code = Blockly.JavaScript.workspaceToCode(workspace);
+        codeElement.innerText = code;
     }
 
+    function runTraining(code) {
+        sessionStorage.setItem("code", processCode(code));
+        document.location.href = "training.html";
+    }
 
+    function processCode(code) {
+
+    }
 
 </script>
 

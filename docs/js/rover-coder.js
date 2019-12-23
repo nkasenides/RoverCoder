@@ -42,28 +42,36 @@ export class Game {
         this.cellSize = 0;
     }
 
-    start() {
+    start(code) {
         this.resize();
         this.initializeScene();
         const game = this;
-        this.updateSceneInterval = setInterval(this.updateScene, UPDATE_DELAY, game); //Set an interval at which to update the screen
+        this.updateSceneInterval = setInterval(this.updateScene, UPDATE_DELAY, game, code); //Set an interval at which to update the screen
     }
 
     initializeScene() {
-
         //TODO REMOVE:
         console.log(this.startPosition.x + " " + this.startPosition.y);
         console.log(this.finishPosition.x + " " + this.finishPosition.y);
         console.log(this.roverImage.width + " " + this.roverImage.height);
     }
 
-    updateScene(game) {
+    updateScene(game, code) {
 
         //--- Step 1 - Clear scene:
         game.context.clearRect(0, 0, game.canvas.width, game.canvas.height); //Clear the scene
 
         //--- Step 2 - Game logic:
-        game.rover.doMove(Move.MOVE_FORWARD);
+        let random = Math.random();
+        let move;
+        if (random < 0.5) {
+            move = Move.MOVE_FORWARD;
+        }
+        else {
+            move = Move.TURN_CLOCKWISE;
+        }
+        console.log(move);
+        game.rover.doMove(move);
 
         //--- Step 3 - Re-draw scene:
 
