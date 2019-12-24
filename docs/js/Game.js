@@ -17,15 +17,15 @@ import {GameState} from "./GameState.js";
 //Constants:
 export const CONTEXT = "2d";
 export const DEFAULT_SIZE = 500;
-export const NUM_OF_CELLS = 20;
 export const UPDATE_DELAY = 1000;
 
 const ROVER_IMAGE_PATH = "images/ev3.png";
 
 export class Game {
 
-    constructor(size) {
-        this.size = size;
+    constructor(width, height) {
+        this.width= width;
+        this.height = height;
         this.canvas = document.createElement("canvas"); //Create the HTML canvas element
         document.getElementById("canvasWrapper").appendChild(this.canvas);
         this.canvas.style.backgroundColor = "lightgrey";
@@ -36,12 +36,13 @@ export class Game {
 
     setup() {
         this.currentScale = 1;
-        this.gameGrid = new GameGrid(NUM_OF_CELLS);
-        this.startPosition = Game.selectRandomStartPosition();
-        this.finishPosition = Game.getFinishPosition(this.startPosition);
+        this.gameGrid = new GameGrid(this.width, this.height);
+        this.startPosition = this.selectRandomStartPosition();
+        this.finishPosition = this.getFinishPosition(this.startPosition);
         this.rover = new Rover(this.startPosition, this.gameGrid);
         this.roverImage = importImage(ROVER_IMAGE_PATH);
-        this.cellSize = 0;
+        this.cellSizeWidth = 0;
+        this.cellSizeHeight = 0;
     }
 
     start() {
@@ -52,12 +53,7 @@ export class Game {
         this.updateSceneInterval = setInterval(this.updateScene, UPDATE_DELAY, game); //Set an interval at which to update the screen
     }
 
-    initializeScene() {
-        //TODO REMOVE:
-        // console.log(this.startPosition.x + " " + this.startPosition.y);
-        // console.log(this.finishPosition.x + " " + this.finishPosition.y);
-        // console.log(this.roverImage.width + " " + this.roverImage.height);
-    }
+    initializeScene() { }
 
     updateScene(game) {
 
@@ -71,11 +67,13 @@ export class Game {
             //Draw the grid:
             game.drawGrid();
 
+            game.rover.moveForward();
+
             //Draw starting/finish positions:
             game.context.fillStyle = "lightgreen";
-            game.context.fillRect(game.getCoordinateFromPosition(game.startPosition.x), game.getCoordinateFromPosition(game.startPosition.y), game.cellSize, game.cellSize);
+            game.context.fillRect(game.getXCoordinateFromPosition(game.startPosition.x), game.getYCoordinateFromPosition(game.startPosition.y), game.cellSizeWidth, game.cellSizeHeight);
             game.context.fillStyle = "red";
-            game.context.fillRect(game.getCoordinateFromPosition(game.finishPosition.x), game.getCoordinateFromPosition(game.finishPosition.y), game.cellSize, game.cellSize);
+            game.context.fillRect(game.getXCoordinateFromPosition(game.finishPosition.x), game.getYCoordinateFromPosition(game.finishPosition.y), game.cellSizeWidth, game.cellSizeHeight);
 
             //Draw the robot:
             game.drawRover();
@@ -91,26 +89,31 @@ export class Game {
     resize() {
         const width = window.innerWidth;
         const height = window.innerHeight;
-        const scaledSize = Math.min(height, width);
+        const scaledSize = Math.min(height, width) - 20;
         this.currentScale = DEFAULT_SIZE / scaledSize;
-        this.canvas.width = scaledSize;
+        this.canvas.width = scaledSize * 1.5;
         this.canvas.height = scaledSize;
-        this.cellSize = scaledSize / NUM_OF_CELLS;
-        this.roverImage.width = this.cellSize; //TODO NOT SURE IF WORKING
-        this.roverImage.height = this.cellSize; //TODO NOT SURE IF WORKING
+        this.cellSizeWidth = scaledSize / this.width * 1.5;
+        this.cellSizeHeight = scaledSize / this.height;
+        this.roverImage.width = this.cellSizeWidth; //TODO NOT SURE IF WORKING
+        this.roverImage.height = this.cellSizeHeight; //TODO NOT SURE IF WORKING
     }
 
-    getCoordinateFromPosition(position) {
-        return position * this.cellSize;
+    getXCoordinateFromPosition(position) {
+        return position * this.cellSizeWidth;
+    }
+
+    getYCoordinateFromPosition(position) {
+        return position * this.cellSizeHeight;
     }
 
     drawGrid() {
-        for (let x = 0; x < NUM_OF_CELLS * this.cellSize; x += this.cellSize) {
+        for (let x = 0; x < this.width * this.cellSizeWidth; x += this.cellSizeWidth) {
             this.context.moveTo(x, 0);
             this.context.lineTo(x, this.canvas.height);
         }
 
-        for (let y = 0; y < NUM_OF_CELLS * this.cellSize; y += this.cellSize) {
+        for (let y = 0; y < this.height * this.cellSizeHeight; y += this.cellSizeHeight) {
             this.context.moveTo(0, y);
             this.context.lineTo(this.canvas.width, y);
         }
@@ -123,10 +126,10 @@ export class Game {
         let xCoord = 0;
         let yCoord = 0;
         if (this.startPosition.x > 0) {
-            xCoord = this.getCoordinateFromPosition(this.rover.position.x);
+            xCoord = this.getXCoordinateFromPosition(this.rover.position.x);
         }
         if (this.startPosition.y > 0) {
-            yCoord = this.getCoordinateFromPosition(this.rover.position.y);
+            yCoord = this.getYCoordinateFromPosition(this.rover.position.y);
         }
         this.drawRotatedRover(this.roverImage, xCoord, yCoord, this.rover.direction);
     }
@@ -140,20 +143,20 @@ export class Game {
         let yOffset = 0;
         switch (angle) {
             case 90:
-                yOffset = -this.cellSize;
+                yOffset = -this.cellSizeHeight;
                 break;
             case 180:
-                yOffset = -this.cellSize;
-                xOffset = -this.cellSize;
+                yOffset = -this.cellSizeHeight;
+                xOffset = -this.cellSizeWidth;
                 break;
             case 270:
-                xOffset = -this.cellSize;
+                xOffset = -this.cellSizeWidth;
                 break;
             case 360:
             case 0:
                 break;
         }
-        this.context.drawImage(this.roverImage, xOffset, yOffset, this.cellSize, this.cellSize);
+        this.context.drawImage(this.roverImage, xOffset, yOffset, this.cellSizeWidth, this.cellSizeHeight);
         this.context.restore();
     }
 
@@ -182,30 +185,30 @@ export class Game {
         this.context.fillStyle = previousStyle;
     }
 
-    static selectRandomStartPosition() {
+    selectRandomStartPosition() {
         let xOrY0 = Math.random();
         if (xOrY0 > 0.5) {
             let x = 0;
             let maxIt = Math.random();
             if (maxIt > 0.5) {
-                x = NUM_OF_CELLS - 1;
+                x = this.width - 1;
             }
-            let y = Math.floor(Math.random() * NUM_OF_CELLS);
+            let y = Math.floor(Math.random() * this.height);
             return new Position2D(x, y);
         }
         else {
-            let x = Math.floor(Math.random() * NUM_OF_CELLS);
+            let x = Math.floor(Math.random() * this.width);
             let y = 0;
             let maxIt = Math.random();
             if (maxIt > 0.5) {
-                y = NUM_OF_CELLS - 1;
+                y = this.height - 1;
             }
             return new Position2D(x, y);
         }
     }
 
-    static getFinishPosition(startPosition) {
-        return new Position2D(NUM_OF_CELLS - startPosition.x - 1, NUM_OF_CELLS - startPosition.y - 1);
+    getFinishPosition(startPosition) {
+        return new Position2D(this.width - startPosition.x - 1, this.height - startPosition.y - 1);
     }
 
 }

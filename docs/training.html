@@ -16,8 +16,12 @@
         import {Game} from "./js/Game.js";
 
         //Start the game:
-        let game = new Game(20);
+        let game = new Game(30, 20);
         game.start();
+
+        window.addEventListener("orientationchange", function() {
+            game.resize();
+        }, false);
 
     </script>
 
