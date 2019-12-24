@@ -13,34 +13,11 @@
 
     <script type="module">
 
-        import {Game} from "./js/rover-coder.js";
-
-        //Get player code:
-        let code = sessionStorage.getItem("code");
-        console.log(code);
-
-        function initAPI(interpreter, scope) {
-
-            // Add an API function for the alert() block.
-            let wrapper = function(text) {
-                return alert(arguments.length ? text : '');
-            };
-            interpreter.setProperty(scope, 'alert', interpreter.createNativeFunction(wrapper));
-
-
-
-            // Add an API function for the prompt() block.
-            wrapper = function(text) {
-                return prompt(text);
-            };
-            interpreter.setProperty(scope, 'prompt', interpreter.createNativeFunction(wrapper));
-        }
-
-        let interpreter = new Interpreter(code, initAPI);
+        import {Game} from "./js/Game.js";
 
         //Start the game:
-        let game = new Game("canvas", 20);
-        game.start(code);
+        let game = new Game(20);
+        game.start();
 
     </script>
 

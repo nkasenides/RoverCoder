@@ -1,19 +1,16 @@
 Blockly.JavaScript['move_forward'] = function (block) {
   //TODO Change the package
-    var code = "return Move.MOVE_FORWARD;\n";
-    return code;
+    return "return 'MOVE_FORWARD';\n";
 };
 
 Blockly.JavaScript['turn_anticlockwise'] = function (block) {
   //TODO Change the package
-    var code = "return Move.TURN_ANTICLOCKWISE;\n";
-  return code;
+    return "return 'TURN_ANTICLOCKWISE';\n";
 };
 
 Blockly.JavaScript['turn_clockwise'] = function (block) {
   //TODO Change the package
-    var code = "return Move.TURN_CLOCKWISE;\n";
-    return code;
+    return "return 'TURN_CLOCKWISE';\n";
 };
 
 Blockly.JavaScript['direction_north'] = function (block) {
@@ -126,12 +123,13 @@ Blockly.JavaScript['initialize'] = function (block) {
   var statements_init = Blockly.JavaScript.statementToCode(block, 'initialize');
   var code = "function init() {\n" +
       statements_init +
-      "\n}/*end init()*/\n\n";
+      "\n}//%end init\n\n";
   return code;
 };
 
 Blockly.JavaScript['run'] = function (block) {
   var statements_run = Blockly.JavaScript.statementToCode(block, 'run');
-  var code = "function run() {\n" + statements_run + "\n}/*end run()*/\n";
+  var code = "function run() {\n" + statements_run +
+      "\n}//%end run\n";
   return code;
 };

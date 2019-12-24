@@ -12,6 +12,7 @@ import {Rover} from "./Rover.js";
 import {GameGrid} from "./GameGrid.js";
 import {Direction} from "./Direction.js";
 import {Move} from "./Move.js";
+import {GameState} from "./GameState.js";
 
 //Constants:
 export const CONTEXT = "2d";
@@ -23,12 +24,13 @@ const ROVER_IMAGE_PATH = "images/ev3.png";
 
 export class Game {
 
-    constructor(canvasID, size) {
+    constructor(size) {
         this.size = size;
-        this.canvas = document.createElement(canvasID); //Create the HTML canvas element
+        this.canvas = document.createElement("canvas"); //Create the HTML canvas element
         document.getElementById("canvasWrapper").appendChild(this.canvas);
         this.canvas.style.backgroundColor = "lightgrey";
         this.context = this.canvas.getContext(CONTEXT); //Get the context of the canvas (2D)
+        this.gameState = GameState.INIT;
         this.setup();
     }
 
@@ -42,51 +44,47 @@ export class Game {
         this.cellSize = 0;
     }
 
-    start(code) {
+    start() {
         this.resize();
         this.initializeScene();
         const game = this;
-        this.updateSceneInterval = setInterval(this.updateScene, UPDATE_DELAY, game, code); //Set an interval at which to update the screen
+        this.gameState = GameState.STARTED;
+        this.updateSceneInterval = setInterval(this.updateScene, UPDATE_DELAY, game); //Set an interval at which to update the screen
     }
 
     initializeScene() {
         //TODO REMOVE:
-        console.log(this.startPosition.x + " " + this.startPosition.y);
-        console.log(this.finishPosition.x + " " + this.finishPosition.y);
-        console.log(this.roverImage.width + " " + this.roverImage.height);
+        // console.log(this.startPosition.x + " " + this.startPosition.y);
+        // console.log(this.finishPosition.x + " " + this.finishPosition.y);
+        // console.log(this.roverImage.width + " " + this.roverImage.height);
     }
 
-    updateScene(game, code) {
+    updateScene(game) {
 
-        //--- Step 1 - Clear scene:
+        //Clear scene:
         game.context.clearRect(0, 0, game.canvas.width, game.canvas.height); //Clear the scene
 
-        //--- Step 2 - Game logic:
-        let random = Math.random();
-        let move;
-        if (random < 0.5) {
-            move = Move.MOVE_FORWARD;
+        if (game.gameState === GameState.FINISHED) {
+            this.writeText("Game Over", "green", 0, 0);
         }
         else {
-            move = Move.TURN_CLOCKWISE;
+            //Draw the grid:
+            game.drawGrid();
+
+            //Draw starting/finish positions:
+            game.context.fillStyle = "lightgreen";
+            game.context.fillRect(game.getCoordinateFromPosition(game.startPosition.x), game.getCoordinateFromPosition(game.startPosition.y), game.cellSize, game.cellSize);
+            game.context.fillStyle = "red";
+            game.context.fillRect(game.getCoordinateFromPosition(game.finishPosition.x), game.getCoordinateFromPosition(game.finishPosition.y), game.cellSize, game.cellSize);
+
+            //Draw the robot:
+            game.drawRover();
         }
-        console.log(move);
-        game.rover.doMove(move);
+    }
 
-        //--- Step 3 - Re-draw scene:
-
-        //Draw the grid:
-        game.drawGrid();
-
-        //Draw starting/finish positions:
-        game.context.fillStyle = "lightgreen";
-        game.context.fillRect(game.getCoordinateFromPosition(game.startPosition.x), game.getCoordinateFromPosition(game.startPosition.y), game.cellSize, game.cellSize);
-        game.context.fillStyle = "red";
-        game.context.fillRect(game.getCoordinateFromPosition(game.finishPosition.x), game.getCoordinateFromPosition(game.finishPosition.y), game.cellSize, game.cellSize);
-
-        //Draw the robot:
-        game.drawRover();
-
+    makeMove(move) {
+        // console.log(move);
+        this.rover.doMove(move);
     }
 
     /*------------------------ UTIL FUNCTIONS --------------------*/
@@ -135,7 +133,6 @@ export class Game {
 
     //Kept as generic:
     drawRotatedImage(image, x, y, angle) {
-        console.log("X,Y: " + x + ", " + y);
         this.context.save();
         this.context.translate(x, y);
         this.context.rotate(angle * (Math.PI / 180));
