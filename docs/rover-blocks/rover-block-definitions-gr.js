@@ -1,10 +1,10 @@
 Blockly.Blocks['move_forward'] = {
     init: function() {
         this.appendDummyInput()
-            .appendField("Move Forward");
+            .appendField("Προχώρα");
         this.setPreviousStatement(true, null);
         this.setColour(230);
-        this.setTooltip("Move forward.");
+        this.setTooltip("Προχώρα μπροστά");
         this.setHelpUrl("");
     }
 };
@@ -12,10 +12,10 @@ Blockly.Blocks['move_forward'] = {
 Blockly.Blocks['direction_north'] = {
     init: function() {
         this.appendDummyInput()
-            .appendField("North");
+            .appendField("Βορράς");
         this.setOutput(true, "Direction");
         this.setColour(60);
-        this.setTooltip("Direction North.");
+        this.setTooltip("Βορράς.");
         this.setHelpUrl("");
     }
 };
@@ -23,10 +23,10 @@ Blockly.Blocks['direction_north'] = {
 Blockly.Blocks['direction_south'] = {
     init: function() {
         this.appendDummyInput()
-            .appendField("South");
+            .appendField("Νότος");
         this.setOutput(true, "Direction");
         this.setColour(60);
-        this.setTooltip("Direction South.");
+        this.setTooltip("Νότος.");
         this.setHelpUrl("");
     }
 };
@@ -34,10 +34,10 @@ Blockly.Blocks['direction_south'] = {
 Blockly.Blocks['direction_east'] = {
     init: function() {
         this.appendDummyInput()
-            .appendField("East");
+            .appendField("Ανατολή");
         this.setOutput(true, "Direction");
         this.setColour(60);
-        this.setTooltip("Direction East.");
+        this.setTooltip("Ανατολή.");
         this.setHelpUrl("");
     }
 };
@@ -45,10 +45,10 @@ Blockly.Blocks['direction_east'] = {
 Blockly.Blocks['direction_west'] = {
     init: function() {
         this.appendDummyInput()
-            .appendField("West");
+            .appendField("Δύση");
         this.setOutput(true, "Direction");
         this.setColour(60);
-        this.setTooltip("Direction West.");
+        this.setTooltip("Δύση.");
         this.setHelpUrl("");
     }
 };
@@ -56,10 +56,10 @@ Blockly.Blocks['direction_west'] = {
 Blockly.Blocks['scan_color'] = {
     init: function() {
         this.appendDummyInput()
-            .appendField("Scan color");
+            .appendField("Ανίχνευση χρώματος");
         this.setOutput(true, "Color");
         this.setColour(230);
-        this.setTooltip("Scan color.");
+        this.setTooltip("Ανίχνευση χρώματος");
         this.setHelpUrl("");
     }
 };
@@ -67,10 +67,10 @@ Blockly.Blocks['scan_color'] = {
 Blockly.Blocks['color_none'] = {
     init: function() {
         this.appendDummyInput()
-            .appendField("No Color");
+            .appendField("Κανένα χρώμα");
         this.setOutput(true, "Color");
         this.setColour(60);
-        this.setTooltip("Color None.");
+        this.setTooltip("Κανένα χρώμα.");
         this.setHelpUrl("");
     }
 };
@@ -78,10 +78,10 @@ Blockly.Blocks['color_none'] = {
 Blockly.Blocks['color_black'] = {
     init: function() {
         this.appendDummyInput()
-            .appendField("Black");
+            .appendField("Μαύρο");
         this.setOutput(true, "Color");
         this.setColour(60);
-        this.setTooltip("Color Black.");
+        this.setTooltip("Μαύρο.");
         this.setHelpUrl("");
     }
 };
@@ -89,10 +89,10 @@ Blockly.Blocks['color_black'] = {
 Blockly.Blocks['color_blue'] = {
     init: function() {
         this.appendDummyInput()
-            .appendField("Blue");
+            .appendField("Μπλέ");
         this.setOutput(true, "Color");
         this.setColour(60);
-        this.setTooltip("Color Blue.");
+        this.setTooltip("Μπλέ.");
         this.setHelpUrl("");
     }
 };
@@ -100,10 +100,10 @@ Blockly.Blocks['color_blue'] = {
 Blockly.Blocks['color_green'] = {
     init: function() {
         this.appendDummyInput()
-            .appendField("Green");
+            .appendField("Πράσινο");
         this.setOutput(true, "Color");
         this.setColour(60);
-        this.setTooltip("Color Green.");
+        this.setTooltip("Πράσινο.");
         this.setHelpUrl("");
     }
 };
@@ -111,10 +111,10 @@ Blockly.Blocks['color_green'] = {
 Blockly.Blocks['color_yellow'] = {
     init: function() {
         this.appendDummyInput()
-            .appendField("Yellow");
+            .appendField("Κίτρινο");
         this.setOutput(true, "Color");
         this.setColour(60);
-        this.setTooltip("Color Yellow.");
+        this.setTooltip("Κίτρινο.");
         this.setHelpUrl("");
     }
 };
@@ -122,10 +122,10 @@ Blockly.Blocks['color_yellow'] = {
 Blockly.Blocks['color_red'] = {
     init: function() {
         this.appendDummyInput()
-            .appendField("Red");
+            .appendField("Κόκκινο");
         this.setOutput(true, "Color");
         this.setColour(60);
-        this.setTooltip("Color Red.");
+        this.setTooltip("Κόκκινο.");
         this.setHelpUrl("");
     }
 };
@@ -133,10 +133,10 @@ Blockly.Blocks['color_red'] = {
 Blockly.Blocks['color_white'] = {
     init: function() {
         this.appendDummyInput()
-            .appendField("White");
+            .appendField("Άσπρο");
         this.setOutput(true, "Color");
         this.setColour(60);
-        this.setTooltip("Color White.");
+        this.setTooltip("Άσπρο.");
         this.setHelpUrl("");
     }
 };
@@ -144,10 +144,10 @@ Blockly.Blocks['color_white'] = {
 Blockly.Blocks['color_brown'] = {
     init: function() {
         this.appendDummyInput()
-            .appendField("Brown");
+            .appendField("Καφέ");
         this.setOutput(true, "Color");
         this.setColour(60);
-        this.setTooltip("Color Brown.");
+        this.setTooltip("Καφέ.");
         this.setHelpUrl("");
     }
 };
@@ -155,10 +155,10 @@ Blockly.Blocks['color_brown'] = {
 Blockly.Blocks['get_direction'] = {
     init: function() {
         this.appendDummyInput()
-            .appendField("Get Direction");
+            .appendField("Κατεύθυνση");
         this.setOutput(true, "Direction");
         this.setColour(230);
-        this.setTooltip("Returns the direction (North, East, West, South) the rover is facing to.");
+        this.setTooltip("Επιστρέφει την κατεύθυνση (Βορράς, Ανατολή, Δύση, Νότος) στην οποία είναι στραμμένο το Rover.");
         this.setHelpUrl("");
     }
 };
@@ -166,10 +166,10 @@ Blockly.Blocks['get_direction'] = {
 Blockly.Blocks['get_distance'] = {
     init: function() {
         this.appendDummyInput()
-            .appendField("Get Distance");
+            .appendField("Απόσταση");
         this.setOutput(true, "Number");
         this.setColour(230);
-        this.setTooltip("Returns the distance to obstruction.");
+        this.setTooltip("Επιστρέφει την απόσταση στην οποία έχει ανιχνευτεί εμπόδιο.");
         this.setHelpUrl("");
     }
 };
@@ -177,11 +177,11 @@ Blockly.Blocks['get_distance'] = {
 Blockly.Blocks['run'] = {
     init: function() {
         this.appendDummyInput()
-            .appendField("Run");
+            .appendField("Εκτέλεση");
         this.appendStatementInput("run")
             .setCheck(null);
         this.setColour(300);
-        this.setTooltip("Run commands to explore Mars.");
+        this.setTooltip("Εκτελεί εντολές για την εξερεύνηση του πλανήτη Άρη.");
         this.setHelpUrl("");
     }
 };
@@ -190,7 +190,7 @@ Blockly.Blocks['move_forward_param'] = {
     init: function() {
         this.appendValueInput("time")
             .setCheck("Number")
-            .appendField("Move Forward");
+            .appendField("Προχώρα");
         this.setInputsInline(true);
         this.setPreviousStatement(true, null);
         this.setColour(230);
@@ -202,10 +202,10 @@ Blockly.Blocks['move_forward_param'] = {
 Blockly.Blocks['turn_left'] = {
     init: function() {
         this.appendDummyInput()
-            .appendField("Turn left");
+            .appendField("Στρίψε αριστερά");
         this.setPreviousStatement(true, null);
         this.setColour(230);
-        this.setTooltip("Turn left.");
+        this.setTooltip("Στρίψε αριστερά.");
         this.setHelpUrl("");
     }
 };
@@ -213,10 +213,10 @@ Blockly.Blocks['turn_left'] = {
 Blockly.Blocks['turn_right'] = {
     init: function() {
         this.appendDummyInput()
-            .appendField("Turn right");
+            .appendField("Στρίψε δεξιά");
         this.setPreviousStatement(true, null);
         this.setColour(230);
-        this.setTooltip("Turn right.");
+        this.setTooltip("Στρίψε δεξιά.");
         this.setHelpUrl("");
     }
 };
@@ -225,11 +225,11 @@ Blockly.Blocks['turn_right_param'] = {
     init: function() {
         this.appendValueInput("time")
             .setCheck("Number")
-            .appendField("Turn right");
+            .appendField("Στρίψε δεξιά");
         this.setInputsInline(true);
         this.setPreviousStatement(true, null);
         this.setColour(230);
-        this.setTooltip("Turn right.");
+        this.setTooltip("Στρίψε δεξιά.");
         this.setHelpUrl("");
     }
 };
@@ -238,11 +238,11 @@ Blockly.Blocks['turn_left_param'] = {
     init: function() {
         this.appendValueInput("time")
             .setCheck("Number")
-            .appendField("Turn left");
+            .appendField("Στρίψε αριστερά");
         this.setInputsInline(true);
         this.setPreviousStatement(true, null);
         this.setColour(230);
-        this.setTooltip("Turn left.");
+        this.setTooltip("Στρίψε αριστερά.");
         this.setHelpUrl("");
     }
 };
