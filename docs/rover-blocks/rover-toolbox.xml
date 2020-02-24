@@ -1,15 +1,11 @@
 <xml xmlns="https://developers.google.com/blockly/xml" id="toolbox" style="display: none">
-  <category name="Rover coder" colour="#FF7F00">
-    <block type="initialize"></block>
+  <category name="Rover Coder">
     <block type="run"></block>
-    <block type="move_forward"></block>
-    <block type="turn_anticlockwise"></block>
-    <block type="turn_clockwise"></block>
-    <block type="direction_north"></block>
-    <block type="direction_south"></block>
-    <block type="direction_east"></block>
-    <block type="direction_west"></block>
-    <block type="get_direction"></block>
+    <block type="move_forward_param"></block>
+    <block type="turn_left_param"></block>
+    <block type="turn_right_param"></block>
+    <block type="get_distance"></block>
+    <block type="scan_color"></block>
     <block type="color_none"></block>
     <block type="color_black"></block>
     <block type="color_blue"></block>
@@ -18,9 +14,6 @@
     <block type="color_red"></block>
     <block type="color_white"></block>
     <block type="color_brown"></block>
-    <block type="scan_color"></block>
-    <block type="set_scan_distance"></block>
-    <block type="scan"></block>
   </category>
   <sep></sep>
   <category name="Logic" colour="#5b80a5">
@@ -50,7 +43,7 @@
       <field name="MODE">WHILE</field>
     </block>
     <block type="controls_for">
-      <field name="VAR" id="j.etMk`J`!|/g[!O~6MZ">i</field>
+      <field name="VAR" id="y;p]JJ6I,n+a^M6.x=UY">i</field>
       <value name="FROM">
         <shadow type="math_number">
           <field name="NUM">1</field>
@@ -68,7 +61,7 @@
       </value>
     </block>
     <block type="controls_forEach">
-      <field name="VAR" id="~GBc`NP2m1kh%R6qcEQL">j</field>
+      <field name="VAR" id="`I+z7njHJg=L=#Q90^RQ">j</field>
     </block>
     <block type="controls_flow_statements">
       <field name="FLOW">BREAK</field>
@@ -182,7 +175,7 @@
       <mutation items="2"></mutation>
     </block>
     <block type="text_append">
-      <field name="VAR" id="dWC]osWzaD8ku$~-Q?Z}">item</field>
+      <field name="VAR" id=",M++!WcPn@X!M+P!UWF3">item</field>
       <value name="TEXT">
         <shadow type="text">
           <field name="TEXT"></field>
@@ -207,7 +200,7 @@
       <field name="END">FIRST</field>
       <value name="VALUE">
         <block type="variables_get">
-          <field name="VAR" id="N7.VjH9V]/N%Z=W40M41">text</field>
+          <field name="VAR" id="y`K=;KMGN[|Q:VCAZ*X3">text</field>
         </block>
       </value>
       <value name="FIND">
@@ -221,7 +214,7 @@
       <field name="WHERE">FROM_START</field>
       <value name="VALUE">
         <block type="variables_get">
-          <field name="VAR" id="N7.VjH9V]/N%Z=W40M41">text</field>
+          <field name="VAR" id="y`K=;KMGN[|Q:VCAZ*X3">text</field>
         </block>
       </value>
     </block>
@@ -231,7 +224,7 @@
       <field name="WHERE2">FROM_START</field>
       <value name="STRING">
         <block type="variables_get">
-          <field name="VAR" id="N7.VjH9V]/N%Z=W40M41">text</field>
+          <field name="VAR" id="y`K=;KMGN[|Q:VCAZ*X3">text</field>
         </block>
       </value>
     </block>
@@ -288,7 +281,7 @@
       <field name="END">FIRST</field>
       <value name="VALUE">
         <block type="variables_get">
-          <field name="VAR" id="4,*7kXn`=sotY,7_Z]#1">list</field>
+          <field name="VAR" id="cq#+J;k((l))v!cq#2Tt">list</field>
         </block>
       </value>
     </block>
@@ -298,7 +291,7 @@
       <field name="WHERE">FROM_START</field>
       <value name="VALUE">
         <block type="variables_get">
-          <field name="VAR" id="4,*7kXn`=sotY,7_Z]#1">list</field>
+          <field name="VAR" id="cq#+J;k((l))v!cq#2Tt">list</field>
         </block>
       </value>
     </block>
@@ -308,7 +301,7 @@
       <field name="WHERE">FROM_START</field>
       <value name="LIST">
         <block type="variables_get">
-          <field name="VAR" id="4,*7kXn`=sotY,7_Z]#1">list</field>
+          <field name="VAR" id="cq#+J;k((l))v!cq#2Tt">list</field>
         </block>
       </value>
     </block>
@@ -318,7 +311,7 @@
       <field name="WHERE2">FROM_START</field>
       <value name="LIST">
         <block type="variables_get">
-          <field name="VAR" id="4,*7kXn`=sotY,7_Z]#1">list</field>
+          <field name="VAR" id="cq#+J;k((l))v!cq#2Tt">list</field>
         </block>
       </value>
     </block>

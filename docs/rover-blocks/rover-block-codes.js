@@ -1,135 +1,109 @@
-Blockly.JavaScript['move_forward'] = function (block) {
-  //TODO Change the package
-    return "return 'MOVE_FORWARD';\n";
+// Blockly.JavaScript['move_forward'] = function(block) {
+//     return 'rover.moveForward();\nreturn;\n';
+// };
+//
+// Blockly.JavaScript['direction_north'] = function(block) {
+//     var code = 'Direction.NORTH';
+//     return [code, Blockly.JavaScript.ORDER_NONE];
+// };
+//
+// Blockly.JavaScript['direction_south'] = function(block) {
+//     var code = 'Direction.SOUTH';
+//     return [code, Blockly.JavaScript.ORDER_NONE];
+// };
+//
+// Blockly.JavaScript['direction_east'] = function(block) {
+//     var code = 'Direction.EAST';
+//     return [code, Blockly.JavaScript.ORDER_NONE];
+// };
+//
+// Blockly.JavaScript['direction_west'] = function(block) {
+//     var code = 'Direction.WEST';
+//     return [code, Blockly.JavaScript.ORDER_NONE];
+// };
+
+Blockly.JavaScript['scan_color'] = function(block) {
+    var code = 'rover.scan()';
+    return [code, Blockly.JavaScript.ORDER_NONE];
 };
 
-Blockly.JavaScript['turn_anticlockwise'] = function (block) {
-  //TODO Change the package
-    return "return 'TURN_ANTICLOCKWISE';\n";
+Blockly.JavaScript['color_none'] = function(block) {
+    var code = 'EV3Color.NONE';
+    return [code, Blockly.JavaScript.ORDER_NONE];
 };
 
-Blockly.JavaScript['turn_clockwise'] = function (block) {
-  //TODO Change the package
-    return "return 'TURN_CLOCKWISE';\n";
+Blockly.JavaScript['color_black'] = function(block) {
+    var code = 'EV3Color.BLACK';
+    return [code, Blockly.JavaScript.ORDER_NONE];
 };
 
-Blockly.JavaScript['direction_north'] = function (block) {
-  //TODO Change the package
-  var code = 'Direction.NORTH';
-  return [code, Blockly.JavaScript.ORDER_NONE];
+Blockly.JavaScript['color_blue'] = function(block) {
+    var code = 'EV3Color.BLUE';
+    return [code, Blockly.JavaScript.ORDER_NONE];
 };
 
-Blockly.JavaScript['direction_south'] = function (block) {
-  //TODO Change the package
-  var code = 'Direction.SOUTH';
-  return [code, Blockly.JavaScript.ORDER_NONE];
+Blockly.JavaScript['color_green'] = function(block) {
+    var code = 'EV3Color.GREEN';
+    return [code, Blockly.JavaScript.ORDER_NONE];
 };
 
-Blockly.JavaScript['direction_east'] = function (block) {
-  //TODO Change the package
-  var code = 'Direction.EAST';
-  return [code, Blockly.JavaScript.ORDER_NONE];
+Blockly.JavaScript['color_yellow'] = function(block) {
+    var code = 'EV3Color.YELLOW';
+    return [code, Blockly.JavaScript.ORDER_NONE];
 };
 
-Blockly.JavaScript['direction_west'] = function (block) {
-  //TODO Change the package
-  var code = 'Direction.WEST';
-  return [code, Blockly.JavaScript.ORDER_NONE];
+Blockly.JavaScript['color_red'] = function(block) {
+    var code = 'EV3Color.RED';
+    return [code, Blockly.JavaScript.ORDER_NONE];
 };
 
-Blockly.JavaScript['scan_color'] = function (block) {
-    // TODO: Assemble JavaScript into codeElement variable.
-    var code = '...';
+Blockly.JavaScript['color_white'] = function(block) {
+    var code = 'EV3Color.WHITE';
+    return [code, Blockly.JavaScript.ORDER_NONE];
+};
+
+Blockly.JavaScript['color_brown'] = function(block) {
+    var code = 'EV3Color.BROWN;';
+    return [code, Blockly.JavaScript.ORDER_NONE];
+};
+
+// Blockly.JavaScript['get_direction'] = function(block) {
+//     var code = 'rover.getDirection()';
+//     return [code, Blockly.JavaScript.ORDER_NONE];
+// };
+
+Blockly.JavaScript['get_distance'] = function(block) {
+    var code = 'rover.distance()';
     // TODO: Change ORDER_NONE to the correct strength.
     return [code, Blockly.JavaScript.ORDER_NONE];
 };
 
-Blockly.JavaScript['color_none'] = function (block) {
-    // TODO: Assemble JavaScript into codeElement variable.
-    var code = '...';
-    // TODO: Change ORDER_NONE to the correct strength.
-    return [code, Blockly.JavaScript.ORDER_NONE];
+Blockly.JavaScript['run'] = function(block) {
+    var statements_run = Blockly.JavaScript.statementToCode(block, 'run');
+    return 'function runJavaScript(rover) {\n'
+        + statements_run +
+        "}\n\n";
 };
 
-Blockly.JavaScript['color_black'] = function (block) {
-    // TODO: Assemble JavaScript into codeElement variable.
-    var code = '...';
-    // TODO: Change ORDER_NONE to the correct strength.
-    return [code, Blockly.JavaScript.ORDER_NONE];
+Blockly.JavaScript['move_forward_param'] = function(block) {
+    var value_time = Blockly.JavaScript.valueToCode(block, 'time', Blockly.JavaScript.ORDER_ATOMIC);
+    return 'rover.moveForward(' + value_time + ');\nreturn;\n';
 };
 
-Blockly.JavaScript['color_blue'] = function (block) {
-    // TODO: Assemble JavaScript into codeElement variable.
-    var code = '...';
-    // TODO: Change ORDER_NONE to the correct strength.
-    return [code, Blockly.JavaScript.ORDER_NONE];
+// Blockly.JavaScript['turn_left'] = function(block) {
+//     return 'rover.turnLeft();\nreturn;\n';
+// };
+//
+// Blockly.JavaScript['turn_right'] = function(block) {
+//     return 'rover.turnRight();\nreturn;\n';
+// };
+
+Blockly.JavaScript['turn_right_param'] = function(block) {
+    var value_time = Blockly.JavaScript.valueToCode(block, 'time', Blockly.JavaScript.ORDER_ATOMIC);
+    return 'rover.turnRight(' + value_time + ');\nreturn;\n';
 };
 
-Blockly.JavaScript['color_green'] = function (block) {
-    // TODO: Assemble JavaScript into codeElement variable.
-    var code = '...';
-    // TODO: Change ORDER_NONE to the correct strength.
-    return [code, Blockly.JavaScript.ORDER_NONE];
-};
-
-Blockly.JavaScript['color_yellow'] = function (block) {
-    // TODO: Assemble JavaScript into codeElement variable.
-    var code = '...';
-    // TODO: Change ORDER_NONE to the correct strength.
-    return [code, Blockly.JavaScript.ORDER_NONE];
-};
-
-Blockly.JavaScript['color_red'] = function (block) {
-    // TODO: Assemble JavaScript into codeElement variable.
-    var code = '...';
-    // TODO: Change ORDER_NONE to the correct strength.
-    return [code, Blockly.JavaScript.ORDER_NONE];
-};
-
-Blockly.JavaScript['color_white'] = function (block) {
-    // TODO: Assemble JavaScript into codeElement variable.
-    var code = '...';
-    // TODO: Change ORDER_NONE to the correct strength.
-    return [code, Blockly.JavaScript.ORDER_NONE];
-};
-
-Blockly.JavaScript['color_brown'] = function (block) {
-    // TODO: Assemble JavaScript into codeElement variable.
-    var code = '...';
-    // TODO: Change ORDER_NONE to the correct strength.
-    return [code, Blockly.JavaScript.ORDER_NONE];
-};
-
-Blockly.JavaScript['set_scan_distance'] = function (block) {
-    var value_distance = Blockly.JavaScript.valueToCode(block, 'distance', Blockly.JavaScript.ORDER_ATOMIC);
-    // TODO: Assemble JavaScript into codeElement variable.
-    var code = '...;\n';
-    return code;
-};
-
-Blockly.JavaScript['get_direction'] = function (block) {
-  var code = 'instance.getDirection()';
-  return [code, Blockly.JavaScript.ORDER_NONE];
-};
-
-Blockly.JavaScript['scan'] = function (block) {
-    // TODO: Assemble JavaScript into codeElement variable.
-    var code = '...';
-    // TODO: Change ORDER_NONE to the correct strength.
-    return [code, Blockly.JavaScript.ORDER_NONE];
-};
-
-Blockly.JavaScript['initialize'] = function (block) {
-  var statements_init = Blockly.JavaScript.statementToCode(block, 'initialize');
-  var code = "function init() {\n" +
-      statements_init +
-      "\n}//%end init\n\n";
-  return code;
-};
-
-Blockly.JavaScript['run'] = function (block) {
-  var statements_run = Blockly.JavaScript.statementToCode(block, 'run');
-  var code = "function run() {\n" + statements_run +
-      "\n}//%end run\n";
-  return code;
+Blockly.JavaScript['turn_left_param'] = function(block) {
+    var value_time = Blockly.JavaScript.valueToCode(block, 'time', Blockly.JavaScript.ORDER_ATOMIC);
+    return 'rover.turnLeft(' + value_time + ');\nreturn;\n';
 };
