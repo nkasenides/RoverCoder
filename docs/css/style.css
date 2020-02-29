@@ -33,6 +33,7 @@
     border: 1px solid grey;
     border-radius: 10px;
     box-shadow: black 0 0 30px;
+    padding: 5px;
 }
 
 .justify {
@@ -67,8 +68,34 @@ p {
     /*background-size: cover;*/
 }
 
-.fixed-action-btn {
+.acceptCodeButton {
     position: fixed;
-    top: 0px;
+    top: unset;
     right: 15px;
+    bottom: unset;
+    margin-bottom: unset;
+}
+
+.rejectCodeButton {
+    position: fixed;
+    right: unset;
+    top: unset;
+    left: 15px;
+    bottom: 15px;
+    margin-bottom: unset;
+}
+
+th, td {
+    text-align: center;
+}
+
+#signupForm, #enterNameInstruction, #playAgainHome, #nametag {
+    display: none;
+}
+
+#loader {
+    position: fixed;
+    left: 50%;
+    top: 40%;
+    display: none;
 }

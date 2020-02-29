@@ -59,23 +59,12 @@ function writeString(name, removeAccents) {
     document.write(string);
 }
 
-function getCity(enumName) {
-    switch (enumName) {
-        case "NICOSIA":
-            return getString("NICOSIA");
-        case "LIMASSOL":
-            return getString("LIMASSOL");
-        case "LARNACA":
-            return getString("LARNACA");
-        case "PAPHOS":
-            return getString("PAPHOS");
-        case "AMMOCHOSTOS":
-            return getString("AMMOCHOSTOS");
-    }
-}
-
 const LANG = {
 
+    HOMEPAGE: {
+        gr: "Πίσω στην αρχική",
+        en: "Back to home page"
+    },
     TEXT_FRONT_PAGE: {
         gr: "Πως τηλεχειριζόμαστε ένα ρομποτικό όχημα στον Άρη που βρίσκεται περισσότερο από 50 εκατομμύρια χιλιόμετρα μακριά; Η απάντηση είναι με προγραμματισμό. Μάθετε πως οι ρομποτικοί αυτοί εξερευνητές μπορούν να προγραμματιστούν με εντολές οι οποίες μεταδίδονται και εκτελούνται από το όχημα για την επίτευξη ενός στόχου. Χρησιμοποιώντας μιαγραφική γλώσσα προγραμματισμού και τη δημιουργικότητα σας, στείλτε τις εντολές σας σε ένα ρομπότ και παρακολουθήστε το να εξερευνά το άγνωστο τοπίο του Άρη και φέρτε εις πέρας την αποστολή σας.",
         en: "How do you telecontrol a robotic vehicle on Mars some 50 million kilometers from our planet earth? The answer is coding. Learn how these robotic explorers can be programmed with a sequence of commands which are communicated and executed on the vehicle to achieve a specific goal. Using a graphical programming language and your own creativity, send your code to a real robot and watch it as it explores the unknown landscape on Mars and complete your mission."
@@ -91,6 +80,54 @@ const LANG = {
     ENTER_YOUR_NAME_INSTRUCTION: {
         gr: "Πληκτρολογήστε το όνομά σας παρακάτω για να ξεκινήσετε.",
         en: "Enter your name below to start playing."
+    },
+    SCOREBOARD: {
+        gr: "Αποτελέσματα",
+        en: "Scoreboard"
+    },
+    PLAY_AGAIN: {
+        gr: "Προγραμμάτισε το Rover",
+        en: "Program the rover"
+    },
+    ERROR_GETTING_SCOREBOARD: {
+        gr: "Σφάλμα κατά τη λήψη του πίνακα αποτελεσμάτων.",
+        en: "Error getting scoreboard."
+    },
+    PLAYER_NAME: {
+        gr: "Όνομα παίκτη",
+        en: "Player name"
+    },
+    POINTS: {
+        gr: "Βαθμοί",
+        en: "Points"
+    },
+    NO_SCORES: {
+        gr: "Δεν υπάρχουν αποτελέσματα.",
+        en: "There are no scores to show."
+    },
+    NO_CODE: {
+        gr: "Παρακαλώ γράψτε κώδικα.",
+        en: "Please write your code."
+    },
+    CONFIRM_REJECT_CODE: {
+        gr: "Είστε βέβαιοι ότι θέλετε να ακυρώσετε αυτή την προσπάθεια; O υπάρχον κώδικας θα διαγραφεί.",
+        en: "Are you sure you would like to go back? This will erase your existing code."
+    },
+    CODE_SUBMITTED: {
+        gr: "Ο κώδικάς σας έχει μεταφορτωθεί στο Rover και θα εκτελεστεί σύντομα!",
+        en: "Your code has been uploaded to the Rover and will be executed soon!"
+    },
+    CODE_EXISTS: {
+        gr: "Έχετε ήδη μεταφορτωμένο κώδικα που δεν έχει εκτελεστεί ακόμα από το Rover. Παρακαλώ περιμένετε μέχρι να εκτελεστεί ο προηγούμενος κώδικας από το Rover πριν υποβάλετε νέο κώδικα.",
+        en: "You already have an uploaded code that has not yet been executed by the rover. Please wait until your previous code is executed by the rover before submitting new code."
+    },
+    HELLO: {
+        gr: "Γειά σου",
+        en: "Hello"
+    },
+    CHANGE_NAME: {
+        gr: "Αλλαγή ονόματος",
+        en: "Change name"
     }
 
 };
