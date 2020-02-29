@@ -1,3 +1,5 @@
+@import url('https://fonts.googleapis.com/css?family=Play&display=swap');
+
 .icon-block {
   padding: 0 15px;
 }
@@ -8,4 +10,65 @@
 
 #canvasWrapper {
     text-align: center;
+}
+
+.playFont {
+    font-family: 'Play', sans-serif;
+}
+
+.mainPageBody {
+    background: url("../images/background.jpg");
+    background-position: center;
+    background-size: cover;
+    background-attachment: fixed;
+}
+
+.mainPageTitle {
+    color: white;
+    text-shadow: black -4px 4px 5px;
+}
+
+.mainPagePanel {
+    background-color: rgba(255, 255, 255, 0.85);
+    border: 1px solid grey;
+    border-radius: 10px;
+    box-shadow: black 0 0 30px;
+}
+
+.justify {
+    text-align: justify;
+}
+
+.flag {
+    padding: 2px;
+    cursor: pointer;
+}
+
+p {
+    font-size: large;
+}
+
+::placeholder { /* Chrome, Firefox, Opera, Safari 10.1+ */
+    color: grey;
+    opacity: 1; /* Firefox */
+}
+
+:-ms-input-placeholder { /* Internet Explorer 10-11 */
+    color: grey;
+}
+
+::-ms-input-placeholder { /* Microsoft Edge */
+    color: grey;
+}
+
+.blocklySvg {
+    background: rgba(255, 255, 255, 0.85);
+    /*background: url(../images/background_transparent.jpg);*/
+    /*background-size: cover;*/
+}
+
+.fixed-action-btn {
+    position: fixed;
+    top: 0px;
+    right: 15px;
 }

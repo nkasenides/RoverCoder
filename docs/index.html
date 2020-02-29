@@ -9,10 +9,80 @@
     <script src="https://code.jquery.com/jquery-2.1.1.min.js"></script>
     <script src="js/materialize.min.js"></script>
     <script src="js/init.js"></script>
+    <script src="js/id.js"></script>
+    <script src="js/cookies.js"></script>
+    <script src="js/lang.js"></script>
+    <script>initLanguage();</script>
 </head>
-<body>
+<body style="display: none;" class="mainPageBody">
 
-    <h1><a href="code.html">Code now</a></h1>
+<script>
+    if (cookieExists(PLAYER_ID)) {
+        document.location.href = "code.html";
+    }
+    else {
+        document.body.display = "block";
+    }
+</script>
+
+<header>
+    <div class="center">
+        <h1 class="playFont mainPageTitle">Rover Coder</h1>
+        <img class="unselectable flag" src="images/greece.png" width="30" onclick="setLanguage(GREEK, true);" alt="greek"/>
+        <img class="unselectable flag" src="images/united-kingdom.png" width="30" onclick="setLanguage(ENGLISH, true);" alt="english"/>
+        <br/><br/>
+    </div>
+</header>
+
+<main>
+    <div class="container">
+        <div class="row playFont mainPagePanel">
+            <div class="col s12">
+                <p class="center">
+                    <script>writeString("TEXT_FRONT_PAGE");</script>
+                </p>
+                <p class="center"><script>writeString("ENTER_YOUR_NAME_INSTRUCTION");</script></p>
+            </div>
+            <div class="col s12 m6 offset-m3 xl4 offset-xl4">
+                <form class="center">
+                    <input class="playFont" type="text" maxlength="100" id="playerName" name="playerName" required />
+                    <br/><br/>
+                    <input type="button" id="startButton" class="btn black white-text" onclick="start()" />
+                    <br/><br/>
+                </form>
+                <script>
+                    $("#playerName").attr("placeholder", getString("PLAYER_NAME_PLACEHOLDER"));
+                    $("#startButton").attr("value", getString("PLAY_NOW", true));
+                </script>
+            </div>
+        </div>
+    </div>
+</main>
+
+<footer></footer>
+
+<script>
+    function start() {
+
+        $("#playerName").removeClass("invalid");
+
+        const playerName = $("#playerName").val();
+        if (playerName.trim().length === 0) {
+            $("#playerName").addClass("invalid").focus();
+            return;
+        }
+
+        $("#playerName").addClass("valid");
+
+        const playerID = getUID();
+        console.log(playerID);
+
+        setCookie(PLAYER_ID, playerID);
+        setCookie(PLAYER_NAME, playerName);
+
+        document.location.href = "code.html";
+    }
+</script>
 
 </body>
 </html>

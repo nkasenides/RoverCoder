@@ -1,4 +1,3 @@
-
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -11,6 +10,10 @@
     <script src="https://code.jquery.com/jquery-2.1.1.min.js"></script>
     <script src="js/materialize.min.js"></script>
     <script src="js/init.js"></script>
+    <script src="js/api.js"></script>
+    <script src="js/cookies.js"></script>
+    <script src="js/lang.js"></script>
+    <script>initLanguage();</script>
 
     <!--Custom blocks-->
     <script src="rover-blocks/rover-block-definitions.js"></script>
@@ -20,10 +23,26 @@
     <link rel="stylesheet" href="css/materialize.css">
     <link rel="stylesheet" href="css/style.css">
     <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
+    <style>
+        html, body {
+            height: 100%;
+            margin: 0;
+        }
+    </style>
 </head>
-<body onload="loadToolbox()">
+<body class="mainPageBody" onload="loadToolbox()">
 
-<div id="blocklyDiv" style="height: 480px;"></div>
+<!--<a class="btn waves-effect purple white-text" onclick="compile()">Compile to JS</a>-->
+
+<div class="fixed-action-btn" onclick="processCode();">
+    <a class="btn-floating btn-large green">
+        <i class="large material-icons">check</i>
+    </a>
+</div>
+
+
+<div id="blocklyArea" style="height: 100%"></div>
+<div id="blocklyDiv" style="position: absolute"></div>
 
 <div id="errorModal" class="modal center-align">
     <div class="modal-content">
@@ -36,15 +55,14 @@
     </div>
 </div>
 
-<a class="btn waves-effect purple white-text" onclick="compile()">Compile to JS</a>
 <!--<a class="btn waves-effect green white-text" onclick="runTraining(code)">Run in training</a>-->
 
 
-<div id="code" style="font-family: 'Courier New',serif;"></div>
+<!--<div id="code" style="font-family: 'Courier New',serif;"></div>-->
 
 <script>
 
-    const codeElement = document.getElementById("code");
+    // const codeElement = document.getElementById("code");
     let workspace = null;
     let code;
 
@@ -56,7 +74,8 @@
             .then(response => response.text())
             .then(data => {
                 let lines = data.split("\n");
-                lines[0] = ""; lines[lines.length-1] = "";
+                lines[0] = "";
+                lines[lines.length - 1] = "";
                 lines.join("\n");
                 const bodyElement = document.body;
                 let xmlElement = document.createElement("xml");
@@ -75,74 +94,121 @@
 
     function initializeWorkspace() {
 
+        const blocklyArea = document.getElementById('blocklyArea');
+        const blocklyDiv = document.getElementById('blocklyDiv');
+
         const options = {
-            toolbox : toolbox,
-            collapse : true,
-            comments : true,
-            disable : true,
-            maxBlocks : Infinity,
-            trashcan : true,
-            horizontalLayout : false,
-            toolboxPosition : 'start',
-            css : true,
-            media : 'https://blockly-demo.appspot.com/static/media/',
-            rtl : false,
-            scrollbars : true,
-            sounds : true,
-            oneBasedIndex : true,
-            grid : {
-                spacing : 20,
-                length : 1,
-                colour : '#888',
-                snap : false
+            toolbox: toolbox,
+            collapse: true,
+            comments: true,
+            disable: true,
+            maxBlocks: Infinity,
+            trashcan: true,
+            horizontalLayout: false,
+            toolboxPosition: 'start',
+            css: true,
+            media: 'https://blockly-demo.appspot.com/static/media/',
+            rtl: false,
+            scrollbars: true,
+            sounds: true,
+            oneBasedIndex: true,
+            grid: {
+                spacing: 20,
+                length: 1,
+                colour: '#888',
+                snap: false
             },
-            zoom : {
-                controls : true,
-                wheel : true,
-                startScale : 1,
-                maxScale : 3,
-                minScale : 0.3,
-                scaleSpeed : 1.2
+            zoom: {
+                controls: true,
+                wheel: true,
+                startScale: 1,
+                maxScale: 3,
+                minScale: 0.3,
+                scaleSpeed: 1.2
             }
         };
 
-        return roverWorkspace = Blockly.inject(
+        const workspace = roverWorkspace = Blockly.inject(
             'blocklyDiv',
             {
                 media: 'blockly/media/',
                 toolbox: document.getElementById('toolbox'),
-                collapse : true,
-                comments : true,
-                disable : true,
-                maxBlocks : Infinity,
-                trashcan : true,
-                horizontalLayout : false,
-                toolboxPosition : 'start',
-                css : true,
-                scrollbars : true,
-                sounds : true,
-                oneBasedIndex : true,
-                grid : {
-                    spacing : 20,
-                    length : 1,
-                    colour : '#888',
-                    snap : false
+                collapse: true,
+                comments: true,
+                disable: true,
+                maxBlocks: Infinity,
+                trashcan: true,
+                horizontalLayout: false,
+                toolboxPosition: 'start',
+                css: true,
+                scrollbars: true,
+                sounds: true,
+                oneBasedIndex: true,
+                grid: {
+                    spacing: 20,
+                    length: 1,
+                    colour: '#888',
+                    snap: false
                 },
-                zoom : {
-                    controls : true,
-                    wheel : true,
-                    startScale : 1,
-                    maxScale : 3,
-                    minScale : 0.3,
-                    scaleSpeed : 1.2
+                zoom: {
+                    controls: true,
+                    wheel: true,
+                    startScale: 1,
+                    maxScale: 3,
+                    minScale: 0.3,
+                    scaleSpeed: 1.2
                 }
             }
         );
+
+        var onresize = function (e) {
+            // Compute the absolute coordinates and dimensions of blocklyArea.
+            var element = blocklyArea;
+            var x = 0;
+            var y = 0;
+            do {
+                x += element.offsetLeft;
+                y += element.offsetTop;
+                element = element.offsetParent;
+            } while (element);
+            // Position blocklyDiv over blocklyArea.
+            blocklyDiv.style.left = x + 'px';
+            blocklyDiv.style.top = y + 'px';
+            blocklyDiv.style.width = blocklyArea.offsetWidth + 'px';
+            blocklyDiv.style.height = blocklyArea.offsetHeight + 'px';
+            Blockly.svgResize(workspace);
+        };
+        window.addEventListener('resize', onresize, false);
+        onresize();
+        Blockly.svgResize(workspace);
+
+        return workspace;
+
     }
 
     function compile() {
         code = Blockly.JavaScript.workspaceToCode(workspace);
-        codeElement.innerText = code;
+        // codeElement.innerText = code;
+        return code;
+    }
+
+    function getWorkspace() {
+        var xmlDom = Blockly.Xml.workspaceToDom(workspace);
+        return Blockly.Xml.domToPrettyText(xmlDom);
+    }
+
+    function processCode() {
+       const workspace = getWorkspace();
+       const code = compile();
+       fetch(UPLOAD_CODE_URL + "?playerName=" + getCookie(PLAYER_NAME) + "&playerID=" + getCookie(PLAYER_ID) + "&code=" + code + "&workspace=" + workspace)
+           .then(result => result.json())
+           .then(json => {
+               //TODO
+           })
+           .catch(error => {
+               console.log(error);
+               //TODO
+           });
     }
 
 </script>
