@@ -1,0 +1,57 @@
+<component name="libraryTable">
+  <library name="com.googlecode.objectify:objectify:6.0.6" type="repository">
+    <properties maven-id="com.googlecode.objectify:objectify:6.0.6" />
+    <CLASSES>
+      <root url="jar://$MAVEN_REPOSITORY$/com/googlecode/objectify/objectify/6.0.6/objectify-6.0.6.jar!/" />
+      <root url="jar://$MAVEN_REPOSITORY$/com/google/cloud/google-cloud-datastore/1.101.0/google-cloud-datastore-1.101.0.jar!/" />
+      <root url="jar://$MAVEN_REPOSITORY$/com/google/cloud/google-cloud-core-http/1.91.3/google-cloud-core-http-1.91.3.jar!/" />
+      <root url="jar://$MAVEN_REPOSITORY$/com/google/cloud/google-cloud-core/1.91.3/google-cloud-core-1.91.3.jar!/" />
+      <root url="jar://$MAVEN_REPOSITORY$/com/google/protobuf/protobuf-java-util/3.10.0/protobuf-java-util-3.10.0.jar!/" />
+      <root url="jar://$MAVEN_REPOSITORY$/com/google/api/grpc/proto-google-iam-v1/0.13.0/proto-google-iam-v1-0.13.0.jar!/" />
+      <root url="jar://$MAVEN_REPOSITORY$/org/threeten/threetenbp/1.3.3/threetenbp-1.3.3.jar!/" />
+      <root url="jar://$MAVEN_REPOSITORY$/com/google/auth/google-auth-library-credentials/0.18.0/google-auth-library-credentials-0.18.0.jar!/" />
+      <root url="jar://$MAVEN_REPOSITORY$/com/google/auth/google-auth-library-oauth2-http/0.18.0/google-auth-library-oauth2-http-0.18.0.jar!/" />
+      <root url="jar://$MAVEN_REPOSITORY$/com/google/auto/value/auto-value-annotations/1.6.6/auto-value-annotations-1.6.6.jar!/" />
+      <root url="jar://$MAVEN_REPOSITORY$/com/google/http-client/google-http-client/1.32.1/google-http-client-1.32.1.jar!/" />
+      <root url="jar://$MAVEN_REPOSITORY$/org/apache/httpcomponents/httpclient/4.5.10/httpclient-4.5.10.jar!/" />
+      <root url="jar://$MAVEN_REPOSITORY$/commons-logging/commons-logging/1.2/commons-logging-1.2.jar!/" />
+      <root url="jar://$MAVEN_REPOSITORY$/commons-codec/commons-codec/1.11/commons-codec-1.11.jar!/" />
+      <root url="jar://$MAVEN_REPOSITORY$/org/apache/httpcomponents/httpcore/4.4.12/httpcore-4.4.12.jar!/" />
+      <root url="jar://$MAVEN_REPOSITORY$/com/google/j2objc/j2objc-annotations/1.3/j2objc-annotations-1.3.jar!/" />
+      <root url="jar://$MAVEN_REPOSITORY$/com/google/guava/guava/28.1-android/guava-28.1-android.jar!/" />
+      <root url="jar://$MAVEN_REPOSITORY$/com/google/guava/failureaccess/1.0.1/failureaccess-1.0.1.jar!/" />
+      <root url="jar://$MAVEN_REPOSITORY$/com/google/guava/listenablefuture/9999.0-empty-to-avoid-conflict-with-guava/listenablefuture-9999.0-empty-to-avoid-conflict-with-guava.jar!/" />
+      <root url="jar://$MAVEN_REPOSITORY$/org/checkerframework/checker-compat-qual/2.5.5/checker-compat-qual-2.5.5.jar!/" />
+      <root url="jar://$MAVEN_REPOSITORY$/com/google/errorprone/error_prone_annotations/2.3.2/error_prone_annotations-2.3.2.jar!/" />
+      <root url="jar://$MAVEN_REPOSITORY$/org/codehaus/mojo/animal-sniffer-annotations/1.18/animal-sniffer-annotations-1.18.jar!/" />
+      <root url="jar://$MAVEN_REPOSITORY$/com/google/api-client/google-api-client/1.30.4/google-api-client-1.30.4.jar!/" />
+      <root url="jar://$MAVEN_REPOSITORY$/com/google/http-client/google-http-client-appengine/1.32.1/google-http-client-appengine-1.32.1.jar!/" />
+      <root url="jar://$MAVEN_REPOSITORY$/com/google/api/gax/1.49.1/gax-1.49.1.jar!/" />
+      <root url="jar://$MAVEN_REPOSITORY$/com/google/api/gax-httpjson/0.66.1/gax-httpjson-0.66.1.jar!/" />
+      <root url="jar://$MAVEN_REPOSITORY$/com/google/code/findbugs/jsr305/3.0.2/jsr305-3.0.2.jar!/" />
+      <root url="jar://$MAVEN_REPOSITORY$/io/opencensus/opencensus-api/0.24.0/opencensus-api-0.24.0.jar!/" />
+      <root url="jar://$MAVEN_REPOSITORY$/io/grpc/grpc-context/1.22.1/grpc-context-1.22.1.jar!/" />
+      <root url="jar://$MAVEN_REPOSITORY$/io/opencensus/opencensus-contrib-http-util/0.24.0/opencensus-contrib-http-util-0.24.0.jar!/" />
+      <root url="jar://$MAVEN_REPOSITORY$/com/google/api/api-common/1.8.1/api-common-1.8.1.jar!/" />
+      <root url="jar://$MAVEN_REPOSITORY$/com/google/api/grpc/proto-google-cloud-datastore-v1/0.84.0/proto-google-cloud-datastore-v1-0.84.0.jar!/" />
+      <root url="jar://$MAVEN_REPOSITORY$/com/google/protobuf/protobuf-java/3.10.0/protobuf-java-3.10.0.jar!/" />
+      <root url="jar://$MAVEN_REPOSITORY$/com/google/api/grpc/proto-google-common-protos/1.17.0/proto-google-common-protos-1.17.0.jar!/" />
+      <root url="jar://$MAVEN_REPOSITORY$/javax/annotation/javax.annotation-api/1.3.2/javax.annotation-api-1.3.2.jar!/" />
+      <root url="jar://$MAVEN_REPOSITORY$/com/google/cloud/datastore/datastore-v1-proto-client/1.6.3/datastore-v1-proto-client-1.6.3.jar!/" />
+      <root url="jar://$MAVEN_REPOSITORY$/com/google/http-client/google-http-client-protobuf/1.33.0/google-http-client-protobuf-1.33.0.jar!/" />
+      <root url="jar://$MAVEN_REPOSITORY$/com/google/http-client/google-http-client-jackson2/1.33.0/google-http-client-jackson2-1.33.0.jar!/" />
+      <root url="jar://$MAVEN_REPOSITORY$/com/fasterxml/jackson/core/jackson-core/2.10.0/jackson-core-2.10.0.jar!/" />
+      <root url="jar://$MAVEN_REPOSITORY$/com/google/oauth-client/google-oauth-client/1.30.4/google-oauth-client-1.30.4.jar!/" />
+      <root url="jar://$MAVEN_REPOSITORY$/io/grpc/grpc-core/1.24.1/grpc-core-1.24.1.jar!/" />
+      <root url="jar://$MAVEN_REPOSITORY$/io/grpc/grpc-api/1.24.1/grpc-api-1.24.1.jar!/" />
+      <root url="jar://$MAVEN_REPOSITORY$/com/google/code/gson/gson/2.7/gson-2.7.jar!/" />
+      <root url="jar://$MAVEN_REPOSITORY$/com/google/android/annotations/4.1.1.4/annotations-4.1.1.4.jar!/" />
+      <root url="jar://$MAVEN_REPOSITORY$/io/perfmark/perfmark-api/0.17.0/perfmark-api-0.17.0.jar!/" />
+      <root url="jar://$MAVEN_REPOSITORY$/io/opencensus/opencensus-contrib-grpc-metrics/0.21.0/opencensus-contrib-grpc-metrics-0.21.0.jar!/" />
+      <root url="jar://$MAVEN_REPOSITORY$/net/spy/spymemcached/2.12.3/spymemcached-2.12.3.jar!/" />
+      <root url="jar://$MAVEN_REPOSITORY$/org/slf4j/slf4j-api/1.7.29/slf4j-api-1.7.29.jar!/" />
+    </CLASSES>
+    <JAVADOC />
+    <SOURCES />
+  </library>
+</component>
