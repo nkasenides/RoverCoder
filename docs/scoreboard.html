@@ -46,6 +46,7 @@
                     <script>
                         const params = new URLSearchParams(location.search);
                         if (params.has("redirect")) {
+                            document.write("<img src='images/radar.png' alt='radar' width='80' />");
                             document.write("<p>" + getString("CODE_SUBMITTED") + "</p>");
                         }
                     </script>
