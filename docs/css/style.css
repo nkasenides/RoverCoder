@@ -1,5 +1,9 @@
 @import url('https://fonts.googleapis.com/css?family=Play&display=swap');
 
+* {
+    font-family: "Play", sans-serif;
+}
+
 .icon-block {
   padding: 0 15px;
 }

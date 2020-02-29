@@ -48,7 +48,7 @@
                 <form id="signup" class="center">
                     <input class="playFont" type="text" maxlength="100" id="playerName" name="playerName" required />
                     <br/><br/>
-                    <input type="button" id="startButton" class="btn black white-text" onclick="start()" />
+                    <input type="button" id="startButton" class="btn black white-text playFont" onclick="start()" />
                     <br/><br/>
                 </form>
                 <script>
@@ -103,9 +103,9 @@
     }
 
     function showNameDialog() {
-        $("#signupForm").show();
-        $("#enterNameInstruction").show();
-        $("#playAgainHome").hide();
+        $("#signupForm").toggle();
+        $("#enterNameInstruction").toggle();
+        $("#playAgainHome").toggle();
     }
 
 </script>
