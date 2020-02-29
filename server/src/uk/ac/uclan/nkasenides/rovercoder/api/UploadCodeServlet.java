@@ -12,6 +12,7 @@ import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 import java.io.IOException;
 import java.io.PrintWriter;
+import java.util.List;
 import java.util.prefs.AbstractPreferences;
 
 import static com.googlecode.objectify.ObjectifyService.ofy;
@@ -45,6 +46,19 @@ public class UploadCodeServlet extends HttpServlet {
 
         if (workspaceInput == null || workspaceInput.trim().isEmpty()) {
             out.write(new MissingParameterResponse("workspace").toJSON());
+            return;
+        }
+
+        //Check player code entries for entries of the current player that have not been played yet:
+        List<PlayerCodeEntry> entriesOfPlayer = ofy().load().type(PlayerCodeEntry.class).filter("playerID", playerIDInput).list();
+        int countOfEntriesOfPlayerNotPlayed = 0;
+        for (PlayerCodeEntry p : entriesOfPlayer) {
+            if (!p.isPlayed()) {
+                countOfEntriesOfPlayerNotPlayed++;
+            }
+        }
+        if (countOfEntriesOfPlayerNotPlayed > 0) {
+            out.write(new ErrorResponse("Code pending", "You already have an uploaded code that has not been executed by the rover. Please wait until your previous code is executed by the rover before submitting new code.").toJSON());
             return;
         }
 
