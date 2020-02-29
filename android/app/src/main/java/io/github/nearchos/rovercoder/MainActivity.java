@@ -25,6 +25,7 @@ import java.util.concurrent.TimeUnit;
 import robutev3.android.BrickService;
 import robutev3.android.Device;
 import robutev3.android.EV3Service;
+import robutev3.core.Color;
 import robutev3.core.Interval;
 import robutev3.core.Speed;
 
@@ -82,9 +83,10 @@ public class MainActivity extends AppCompatActivity implements RoverCoderInterfa
     @Override
     protected void onResume() {
         super.onResume();
+        // set initial JavaScript code - todo must remove after the code is 'picked' from server
+        setJavaScript(JAVASCRIPT_CODE);
         // create periodic handler
         scheduledWorkExecutor.scheduleAtFixedRate(codeExecutionRunnable, 0L, EXECUTION_INTERVAL_MILLISECONDS, TimeUnit.MILLISECONDS);
-
     }
 
     @Override
@@ -102,6 +104,7 @@ public class MainActivity extends AppCompatActivity implements RoverCoderInterfa
         if(brickService != null) {
             Log.d(TAG, "Stopping all motors");
             brickService.brick().motor().stopAll().coast().go();
+            brickService.brick().light().off();
         }
         // Unbind from EV3Service
         unbindService(connection);
@@ -121,7 +124,7 @@ public class MainActivity extends AppCompatActivity implements RoverCoderInterfa
         }
 
         @Override
-        public void onServiceDisconnected(ComponentName arg0) {
+        public void onServiceDisconnected(ComponentName className) {
             Log.d(TAG, "EV3 Service disconnected");
         }
     };
@@ -137,14 +140,19 @@ public class MainActivity extends AppCompatActivity implements RoverCoderInterfa
 
     private boolean started = false;
 
+    public static final int DEFAULT_SPEED = 20;
+
     private void updateRoverState(final boolean started) {
         if(started) {
             // beep
             brickService.brick().sound().beep();
+            // pulse red light when ready
+            brickService.brick().light().red().pulse();
             // start motors moving forward
-            brickService.brick().motor().portsBandC().turnIndefinitely(20).go();
+            brickService.brick().motor().portsBandC().turnIndefinitely(DEFAULT_SPEED).go();
         } else {
-            brickService.brick().sound().beep(100, 200, 30);
+            brickService.brick().sound().beep(50, 100, 10);
+            brickService.brick().light().red().on();
             brickService.brick().motor().stopAll().coast().go();
         }
         this.started = started;
@@ -171,7 +179,8 @@ public class MainActivity extends AppCompatActivity implements RoverCoderInterfa
     }
 
     public void moveForward(final int ms) {
-        brickService.brick().tank().forward(Interval.milliseconds(ms), Speed.fromValue(20)).go();
+        Log.d(TAG, "MOVE FORWARD");
+        brickService.brick().tank().forward(Interval.milliseconds(ms), Speed.fromValue(DEFAULT_SPEED)).go();
     }
 
     private void moveBackward() {
@@ -179,7 +188,8 @@ public class MainActivity extends AppCompatActivity implements RoverCoderInterfa
     }
 
     public void moveBackward(final int ms) {
-        brickService.brick().tank().backward(Interval.milliseconds(500), Speed.fromValue(20)).go();
+        Log.d(TAG, "MOVE BACKWARD");
+        brickService.brick().tank().backward(Interval.milliseconds(500), Speed.fromValue(DEFAULT_SPEED)).go();
     }
 
     private void turnLeft() {
@@ -187,7 +197,8 @@ public class MainActivity extends AppCompatActivity implements RoverCoderInterfa
     }
 
     public void turnLeft(final int ms) {
-        brickService.brick().tank().turnLeft(Interval.milliseconds(ms)).go();
+        Log.d(TAG, "TURN LEFT (" + ms + ")");
+        brickService.brick().tank().turnLeft(Speed.fromValue(DEFAULT_SPEED), Interval.milliseconds(ms)).go();
     }
 
     private void turnRight() {
@@ -195,11 +206,24 @@ public class MainActivity extends AppCompatActivity implements RoverCoderInterfa
     }
 
     public void turnRight(final int ms) {
-        brickService.brick().tank().turnRight(Interval.milliseconds(ms)).go();
+        Log.d(TAG, "TURN RIGHT (" + ms + ")");
+        brickService.brick().tank().turnRight(Speed.fromValue(DEFAULT_SPEED), Interval.milliseconds(ms)).go();
     }
 
     public int distance() {
-        return brickService.brick().sensor().port4().ultrasonic().centimeters();
+        Log.d(TAG, "DISTANCE ...");
+        final int distance = brickService.brick().sensor().port4().ultrasonic().centimeters();
+        Log.d(TAG, "DISTANCE -> " + distance + " mm");
+        return distance;
+    }
+
+    @Override
+    public Color color() {
+        Log.d(TAG, "COLOR ...");
+        final Color color = brickService.brick().sensor().port3().color().sense();
+        if(color == Color.RED) brickService.brick().light().red().flash();
+        Log.d(TAG, "COLOR -> " + color.name());
+        return color;
     }
 
     private BroadcastReceiver ev3BroadcastReceiver = new BroadcastReceiver() {
@@ -209,7 +233,8 @@ public class MainActivity extends AppCompatActivity implements RoverCoderInterfa
             assert action != null;
             switch (action) {
                 case EV3Service.EV3_ACTION_STARTED:
-                    brickService.brick().sound().beep();
+                    brickService.brick().sound().beep(50, 50, 10);
+                    brickService.brick().light().red().on();
                     Log.d(TAG, "EV3 Service started!");
                     break;
                 case EV3Service.EV3_ACTION_STOPPED:
@@ -217,14 +242,17 @@ public class MainActivity extends AppCompatActivity implements RoverCoderInterfa
                     Log.d(TAG, "EV3 Service stopped!");
                     break;
                 case EV3Service.EV3_SENSED_VALUES:
+                    // ignore
             }
         }
     };
 
     public static final String JAVASCRIPT_CODE =
-            "function runJavaScript(rover) {\n" +
+                    "function runJavaScript(rover) {\n" +
                     "  if (rover.distance() < 200) {\n" +
                     "    rover.turnRight(500);\n" +
+                    "  } else if (rover.color() == rover.RED) {\n" +
+                    "    rover.turnLeft(500);\n" +
                     "  } else {\n" +
                     "    rover.moveForward(100);\n" +
                     "  }\n" +
@@ -233,10 +261,6 @@ public class MainActivity extends AppCompatActivity implements RoverCoderInterfa
     public static final String RUN_FUNCTION = "runJavaScript";
 
     private org.mozilla.javascript.Function function = null;
-
-    public void runCode(View view) {
-        runJavaScript(JAVASCRIPT_CODE);
-    }
 
     private org.mozilla.javascript.Context rhinoContext;
     private org.mozilla.javascript.ScriptableObject scope;
@@ -247,13 +271,14 @@ public class MainActivity extends AppCompatActivity implements RoverCoderInterfa
         scope = rhinoContext.initStandardObjects();
     }
 
-    private void runJavaScript(String javascriptCode) {
+    private void setJavaScript(String javascriptCode) {
         rhinoContext.evaluateString(scope, javascriptCode, RUN_FUNCTION, 1, null);
         function = (org.mozilla.javascript.Function) scope.get(RUN_FUNCTION, scope);
     }
 
     private void stopJavaScript() {
         org.mozilla.javascript.Context.exit();
+        function = null;
     }
 
     private Runnable codeExecutionRunnable = () -> {
@@ -262,6 +287,7 @@ public class MainActivity extends AppCompatActivity implements RoverCoderInterfa
 
         if(started && function != null) {
             Log.d(TAG, "Running JS code ...");
+            brickService.brick().light().green().pulse();
             function.call(
                     org.mozilla.javascript.Context.enter(),
                     org.mozilla.javascript.Context.enter().initStandardObjects(),
