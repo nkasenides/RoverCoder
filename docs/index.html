@@ -90,7 +90,7 @@
 
         $("#playerName").addClass("valid");
 
-        const playerID = (getCookie(PLAYER_ID) == null) ? getUID() : getCookie(PLAYER_ID);
+        const playerID = (getCookie(PLAYER_ID) === "") ? getUID() : getCookie(PLAYER_ID);
         console.log(playerID);
 
         setCookie(PLAYER_ID, playerID);
