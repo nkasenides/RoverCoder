@@ -63,3 +63,4 @@ function deleteAllCookies() {
 const COOKIE_LANG = "COOKIE_LANG";
 const PLAYER_ID = "PLAYER_ID";
 const PLAYER_NAME = "PLAYER_NAME";
+const PLAYER_WORKSPACE = "PLAYER_WORKSPACE";

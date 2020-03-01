@@ -33,33 +33,33 @@
     </style>
 </head>
 <body class="mainPageBody" onload="loadToolbox()">
-    <!--<a class="btn waves-effect purple white-text" onclick="compile()">Compile to JS</a>-->
+<!--<a class="btn waves-effect purple white-text" onclick="compile()">Compile to JS</a>-->
 
-    <div id="acceptCodeBtn" class="fixed-action-btn acceptCodeButton" onclick="processCode();">
-        <a class="btn-floating btn-large green">
-            <i class="large material-icons">check</i>
-        </a>
+<div id="acceptCodeBtn" class="fixed-action-btn acceptCodeButton" onclick="processCode();">
+    <a class="btn-floating btn-large green">
+        <i class="large material-icons">check</i>
+    </a>
+</div>
+
+<div class="fixed-action-btn rejectCodeButton" onclick="doReject()">
+    <a class="btn-floating btn-large red">
+        <i class="large material-icons">arrow_back</i>
+    </a>
+</div>
+
+<div id="blocklyArea" style="height: 100%"></div>
+<div id="blocklyDiv" style="position: absolute"></div>
+
+<div id="errorModal" class="modal center-align">
+    <div class="modal-content">
+        <h4>Error</h4>
+        <i class="material-icons large red-text">warning</i>
+        <p id="errorModalContent">No workspace found</p>
     </div>
-
-    <div class="fixed-action-btn rejectCodeButton" onclick="doReject()">
-        <a class="btn-floating btn-large red">
-            <i class="large material-icons">clear</i>
-        </a>
+    <div class="modal-footer">
+        <a href="index.html" class="modal-close waves-effect waves-red btn-flat">Go back</a>
     </div>
-
-    <div id="blocklyArea" style="height: 100%"></div>
-    <div id="blocklyDiv" style="position: absolute"></div>
-
-    <div id="errorModal" class="modal center-align">
-        <div class="modal-content">
-            <h4>Error</h4>
-            <i class="material-icons large red-text">warning</i>
-            <p id="errorModalContent">No workspace found</p>
-        </div>
-        <div class="modal-footer">
-            <a href="index.html" class="modal-close waves-effect waves-red btn-flat">Go back</a>
-        </div>
-    </div>
+</div>
 <div id="loader">
     <div class="preloader-wrapper big active">
         <div class="spinner-layer spinner-blue-only">
@@ -118,38 +118,7 @@
         const blocklyArea = document.getElementById('blocklyArea');
         const blocklyDiv = document.getElementById('blocklyDiv');
 
-        const options = {
-            toolbox: toolbox,
-            collapse: true,
-            comments: true,
-            disable: true,
-            maxBlocks: Infinity,
-            trashcan: true,
-            horizontalLayout: false,
-            toolboxPosition: 'start',
-            css: true,
-            media: 'https://blockly-demo.appspot.com/static/media/',
-            rtl: false,
-            scrollbars: true,
-            sounds: true,
-            oneBasedIndex: true,
-            grid: {
-                spacing: 20,
-                length: 1,
-                colour: '#888',
-                snap: false
-            },
-            zoom: {
-                controls: true,
-                wheel: true,
-                startScale: 1,
-                maxScale: 3,
-                minScale: 0.3,
-                scaleSpeed: 1.2
-            }
-        };
-
-        const workspace = roverWorkspace = Blockly.inject(
+        workspace = Blockly.inject(
             'blocklyDiv',
             {
                 media: 'blockly/media/',
@@ -203,19 +172,24 @@
         onresize();
         Blockly.svgResize(workspace);
 
+        const existingWorkspace = getCookie(PLAYER_WORKSPACE);
+        if (existingWorkspace !== "") {
+            const xml = Blockly.Xml.textToDom(existingWorkspace);
+            Blockly.Xml.domToWorkspace(xml, workspace);
+        }
+
         return workspace;
 
     }
 
     function compile() {
         code = Blockly.JavaScript.workspaceToCode(workspace);
-        // codeElement.innerText = code;
         return code;
     }
 
     function getWorkspace() {
-        var xmlDom = Blockly.Xml.workspaceToDom(workspace);
-        return Blockly.Xml.domToPrettyText(xmlDom);
+        var xml = Blockly.Xml.workspaceToDom(workspace);
+        return Blockly.Xml.domToText(xml);
     }
 
     function processCode() {
@@ -231,6 +205,8 @@
 
         $("#loader").show();
         $("#acceptCodeBtn").hide();
+
+        setCookie(PLAYER_WORKSPACE, workspace);
 
         const url = UPLOAD_CODE_URL + "?playerName=" + getCookie(PLAYER_NAME) + "&playerID=" + getCookie(PLAYER_ID) + "&code=" + encodeURIComponent(code) + "&workspace=" + encodeURIComponent(workspace);
         fetch(url)
@@ -256,14 +232,11 @@
     }
 
     function doReject() {
-        if (compile().length > 0) {
-            if (confirm(getString("CONFIRM_REJECT_CODE"))) {
-                window.location.href = "index.html";
-            }
-        } else {
-            window.location.href = "index.html";
-        }
+        const workspace = getWorkspace();
+        setCookie(PLAYER_WORKSPACE, workspace);
+        window.location.href = "index.html";
     }
+
 
 </script>
 
