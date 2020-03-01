@@ -1,6 +1,7 @@
 package io.github.nearchos.rovercoder;
 
 import androidx.appcompat.app.AppCompatActivity;
+import androidx.constraintlayout.widget.ConstraintLayout;
 
 import android.bluetooth.BluetoothAdapter;
 import android.bluetooth.BluetoothDevice;
@@ -14,14 +15,20 @@ import android.os.Bundle;
 import android.os.IBinder;
 import android.util.Log;
 import android.view.View;
+import android.view.Window;
+import android.view.WindowManager;
+import android.widget.Button;
+import android.widget.ProgressBar;
 import android.widget.Toast;
 import android.widget.ToggleButton;
 
+import java.util.Objects;
 import java.util.Vector;
 import java.util.concurrent.Executors;
 import java.util.concurrent.ScheduledExecutorService;
 import java.util.concurrent.TimeUnit;
 
+import io.github.nearchos.rovercoder.api.GetNextCodeAsyncTask;
 import robutev3.android.BrickService;
 import robutev3.android.Device;
 import robutev3.android.EV3Service;
@@ -38,14 +45,36 @@ public class MainActivity extends AppCompatActivity implements RoverCoderInterfa
     private BrickService brickService;
 
     private ToggleButton toggleButton;
+    private Button runNextCodeButton;
+    private Button stopCodeButton;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
+        requestWindowFeature(Window.FEATURE_NO_TITLE);
+        getWindow().setFlags(WindowManager.LayoutParams.FLAG_FULLSCREEN, WindowManager.LayoutParams.FLAG_FULLSCREEN);
         setContentView(R.layout.activity_main);
+        Objects.requireNonNull(getSupportActionBar()).hide();
+        getWindow().addFlags(WindowManager.LayoutParams.FLAG_KEEP_SCREEN_ON);
 
         toggleButton = findViewById(R.id.toggleButton);
+        runNextCodeButton = findViewById(R.id.runNextCodeButton);
+        stopCodeButton = findViewById(R.id.stopCodeButton);
+
         toggleButton.setOnCheckedChangeListener((buttonView, isChecked) -> updateRoverState(isChecked));
+
+        runNextCodeButton.setOnClickListener(view -> {
+            new GetNextCodeAsyncTask(this).execute();
+        });
+
+        stopCodeButton.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                stopJavaScript();
+                runNextCodeButton.setEnabled(true);
+                stopCodeButton.setEnabled(false);
+            }
+        });
 
         registerToEv3Events();
     }
@@ -58,6 +87,7 @@ public class MainActivity extends AppCompatActivity implements RoverCoderInterfa
 
         // Get currently paired Bluetooth devices
         Device device = null;
+
         final Vector<BluetoothDevice> bluetoothDevices = new Vector<>(BluetoothAdapter.getDefaultAdapter().getBondedDevices());
         for(final BluetoothDevice bluetoothDevice : bluetoothDevices) {
             if(bluetoothDevice.getAddress().startsWith(BLUETOOTH_OUI_LEGO)) {
@@ -142,7 +172,7 @@ public class MainActivity extends AppCompatActivity implements RoverCoderInterfa
 
     public static final int DEFAULT_SPEED = 20;
 
-    private void updateRoverState(final boolean started) {
+    public void updateRoverState(final boolean started) {
         if(started) {
             // beep
             brickService.brick().sound().beep();
@@ -265,18 +295,18 @@ public class MainActivity extends AppCompatActivity implements RoverCoderInterfa
     private org.mozilla.javascript.Context rhinoContext;
     private org.mozilla.javascript.ScriptableObject scope;
 
-    private void startJavaScript() {
+    public void startJavaScript() {
         rhinoContext = org.mozilla.javascript.Context.enter();
         rhinoContext.setOptimizationLevel(-1);
         scope = rhinoContext.initStandardObjects();
     }
 
-    private void setJavaScript(String javascriptCode) {
+    public void setJavaScript(String javascriptCode) {
         rhinoContext.evaluateString(scope, javascriptCode, RUN_FUNCTION, 1, null);
         function = (org.mozilla.javascript.Function) scope.get(RUN_FUNCTION, scope);
     }
 
-    private void stopJavaScript() {
+    public void stopJavaScript() {
         org.mozilla.javascript.Context.exit();
         function = null;
     }
@@ -296,4 +326,13 @@ public class MainActivity extends AppCompatActivity implements RoverCoderInterfa
             );
         }
     };
+
+    public Button getRunNextCodeButton() {
+        return runNextCodeButton;
+    }
+
+    public Button getStopCodeButton() {
+        return stopCodeButton;
+    }
+
 }

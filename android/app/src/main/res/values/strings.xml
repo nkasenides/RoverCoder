@@ -1,3 +1,6 @@
 <resources>
     <string name="app_name">RoverCoder</string>
+    <string name="run_next_code">Run next code</string>
+    <string name="stop_code">Stop code</string>
+    <string name="please_connect_to_ev3_via_bluetooth">Please connect to EV3 via Bluetooth...</string>
 </resources>

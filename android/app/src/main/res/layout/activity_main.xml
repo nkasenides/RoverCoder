@@ -57,9 +57,9 @@
         android:layout_marginTop="24dp"
         android:onClick="turnLeft"
         android:text="Turn Left"
-        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintBottom_toBottomOf="@id/horizontal_guideline"
         app:layout_constraintEnd_toStartOf="@+id/forwardButton"
-        app:layout_constraintBottom_toBottomOf="@id/horizontal_guideline" />
+        app:layout_constraintStart_toStartOf="parent" />
 
     <Button
         android:layout_width="wrap_content"
@@ -67,9 +67,9 @@
         android:layout_marginTop="24dp"
         android:onClick="turnRight"
         android:text="Turn Right"
+        app:layout_constraintBottom_toBottomOf="@id/horizontal_guideline"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toEndOf="@+id/forwardButton"
-        app:layout_constraintBottom_toBottomOf="@id/horizontal_guideline" />
+        app:layout_constraintStart_toEndOf="@+id/forwardButton" />
 
     <Button
         android:id="@+id/backwardButton"
@@ -78,19 +78,36 @@
         android:layout_marginBottom="60dp"
         android:onClick="goBackward"
         android:text="Backward"
-        app:layout_constraintTop_toBottomOf="@+id/horizontal_guideline"
         app:layout_constraintEnd_toEndOf="@+id/textView"
-        app:layout_constraintStart_toStartOf="@+id/textView" />
+        app:layout_constraintStart_toStartOf="@+id/textView"
+        app:layout_constraintTop_toBottomOf="@+id/horizontal_guideline" />
 
-<!--    <Button-->
-<!--        android:layout_width="wrap_content"-->
-<!--        android:layout_height="wrap_content"-->
-<!--        android:layout_marginBottom="32dp"-->
-<!--        android:onClick="runCode"-->
-<!--        android:text="Run JavaScript"-->
-<!--        app:layout_constraintBottom_toBottomOf="parent"-->
-<!--        app:layout_constraintEnd_toEndOf="parent"-->
-<!--        app:layout_constraintStart_toStartOf="parent" />-->
+    <!--    <Button-->
+    <!--        android:layout_width="wrap_content"-->
+    <!--        android:layout_height="wrap_content"-->
+    <!--        android:layout_marginBottom="32dp"-->
+    <!--        android:onClick="runCode"-->
+    <!--        android:text="Run JavaScript"-->
+    <!--        app:layout_constraintBottom_toBottomOf="parent"-->
+    <!--        app:layout_constraintEnd_toEndOf="parent"-->
+    <!--        app:layout_constraintStart_toStartOf="parent" />-->
+
+    <Button
+        android:id="@+id/runNextCodeButton"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="@string/run_next_code"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintStart_toStartOf="parent" />
+
+    <Button
+        android:id="@+id/stopCodeButton"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:enabled="false"
+        android:text="@string/stop_code"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent" />
 
 
 </androidx.constraintlayout.widget.ConstraintLayout>
