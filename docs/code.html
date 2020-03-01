@@ -222,6 +222,8 @@
         const workspace = getWorkspace();
         const code = compile();
 
+        console.log(code);
+
         if (workspace.length < 1 || code.length < 1) {
             alert(getString("NO_CODE"));
             return;

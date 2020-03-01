@@ -23,49 +23,49 @@
 // };
 
 Blockly.JavaScript['scan_color'] = function(block) {
-    var code = 'rover.scan()';
+    var code = 'rover.color()';
     return [code, Blockly.JavaScript.ORDER_NONE];
 };
 
-Blockly.JavaScript['color_none'] = function(block) {
-    var code = 'EV3Color.NONE';
-    return [code, Blockly.JavaScript.ORDER_NONE];
-};
+// Blockly.JavaScript['color_none'] = function(block) {
+//     var code = 'EV3Color.NONE';
+//     return [code, Blockly.JavaScript.ORDER_NONE];
+// };
 
-Blockly.JavaScript['color_black'] = function(block) {
-    var code = 'EV3Color.BLACK';
-    return [code, Blockly.JavaScript.ORDER_NONE];
-};
+// Blockly.JavaScript['color_black'] = function(block) {
+//     var code = 'EV3Color.BLACK';
+//     return [code, Blockly.JavaScript.ORDER_NONE];
+// };
 
 Blockly.JavaScript['color_blue'] = function(block) {
-    var code = 'EV3Color.BLUE';
+    var code = 'rover.BLUE';
     return [code, Blockly.JavaScript.ORDER_NONE];
 };
 
 Blockly.JavaScript['color_green'] = function(block) {
-    var code = 'EV3Color.GREEN';
+    var code = 'rover.GREEN';
     return [code, Blockly.JavaScript.ORDER_NONE];
 };
 
 Blockly.JavaScript['color_yellow'] = function(block) {
-    var code = 'EV3Color.YELLOW';
+    var code = 'rover.YELLOW';
     return [code, Blockly.JavaScript.ORDER_NONE];
 };
 
 Blockly.JavaScript['color_red'] = function(block) {
-    var code = 'EV3Color.RED';
+    var code = 'rover.RED';
     return [code, Blockly.JavaScript.ORDER_NONE];
 };
 
-Blockly.JavaScript['color_white'] = function(block) {
-    var code = 'EV3Color.WHITE';
-    return [code, Blockly.JavaScript.ORDER_NONE];
-};
-
-Blockly.JavaScript['color_brown'] = function(block) {
-    var code = 'EV3Color.BROWN;';
-    return [code, Blockly.JavaScript.ORDER_NONE];
-};
+// Blockly.JavaScript['color_white'] = function(block) {
+//     var code = 'EV3Color.WHITE';
+//     return [code, Blockly.JavaScript.ORDER_NONE];
+// };
+//
+// Blockly.JavaScript['color_brown'] = function(block) {
+//     var code = 'EV3Color.BROWN;';
+//     return [code, Blockly.JavaScript.ORDER_NONE];
+// };
 
 // Blockly.JavaScript['get_direction'] = function(block) {
 //     var code = 'rover.getDirection()';

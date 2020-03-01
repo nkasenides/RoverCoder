@@ -64,27 +64,27 @@ Blockly.Blocks['scan_color'] = {
     }
 };
 
-Blockly.Blocks['color_none'] = {
-    init: function() {
-        this.appendDummyInput()
-            .appendField("No Color");
-        this.setOutput(true, "Color");
-        this.setColour(60);
-        this.setTooltip("Color None.");
-        this.setHelpUrl("");
-    }
-};
-
-Blockly.Blocks['color_black'] = {
-    init: function() {
-        this.appendDummyInput()
-            .appendField("Black");
-        this.setOutput(true, "Color");
-        this.setColour(60);
-        this.setTooltip("Color Black.");
-        this.setHelpUrl("");
-    }
-};
+// Blockly.Blocks['color_none'] = {
+//     init: function() {
+//         this.appendDummyInput()
+//             .appendField("No Color");
+//         this.setOutput(true, "Color");
+//         this.setColour(60);
+//         this.setTooltip("Color None.");
+//         this.setHelpUrl("");
+//     }
+// };
+//
+// Blockly.Blocks['color_black'] = {
+//     init: function() {
+//         this.appendDummyInput()
+//             .appendField("Black");
+//         this.setOutput(true, "Color");
+//         this.setColour(60);
+//         this.setTooltip("Color Black.");
+//         this.setHelpUrl("");
+//     }
+// };
 
 Blockly.Blocks['color_blue'] = {
     init: function() {
@@ -130,27 +130,27 @@ Blockly.Blocks['color_red'] = {
     }
 };
 
-Blockly.Blocks['color_white'] = {
-    init: function() {
-        this.appendDummyInput()
-            .appendField("White");
-        this.setOutput(true, "Color");
-        this.setColour(60);
-        this.setTooltip("Color White.");
-        this.setHelpUrl("");
-    }
-};
-
-Blockly.Blocks['color_brown'] = {
-    init: function() {
-        this.appendDummyInput()
-            .appendField("Brown");
-        this.setOutput(true, "Color");
-        this.setColour(60);
-        this.setTooltip("Color Brown.");
-        this.setHelpUrl("");
-    }
-};
+// Blockly.Blocks['color_white'] = {
+//     init: function() {
+//         this.appendDummyInput()
+//             .appendField("White");
+//         this.setOutput(true, "Color");
+//         this.setColour(60);
+//         this.setTooltip("Color White.");
+//         this.setHelpUrl("");
+//     }
+// };
+//
+// Blockly.Blocks['color_brown'] = {
+//     init: function() {
+//         this.appendDummyInput()
+//             .appendField("Brown");
+//         this.setOutput(true, "Color");
+//         this.setColour(60);
+//         this.setTooltip("Color Brown.");
+//         this.setHelpUrl("");
+//     }
+// };
 
 Blockly.Blocks['get_direction'] = {
     init: function() {
