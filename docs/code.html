@@ -35,7 +35,7 @@
 <body class="mainPageBody" onload="loadToolbox()">
     <!--<a class="btn waves-effect purple white-text" onclick="compile()">Compile to JS</a>-->
 
-    <div class="fixed-action-btn acceptCodeButton" onclick="processCode();">
+    <div id="acceptCodeBtn" class="fixed-action-btn acceptCodeButton" onclick="processCode();">
         <a class="btn-floating btn-large green">
             <i class="large material-icons">check</i>
         </a>
@@ -228,12 +228,14 @@
         }
 
         $("#loader").show();
+        $("#acceptCodeBtn").hide();
 
         const url = UPLOAD_CODE_URL + "?playerName=" + getCookie(PLAYER_NAME) + "&playerID=" + getCookie(PLAYER_ID) + "&code=" + encodeURIComponent(code) + "&workspace=" + encodeURIComponent(workspace);
         fetch(url)
             .then(result => result.json())
             .then(json => {
                 $("#loader").hide();
+                $("#acceptCodeBtn").show();
                 if (json.status !== "OK") {
                     if (json.title === "Code pending") {
                         alert(getString("CODE_EXISTS"));
