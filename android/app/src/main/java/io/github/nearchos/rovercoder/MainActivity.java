@@ -8,7 +8,6 @@ import android.bluetooth.BluetoothDevice;
 import android.content.BroadcastReceiver;
 import android.content.ComponentName;
 import android.content.Context;
-import android.content.DialogInterface;
 import android.content.Intent;
 import android.content.IntentFilter;
 import android.content.ServiceConnection;
@@ -19,15 +18,12 @@ import android.view.View;
 import android.view.Window;
 import android.view.WindowManager;
 import android.widget.Button;
-import android.widget.ProgressBar;
 import android.widget.TextView;
 import android.widget.Toast;
 import android.widget.ToggleButton;
 
 import com.android.volley.Request;
 import com.android.volley.RequestQueue;
-import com.android.volley.Response;
-import com.android.volley.VolleyError;
 import com.android.volley.toolbox.StringRequest;
 import com.android.volley.toolbox.Volley;
 import com.google.gson.Gson;
@@ -302,19 +298,35 @@ public class MainActivity extends AppCompatActivity implements RoverCoderInterfa
     };
 
     public static final String JAVASCRIPT_CODE =
+                    "var x;\n" +
+                    "var inc;\n" +
+                    "\n" +
+                    "function initializeJavaScript(rover) {\n" +
+                    "  x = 100;\n" +
+                    "  inc = 100;\n" +
+                    "}\n" +
+                    "\n" +
                     "function runJavaScript(rover) {\n" +
                     "  if (rover.distance() < 200) {\n" +
                     "    rover.turnRight(500);\n" +
+                    "    return;\n" +
                     "  } else if (rover.color() == rover.RED) {\n" +
                     "    rover.turnLeft(500);\n" +
+                    "    return;\n" +
                     "  } else {\n" +
-                    "    rover.moveForward(100);\n" +
+                    "    x = x + inc;\n" +
+                    "    if(x >= 800) inc = -100;\n" +
+                    "    else if(x <= 100) inc = 100;\n" +
+                    "    rover.moveForward(x);\n" +
+                    "    return;\n" +
                     "  }\n" +
                     "}";
 
+    public static final String INIT_FUNCTION = "initializeJavaScript";
     public static final String RUN_FUNCTION = "runJavaScript";
 
-    private org.mozilla.javascript.Function function = null;
+    private org.mozilla.javascript.Function initFunction = null;
+    private org.mozilla.javascript.Function runFunction = null;
 
     private org.mozilla.javascript.Context rhinoContext;
     private org.mozilla.javascript.ScriptableObject scope;
@@ -331,12 +343,21 @@ public class MainActivity extends AppCompatActivity implements RoverCoderInterfa
         this.javaScriptCode = javascriptCode;
         this.score = 0;
         rhinoContext.evaluateString(scope, javascriptCode, RUN_FUNCTION, 1, null);
-        function = (org.mozilla.javascript.Function) scope.get(RUN_FUNCTION, scope);
+        initFunction = (org.mozilla.javascript.Function) scope.get(INIT_FUNCTION, scope);
+        final RoverCoderInterface roverCoderInterface = this;
+        initFunction.call(
+                org.mozilla.javascript.Context.enter(),
+                org.mozilla.javascript.Context.enter().initStandardObjects(),
+                org.mozilla.javascript.Context.enter().initStandardObjects(),
+                new Object[] {roverCoderInterface}
+        );
+        runFunction = (org.mozilla.javascript.Function) scope.get(RUN_FUNCTION, scope);
     }
 
     public void stopJavaScript() {
         org.mozilla.javascript.Context.exit();
-        function = null;
+        initFunction = null;
+        runFunction = null;
     }
 
     private int score = 0;
@@ -345,10 +366,10 @@ public class MainActivity extends AppCompatActivity implements RoverCoderInterfa
 
         final RoverCoderInterface roverCoderInterface = this;
 
-        if(started && function != null) {
+        if(started && runFunction != null) {
             Log.d(TAG, "Running JS code ...");
             brickService.brick().light().green().pulse();
-            function.call(
+            runFunction.call(
                     org.mozilla.javascript.Context.enter(),
                     org.mozilla.javascript.Context.enter().initStandardObjects(),
                     org.mozilla.javascript.Context.enter().initStandardObjects(),
@@ -361,38 +382,22 @@ public class MainActivity extends AppCompatActivity implements RoverCoderInterfa
         }
     };
 
-//    public Button getRunNextCodeButton() {
-//        return runNextCodeButton;
-//    }
-//
-//    public Button getStopCodeButton() {
-//        return stopCodeButton;
-//    }
-
     // Request a string response from the provided URL.
     private final StringRequest stringRequest = new StringRequest(Request.Method.GET, APIConstants.GET_NEXT_CODE_URL,
-            new Response.Listener<String>() {
-                @Override
-                public void onResponse(String jsonResponse) {
-                    final com.panickapps.response.Response responseJsonObject = new Gson().fromJson(jsonResponse, com.panickapps.response.Response.class);
+            jsonResponse -> {
+                final com.panickapps.response.Response responseJsonObject = new Gson().fromJson(jsonResponse, com.panickapps.response.Response.class);
 
-                    if (responseJsonObject.getData() != null) {
-                        if (responseJsonObject.getData().has("code")) {
-                            String code = responseJsonObject.getData().getAsJsonObject("code").get("code").getAsString();
-                            Log.d(MainActivity.TAG, code);
-                            setJavaScript(code);
-//                            updateRoverState(true);
-                            currentUserTextView.setText(getString(R.string.Current_User, responseJsonObject.getData().getAsJsonObject("code").get("playerName").getAsString()));
+                if (responseJsonObject.getData() != null) {
+                    if (responseJsonObject.getData().has("code")) {
+                        String code = responseJsonObject.getData().getAsJsonObject("code").get("code").getAsString();
+                        Log.d(MainActivity.TAG, code);
+                        setJavaScript(code);
+                        currentUserTextView.setText(getString(R.string.Current_User, responseJsonObject.getData().getAsJsonObject("code").get("playerName").getAsString()));
 
-                        }
                     }
-                    Toast.makeText(MainActivity.this, responseJsonObject.getMessage(), Toast.LENGTH_LONG).show();
                 }
-            }, new Response.ErrorListener() {
-                @Override
-                public void onErrorResponse(VolleyError error) {
-                    Toast.makeText(MainActivity.this, "I/O Error: " + error, Toast.LENGTH_SHORT).show();
-                }
-            }
+                Toast.makeText(MainActivity.this, responseJsonObject.getMessage(), Toast.LENGTH_LONG).show();
+            },
+            error -> Toast.makeText(MainActivity.this, "I/O Error: " + error, Toast.LENGTH_SHORT).show()
     );
 }
