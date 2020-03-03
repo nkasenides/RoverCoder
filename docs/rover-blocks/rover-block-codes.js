@@ -90,6 +90,11 @@ Blockly.JavaScript['move_forward_param'] = function(block) {
     return 'rover.moveForward(' + value_time + ');\nreturn;\n';
 };
 
+Blockly.JavaScript['move_backward_param'] = function(block) {
+    var value_time = Blockly.JavaScript.valueToCode(block, 'time', Blockly.JavaScript.ORDER_ATOMIC);
+    return 'rover.moveBackward(' + value_time + ');\nreturn;\n';
+};
+
 // Blockly.JavaScript['turn_left'] = function(block) {
 //     return 'rover.turnLeft();\nreturn;\n';
 // };

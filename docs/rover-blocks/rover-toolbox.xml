@@ -2,6 +2,7 @@
   <category name="Rover Coder" colour="#CC9900">
     <block type="run"></block>
     <block type="move_forward_param"></block>
+    <block type="move_backward_param"></block>
     <block type="turn_left_param"></block>
     <block type="turn_right_param"></block>
     <block type="get_distance"></block>

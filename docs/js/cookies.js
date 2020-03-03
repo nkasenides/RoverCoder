@@ -6,6 +6,7 @@
  * @param exdays The expiration time of the cookie.
  */
 function setCookie(cname, cvalue) {
+    cvalue = cvalue.replace(/;/g, '%3B');
     var d = new Date();
     d.setTime(d.getTime() + (30*24*60*60*1000));
     var expires = "expires=" + d.toUTCString();
@@ -23,8 +24,8 @@ function getCookie(cname) {
     for(var i = 0; i <ca.length; i++) {
         var c = ca[i];
         while (c.charAt(0) == ' ') c = c.substring(1);
-        if (c.indexOf(name) == 0) return c.substring(name.length,c.length);
-    }//end for
+        if (c.indexOf(name) == 0) return c.substring(name.length,c.length).replace(/%3B/g, ";");
+    }
     return "";
 }
 

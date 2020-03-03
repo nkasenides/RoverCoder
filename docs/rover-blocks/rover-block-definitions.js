@@ -190,7 +190,20 @@ Blockly.Blocks['move_forward_param'] = {
     init: function() {
         this.appendValueInput("time")
             .setCheck("Number")
-            .appendField("Move Forward");
+            .appendField("Move Forwards");
+        this.setInputsInline(true);
+        this.setPreviousStatement(true, null);
+        this.setColour(230);
+        this.setTooltip("");
+        this.setHelpUrl("");
+    }
+};
+
+Blockly.Blocks['move_backward_param'] = {
+    init: function() {
+        this.appendValueInput("time")
+            .setCheck("Number")
+            .appendField("Move Backwards");
         this.setInputsInline(true);
         this.setPreviousStatement(true, null);
         this.setColour(230);
