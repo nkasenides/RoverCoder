@@ -3,4 +3,6 @@
     <string name="run_next_code">Run next code</string>
     <string name="stop_code">Stop code</string>
     <string name="please_connect_to_ev3_via_bluetooth">Please connect to EV3 via Bluetooth...</string>
+    <string name="Current_User">Current User: %1$s</string>
+    <string name="None">None</string>
 </resources>

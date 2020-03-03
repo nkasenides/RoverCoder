@@ -1,7 +1,6 @@
 package io.github.nearchos.rovercoder;
 
 import androidx.appcompat.app.AppCompatActivity;
-import androidx.constraintlayout.widget.ConstraintLayout;
 
 import android.bluetooth.BluetoothAdapter;
 import android.bluetooth.BluetoothDevice;
@@ -19,8 +18,17 @@ import android.view.Window;
 import android.view.WindowManager;
 import android.widget.Button;
 import android.widget.ProgressBar;
+import android.widget.TextView;
 import android.widget.Toast;
 import android.widget.ToggleButton;
+
+import com.android.volley.Request;
+import com.android.volley.RequestQueue;
+import com.android.volley.Response;
+import com.android.volley.VolleyError;
+import com.android.volley.toolbox.StringRequest;
+import com.android.volley.toolbox.Volley;
+import com.google.gson.Gson;
 
 import java.util.Objects;
 import java.util.Vector;
@@ -28,7 +36,7 @@ import java.util.concurrent.Executors;
 import java.util.concurrent.ScheduledExecutorService;
 import java.util.concurrent.TimeUnit;
 
-import io.github.nearchos.rovercoder.api.GetNextCodeAsyncTask;
+import io.github.nearchos.rovercoder.api.APIConstants;
 import robutev3.android.BrickService;
 import robutev3.android.Device;
 import robutev3.android.EV3Service;
@@ -47,6 +55,9 @@ public class MainActivity extends AppCompatActivity implements RoverCoderInterfa
     private ToggleButton toggleButton;
     private Button runNextCodeButton;
     private Button stopCodeButton;
+    private TextView currentUserTextView;
+
+    private RequestQueue queue;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -63,8 +74,12 @@ public class MainActivity extends AppCompatActivity implements RoverCoderInterfa
 
         toggleButton.setOnCheckedChangeListener((buttonView, isChecked) -> updateRoverState(isChecked));
 
+        // Instantiate the RequestQueue.
+
+        queue = Volley.newRequestQueue(this);
+
         runNextCodeButton.setOnClickListener(view -> {
-            new GetNextCodeAsyncTask(this).execute();
+            queue.add(stringRequest); // Add the request to the RequestQueue.
         });
 
         stopCodeButton.setOnClickListener(new View.OnClickListener() {
@@ -75,6 +90,9 @@ public class MainActivity extends AppCompatActivity implements RoverCoderInterfa
                 stopCodeButton.setEnabled(false);
             }
         });
+
+        currentUserTextView = findViewById(R.id.currentUserTextView);
+        currentUserTextView.setText(getString(R.string.Current_User, getString(R.string.None)));
 
         registerToEv3Events();
     }
@@ -335,4 +353,31 @@ public class MainActivity extends AppCompatActivity implements RoverCoderInterfa
         return stopCodeButton;
     }
 
+    // Request a string response from the provided URL.
+    private final StringRequest stringRequest = new StringRequest(Request.Method.GET, APIConstants.GET_NEXT_CODE_URL,
+            new Response.Listener<String>() {
+                @Override
+                public void onResponse(String jsonResponse) {
+                    final com.panickapps.response.Response responseJsonObject = new Gson().fromJson(jsonResponse, com.panickapps.response.Response.class);
+
+                    if (responseJsonObject.getData() != null) {
+                        if (responseJsonObject.getData().has("code")) {
+                            String code = responseJsonObject.getData().getAsJsonObject("code").get("code").getAsString();
+                            Log.d(MainActivity.TAG, code);
+                            setJavaScript(code);
+                            updateRoverState(true);
+                            getRunNextCodeButton().setEnabled(false);
+                            getStopCodeButton().setEnabled(true);
+                            currentUserTextView.setText(getString(R.string.Current_User, responseJsonObject.getData().getAsJsonObject("code").get("playerName").getAsString()));
+
+                        }
+                    }
+                    Toast.makeText(MainActivity.this, responseJsonObject.getMessage(), Toast.LENGTH_LONG).show();
+                }
+            }, new Response.ErrorListener() {
+        @Override
+        public void onErrorResponse(VolleyError error) {
+            Toast.makeText(MainActivity.this, "I/O Error: " + error, Toast.LENGTH_SHORT).show();
+        }
+    });
 }
