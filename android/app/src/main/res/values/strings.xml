@@ -2,8 +2,31 @@
     <string name="app_name">RoverCoder</string>
     <string name="run_next_code">Run next code</string>
     <string name="View_code">View code</string>
-    <string name="please_connect_to_ev3_via_bluetooth">Please connect to EV3 via Bluetooth...</string>
+    <string name="please_connect_to_ev3_via_bluetooth">Please connect to EV3 via Bluetooth …</string>
     <string name="Current_User">Current User: %1$s</string>
     <string name="Score">Score: %1$d</string>
     <string name="None">None</string>
+    <string name="title_activity_control">ControlActivity</string>
+    <string name="Manual_control">Manual control</string>
+    <string name="Code_control">Code control</string>
+    <string name="Download">Download</string>
+    <string name="Reset">Reset</string>
+    <string name="Progress">Progress: step %1$d of %2$d</string>
+    <string name="Player">Player: %1$s</string>
+
+    <string name="Forward">Forward</string>
+    <string name="Backward">Backward</string>
+    <string name="Turn_Left">Turn Left</string>
+    <string name="Turn_Right">Turn Right</string>
+
+    <string name="Device_icon">Device icon</string>
+    <string name="Name">Name</string>
+    <string name="MAC_Address">MAC Address</string>
+    <string name="USB_Host_Mode">USB Host Mode</string>
+    <string name="Ignore_non_EV3_Bluetooth_devices">Ignore non-EV3 Bluetooth devices</string>
+    <string name="Bluetooth_is_not_supported_on_this_device">Bluetooth is not supported on this device</string>
+    <string name="Bluetooth_is_not_enabled">Bluetooth is not enabled</string>
+    <string name="Connected">Connected</string>
+    <string name="Connecting">Connecting …</string>
+
 </resources>
