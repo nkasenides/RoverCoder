@@ -35,7 +35,7 @@
 <body class="mainPageBody" onload="loadToolbox()">
 <!--<a class="btn waves-effect purple white-text" onclick="compile()">Compile to JS</a>-->
 
-<div id="acceptCodeBtn" class="fixed-action-btn acceptCodeButton" onclick="processCode();">
+<div id="acceptCodeBtn" class="fixed-action-btn acceptCodeButton" onclick="saveAndUploadCode(processCode());">
     <a class="btn-floating btn-large green">
         <i class="large material-icons">check</i>
     </a>
@@ -193,49 +193,87 @@
     }
 
     function processCode() {
-        const workspace = getWorkspace();
+
         const code = compile();
 
-        console.log(code);
-        console.log(workspace);
+        const paramsInjectionCode = "\n\n/*Params Array*/\n" +
+            "var propNames = [];\n" +
+            "function populatePropNames() {\n"+
+            "   for(var propName in this) {\n" +
+            "      if (typeof this[propName] != 'function' && this[propName] != 'propName' && !(this[propName] instanceof Array)) {\n" +
+            "         propNames.push(propName);\n" +
+            "      }\n" +
+            "   }\n" +
+            "}\n" +
+            "\n";
 
-        // if (workspace.length < 1 || code.length < 1) {
-        //     alert(getString("NO_CODE"));
-        //     return;
-        // }
+        console.log(code);
+
+        return code;
+
+        //TODO Variable persistence
+        // const declarationsEnd = getPlayerCodeStart(code);
         //
-        // $("#loader").show();
-        // $("#acceptCodeBtn").hide();
-        //
-        setCookie(PLAYER_WORKSPACE, workspace);
-        //
-        // const url = UPLOAD_CODE_URL + "?playerName=" + getCookie(PLAYER_NAME) + "&playerID=" + getCookie(PLAYER_ID) + "&code=" + encodeURIComponent(code) + "&workspace=" + encodeURIComponent(workspace);
-        // fetch(url)
-        //     .then(result => result.json())
-        //     .then(json => {
-        //         $("#loader").hide();
-        //         $("#acceptCodeBtn").show();
-        //         if (json.status !== "OK") {
-        //             if (json.title === "Code pending") {
-        //                 alert(getString("CODE_EXISTS"));
-        //             } else {
-        //                 alert(json.message);
-        //             }
-        //         } else {
-        //             document.location.href = "scoreboard.html?redirect";
-        //         }
-        //     })
-        //     .catch(error => {
-        //         console.log(error);
-        //         $("#loader").hide();
-        //         alert(error);
-        //     });
+        // let startingCode = "";
+        // if (declarationsEnd > 0) startingCode = code.substring(0, declarationsEnd);
+        // let endingCode = "";
+        // if (declarationsEnd > 0) endingCode = code.substring(declarationsEnd, code.length);
+        // else endingCode = code;
+        // return startingCode + paramsInjectionCode + endingCode;
+    }
+
+    function getPlayerCodeStart(code) {
+        if (code == null || code.length === 0) return 0;
+        let totalLineCharacters = 0;
+        lines = code.split("\n");
+        for (let i = 0; i < lines.length; i++) {
+            if (lines[i].startsWith("var ")) totalLineCharacters += lines[i].length + 1;
+            else break;
+        }
+        return totalLineCharacters - 1; //Return index, not length
     }
 
     function doReject() {
         const workspace = getWorkspace();
         setCookie(PLAYER_WORKSPACE, workspace);
         window.location.href = "index.html";
+    }
+
+    function saveAndUploadCode(code) {
+
+        const workspace = getWorkspace();
+
+        if (workspace.length < 1 || code.length < 1) {
+            alert(getString("NO_CODE"));
+            return;
+        }
+
+        $("#loader").show();
+        $("#acceptCodeBtn").hide();
+
+        setCookie(PLAYER_WORKSPACE, workspace);
+
+        const url = UPLOAD_CODE_URL + "?playerName=" + getCookie(PLAYER_NAME) + "&playerID=" + getCookie(PLAYER_ID) + "&code=" + encodeURIComponent(code) + "&workspace=" + encodeURIComponent(workspace);
+        fetch(url)
+            .then(result => result.json())
+            .then(json => {
+                $("#loader").hide();
+                $("#acceptCodeBtn").show();
+                if (json.status !== "OK") {
+                    if (json.title === "Code pending") {
+                        alert(getString("CODE_EXISTS"));
+                    } else {
+                        alert(json.message);
+                    }
+                } else {
+                    document.location.href = "scoreboard.html?redirect";
+                }
+            })
+            .catch(error => {
+                console.log(error);
+                $("#loader").hide();
+                alert(error);
+            });
     }
 
 
