@@ -101,11 +101,10 @@
         app:layout_constraintStart_toStartOf="parent" />
 
     <Button
-        android:id="@+id/stopCodeButton"
+        android:id="@+id/viewCodeButton"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:enabled="false"
-        android:text="@string/stop_code"
+        android:text="@string/View_code"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent" />
 
@@ -118,5 +117,16 @@
         android:layout_marginBottom="16dp"
         android:background="#ff0"
         app:layout_constraintBottom_toTopOf="@+id/runNextCodeButton" />
+
+    <TextView
+        android:id="@+id/scoreTextView"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginBottom="16dp"
+        android:background="#0ff"
+        android:padding="10dp"
+        android:text="@string/Score"
+        app:layout_constraintBottom_toTopOf="@+id/currentUserTextView"
+        tools:layout_editor_absoluteX="0dp" />
 
 </androidx.constraintlayout.widget.ConstraintLayout>

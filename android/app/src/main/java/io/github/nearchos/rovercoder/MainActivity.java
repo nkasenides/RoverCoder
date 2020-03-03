@@ -1,5 +1,6 @@
 package io.github.nearchos.rovercoder;
 
+import androidx.appcompat.app.AlertDialog;
 import androidx.appcompat.app.AppCompatActivity;
 
 import android.bluetooth.BluetoothAdapter;
@@ -7,6 +8,7 @@ import android.bluetooth.BluetoothDevice;
 import android.content.BroadcastReceiver;
 import android.content.ComponentName;
 import android.content.Context;
+import android.content.DialogInterface;
 import android.content.Intent;
 import android.content.IntentFilter;
 import android.content.ServiceConnection;
@@ -54,8 +56,9 @@ public class MainActivity extends AppCompatActivity implements RoverCoderInterfa
 
     private ToggleButton toggleButton;
     private Button runNextCodeButton;
-    private Button stopCodeButton;
+    private Button viewCodeButton;
     private TextView currentUserTextView;
+    private TextView scoreTextView;
 
     private RequestQueue queue;
 
@@ -70,7 +73,7 @@ public class MainActivity extends AppCompatActivity implements RoverCoderInterfa
 
         toggleButton = findViewById(R.id.toggleButton);
         runNextCodeButton = findViewById(R.id.runNextCodeButton);
-        stopCodeButton = findViewById(R.id.stopCodeButton);
+        viewCodeButton = findViewById(R.id.viewCodeButton);
 
         toggleButton.setOnCheckedChangeListener((buttonView, isChecked) -> updateRoverState(isChecked));
 
@@ -82,17 +85,20 @@ public class MainActivity extends AppCompatActivity implements RoverCoderInterfa
             queue.add(stringRequest); // Add the request to the RequestQueue.
         });
 
-        stopCodeButton.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View view) {
-                stopJavaScript();
-                runNextCodeButton.setEnabled(true);
-                stopCodeButton.setEnabled(false);
-            }
+        viewCodeButton.setOnClickListener(view -> {
+            new AlertDialog.Builder(this)
+                    .setTitle(R.string.View_code)
+                    .setMessage(javaScriptCode)
+                    .setPositiveButton("Dismiss", (dialog, which) -> dialog.dismiss())
+                    .create()
+                    .show();
         });
 
         currentUserTextView = findViewById(R.id.currentUserTextView);
         currentUserTextView.setText(getString(R.string.Current_User, getString(R.string.None)));
+
+        scoreTextView = findViewById(R.id.scoreTextView);
+        scoreTextView.setText(getString(R.string.Score, 0));
 
         registerToEv3Events();
     }
@@ -319,7 +325,11 @@ public class MainActivity extends AppCompatActivity implements RoverCoderInterfa
         scope = rhinoContext.initStandardObjects();
     }
 
+    private String javaScriptCode = JAVASCRIPT_CODE;
+
     public void setJavaScript(String javascriptCode) {
+        this.javaScriptCode = javascriptCode;
+        this.score = 0;
         rhinoContext.evaluateString(scope, javascriptCode, RUN_FUNCTION, 1, null);
         function = (org.mozilla.javascript.Function) scope.get(RUN_FUNCTION, scope);
     }
@@ -328,6 +338,8 @@ public class MainActivity extends AppCompatActivity implements RoverCoderInterfa
         org.mozilla.javascript.Context.exit();
         function = null;
     }
+
+    private int score = 0;
 
     private Runnable codeExecutionRunnable = () -> {
 
@@ -342,16 +354,20 @@ public class MainActivity extends AppCompatActivity implements RoverCoderInterfa
                     org.mozilla.javascript.Context.enter().initStandardObjects(),
                     new Object[] {roverCoderInterface}
             );
+            if(brickService.brick().sensor().port3().color().sense() == Color.RED) {
+                score++;
+                scoreTextView.setText(getString(R.string.Score, score));
+            }
         }
     };
 
-    public Button getRunNextCodeButton() {
-        return runNextCodeButton;
-    }
-
-    public Button getStopCodeButton() {
-        return stopCodeButton;
-    }
+//    public Button getRunNextCodeButton() {
+//        return runNextCodeButton;
+//    }
+//
+//    public Button getStopCodeButton() {
+//        return stopCodeButton;
+//    }
 
     // Request a string response from the provided URL.
     private final StringRequest stringRequest = new StringRequest(Request.Method.GET, APIConstants.GET_NEXT_CODE_URL,
@@ -365,9 +381,7 @@ public class MainActivity extends AppCompatActivity implements RoverCoderInterfa
                             String code = responseJsonObject.getData().getAsJsonObject("code").get("code").getAsString();
                             Log.d(MainActivity.TAG, code);
                             setJavaScript(code);
-                            updateRoverState(true);
-                            getRunNextCodeButton().setEnabled(false);
-                            getStopCodeButton().setEnabled(true);
+//                            updateRoverState(true);
                             currentUserTextView.setText(getString(R.string.Current_User, responseJsonObject.getData().getAsJsonObject("code").get("playerName").getAsString()));
 
                         }
@@ -375,9 +389,10 @@ public class MainActivity extends AppCompatActivity implements RoverCoderInterfa
                     Toast.makeText(MainActivity.this, responseJsonObject.getMessage(), Toast.LENGTH_LONG).show();
                 }
             }, new Response.ErrorListener() {
-        @Override
-        public void onErrorResponse(VolleyError error) {
-            Toast.makeText(MainActivity.this, "I/O Error: " + error, Toast.LENGTH_SHORT).show();
-        }
-    });
+                @Override
+                public void onErrorResponse(VolleyError error) {
+                    Toast.makeText(MainActivity.this, "I/O Error: " + error, Toast.LENGTH_SHORT).show();
+                }
+            }
+    );
 }
