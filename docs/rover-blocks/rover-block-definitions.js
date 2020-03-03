@@ -174,6 +174,18 @@ Blockly.Blocks['get_distance'] = {
     }
 };
 
+Blockly.Blocks['initialize'] = {
+    init: function() {
+        this.appendDummyInput()
+            .appendField("Initialize");
+        this.appendStatementInput("statements")
+            .setCheck(null);
+        this.setColour(300);
+        this.setTooltip("Initialize the Rover.");
+        this.setHelpUrl("");
+    }
+};
+
 Blockly.Blocks['run'] = {
     init: function() {
         this.appendDummyInput()

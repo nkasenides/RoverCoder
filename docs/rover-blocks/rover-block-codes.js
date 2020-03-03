@@ -78,6 +78,13 @@ Blockly.JavaScript['get_distance'] = function(block) {
     return [code, Blockly.JavaScript.ORDER_NONE];
 };
 
+Blockly.JavaScript['initialize'] = function(block) {
+    var statements_statements = Blockly.JavaScript.statementToCode(block, 'statements');
+    return 'function initializeJavaScript(rover) {\n' +
+        statements_statements +
+        "}\n\n";
+};
+
 Blockly.JavaScript['run'] = function(block) {
     var statements_run = Blockly.JavaScript.statementToCode(block, 'run');
     return 'function runJavaScript(rover) {\n'
@@ -89,6 +96,8 @@ Blockly.JavaScript['move_forward_param'] = function(block) {
     var value_time = Blockly.JavaScript.valueToCode(block, 'time', Blockly.JavaScript.ORDER_ATOMIC);
     return 'rover.moveForward(' + value_time + ');\nreturn;\n';
 };
+
+
 
 Blockly.JavaScript['move_backward_param'] = function(block) {
     var value_time = Blockly.JavaScript.valueToCode(block, 'time', Blockly.JavaScript.ORDER_ATOMIC);
