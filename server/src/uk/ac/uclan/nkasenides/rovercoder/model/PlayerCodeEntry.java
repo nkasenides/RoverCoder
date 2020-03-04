@@ -18,6 +18,7 @@ public class PlayerCodeEntry {
     @Index private long uploadedOn = -1;
     @Index private boolean played = false;
     @Index private int points = 0;
+    @Index private boolean currentlyPlaying = false;
 
     private PlayerCodeEntry() { }
 
@@ -91,6 +92,14 @@ public class PlayerCodeEntry {
 
     public void setWorkspace(String workspace) {
         this.workspace = workspace;
+    }
+
+    public boolean isCurrentlyPlaying() {
+        return currentlyPlaying;
+    }
+
+    public void setCurrentlyPlaying(boolean currentlyPlaying) {
+        this.currentlyPlaying = currentlyPlaying;
     }
 
     @Transient

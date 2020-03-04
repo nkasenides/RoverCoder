@@ -1,5 +1,6 @@
 package uk.ac.uclan.nkasenides.rovercoder.api;
 
+import com.google.gson.Gson;
 import com.google.gson.JsonObject;
 import com.panickapps.response.ErrorResponse;
 import com.panickapps.response.JsonUtil;
@@ -23,14 +24,17 @@ public class GetQueueServlet extends HttpServlet {
 
         final PrintWriter out = response.getWriter();
 
-        List<PlayerCodeEntry> entriesQueued = ofy().load().type(PlayerCodeEntry.class).filter("played", false).order("-uploadedOn").list();
+        List<PlayerCodeEntry> entriesQueued = ofy().load().type(PlayerCodeEntry.class).filter("played", false).order("uploadedOn").list();
         if (entriesQueued == null) {
             out.write(new ErrorResponse("Error", "Failed to fetch scoreboard.").toJSON());
             return;
         }
 
+        PlayerCodeEntry playingEntry = APIUtils.getPlayingCodeEntry();
+
         JsonObject data = new JsonObject();
         data.add("queue", JsonUtil.listToJsonArray(entriesQueued));
+        data.add("playingEntry", new Gson().toJsonTree(playingEntry));
         out.write(new SuccessResponse("Queue fetched", "Play queue fetched.", data).toJSON());
     }
 

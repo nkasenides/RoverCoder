@@ -11,3 +11,8 @@ indexes:
     - name: played
     - name: uploadedOn
       direction: desc
+
+- kind: PlayerCodeEntry
+  properties:
+    - name: played
+    - name: uploadedOn

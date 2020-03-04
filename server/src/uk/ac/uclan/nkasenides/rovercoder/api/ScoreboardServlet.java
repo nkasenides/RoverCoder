@@ -1,5 +1,6 @@
 package uk.ac.uclan.nkasenides.rovercoder.api;
 
+import com.google.gson.Gson;
 import com.google.gson.JsonObject;
 import com.panickapps.response.ErrorResponse;
 import com.panickapps.response.JsonUtil;
@@ -29,8 +30,11 @@ public class ScoreboardServlet extends HttpServlet {
             return;
         }
 
+        PlayerCodeEntry playingEntry = APIUtils.getPlayingCodeEntry();
+
         JsonObject data = new JsonObject();
         data.add("scoreboard", JsonUtil.listToJsonArray(playerCodeEntriesNotPlayed));
+        data.add("playingEntry", new Gson().toJsonTree(playingEntry));
         out.write(new SuccessResponse("Scoreboard fetched", "Scoreboard fetched.", data).toJSON());
     }
 

@@ -1,5 +1,6 @@
 package uk.ac.uclan.nkasenides.rovercoder.api;
 
+import com.google.gson.Gson;
 import com.google.gson.JsonObject;
 import com.googlecode.objectify.Key;
 import com.panickapps.response.*;
@@ -61,7 +62,10 @@ public class UpdateScoreServlet extends HttpServlet {
         }
 
         entry.setPoints(score);
+        entry.setCurrentlyPlaying(false);
         ofy().save().entity(entry);
+
+        PlayerCodeEntry playingEntry = APIUtils.getPlayingCodeEntry();
 
         List<PlayerCodeEntry> scoreboardEntries = ofy().load().type(PlayerCodeEntry.class).filter("played", true).order("-points").list();
         if (scoreboardEntries == null) {
@@ -71,6 +75,7 @@ public class UpdateScoreServlet extends HttpServlet {
 
         JsonObject data = new JsonObject();
         data.add("scoreboard", JsonUtil.listToJsonArray(scoreboardEntries));
+        data.add("playingEntry", new Gson().toJsonTree(playingEntry));
         final String messageData = new SuccessResponse("Scoreboard fetched", "Scoreboard fetched.", data).toJSON();
 
         try {

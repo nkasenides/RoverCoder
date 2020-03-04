@@ -27,7 +27,7 @@ public class GetNextCodeServlet extends HttpServlet {
 
         final PrintWriter out = response.getWriter();
 
-        List<PlayerCodeEntry> playerCodeEntriesNotPlayed = ofy().load().type(PlayerCodeEntry.class).filter("played", false).order("-uploadedOn").limit(1).list();
+        List<PlayerCodeEntry> playerCodeEntriesNotPlayed = ofy().load().type(PlayerCodeEntry.class).filter("played", false).order("uploadedOn").limit(1).list();
         if (playerCodeEntriesNotPlayed == null || playerCodeEntriesNotPlayed.size() < 1) {
             out.write(new SuccessResponse("No codes", "No more codes found to run.").toJSON());
             return;
@@ -37,18 +37,22 @@ public class GetNextCodeServlet extends HttpServlet {
         data.add("code", new Gson().toJsonTree(playerCodeEntriesNotPlayed.get(0)));
         out.write(new SuccessResponse("Code fetched", "Next code to run fetched successfully", data).toJSON());
         playerCodeEntriesNotPlayed.get(0).setPlayed(true);
+        playerCodeEntriesNotPlayed.get(0).setCurrentlyPlaying(true);
         ofy().save().entity(playerCodeEntriesNotPlayed.get(0));
 
 
         //Send message:
-        List<PlayerCodeEntry> entriesQueued = ofy().load().type(PlayerCodeEntry.class).filter("played", false).order("-uploadedOn").list();
+        List<PlayerCodeEntry> entriesQueued = ofy().load().type(PlayerCodeEntry.class).filter("played", false).order("uploadedOn").list();
         if (entriesQueued == null) {
-            out.write(new ErrorResponse("Error", "Failed to fetch scoreboard.").toJSON());
+            out.write(new ErrorResponse("Error", "Failed to fetch queue.").toJSON());
             return;
         }
 
+        PlayerCodeEntry playingEntry = APIUtils.getPlayingCodeEntry();
+
         JsonObject scoreboardData = new JsonObject();
         scoreboardData.add("queue", JsonUtil.listToJsonArray(entriesQueued));
+        data.add("playingEntry", new Gson().toJsonTree(playingEntry));
         final String message = new SuccessResponse("Queue fetched", "Play queue fetched.", scoreboardData).toJSON();
 
         try {
