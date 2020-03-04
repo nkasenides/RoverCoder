@@ -129,7 +129,7 @@
                 for (let i = 0; i < scoreboard.length; i++) {
                     if (!scoreboard[i].currentlyPlaying) {
                         if (scoreboard[i].playerID === getCookie(PLAYER_ID)) {
-                            if (i === indexOfBestAttempt) {
+                            if (i === indexOfBestAttempt && indexOfBestAttempt !== -1) {
                                 tableElement.innerHTML += "<tr><td style='background-color: yellow;'>" + (i + 1) + "</td><td style='background-color: yellow;'>" + scoreboard[i].playerName + "</td><td style='background-color: yellow;'>" + scoreboard[i].points + "</td></tr>";
                             } else {
                                 tableElement.innerHTML += "<tr><td>" + (i + 1) + "</td><td class='strikethrough'>" + scoreboard[i].playerName + " (" + getString("LOWER_SCORE") + ")</td><td class='strikethrough'>" + scoreboard[i].points + "</td></tr>";
