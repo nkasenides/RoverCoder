@@ -26,6 +26,10 @@
         <servlet-name>UpdateScore</servlet-name>
         <servlet-class>uk.ac.uclan.nkasenides.rovercoder.api.UpdateScoreServlet</servlet-class>
     </servlet>
+    <servlet>
+        <servlet-name>GetQueueServlet</servlet-name>
+        <servlet-class>uk.ac.uclan.nkasenides.rovercoder.api.GetQueueServlet</servlet-class>
+    </servlet>
 
     <!--Mappings-->
 
@@ -48,6 +52,10 @@
     <servlet-mapping>
         <servlet-name>UpdateScore</servlet-name>
         <url-pattern>/api/updateScore</url-pattern>
+    </servlet-mapping>
+    <servlet-mapping>
+        <servlet-name>GetQueueServlet</servlet-name>
+        <url-pattern>/api/getQueue</url-pattern>
     </servlet-mapping>
 
     <!--Objectify-->
