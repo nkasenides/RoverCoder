@@ -1,9 +1,14 @@
 <resources>
     <string name="app_name">RoverCoder</string>
-    <string name="run_next_code">Run next code</string>
+    <string name="Next">Next</string>
     <string name="View_code">View code</string>
     <string name="please_connect_to_ev3_via_bluetooth">Please connect to EV3 via Bluetooth...</string>
     <string name="Current_User">Current User: %1$s</string>
     <string name="Score">Score: %1$d</string>
     <string name="None">None</string>
+    <string name="Forward">Forward</string>
+    <string name="Turn_left">Turn Left</string>
+    <string name="Turn_right">Turn Right</string>
+    <string name="Backward">Backward</string>
+    <string name="Current_Player_and_Score">%1$s: %2$d\n(%3$d / %4$d)</string>
 </resources>
