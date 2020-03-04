@@ -2,7 +2,7 @@
 <html lang="en">
 <head>
     <meta charset="UTF-8">
-    <title>Scoreboard - Rover Coder</title>
+    <title>Queue - Rover Coder</title>
     <link rel="shortcut icon" type="image/png" href="images/logo.png"/>
     <meta name="theme-color" content="#666"/>
     <meta name="viewport" content="width=device-width, initial-scale=1">
@@ -30,7 +30,7 @@
 
     <div class="center">
         <a class="btn-flat black white-text" href="code.html"><script>writeString("PLAY_AGAIN", true)</script></a>
-        <a class="btn black white-text" href="queue.html"><script>writeString("QUEUE", true)</script></a>
+        <a class="btn black white-text" href="scoreboard.html"><script>writeString("SCOREBOARD", true)</script></a>
         <br/><br/>
     </div>
 
@@ -50,16 +50,16 @@
                         }
                     </script>
 
-                    <script>writeString("SCOREBOARD");</script>
+                    <script>writeString("QUEUE");</script>
                 </h4>
             </div>
 
-            <div id="scoreTableWrapper">
-                <table id="scoreTable"></table>
+            <div id="queueTableWrapper">
+                <table id="queueTable"></table>
             </div>
 
             <a href="index.html"><script>writeString("HOMEPAGE")</script></a> <br/>
-            <a href="code.html"><script>writeString("PLAY_AGAIN")</script></a>
+            <a href="code.html"><script>writeString("PLAY_AGAIN")</script></a> <br/>
 
         </div>
     </div>
@@ -68,31 +68,31 @@
 <footer></footer>
 
 <script>
-    const tableElement = document.getElementById("scoreTable");
+    const queueTableElement = document.getElementById("queueTable");
 
-    function getScores() {
-        console.log("getScores()");
-        fetch(SCOREBOARD_URL)
+    function getQueue() {
+        console.log("getQueue()");
+        fetch(QUEUE_URL)
             .then(result => result.json())
             .then(json => {
                 if (json.status === "OK") {
-                    tableElement.innerHTML = "<tr><th>" + getString("PLAYER_NAME") + "</th><th>" + getString("POINTS") + "</th></tr>";
-                    const scoreboard = json.data.scoreboard;
-                    if (scoreboard.length < 1) {
-                        tableElement.style.display = "none";
-                        document.getElementById("scoreTableWrapper").innerHTML = "<p class='center grey-text'>" + getString("NO_SCORES") + "</p>"
+                    queueTableElement.innerHTML = "<tr><th>" + getString("PLAYER_NAME") + "</th><th>" + getString("QUEUE_NUM") + "</th></tr>";
+                    const queue = json.data.queue;
+                    if (queue.length < 1) {
+                        queueTableElement.style.display = "none";
+                        document.getElementById("queueTableWrapper").innerHTML = "<p class='center grey-text'>" + getString("NO_CODES") + "</p>"
                     } else {
-                        for (let i = 0; i < scoreboard.length; i++) {
-                            if (scoreboard[i].playerID === getCookie(PLAYER_ID)) {
-                                tableElement.innerHTML += "<tr><td style='background-color: #fff176;'>" + scoreboard[i].playerName + "</td><td style='background-color: #fff176;'>" + scoreboard[i].points + "</td></tr>";
+                        for (let i = 0; i < queue.length; i++) {
+                            if (queue[i].playerID === getCookie(PLAYER_ID)) {
+                                queueTableElement.innerHTML += "<tr><td style='background-color: #fff176;'>" + queue[i].playerName + "</td><td style='background-color: #fff176;'>" + (i + 1) + "</td></tr>";
                             }
                             else {
-                                tableElement.innerHTML += "<tr><td>" + scoreboard[i].playerName + "</td><td>" + scoreboard[i].points + "</td></tr>";
+                                queueTableElement.innerHTML += "<tr><td>" + queue[i].playerName + "</td><td>" + (i + 1) + "</td></tr>";
                             }
                         }
                     }
                 } else {
-                    alert(getString("ERROR_GETTING_SCOREBOARD"));
+                    alert(getString("ERROR_GETTING_QUEUE"));
                 }
             })
             .catch(error => {
@@ -100,7 +100,7 @@
             });
     }
 
-    setInterval(function(){ getScores(); }, 1000);
+    setInterval(function(){ getQueue(); }, 1000);
 </script>
 
 </body>
