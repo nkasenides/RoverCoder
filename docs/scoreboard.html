@@ -32,8 +32,12 @@
     </div>
 
     <div class="center">
-        <a class="btn-flat black white-text" href="code.html"><script>writeString("PLAY_AGAIN", true)</script></a>
-        <a class="btn black white-text" href="queue.html?pageVisit"><script>writeString("QUEUE", true)</script></a>
+        <a class="btn-flat black white-text" href="code.html">
+            <script>writeString("PLAY_AGAIN", true)</script>
+        </a>
+        <a class="btn black white-text" href="queue.html?pageVisit">
+            <script>writeString("QUEUE", true)</script>
+        </a>
         <br/><br/>
     </div>
 
@@ -44,7 +48,10 @@
     <div id="playingNowContainer" class="container">
         <div class="row mainPagePanelDark">
             <div class="s12 center">
-                <div class="playingNowTitle"><b><script>writeString("PLAYING_NOW")</script></b></div><br/>
+                <div class="playingNowTitle"><b>
+                    <script>writeString("PLAYING_NOW")</script>
+                </b></div>
+                <br/>
                 <span id="playingNowPlayerName">#PLAYER_NAME#</span><br/><br/>
             </div>
         </div>
@@ -52,8 +59,8 @@
 
     <div class="container">
         <div class="row playFont mainPagePanel">
-            <div class="col s12">
-                <h4 class="center">
+            <div class="col s12 center">
+                <h4>
 
                     <script>
                         const params = new URLSearchParams(location.search);
@@ -65,18 +72,24 @@
 
                     <script>writeString("SCOREBOARD");</script>
                 </h4>
-            </div>
 
-            <p><script>writeString("YOUR_POSITION")</script>: <span id="playerPosition"></span></p>
+                <p><script>writeString("YOUR_POSITION")</script>: <span id="playerPosition"></span></p>
+            </div>
 
             <div id="scoreTableWrapper">
                 <table id="scoreTable"></table>
             </div>
 
             <br/>
-            <a href="moreScoreboard.html"><script>writeString("MORE_SCOREBOARD")</script></a><br/>
-            <a href="index.html"><script>writeString("HOMEPAGE")</script></a> <br/>
-            <a href="code.html"><script>writeString("PLAY_AGAIN")</script></a>
+            <a href="moreScoreboard.html">
+                <script>writeString("MORE_SCOREBOARD")</script>
+            </a><br/>
+            <a href="index.html">
+                <script>writeString("HOMEPAGE")</script>
+            </a> <br/>
+            <a href="code.html">
+                <script>writeString("PLAY_AGAIN")</script>
+            </a>
 
         </div>
     </div>
@@ -135,6 +148,7 @@
 
                 let id = 0;
                 let position = -1;
+                let shownPlayerIDs = [];
 
                 for (let i = 0; i < scoreboard.length; i++) {
                     if (!scoreboard[i].currentlyPlaying) {
@@ -144,15 +158,14 @@
                                 id++;
                                 position = id;
                             }
-                            // else {
-                            //     tableElement.innerHTML += "<tr><td>" + (i + 1) + "</td><td class='strikethrough'>" + scoreboard[i].playerName + " (" + getString("LOWER_SCORE") + ")</td><td class='strikethrough'>" + scoreboard[i].points + "</td></tr>";
-                            // }
                         } else {
-                            tableElement.innerHTML += "<tr><td>" + (id + 1) + "</td><td>" + scoreboard[i].playerName + "</td><td>" + scoreboard[i].points + "</td></tr>";
-                            id++;
+                            if (!shownPlayerIDs.includes(scoreboard[i].playerID)) {
+                                tableElement.innerHTML += "<tr><td>" + (id + 1) + "</td><td>" + scoreboard[i].playerName + "</td><td>" + scoreboard[i].points + "</td></tr>";
+                                id++;
+                                shownPlayerIDs.push(scoreboard[i].playerID);
+                            }
                         }
-                    }
-                    else {
+                    } else {
                         tableElement.innerHTML += "<tr><td>" + (id + 1) + "</td><td>" + scoreboard[i].playerName + " <span class='chip green white-text'>" + getString("PLAYING_NOW") + "</span></td><td>-</td></tr>";
                         id++;
                     }
@@ -167,8 +180,7 @@
                 const points = playingEntry.points;
                 $("#playingNowPlayerName").text(playerName);
                 $("#playingNowContainer").show();
-            }
-            else {
+            } else {
                 $("#playingNowContainer").fadeOut();
             }
         } else {

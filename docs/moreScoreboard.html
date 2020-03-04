@@ -130,6 +130,7 @@
                 // console.log(indexOfBestAttempt);
                 // console.log(mostPointsValue);
 
+                let shownPlayerIDs = [];
 
                 for (let i = 0; i < scoreboard.length; i++) {
                     if (!scoreboard[i].currentlyPlaying) {
@@ -141,7 +142,13 @@
                                 tableElement.innerHTML += "<tr><td>" + (i + 1) + "</td><td class='strikethrough'>" + scoreboard[i].playerName + " (" + getString("LOWER_SCORE") + ")</td><td class='strikethrough'>" + scoreboard[i].points + "</td></tr>";
                             }
                         } else {
-                            tableElement.innerHTML += "<tr><td>" + (i + 1) + "</td><td>" + scoreboard[i].playerName + "</td><td>" + scoreboard[i].points + "</td></tr>";
+                            if (!shownPlayerIDs.includes(scoreboard[i].playerID)) {
+                                tableElement.innerHTML += "<tr><td>" + (i + 1) + "</td><td>" + scoreboard[i].playerName + "</td><td>" + scoreboard[i].points + "</td></tr>";
+                                shownPlayerIDs.push(scoreboard[i].playerID);
+                            }
+                            else {
+                                tableElement.innerHTML += "<tr><td>" + (i + 1) + "</td><td class='strikethrough'>" + scoreboard[i].playerName + "</td><td class='strikethrough'>" + scoreboard[i].points + "</td></tr>";
+                            }
                         }
                     }
                     else {
