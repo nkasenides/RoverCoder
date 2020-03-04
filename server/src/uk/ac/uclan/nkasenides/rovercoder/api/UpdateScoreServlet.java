@@ -1,10 +1,11 @@
 package uk.ac.uclan.nkasenides.rovercoder.api;
 
+import com.google.gson.JsonObject;
 import com.googlecode.objectify.Key;
-import com.panickapps.response.ErrorResponse;
-import com.panickapps.response.InvalidParameterResponse;
-import com.panickapps.response.MissingParameterResponse;
-import com.panickapps.response.SuccessResponse;
+import com.panickapps.response.*;
+import io.ably.lib.realtime.AblyRealtime;
+import io.ably.lib.realtime.Channel;
+import io.ably.lib.types.AblyException;
 import uk.ac.uclan.nkasenides.rovercoder.model.PlayerCodeEntry;
 import uk.ac.uclan.nkasenides.rovercoder.util.APIUtils;
 
@@ -14,6 +15,7 @@ import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 import java.io.IOException;
 import java.io.PrintWriter;
+import java.util.List;
 
 import static com.googlecode.objectify.ObjectifyService.ofy;
 
@@ -60,6 +62,25 @@ public class UpdateScoreServlet extends HttpServlet {
 
         entry.setPoints(score);
         ofy().save().entity(entry);
+
+        List<PlayerCodeEntry> scoreboardEntries = ofy().load().type(PlayerCodeEntry.class).filter("played", true).order("-points").list();
+        if (scoreboardEntries == null) {
+            out.write(new ErrorResponse("Error", "Failed to fetch scoreboard.").toJSON());
+            return;
+        }
+
+        JsonObject data = new JsonObject();
+        data.add("scoreboard", JsonUtil.listToJsonArray(scoreboardEntries));
+        final String messageData = new SuccessResponse("Scoreboard fetched", "Scoreboard fetched.", data).toJSON();
+
+        try {
+            AblyRealtime ably = new AblyRealtime("dujpIA.Oc6Olw:OZ_kAbMfRdlY5kod");
+            Channel channel = ably.channels.get("scores");
+            channel.publish("response", messageData);
+        } catch (AblyException e) {
+            e.printStackTrace();
+        }
+
         out.write(new SuccessResponse("Score updated", "The score for entry with ID '" + entryID + "' has been updated.").toJSON());
     }
 
@@ -70,4 +91,7 @@ public class UpdateScoreServlet extends HttpServlet {
     protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
         processRequest(request, response);
     }
+
+
+
 }

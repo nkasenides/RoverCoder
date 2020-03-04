@@ -1,0 +1,14 @@
+<component name="libraryTable">
+  <library name="ably-java-1.0.1-javadoc">
+    <CLASSES>
+      <root url="jar://$PROJECT_DIR$/lib/msgpack-core-0.8.11.jar!/" />
+      <root url="jar://$PROJECT_DIR$/lib/ably-java-1.0.1.jar!/" />
+    </CLASSES>
+    <JAVADOC>
+      <root url="jar://$PROJECT_DIR$/lib/ably-java-1.0.1-javadoc.jar!/" />
+    </JAVADOC>
+    <SOURCES>
+      <root url="jar://$PROJECT_DIR$/lib/ably-java-1.0.1-sources.jar!/" />
+    </SOURCES>
+  </library>
+</component>
