@@ -44,6 +44,16 @@
 </header>
 
 <main>
+
+    <div id="playingNowContainer" class="container">
+        <div class="row mainPagePanelDark">
+            <div class="s12 center">
+                <div class="playingNowTitle"><b><script>writeString("PLAYING_NOW")</script></b></div><br/>
+                <span id="playingNowPlayerName">#PLAYER_NAME#</span><br/><br/>
+            </div>
+        </div>
+    </div>
+
     <div class="container">
         <div class="row playFont mainPagePanel">
             <div class="col s12">
@@ -64,6 +74,7 @@
 
                     <script>writeString("QUEUE");</script>
                 </h4>
+
             </div>
 
             <div id="queueTableWrapper">
@@ -109,6 +120,7 @@
 
     function updateTable(json) {
         console.log("updateTable()");
+        console.log(json);
         if (json.status === "OK") {
             queueTableElement.innerHTML = "<tr><th>" + getString("PLAYER_NAME") + "</th><th>" + getString("QUEUE_NUM") + "</th></tr>";
             const queue = json.data.queue;
@@ -117,11 +129,29 @@
                 queueTableElement.style.display = "none";
                 document.getElementById("queueTableWrapper").innerHTML = "<p class='center grey-text'>" + getString("NO_CODES") + "</p>"
             } else {
+
+                //Check for the most recent attempt:
+                let indexOfMostRecentAttempt = -1;
+                let mostRecentAttemptValue = Number.MIN_VALUE;
+                for (let i = 0; i < queue.length; i++) {
+                    if (queue[i].playerID === getCookie(PLAYER_ID)) {
+                        if (queue[i].uploadedOn > mostRecentAttemptValue) {
+                            mostRecentAttemptValue = queue[i].uploadedOn;
+                            indexOfMostRecentAttempt = i;
+                        }
+                    }
+                }
+
                 let userInQueue = false;
                 for (let i = 0; i < queue.length; i++) {
                     if (queue[i].playerID === getCookie(PLAYER_ID)) {
                         userInQueue = true;
-                        queueTableElement.innerHTML += "<tr><td style='background-color: #fff176;'>" + queue[i].playerName + "</td><td style='background-color: #fff176;'>" + (i + 1) + "</td></tr>";
+                        if (i === indexOfMostRecentAttempt) {
+                            queueTableElement.innerHTML += "<tr><td style='background-color: #fff176;'>" + queue[i].playerName + "</td><td style='background-color: #fff176;'>" + (i + 1) + "</td></tr>";
+                        }
+                        else {
+                            queueTableElement.innerHTML += "<tr><td>" + queue[i].playerName + " (" + getString("PREVIOUS_ATTEMPT") + ")</td><td>" + (i + 1) + "</td></tr>";
+                        }
                     } else {
                         queueTableElement.innerHTML += "<tr><td>" + queue[i].playerName + "</td><td>" + (i + 1) + "</td></tr>";
                     }
@@ -129,6 +159,17 @@
                 if (!userInQueue && !pageVisit) {
                     document.location.href = "scoreboard.html";
                 }
+            }
+
+            const playingEntry = json.data.playingEntry;
+            if (playingEntry != null) {
+                const playerName = playingEntry.playerName;
+                const points = playingEntry.points;
+                $("#playingNowPlayerName").text(playerName);
+                $("#playingNowContainer").show();
+            }
+            else {
+                $("#playingNowContainer").fadeOut();
             }
         } else {
             alert(getString("ERROR_GETTING_QUEUE"));

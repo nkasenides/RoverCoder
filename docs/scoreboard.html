@@ -40,6 +40,16 @@
 </header>
 
 <main>
+
+    <div id="playingNowContainer" class="container">
+        <div class="row mainPagePanelDark">
+            <div class="s12 center">
+                <div class="playingNowTitle"><b><script>writeString("PLAYING_NOW")</script></b></div><br/>
+                <span id="playingNowPlayerName">#PLAYER_NAME#</span><br/><br/>
+            </div>
+        </div>
+    </div>
+
     <div class="container">
         <div class="row playFont mainPagePanel">
             <div class="col s12">
@@ -95,21 +105,54 @@
     });
 
     function updateTable(json) {
+        console.log(json);
         if (json.status === "OK") {
-            tableElement.innerHTML = "<tr><th>" + getString("PLAYER_NAME") + "</th><th>" + getString("POINTS") + "</th></tr>";
+            tableElement.innerHTML = "<tr><th>" + getString("POSITION") + "</th><th>" + getString("PLAYER_NAME") + "</th><th>" + getString("POINTS") + "</th></tr>";
             const scoreboard = json.data.scoreboard;
             if (scoreboard.length < 1) {
                 tableElement.style.display = "none";
                 document.getElementById("scoreTableWrapper").innerHTML = "<p class='center grey-text'>" + getString("NO_SCORES") + "</p>"
             } else {
+
+                //Check for the most recent attempt:
+                let indexOfBestAttempt = -1;
+                let mostPointsValue = Number.MIN_VALUE;
                 for (let i = 0; i < scoreboard.length; i++) {
                     if (scoreboard[i].playerID === getCookie(PLAYER_ID)) {
-                        tableElement.innerHTML += "<tr><td style='background-color: #fff176;'>" + scoreboard[i].playerName + "</td><td style='background-color: #fff176;'>" + scoreboard[i].points + "</td></tr>";
-                    }
-                    else {
-                        tableElement.innerHTML += "<tr><td>" + scoreboard[i].playerName + "</td><td>" + scoreboard[i].points + "</td></tr>";
+                        if (scoreboard[i].points > mostPointsValue) {
+                            mostPointsValue = scoreboard[i].points;
+                            indexOfBestAttempt = i;
+                        }
                     }
                 }
+
+                for (let i = 0; i < scoreboard.length; i++) {
+                    if (!scoreboard[i].currentlyPlaying) {
+                        if (scoreboard[i].playerID === getCookie(PLAYER_ID)) {
+                            if (i === indexOfBestAttempt) {
+                                tableElement.innerHTML += "<tr><td style='background-color: yellow;'>" + (i + 1) + "</td><td style='background-color: yellow;'>" + scoreboard[i].playerName + "</td><td style='background-color: yellow;'>" + scoreboard[i].points + "</td></tr>";
+                            } else {
+                                tableElement.innerHTML += "<tr><td>" + (i + 1) + "</td><td class='strikethrough'>" + scoreboard[i].playerName + " (" + getString("LOWER_SCORE") + ")</td><td class='strikethrough'>" + scoreboard[i].points + "</td></tr>";
+                            }
+                        } else {
+                            tableElement.innerHTML += "<tr><td>" + (i + 1) + "</td><td>" + scoreboard[i].playerName + "</td><td>" + scoreboard[i].points + "</td></tr>";
+                        }
+                    }
+                    else {
+                        tableElement.innerHTML += "<tr><td>" + (i + 1) + "</td><td>" + scoreboard[i].playerName + " <span class='chip green white-text'>" + getString("PLAYING_NOW") + "</span></td><td>-</td></tr>";
+                    }
+                }
+            }
+
+            const playingEntry = json.data.playingEntry;
+            if (playingEntry != null) {
+                const playerName = playingEntry.playerName;
+                const points = playingEntry.points;
+                $("#playingNowPlayerName").text(playerName);
+                $("#playingNowContainer").show();
+            }
+            else {
+                $("#playingNowContainer").fadeOut();
             }
         } else {
             alert(getString("ERROR_GETTING_SCOREBOARD"));

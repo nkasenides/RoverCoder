@@ -2,26 +2,11 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="2b70388a-6e3f-4ab8-87fa-0a625bb1399b" name="Default Changelist" comment="">
-      <change afterPath="$PROJECT_DIR$/../server/.idea/libraries/Java_WebSocket_1_3_1.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/../server/.idea/libraries/ably_java_1_0_1_javadoc.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/client.iml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/client.iml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/jsLibraryMappings.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/jsLibraryMappings.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/css/style.css" beforeDir="false" afterPath="$PROJECT_DIR$/css/style.css" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/js/lang.js" beforeDir="false" afterPath="$PROJECT_DIR$/js/lang.js" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/queue.html" beforeDir="false" afterPath="$PROJECT_DIR$/queue.html" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/scoreboard.html" beforeDir="false" afterPath="$PROJECT_DIR$/scoreboard.html" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../server/.idea/artifacts/server_war_exploded.xml" beforeDir="false" afterPath="$PROJECT_DIR$/../server/.idea/artifacts/server_war_exploded.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../server/.idea/libraries/com_google_firebase_firebase_admin_6_12_2.xml" beforeDir="false" />
       <change beforePath="$PROJECT_DIR$/../server/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/../server/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../server/out/artifacts/server_war_exploded/WEB-INF/classes/uk/ac/uclan/nkasenides/rovercoder/api/GetNextCodeServlet.class" beforeDir="false" afterPath="$PROJECT_DIR$/../server/out/artifacts/server_war_exploded/WEB-INF/classes/uk/ac/uclan/nkasenides/rovercoder/api/GetNextCodeServlet.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../server/out/artifacts/server_war_exploded/WEB-INF/classes/uk/ac/uclan/nkasenides/rovercoder/api/UpdateScoreServlet.class" beforeDir="false" afterPath="$PROJECT_DIR$/../server/out/artifacts/server_war_exploded/WEB-INF/classes/uk/ac/uclan/nkasenides/rovercoder/api/UpdateScoreServlet.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../server/out/artifacts/server_war_exploded/WEB-INF/classes/uk/ac/uclan/nkasenides/rovercoder/util/FirebaseUtils.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../server/out/production/server/uk/ac/uclan/nkasenides/rovercoder/api/GetNextCodeServlet.class" beforeDir="false" afterPath="$PROJECT_DIR$/../server/out/production/server/uk/ac/uclan/nkasenides/rovercoder/api/GetNextCodeServlet.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../server/out/production/server/uk/ac/uclan/nkasenides/rovercoder/api/UpdateScoreServlet.class" beforeDir="false" afterPath="$PROJECT_DIR$/../server/out/production/server/uk/ac/uclan/nkasenides/rovercoder/api/UpdateScoreServlet.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../server/out/production/server/uk/ac/uclan/nkasenides/rovercoder/util/FirebaseUtils.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../server/server.iml" beforeDir="false" afterPath="$PROJECT_DIR$/../server/server.iml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../server/src/uk/ac/uclan/nkasenides/rovercoder/api/GetNextCodeServlet.java" beforeDir="false" afterPath="$PROJECT_DIR$/../server/src/uk/ac/uclan/nkasenides/rovercoder/api/GetNextCodeServlet.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../server/src/uk/ac/uclan/nkasenides/rovercoder/api/UpdateScoreServlet.java" beforeDir="false" afterPath="$PROJECT_DIR$/../server/src/uk/ac/uclan/nkasenides/rovercoder/api/UpdateScoreServlet.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../server/src/uk/ac/uclan/nkasenides/rovercoder/util/FirebaseUtils.java" beforeDir="false" />
     </list>
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
     <option name="SHOW_DIALOG" value="false" />
@@ -40,15 +25,24 @@
           </provider>
         </entry>
       </file>
-      <file pinned="false" current-in-tab="true">
+      <file pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/queue.html">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="211">
-              <caret line="55" column="47" selection-start-line="55" selection-start-column="47" selection-end-line="55" selection-end-column="47" />
+            <state relative-caret-position="296">
+              <caret line="152" column="96" selection-start-line="152" selection-start-column="96" selection-end-line="152" selection-end-column="96" />
               <folding>
                 <element signature="n#style#0;n#td#0;n#tr#0;n#!!top" expanded="true" />
                 <element signature="n#style#0;n#td#1;n#tr#0;n#!!top" expanded="true" />
               </folding>
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/css/style.css">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="381">
+              <caret line="122" column="9" lean-forward="true" selection-start-line="122" selection-start-column="9" selection-end-line="122" selection-end-column="9" />
             </state>
           </provider>
         </entry>
@@ -62,12 +56,13 @@
           </provider>
         </entry>
       </file>
-      <file pinned="false" current-in-tab="false">
+      <file pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/scoreboard.html">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="211">
-              <caret line="91" column="42" lean-forward="true" selection-start-line="91" selection-start-column="42" selection-end-line="91" selection-end-column="42" />
+            <state relative-caret-position="313">
+              <caret line="132" column="100" selection-start-line="132" selection-start-column="100" selection-end-line="132" selection-end-column="100" />
               <folding>
+                <element signature="n#style#0;n#td#0;n#tr#0;n#!!top" expanded="true" />
                 <element signature="n#style#0;n#td#0;n#tr#0;n#!!top" expanded="true" />
                 <element signature="n#style#0;n#td#1;n#tr#0;n#!!top" expanded="true" />
               </folding>
@@ -78,7 +73,7 @@
       <file pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/rover-blocks/rover-block-definitions.js">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="3944">
+            <state relative-caret-position="534">
               <caret line="232" column="28" selection-start-line="232" selection-start-column="28" selection-end-line="232" selection-end-column="28" />
             </state>
           </provider>
@@ -96,8 +91,8 @@
       <file pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/js/lang.js">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="671">
-              <caret line="113" column="18" selection-start-line="113" selection-start-column="18" selection-end-line="113" selection-end-column="18" />
+            <state relative-caret-position="469">
+              <caret line="169" column="21" selection-start-line="169" selection-start-column="21" selection-end-line="169" selection-end-column="21" />
             </state>
           </provider>
         </entry>
@@ -149,9 +144,11 @@
       <find>move_</find>
       <find>move_back</find>
       <find>scoreboard</find>
+      <find>queue</find>
     </findStrings>
     <replaceStrings>
       <replace>let</replace>
+      <replace>scoreboard</replace>
     </replaceStrings>
   </component>
   <component name="Git.Settings">
@@ -182,7 +179,6 @@
         <option value="$PROJECT_DIR$/js/id.js" />
         <option value="$PROJECT_DIR$/js/init.js" />
         <option value="$PROJECT_DIR$/changeName.html" />
-        <option value="$PROJECT_DIR$/css/style.css" />
         <option value="$PROJECT_DIR$/index.html" />
         <option value="$PROJECT_DIR$/js/cookies.js" />
         <option value="$PROJECT_DIR$/rover-blocks/rover-block-codes.js" />
@@ -190,9 +186,10 @@
         <option value="$PROJECT_DIR$/rover-blocks/rover-toolbox.xml" />
         <option value="$PROJECT_DIR$/js/api.js" />
         <option value="$PROJECT_DIR$/code.html" />
+        <option value="$PROJECT_DIR$/queue.html" />
+        <option value="$PROJECT_DIR$/css/style.css" />
         <option value="$PROJECT_DIR$/js/lang.js" />
         <option value="$PROJECT_DIR$/scoreboard.html" />
-        <option value="$PROJECT_DIR$/queue.html" />
       </list>
     </option>
   </component>
@@ -301,12 +298,12 @@
       <workItem from="1582967487020" duration="18890000" />
       <workItem from="1583050251531" duration="5932000" />
       <workItem from="1583232396023" duration="6820000" />
-      <workItem from="1583339357807" duration="7060000" />
+      <workItem from="1583339357807" duration="11452000" />
     </task>
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="79962000" />
+    <option name="totallyTimeSpent" value="84354000" />
   </component>
   <component name="TodoView">
     <todo-panel id="selected-file">
@@ -504,21 +501,7 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/css/style.css">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="323">
-          <caret line="19" column="26" lean-forward="true" selection-start-line="19" selection-start-column="26" selection-end-line="19" selection-end-column="26" />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/rover-blocks/rover-block-definitions-gr.js" />
-    <entry file="file://$PROJECT_DIR$/rover-blocks/rover-block-definitions.js">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="3944">
-          <caret line="232" column="28" selection-start-line="232" selection-start-column="28" selection-end-line="232" selection-end-column="28" />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/rover-blocks/rover-toolbox.xml">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="493">
@@ -564,10 +547,10 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/js/lang.js">
+    <entry file="file://$PROJECT_DIR$/rover-blocks/rover-block-definitions.js">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="671">
-          <caret line="113" column="18" selection-start-line="113" selection-start-column="18" selection-end-line="113" selection-end-column="18" />
+        <state relative-caret-position="534">
+          <caret line="232" column="28" selection-start-line="232" selection-start-column="28" selection-end-line="232" selection-end-column="28" />
         </state>
       </provider>
     </entry>
@@ -578,10 +561,10 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/scoreboard.html">
+    <entry file="file://$PROJECT_DIR$/queue.html">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="211">
-          <caret line="91" column="42" lean-forward="true" selection-start-line="91" selection-start-column="42" selection-end-line="91" selection-end-column="42" />
+        <state relative-caret-position="296">
+          <caret line="152" column="96" selection-start-line="152" selection-start-column="96" selection-end-line="152" selection-end-column="96" />
           <folding>
             <element signature="n#style#0;n#td#0;n#tr#0;n#!!top" expanded="true" />
             <element signature="n#style#0;n#td#1;n#tr#0;n#!!top" expanded="true" />
@@ -589,11 +572,26 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/queue.html">
+    <entry file="file://$PROJECT_DIR$/css/style.css">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="211">
-          <caret line="55" column="47" selection-start-line="55" selection-start-column="47" selection-end-line="55" selection-end-column="47" />
+        <state relative-caret-position="381">
+          <caret line="122" column="9" lean-forward="true" selection-start-line="122" selection-start-column="9" selection-end-line="122" selection-end-column="9" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/js/lang.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="469">
+          <caret line="169" column="21" selection-start-line="169" selection-start-column="21" selection-end-line="169" selection-end-column="21" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/scoreboard.html">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="313">
+          <caret line="132" column="100" selection-start-line="132" selection-start-column="100" selection-end-line="132" selection-end-column="100" />
           <folding>
+            <element signature="n#style#0;n#td#0;n#tr#0;n#!!top" expanded="true" />
             <element signature="n#style#0;n#td#0;n#tr#0;n#!!top" expanded="true" />
             <element signature="n#style#0;n#td#1;n#tr#0;n#!!top" expanded="true" />
           </folding>

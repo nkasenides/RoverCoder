@@ -40,6 +40,29 @@
     padding: 10px;
 }
 
+.mainPagePanelDark {
+    background-color: rgba(0, 0, 0, 0.85);
+    border: 1px solid grey;
+    border-radius: 10px;
+    box-shadow: black 0 0 30px;
+    padding: 10px;
+    color: white;
+}
+
+#playingNowContainer {
+    display: none;
+}
+
+#playingNowPlayerPoints, #playingNowPlayerName {
+    color: yellow;
+}
+
+.playingNowTitle {
+    font-size: large;
+    border-bottom: 1px solid grey;
+    padding-bottom: 5px;
+}
+
 .justify {
     text-align: justify;
 }
@@ -102,4 +125,8 @@ th, td {
     left: 50%;
     top: 40%;
     display: none;
+}
+
+.strikethrough {
+    text-decoration: line-through;
 }

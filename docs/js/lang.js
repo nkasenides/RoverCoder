@@ -144,6 +144,30 @@ const LANG = {
     CHANGE_NAME: {
         gr: "Αλλαγή ονόματος",
         en: "Change name"
+    },
+    PLAYING_NOW: {
+        gr: "Παίζει τώρα",
+        en: "Playing now"
+    },
+    WITH: {
+        gr: "με",
+        en: "with"
+    },
+    POINTS_SO_FAR: {
+        gr: "βαθμούς",
+        en: "points"
+    },
+    PREVIOUS_ATTEMPT: {
+        gr: "Προηγούμενη προσπάθεια",
+        en: "Previous attempt"
+    },
+    LOWER_SCORE: {
+        gr: "Χαμηλότερη βαθμολογία",
+        en: "Lower score"
+    },
+    POSITION: {
+        gr: "Θέση",
+        en: "Position"
     }
 
 };
