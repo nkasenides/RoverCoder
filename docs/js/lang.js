@@ -93,6 +93,10 @@ const LANG = {
         gr: "Σφάλμα κατά τη λήψη του πίνακα αποτελεσμάτων.",
         en: "Error getting scoreboard."
     },
+    ERROR_GETTING_QUEUE: {
+        gr: "Σφάλμα κατά τη λήψη του πίνακα σειράς.",
+        en: "Error getting code queue."
+    },
     PLAYER_NAME: {
         gr: "Όνομα παίκτη",
         en: "Player name"
@@ -101,9 +105,21 @@ const LANG = {
         gr: "Βαθμοί",
         en: "Points"
     },
+    QUEUE_NUM: {
+        gr: "Σειρά",
+        en: "Turn"
+    },
+    QUEUE: {
+        gr: "Σειρά εκτέλεσης",
+        en: "Queue"
+    },
     NO_SCORES: {
         gr: "Δεν υπάρχουν αποτελέσματα.",
         en: "There are no scores to show."
+    },
+    NO_CODES: {
+        gr: "Δεν υπάρχουν κώδικες για εκτέλεση.",
+        en: "There are no codes to execute."
     },
     NO_CODE: {
         gr: "Παρακαλώ γράψτε κώδικα.",

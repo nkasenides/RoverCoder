@@ -2,10 +2,106 @@
 <html lang="en">
 <head>
     <meta charset="UTF-8">
-    <title>$Title$</title>
+    <title>Queue - Rover Coder</title>
+    <link rel="shortcut icon" type="image/png" href="images/logo.png"/>
+    <meta name="theme-color" content="#666"/>
     <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link rel="stylesheet" href="css/materialize.css">
+    <link rel="stylesheet" href="css/style.css">
+    <script src="https://code.jquery.com/jquery-2.1.1.min.js"></script>
+    <script src="js/materialize.min.js"></script>
+    <script src="js/init.js"></script>
+    <script src="js/api.js"></script>
+    <script src="js/cookies.js"></script>
+    <script src="js/lang.js"></script>
+    <script>initLanguage();</script>
 </head>
-<body>
-$END$
+<body class="mainPageBody">
+
+<header>
+    <div class="center">
+        <h1 class="playFont mainPageTitle">Rover Coder</h1>
+        <img class="unselectable flag" src="images/greece.png" width="30" onclick="setLanguage(GREEK, true);"
+             alt="greek"/>
+        <img class="unselectable flag" src="images/united-kingdom.png" width="30" onclick="setLanguage(ENGLISH, true);"
+             alt="english"/>
+        <br/><br/>
+    </div>
+
+    <div class="center">
+        <a class="btn-flat black white-text" href="code.html"><script>writeString("PLAY_AGAIN", true)</script></a>
+        <a class="btn black white-text" href="scoreboard.html"><script>writeString("SCOREBOARD", true)</script></a>
+        <br/><br/>
+    </div>
+
+</header>
+
+<main>
+    <div class="container">
+        <div class="row playFont mainPagePanel">
+            <div class="col s12">
+                <h4 class="center">
+
+                    <script>
+                        const params = new URLSearchParams(location.search);
+                        if (params.has("redirect")) {
+                            document.write("<img src='images/radar.png' alt='radar' width='80' />");
+                            document.write("<p>" + getString("CODE_SUBMITTED") + "</p>");
+                        }
+                    </script>
+
+                    <script>writeString("QUEUE");</script>
+                </h4>
+            </div>
+
+            <div id="queueTableWrapper">
+                <table id="queueTable"></table>
+            </div>
+
+            <a href="index.html"><script>writeString("HOMEPAGE")</script></a> <br/>
+            <a href="code.html"><script>writeString("PLAY_AGAIN")</script></a> <br/>
+
+        </div>
+    </div>
+</main>
+
+<footer></footer>
+
+<script>
+    const queueTableElement = document.getElementById("queueTable");
+
+    function getQueue() {
+        console.log("getQueue()");
+        fetch(QUEUE_URL)
+            .then(result => result.json())
+            .then(json => {
+                if (json.status === "OK") {
+                    queueTableElement.innerHTML = "<tr><th>" + getString("PLAYER_NAME") + "</th><th>" + getString("QUEUE_NUM") + "</th></tr>";
+                    const queue = json.data.queue;
+                    if (queue.length < 1) {
+                        queueTableElement.style.display = "none";
+                        document.getElementById("queueTableWrapper").innerHTML = "<p class='center grey-text'>" + getString("NO_CODES") + "</p>"
+                    } else {
+                        for (let i = 0; i < queue.length; i++) {
+                            if (queue[i].playerID === getCookie(PLAYER_ID)) {
+                                queueTableElement.innerHTML += "<tr><td style='background-color: #fff176;'>" + queue[i].playerName + "</td><td style='background-color: #fff176;'>" + (i + 1) + "</td></tr>";
+                            }
+                            else {
+                                queueTableElement.innerHTML += "<tr><td>" + queue[i].playerName + "</td><td>" + (i + 1) + "</td></tr>";
+                            }
+                        }
+                    }
+                } else {
+                    alert(getString("ERROR_GETTING_QUEUE"));
+                }
+            })
+            .catch(error => {
+                console.error(error);
+            });
+    }
+
+    setInterval(function(){ getQueue(); }, 1000);
+</script>
+
 </body>
 </html>

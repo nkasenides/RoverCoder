@@ -29,9 +29,8 @@
     </div>
 
     <div class="center">
-        <a class="btn-flat black white-text" href="code.html">
-            <script>writeString("PLAY_AGAIN", true)</script>
-        </a>
+        <a class="btn-flat black white-text" href="code.html"><script>writeString("PLAY_AGAIN", true)</script></a>
+        <a class="btn black white-text" href="queue.html"><script>writeString("QUEUE", true)</script></a>
         <br/><br/>
     </div>
 
@@ -72,6 +71,7 @@
     const tableElement = document.getElementById("scoreTable");
 
     function getScores() {
+        console.log("getScores()");
         fetch(SCOREBOARD_URL)
             .then(result => result.json())
             .then(json => {
@@ -83,7 +83,12 @@
                         document.getElementById("scoreTableWrapper").innerHTML = "<p class='center grey-text'>" + getString("NO_SCORES") + "</p>"
                     } else {
                         for (let i = 0; i < scoreboard.length; i++) {
-                            tableElement.innerHTML += "<tr><td>" + scoreboard[i].playerName + "</td><td>" + scoreboard[i].points + "</td></tr>";
+                            if (scoreboard[i].playerID === getCookie(PLAYER_ID)) {
+                                tableElement.innerHTML += "<tr><td style='background-color: #fff176;'>" + scoreboard[i].playerName + "</td><td style='background-color: #fff176;'>" + scoreboard[i].points + "</td></tr>";
+                            }
+                            else {
+                                tableElement.innerHTML += "<tr><td>" + scoreboard[i].playerName + "</td><td>" + scoreboard[i].points + "</td></tr>";
+                            }
                         }
                     }
                 } else {
@@ -95,7 +100,7 @@
             });
     }
 
-    getScores();
+    setInterval(function(){ getScores(); }, 1000);
 </script>
 
 </body>
