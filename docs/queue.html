@@ -15,6 +15,9 @@
     <script src="js/cookies.js"></script>
     <script src="js/lang.js"></script>
     <script>initLanguage();</script>
+
+    <script src="//cdn.ably.io/lib/ably.min-1.js"></script>
+
 </head>
 <body class="mainPageBody">
 
@@ -29,8 +32,12 @@
     </div>
 
     <div class="center">
-        <a class="btn-flat black white-text" href="code.html"><script>writeString("PLAY_AGAIN", true)</script></a>
-        <a class="btn black white-text" href="scoreboard.html"><script>writeString("SCOREBOARD", true)</script></a>
+        <a class="btn-flat black white-text" href="code.html">
+            <script>writeString("PLAY_AGAIN", true)</script>
+        </a>
+        <a class="btn black white-text" href="scoreboard.html">
+            <script>writeString("SCOREBOARD", true)</script>
+        </a>
         <br/><br/>
     </div>
 
@@ -44,9 +51,14 @@
 
                     <script>
                         const params = new URLSearchParams(location.search);
+                        let pageVisit = false;
                         if (params.has("redirect")) {
+                            redirection = true;
                             document.write("<img src='images/radar.png' alt='radar' width='80' />");
                             document.write("<p>" + getString("CODE_SUBMITTED") + "</p>");
+                        }
+                        if (params.has("pageVisit")) {
+                            pageVisit = true;
                         }
                     </script>
 
@@ -58,8 +70,12 @@
                 <table id="queueTable"></table>
             </div>
 
-            <a href="index.html"><script>writeString("HOMEPAGE")</script></a> <br/>
-            <a href="code.html"><script>writeString("PLAY_AGAIN")</script></a> <br/>
+            <a href="index.html">
+                <script>writeString("HOMEPAGE")</script>
+            </a> <br/>
+            <a href="code.html">
+                <script>writeString("PLAY_AGAIN")</script>
+            </a> <br/>
 
         </div>
     </div>
@@ -75,25 +91,7 @@
         fetch(QUEUE_URL)
             .then(result => result.json())
             .then(json => {
-                if (json.status === "OK") {
-                    queueTableElement.innerHTML = "<tr><th>" + getString("PLAYER_NAME") + "</th><th>" + getString("QUEUE_NUM") + "</th></tr>";
-                    const queue = json.data.queue;
-                    if (queue.length < 1) {
-                        queueTableElement.style.display = "none";
-                        document.getElementById("queueTableWrapper").innerHTML = "<p class='center grey-text'>" + getString("NO_CODES") + "</p>"
-                    } else {
-                        for (let i = 0; i < queue.length; i++) {
-                            if (queue[i].playerID === getCookie(PLAYER_ID)) {
-                                queueTableElement.innerHTML += "<tr><td style='background-color: #fff176;'>" + queue[i].playerName + "</td><td style='background-color: #fff176;'>" + (i + 1) + "</td></tr>";
-                            }
-                            else {
-                                queueTableElement.innerHTML += "<tr><td>" + queue[i].playerName + "</td><td>" + (i + 1) + "</td></tr>";
-                            }
-                        }
-                    }
-                } else {
-                    alert(getString("ERROR_GETTING_QUEUE"));
-                }
+                updateTable(json);
             })
             .catch(error => {
                 console.error(error);
@@ -101,6 +99,41 @@
     }
 
     getQueue();
+
+    const ably = new Ably.Realtime('dujpIA.Oc6Olw:OZ_kAbMfRdlY5kod');
+    const channel = ably.channels.get('queue');
+    channel.subscribe(function (message) {
+        const json = JSON.parse(message.data);
+        updateTable(json);
+    });
+
+    function updateTable(json) {
+        console.log("updateTable()");
+        if (json.status === "OK") {
+            queueTableElement.innerHTML = "<tr><th>" + getString("PLAYER_NAME") + "</th><th>" + getString("QUEUE_NUM") + "</th></tr>";
+            const queue = json.data.queue;
+            if (queue.length < 1) {
+                if (!pageVisit) document.location.href = "scoreboard.html";
+                queueTableElement.style.display = "none";
+                document.getElementById("queueTableWrapper").innerHTML = "<p class='center grey-text'>" + getString("NO_CODES") + "</p>"
+            } else {
+                let userInQueue = false;
+                for (let i = 0; i < queue.length; i++) {
+                    if (queue[i].playerID === getCookie(PLAYER_ID)) {
+                        userInQueue = true;
+                        queueTableElement.innerHTML += "<tr><td style='background-color: #fff176;'>" + queue[i].playerName + "</td><td style='background-color: #fff176;'>" + (i + 1) + "</td></tr>";
+                    } else {
+                        queueTableElement.innerHTML += "<tr><td>" + queue[i].playerName + "</td><td>" + (i + 1) + "</td></tr>";
+                    }
+                }
+                if (!userInQueue && !pageVisit) {
+                    document.location.href = "scoreboard.html";
+                }
+            }
+        } else {
+            alert(getString("ERROR_GETTING_QUEUE"));
+        }
+    }
 
 </script>
 

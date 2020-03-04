@@ -15,6 +15,9 @@
     <script src="js/cookies.js"></script>
     <script src="js/lang.js"></script>
     <script>initLanguage();</script>
+
+    <script src="//cdn.ably.io/lib/ably.min-1.js"></script>
+
 </head>
 <body class="mainPageBody">
 
@@ -30,7 +33,7 @@
 
     <div class="center">
         <a class="btn-flat black white-text" href="code.html"><script>writeString("PLAY_AGAIN", true)</script></a>
-        <a class="btn black white-text" href="queue.html"><script>writeString("QUEUE", true)</script></a>
+        <a class="btn black white-text" href="queue.html?pageVisit"><script>writeString("QUEUE", true)</script></a>
         <br/><br/>
     </div>
 
@@ -75,25 +78,7 @@
         fetch(SCOREBOARD_URL)
             .then(result => result.json())
             .then(json => {
-                if (json.status === "OK") {
-                    tableElement.innerHTML = "<tr><th>" + getString("PLAYER_NAME") + "</th><th>" + getString("POINTS") + "</th></tr>";
-                    const scoreboard = json.data.scoreboard;
-                    if (scoreboard.length < 1) {
-                        tableElement.style.display = "none";
-                        document.getElementById("scoreTableWrapper").innerHTML = "<p class='center grey-text'>" + getString("NO_SCORES") + "</p>"
-                    } else {
-                        for (let i = 0; i < scoreboard.length; i++) {
-                            if (scoreboard[i].playerID === getCookie(PLAYER_ID)) {
-                                tableElement.innerHTML += "<tr><td style='background-color: #fff176;'>" + scoreboard[i].playerName + "</td><td style='background-color: #fff176;'>" + scoreboard[i].points + "</td></tr>";
-                            }
-                            else {
-                                tableElement.innerHTML += "<tr><td>" + scoreboard[i].playerName + "</td><td>" + scoreboard[i].points + "</td></tr>";
-                            }
-                        }
-                    }
-                } else {
-                    alert(getString("ERROR_GETTING_SCOREBOARD"));
-                }
+                updateTable(json);
             })
             .catch(error => {
                 console.error(error);
@@ -101,6 +86,36 @@
     }
 
     getScores();
+
+    const ably = new Ably.Realtime('dujpIA.Oc6Olw:OZ_kAbMfRdlY5kod');
+    const channel = ably.channels.get('scores');
+    channel.subscribe(function (message) {
+        const json = JSON.parse(message.data);
+        updateTable(json);
+    });
+
+    function updateTable(json) {
+        if (json.status === "OK") {
+            tableElement.innerHTML = "<tr><th>" + getString("PLAYER_NAME") + "</th><th>" + getString("POINTS") + "</th></tr>";
+            const scoreboard = json.data.scoreboard;
+            if (scoreboard.length < 1) {
+                tableElement.style.display = "none";
+                document.getElementById("scoreTableWrapper").innerHTML = "<p class='center grey-text'>" + getString("NO_SCORES") + "</p>"
+            } else {
+                for (let i = 0; i < scoreboard.length; i++) {
+                    if (scoreboard[i].playerID === getCookie(PLAYER_ID)) {
+                        tableElement.innerHTML += "<tr><td style='background-color: #fff176;'>" + scoreboard[i].playerName + "</td><td style='background-color: #fff176;'>" + scoreboard[i].points + "</td></tr>";
+                    }
+                    else {
+                        tableElement.innerHTML += "<tr><td>" + scoreboard[i].playerName + "</td><td>" + scoreboard[i].points + "</td></tr>";
+                    }
+                }
+            }
+        } else {
+            alert(getString("ERROR_GETTING_SCOREBOARD"));
+        }
+    }
+
 </script>
 
 </body>
