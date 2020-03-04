@@ -67,14 +67,12 @@
                 </h4>
             </div>
 
-            <p><script>writeString("YOUR_POSITION")</script>: <span id="playerPosition"></span></p>
-
             <div id="scoreTableWrapper">
                 <table id="scoreTable"></table>
             </div>
 
             <br/>
-            <a href="moreScoreboard.html"><script>writeString("MORE_SCOREBOARD")</script></a><br/>
+            <a href="scoreboard.html"><script>writeString("SCOREBOARD")</script></a><br/>
             <a href="index.html"><script>writeString("HOMEPAGE")</script></a> <br/>
             <a href="code.html"><script>writeString("PLAY_AGAIN")</script></a>
 
@@ -114,7 +112,6 @@
             tableElement.innerHTML = "<tr><th>" + getString("POSITION") + "</th><th>" + getString("PLAYER_NAME") + "</th><th>" + getString("POINTS") + "</th></tr>";
             const scoreboard = json.data.scoreboard;
             if (scoreboard.length < 1) {
-                $("#playerPosition").hide();
                 tableElement.style.display = "none";
                 document.getElementById("scoreTableWrapper").innerHTML = "<p class='center grey-text'>" + getString("NO_SCORES") + "</p>"
             } else {
@@ -133,32 +130,24 @@
                 // console.log(indexOfBestAttempt);
                 // console.log(mostPointsValue);
 
-                let id = 0;
-                let position = -1;
 
                 for (let i = 0; i < scoreboard.length; i++) {
                     if (!scoreboard[i].currentlyPlaying) {
                         if (scoreboard[i].playerID === getCookie(PLAYER_ID)) {
                             if (i === indexOfBestAttempt && indexOfBestAttempt !== -1) {
-                                tableElement.innerHTML += "<tr><td style='background-color: yellow;'>" + (id + 1) + "</td><td style='background-color: yellow;'>" + scoreboard[i].playerName + "</td><td style='background-color: yellow;'>" + scoreboard[i].points + "</td></tr>";
-                                id++;
-                                position = id;
+                                tableElement.innerHTML += "<tr><td style='background-color: yellow;'>" + (i + 1) + "</td><td style='background-color: yellow;'>" + scoreboard[i].playerName + " <span class='chip black white-text'>" + getString("BEST_ATTEMPT") + "</span></td><td style='background-color: yellow;'>" + scoreboard[i].points + "</td></tr>";
                             }
-                            // else {
-                            //     tableElement.innerHTML += "<tr><td>" + (i + 1) + "</td><td class='strikethrough'>" + scoreboard[i].playerName + " (" + getString("LOWER_SCORE") + ")</td><td class='strikethrough'>" + scoreboard[i].points + "</td></tr>";
-                            // }
+                            else {
+                                tableElement.innerHTML += "<tr><td>" + (i + 1) + "</td><td class='strikethrough'>" + scoreboard[i].playerName + " (" + getString("LOWER_SCORE") + ")</td><td class='strikethrough'>" + scoreboard[i].points + "</td></tr>";
+                            }
                         } else {
-                            tableElement.innerHTML += "<tr><td>" + (id + 1) + "</td><td>" + scoreboard[i].playerName + "</td><td>" + scoreboard[i].points + "</td></tr>";
-                            id++;
+                            tableElement.innerHTML += "<tr><td>" + (i + 1) + "</td><td>" + scoreboard[i].playerName + "</td><td>" + scoreboard[i].points + "</td></tr>";
                         }
                     }
                     else {
-                        tableElement.innerHTML += "<tr><td>" + (id + 1) + "</td><td>" + scoreboard[i].playerName + " <span class='chip green white-text'>" + getString("PLAYING_NOW") + "</span></td><td>-</td></tr>";
-                        id++;
+                        tableElement.innerHTML += "<tr><td>" + (i + 1) + "</td><td>" + scoreboard[i].playerName + " <span class='chip green white-text'>" + getString("PLAYING_NOW") + "</span></td><td>-</td></tr>";
                     }
                 }
-
-                $("#playerPosition").text(position);
             }
 
             const playingEntry = json.data.playingEntry;

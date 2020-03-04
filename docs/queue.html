@@ -132,7 +132,7 @@
 
                 //Check for the most recent attempt:
                 let indexOfMostRecentAttempt = -1;
-                let mostRecentAttemptValue = Number.MIN_VALUE;
+                let mostRecentAttemptValue = Number.MIN_SAFE_INTEGER;
                 for (let i = 0; i < queue.length; i++) {
                     if (queue[i].playerID === getCookie(PLAYER_ID)) {
                         if (queue[i].uploadedOn > mostRecentAttemptValue) {

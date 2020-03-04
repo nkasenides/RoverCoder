@@ -146,8 +146,8 @@ const LANG = {
         en: "Change name"
     },
     PLAYING_NOW: {
-        gr: "Παίζει τώρα",
-        en: "Playing now"
+        gr: "Εκτελείτε τώρα",
+        en: "Executing now"
     },
     WITH: {
         gr: "με",
@@ -168,6 +168,18 @@ const LANG = {
     POSITION: {
         gr: "Θέση",
         en: "Position"
+    },
+    BEST_ATTEMPT: {
+        gr: "Καλύτερη προσπάθεια",
+        en: "Best attempt"
+    },
+    MORE_SCOREBOARD: {
+        gr: "Αναλυτικός πίνακας αποτελεσμάτων",
+        en: "View detailed scoreboard"
+    },
+    YOUR_POSITION: {
+        gr: "Η θέση σας",
+        en: "Your rank"
     }
 
 };
