@@ -68,7 +68,7 @@ public class UpdateScoreServlet extends HttpServlet {
 
         PlayerCodeEntry playingEntry = APIUtils.getPlayingCodeEntry();
 
-        List<PlayerCodeEntry> scoreboardEntries = ofy().load().type(PlayerCodeEntry.class).filter("played", true).order("-points").list();
+        List<PlayerCodeEntry> scoreboardEntries = ofy().load().type(PlayerCodeEntry.class).filter("played", true).order("-points").order("uploadedOn").list();
         if (scoreboardEntries == null) {
             out.write(new ErrorResponse("Error", "Failed to fetch scoreboard.").toJSON());
             return;

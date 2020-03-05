@@ -7,11 +7,30 @@
 --%>
 <%@ page contentType="text/html;charset=UTF-8" language="java" %>
 <html>
-  <head>
-    <title>Hello World!</title>
-  </head>
-  <body>
-  <p style="background-color: black; color: white;">Hello World!!</p>
+<head>
+    <title>Rover coder - Admin</title>
+</head>
+<body>
+<p>Please log in</p>
 
-  </body>
+<%
+
+    if (session.getAttribute("LOGIN") != null) {
+        response.sendRedirect("main.jsp");
+    }
+
+    if (request.getParameter("error") != null) {
+        final String error = request.getParameter("error");
+        response.getWriter().write("<p style='color: red'>" + error + "</p>");
+    }
+%>
+
+<h1>Rover Coder Admin</h1>
+
+<form action="script_login.jsp" method="POST">
+    <p>Password: <input type="password" name="password"/></p>
+    <input type="submit" value="Log in"/>
+</form>
+
+</body>
 </html>

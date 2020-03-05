@@ -3,4 +3,5 @@
   <threadsafe>true</threadsafe>
   <runtime>java8</runtime>
   <application>rovercoder</application>
+  <sessions-enabled>true</sessions-enabled>
 </appengine-web-app>

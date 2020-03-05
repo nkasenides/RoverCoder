@@ -9,6 +9,13 @@ indexes:
 - kind: PlayerCodeEntry
   properties:
     - name: played
+    - name: points
+      direction: desc
+    - name: uploadedOn
+
+- kind: PlayerCodeEntry
+  properties:
+    - name: played
     - name: uploadedOn
       direction: desc
 

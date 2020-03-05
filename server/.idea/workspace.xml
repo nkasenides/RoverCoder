@@ -7,9 +7,32 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="0a7ba99a-2cd0-426d-8351-6f3c14241980" name="Default Changelist" comment="">
+      <change afterPath="$PROJECT_DIR$/web/script_logout.jsp" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/../docs/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/../docs/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/artifacts/server_war_exploded.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/artifacts/server_war_exploded.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/libraries/Maven__javax_servlet_jstl_1_25.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/libraries/Maven__javax_servlet_jstl_1_25.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/libraries/Maven__javax_servlet_servlet_api_2_52.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/libraries/Maven__javax_servlet_servlet_api_2_52.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/artifacts/server_war_exploded/WEB-INF/appengine-web.xml" beforeDir="false" afterPath="$PROJECT_DIR$/out/artifacts/server_war_exploded/WEB-INF/appengine-web.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/artifacts/server_war_exploded/WEB-INF/classes/uk/ac/uclan/nkasenides/rovercoder/api/GetNextCodeServlet.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/artifacts/server_war_exploded/WEB-INF/classes/uk/ac/uclan/nkasenides/rovercoder/api/GetNextCodeServlet.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/artifacts/server_war_exploded/WEB-INF/classes/uk/ac/uclan/nkasenides/rovercoder/api/ScoreboardServlet.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/artifacts/server_war_exploded/WEB-INF/classes/uk/ac/uclan/nkasenides/rovercoder/api/ScoreboardServlet.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/artifacts/server_war_exploded/WEB-INF/classes/uk/ac/uclan/nkasenides/rovercoder/api/UpdateScoreServlet.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/artifacts/server_war_exploded/WEB-INF/classes/uk/ac/uclan/nkasenides/rovercoder/api/UpdateScoreServlet.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/artifacts/server_war_exploded/WEB-INF/index.yaml" beforeDir="false" afterPath="$PROJECT_DIR$/out/artifacts/server_war_exploded/WEB-INF/index.yaml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/artifacts/server_war_exploded/index.jsp" beforeDir="false" afterPath="$PROJECT_DIR$/out/artifacts/server_war_exploded/index.jsp" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/server/uk/ac/uclan/nkasenides/rovercoder/api/GetNextCodeServlet.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/server/uk/ac/uclan/nkasenides/rovercoder/api/GetNextCodeServlet.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/server/uk/ac/uclan/nkasenides/rovercoder/api/ScoreboardServlet.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/server/uk/ac/uclan/nkasenides/rovercoder/api/ScoreboardServlet.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/server/uk/ac/uclan/nkasenides/rovercoder/api/UpdateScoreServlet.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/server/uk/ac/uclan/nkasenides/rovercoder/api/UpdateScoreServlet.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/server.iml" beforeDir="false" afterPath="$PROJECT_DIR$/server.iml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/uk/ac/uclan/nkasenides/rovercoder/api/GetNextCodeServlet.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/uk/ac/uclan/nkasenides/rovercoder/api/GetNextCodeServlet.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/uk/ac/uclan/nkasenides/rovercoder/api/ScoreboardServlet.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/uk/ac/uclan/nkasenides/rovercoder/api/ScoreboardServlet.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/uk/ac/uclan/nkasenides/rovercoder/api/UpdateScoreServlet.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/uk/ac/uclan/nkasenides/rovercoder/api/UpdateScoreServlet.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/web/WEB-INF/appengine-web.xml" beforeDir="false" afterPath="$PROJECT_DIR$/web/WEB-INF/appengine-web.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/web/WEB-INF/index.yaml" beforeDir="false" afterPath="$PROJECT_DIR$/web/WEB-INF/index.yaml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/web/codes.jsp" beforeDir="false" afterPath="$PROJECT_DIR$/web/codes.jsp" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/web/index.jsp" beforeDir="false" afterPath="$PROJECT_DIR$/web/index.jsp" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/web/main.jsp" beforeDir="false" afterPath="$PROJECT_DIR$/web/main.jsp" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/web/script_deleteCode.jsp" beforeDir="false" afterPath="$PROJECT_DIR$/web/script_deleteCode.jsp" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/web/script_login.jsp" beforeDir="false" afterPath="$PROJECT_DIR$/web/script_login.jsp" afterDir="false" />
     </list>
     <ignored path="$PROJECT_DIR$/out/" />
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
@@ -24,108 +47,28 @@
   <component name="FileEditorManager">
     <leaf SIDE_TABS_SIZE_LIMIT_KEY="300">
       <file pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/src/uk/ac/uclan/nkasenides/rovercoder/model/PlayerCodeEntry.java">
+        <entry file="file://$PROJECT_DIR$/web/codes.jsp">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="357">
-              <caret line="26" column="37" selection-start-line="26" selection-start-column="37" selection-end-line="26" selection-end-column="37" />
-              <folding>
-                <element signature="imports" expanded="true" />
-              </folding>
+            <state relative-caret-position="143">
+              <caret line="73" column="32" lean-forward="true" selection-start-line="73" selection-start-column="32" selection-end-line="73" selection-end-column="32" />
             </state>
           </provider>
         </entry>
       </file>
       <file pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/web/WEB-INF/web.xml">
+        <entry file="file://$PROJECT_DIR$/web/script_logout.jsp">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="986">
-              <caret line="58" column="22" selection-start-line="58" selection-start-column="22" selection-end-line="58" selection-end-column="22" />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/src/uk/ac/uclan/nkasenides/rovercoder/api/UploadCodeServlet.java">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="952">
-              <caret line="71" column="22" selection-start-line="71" selection-start-column="22" selection-end-line="71" selection-end-column="22" />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/src/uk/ac/uclan/nkasenides/rovercoder/api/GetNextCodeServlet.java">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="646">
-              <caret line="57" selection-start-line="57" selection-end-line="63" selection-end-column="9" />
-              <folding>
-                <element signature="imports" expanded="true" />
-              </folding>
+            <state relative-caret-position="187">
+              <caret line="11" column="39" selection-start-line="11" selection-start-column="39" selection-end-line="11" selection-end-column="39" />
             </state>
           </provider>
         </entry>
       </file>
       <file pinned="false" current-in-tab="true">
-        <entry file="file://$PROJECT_DIR$/src/uk/ac/uclan/nkasenides/rovercoder/api/UpdateScoreServlet.java">
+        <entry file="file://$PROJECT_DIR$/web/main.jsp">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="381">
-              <caret line="83" column="55" selection-start-line="83" selection-start-column="55" selection-end-line="83" selection-end-column="55" />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/src/uk/ac/uclan/nkasenides/rovercoder/util/APIUtils.java">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="221">
-              <caret line="18" column="39" selection-start-line="18" selection-start-column="39" selection-end-line="18" selection-end-column="39" />
-              <folding>
-                <element signature="imports" expanded="true" />
-              </folding>
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/src/uk/ac/uclan/nkasenides/rovercoder/api/GetCodeEntryServlet.java">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="306">
-              <caret line="35" column="51" selection-start-line="35" selection-start-column="51" selection-end-line="35" selection-end-column="51" />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/src/uk/ac/uclan/nkasenides/rovercoder/api/ScoreboardServlet.java">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="340">
-              <caret line="36" column="8" selection-start-line="36" selection-start-column="8" selection-end-line="36" selection-end-column="70" />
-              <folding>
-                <element signature="method#doPost#0;class#ScoreboardServlet#0" />
-                <element signature="method#doGet#0;class#ScoreboardServlet#0" />
-              </folding>
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/src/uk/ac/uclan/nkasenides/rovercoder/api/GetQueueServlet.java">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="170">
-              <caret line="26" column="118" selection-start-line="26" selection-start-column="118" selection-end-line="26" selection-end-column="118" />
-              <folding>
-                <element signature="method#doPost#0;class#GetQueueServlet#0" />
-                <element signature="method#doGet#0;class#GetQueueServlet#0" />
-              </folding>
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/web/WEB-INF/index.yaml">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="289">
-              <caret line="17" column="22" selection-start-line="17" selection-start-column="22" selection-end-line="17" selection-end-column="22" />
+            <state relative-caret-position="374">
+              <caret line="22" lean-forward="true" selection-start-line="22" selection-end-line="22" />
             </state>
           </provider>
         </entry>
@@ -136,12 +79,14 @@
     <option name="RECENT_TEMPLATES">
       <list>
         <option value="Class" />
+        <option value="Jsp File" />
       </list>
     </option>
   </component>
   <component name="FindInProjectRecents">
     <findStrings>
       <find>-uploadedOn</find>
+      <find>setCurrent</find>
     </findStrings>
   </component>
   <component name="Git.Settings">
@@ -150,8 +95,6 @@
   <component name="IdeDocumentHistory">
     <option name="CHANGED_PATHS">
       <list>
-        <option value="$PROJECT_DIR$/web/index.jsp" />
-        <option value="$PROJECT_DIR$/web/WEB-INF/appengine-web.xml" />
         <option value="$PROJECT_DIR$/src/uk/ac/uclan/nkasenides/rovercoder/util/ObjectifyBootstrapper.java" />
         <option value="$PROJECT_DIR$/src/uk/ac/uclan/nkasenides/rovercoder/model/PlayerCode.java" />
         <option value="$PROJECT_DIR$/src/uk/ac/uclan/nkasenides/rovercoder/api/GetNextCode.java" />
@@ -162,12 +105,20 @@
         <option value="$PROJECT_DIR$/web/WEB-INF/web.xml" />
         <option value="$PROJECT_DIR$/src/uk/ac/uclan/nkasenides/rovercoder/util/FirebaseUtils.java" />
         <option value="$PROJECT_DIR$/src/uk/ac/uclan/nkasenides/rovercoder/model/PlayerCodeEntry.java" />
-        <option value="$PROJECT_DIR$/src/uk/ac/uclan/nkasenides/rovercoder/api/ScoreboardServlet.java" />
         <option value="$PROJECT_DIR$/src/uk/ac/uclan/nkasenides/rovercoder/util/APIUtils.java" />
         <option value="$PROJECT_DIR$/src/uk/ac/uclan/nkasenides/rovercoder/api/GetQueueServlet.java" />
         <option value="$PROJECT_DIR$/web/WEB-INF/index.yaml" />
+        <option value="$PROJECT_DIR$/src/uk/ac/uclan/nkasenides/rovercoder/api/ScoreboardServlet.java" />
         <option value="$PROJECT_DIR$/src/uk/ac/uclan/nkasenides/rovercoder/api/GetNextCodeServlet.java" />
         <option value="$PROJECT_DIR$/src/uk/ac/uclan/nkasenides/rovercoder/api/UpdateScoreServlet.java" />
+        <option value="$PROJECT_DIR$/web/script_login.jsp" />
+        <option value="$PROJECT_DIR$/web/WEB-INF/appengine-web.xml" />
+        <option value="$PROJECT_DIR$/web/index.jsp" />
+        <option value="$PROJECT_DIR$/web/script_deleteCode.jsp" />
+        <option value="$PROJECT_DIR$/web/clearCodes.jsp" />
+        <option value="$PROJECT_DIR$/web/codes.jsp" />
+        <option value="$PROJECT_DIR$/web/script_logout.jsp" />
+        <option value="$PROJECT_DIR$/web/main.jsp" />
       </list>
     </option>
   </component>
@@ -264,7 +215,7 @@
     <property name="nodejs_npm_path_reset_for_default_project" value="true" />
     <property name="project.structure.last.edited" value="Problems" />
     <property name="project.structure.proportion" value="0.15" />
-    <property name="project.structure.side.proportion" value="0.2" />
+    <property name="project.structure.side.proportion" value="0.37716264" />
     <property name="show.migrate.to.gradle.popup" value="false" />
   </component>
   <component name="RecentsManager">
@@ -303,6 +254,21 @@
       <server-settings>
         <artifact>server:war exploded</artifact>
       </server-settings>
+      <ConfigurationWrapper VM_VAR="" RunnerId="Run">
+        <option name="USE_ENV_VARIABLES" value="true" />
+        <STARTUP>
+          <option name="USE_DEFAULT" value="true" />
+          <option name="SCRIPT" value="" />
+          <option name="VM_PARAMETERS" value="" />
+          <option name="PROGRAM_PARAMETERS" value="" />
+        </STARTUP>
+        <SHUTDOWN>
+          <option name="USE_DEFAULT" value="true" />
+          <option name="SCRIPT" value="" />
+          <option name="VM_PARAMETERS" value="" />
+          <option name="PROGRAM_PARAMETERS" value="" />
+        </SHUTDOWN>
+      </ConfigurationWrapper>
       <method v="2">
         <option name="Make" enabled="true" />
         <option name="BuildArtifacts" enabled="true">
@@ -329,15 +295,15 @@
       <workItem from="1576919337116" duration="593000" />
       <workItem from="1582961637716" duration="15037000" />
       <workItem from="1583338021480" duration="12600000" />
-      <workItem from="1583411147426" duration="226000" />
+      <workItem from="1583411147426" duration="5525000" />
     </task>
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="30011000" />
+    <option name="totallyTimeSpent" value="35536000" />
   </component>
   <component name="ToolWindowManager">
-    <frame x="-8" y="-8" width="1936" height="1056" extended-state="6" />
+    <frame x="-8" y="-8" width="1936" height="1056" extended-state="7" />
     <editor active="true" />
     <layout>
       <window_info content_ui="combo" id="Project" order="0" sideWeight="0.49596122" visible="true" weight="0.16311301" />
@@ -350,7 +316,7 @@
       <window_info id="Web" order="7" sideWeight="0.50403875" side_tool="true" weight="0.16151386" />
       <window_info anchor="bottom" id="Message" order="0" />
       <window_info anchor="bottom" id="Find" order="1" />
-      <window_info anchor="bottom" id="Run" order="2" />
+      <window_info anchor="bottom" id="Run" order="2" weight="0.32936078" />
       <window_info anchor="bottom" id="Debug" order="3" weight="0.4" />
       <window_info anchor="bottom" id="Cvs" order="4" weight="0.25" />
       <window_info anchor="bottom" id="Inspection" order="5" weight="0.4" />
@@ -363,7 +329,7 @@
       <window_info anchor="bottom" id="Database Changes" order="12" />
       <window_info anchor="bottom" id="Version Control" order="13" weight="0.32936078" />
       <window_info anchor="bottom" id="Flutter Performance" order="14" side_tool="true" />
-      <window_info anchor="bottom" id="Messages" order="15" />
+      <window_info anchor="bottom" id="Messages" order="15" weight="0.32936078" />
       <window_info anchor="right" id="Bean Validation" order="0" />
       <window_info anchor="right" id="Commander" internal_type="SLIDING" order="1" type="SLIDING" weight="0.4" />
       <window_info anchor="right" id="Ant Build" order="2" weight="0.25" />
@@ -403,40 +369,24 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/web/index.jsp">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="289">
-          <caret line="17" selection-start-line="17" selection-end-line="17" />
-          <folding>
-            <element signature="n#style#0;n#p#0;n#body#0;n#html#0;n#!!top" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/web/WEB-INF/appengine-web.xml">
-      <provider selected="true" editor-type-id="text-editor">
-        <state>
-          <caret column="38" selection-start-column="38" selection-end-column="38" />
-        </state>
-      </provider>
-    </entry>
+    <entry file="file://$PROJECT_DIR$/src/uk/ac/uclan/nkasenides/rovercoder/util/FirebaseUtils.java" />
     <entry file="file://$PROJECT_DIR$/web/WEB-INF/web.xml">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="517">
+        <state relative-caret-position="986">
           <caret line="58" column="22" selection-start-line="58" selection-start-column="22" selection-end-line="58" selection-end-column="22" />
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/uk/ac/uclan/nkasenides/rovercoder/util/FirebaseUtils.java">
+    <entry file="file://$PROJECT_DIR$/src/uk/ac/uclan/nkasenides/rovercoder/api/UploadCodeServlet.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="85">
-          <caret line="16" selection-start-line="16" selection-end-line="16" />
+        <state relative-caret-position="952">
+          <caret line="71" column="22" selection-start-line="71" selection-start-column="22" selection-end-line="71" selection-end-column="22" />
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/src/uk/ac/uclan/nkasenides/rovercoder/util/APIUtils.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="306">
+        <state relative-caret-position="221">
           <caret line="18" column="39" selection-start-line="18" selection-start-column="39" selection-end-line="18" selection-end-column="39" />
           <folding>
             <element signature="imports" expanded="true" />
@@ -444,24 +394,43 @@
         </state>
       </provider>
     </entry>
+    <entry file="file://$PROJECT_DIR$/src/uk/ac/uclan/nkasenides/rovercoder/api/GetCodeEntryServlet.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="306">
+          <caret line="35" column="51" selection-start-line="35" selection-start-column="51" selection-end-line="35" selection-end-column="51" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/uk/ac/uclan/nkasenides/rovercoder/api/UpdateScoreServlet.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="379">
+          <caret line="80" selection-start-line="80" selection-end-line="80" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/web/script_login.jsp">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="289">
+          <caret line="17" column="8" selection-start-line="17" selection-start-column="8" selection-end-line="17" selection-end-column="47" />
+        </state>
+      </provider>
+    </entry>
     <entry file="file://$PROJECT_DIR$/src/uk/ac/uclan/nkasenides/rovercoder/model/PlayerCodeEntry.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="442">
-          <caret line="26" column="37" lean-forward="true" selection-start-line="26" selection-start-column="37" selection-end-line="26" selection-end-column="37" />
+        <state relative-caret-position="357">
+          <caret line="26" column="37" selection-start-line="26" selection-start-column="37" selection-end-line="26" selection-end-column="37" />
           <folding>
             <element signature="imports" expanded="true" />
-            <element signature="e#1361#1362#0" expanded="true" />
-            <element signature="e#1388#1389#0" expanded="true" />
-            <element signature="e#1865#1866#0" expanded="true" />
-            <element signature="e#1901#1902#0" expanded="true" />
-            <element signature="e#1937#1938#0" expanded="true" />
-            <element signature="e#1969#1970#0" expanded="true" />
-            <element signature="e#2019#2020#0" expanded="true" />
-            <element signature="e#2061#2062#0" expanded="true" />
-            <element signature="e#2150#2151#0" expanded="true" />
-            <element signature="e#2189#2190#0" expanded="true" />
-            <element signature="e#2254#2255#0" expanded="true" />
-            <element signature="e#2310#2311#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/uk/ac/uclan/nkasenides/rovercoder/api/GetNextCodeServlet.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="204">
+          <caret line="33" column="9" selection-start-line="29" selection-start-column="8" selection-end-line="33" selection-end-column="9" />
+          <folding>
+            <element signature="imports" expanded="true" />
           </folding>
         </state>
       </provider>
@@ -479,8 +448,8 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/src/uk/ac/uclan/nkasenides/rovercoder/api/ScoreboardServlet.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="340">
-          <caret line="36" column="8" selection-start-line="36" selection-start-column="8" selection-end-line="36" selection-end-column="70" />
+        <state relative-caret-position="170">
+          <caret line="26" column="157" selection-start-line="26" selection-start-column="157" selection-end-line="26" selection-end-column="157" />
           <folding>
             <element signature="method#doPost#0;class#ScoreboardServlet#0" />
             <element signature="method#doGet#0;class#ScoreboardServlet#0" />
@@ -488,41 +457,59 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/uk/ac/uclan/nkasenides/rovercoder/api/GetCodeEntryServlet.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="24">
-          <caret line="35" column="51" selection-start-line="35" selection-start-column="51" selection-end-line="35" selection-end-column="51" />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/web/WEB-INF/index.yaml">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="289">
-          <caret line="17" column="22" selection-start-line="17" selection-start-column="22" selection-end-line="17" selection-end-column="22" />
+        <state relative-caret-position="357">
+          <caret line="21" selection-start-line="21" selection-end-line="24" selection-end-column="22" />
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/uk/ac/uclan/nkasenides/rovercoder/api/UploadCodeServlet.java">
+    <entry file="file://$PROJECT_DIR$/web/WEB-INF/appengine-web.xml">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="928">
-          <caret line="71" column="22" selection-start-line="71" selection-start-column="22" selection-end-line="71" selection-end-column="22" />
+        <state relative-caret-position="68">
+          <caret line="4" column="24" selection-start-line="4" selection-start-column="24" selection-end-line="4" selection-end-column="24" />
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/uk/ac/uclan/nkasenides/rovercoder/api/GetNextCodeServlet.java">
+    <entry file="file://$PROJECT_DIR$/web/index.jsp">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="410">
-          <caret line="57" selection-start-line="57" selection-end-line="63" selection-end-column="9" />
-          <folding>
-            <element signature="imports" expanded="true" />
-          </folding>
+        <state relative-caret-position="442">
+          <caret line="26" selection-start-line="26" selection-end-line="26" />
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/uk/ac/uclan/nkasenides/rovercoder/api/UpdateScoreServlet.java">
+    <entry file="file://$PROJECT_DIR$/web/script_deleteCode.jsp">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="430">
-          <caret line="83" column="50" selection-start-line="83" selection-start-column="50" selection-end-line="83" selection-end-column="50" />
+        <state relative-caret-position="500">
+          <caret line="32" column="33" selection-start-line="32" selection-start-column="33" selection-end-line="32" selection-end-column="33" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/web/script_clearCodes.jsp">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="306">
+          <caret line="18" column="39" selection-start-line="18" selection-start-column="39" selection-end-line="18" selection-end-column="39" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/web/codes.jsp">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="143">
+          <caret line="73" column="32" lean-forward="true" selection-start-line="73" selection-start-column="32" selection-end-line="73" selection-end-column="32" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/web/script_logout.jsp">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="187">
+          <caret line="11" column="39" selection-start-line="11" selection-start-column="39" selection-end-line="11" selection-end-column="39" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/web/main.jsp">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="374">
+          <caret line="22" lean-forward="true" selection-start-line="22" selection-end-line="22" />
         </state>
       </provider>
     </entry>
@@ -532,10 +519,11 @@
       <state key="ArtifactsStructureConfigurable.UI">
         <settings>
           <artifact-editor />
+          <last-edited>server:war exploded</last-edited>
           <splitter-proportions>
             <option name="proportions">
               <list>
-                <option value="0.2" />
+                <option value="0.37716264" />
               </list>
             </option>
           </splitter-proportions>
@@ -543,10 +531,11 @@
       </state>
       <state key="FacetStructureConfigurable.UI">
         <settings>
+          <last-edited>Google App Engine Standard (server)|Google App Engine Standard</last-edited>
           <splitter-proportions>
             <option name="proportions">
               <list>
-                <option value="0.2" />
+                <option value="0.37716264" />
               </list>
             </option>
           </splitter-proportions>
@@ -554,10 +543,11 @@
       </state>
       <state key="GlobalLibrariesConfigurable.UI">
         <settings>
+          <last-edited>firebase-analytics</last-edited>
           <splitter-proportions>
             <option name="proportions">
               <list>
-                <option value="0.2" />
+                <option value="0.37716264" />
               </list>
             </option>
           </splitter-proportions>
@@ -565,10 +555,11 @@
       </state>
       <state key="JdkListConfigurable.UI">
         <settings>
+          <last-edited>1.8.0_211</last-edited>
           <splitter-proportions>
             <option name="proportions">
               <list>
-                <option value="0.2" />
+                <option value="0.37716264" />
               </list>
             </option>
           </splitter-proportions>
@@ -580,7 +571,7 @@
           <splitter-proportions>
             <option name="proportions">
               <list>
-                <option value="0.2" />
+                <option value="0.37716264" />
               </list>
             </option>
           </splitter-proportions>
@@ -588,11 +579,11 @@
       </state>
       <state key="ProjectLibrariesConfigurable.UI">
         <settings>
-          <last-edited>Java-WebSocket-1.3.1</last-edited>
+          <last-edited>javax.servlet.jsp:javax.servlet.jsp-api:2.3.3</last-edited>
           <splitter-proportions>
             <option name="proportions">
               <list>
-                <option value="0.2" />
+                <option value="0.37716264" />
               </list>
             </option>
           </splitter-proportions>

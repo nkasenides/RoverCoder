@@ -27,7 +27,7 @@ public class GetNextCodeServlet extends HttpServlet {
 
         final PrintWriter out = response.getWriter();
 
-        List<PlayerCodeEntry> playerCodeEntriesNotPlayed = ofy().load().type(PlayerCodeEntry.class).filter("played", false).order("uploadedOn").limit(1).list();
+        List<PlayerCodeEntry> playerCodeEntriesNotPlayed = ofy().load().type(PlayerCodeEntry.class).filter("played", false).order("uploadedOn").list();
         if (playerCodeEntriesNotPlayed == null || playerCodeEntriesNotPlayed.size() < 1) {
             out.write(new SuccessResponse("No codes", "No more codes found to run.").toJSON());
             return;
@@ -39,6 +39,11 @@ public class GetNextCodeServlet extends HttpServlet {
         playerCodeEntriesNotPlayed.get(0).setPlayed(true);
         playerCodeEntriesNotPlayed.get(0).setCurrentlyPlaying(true);
         ofy().save().entity(playerCodeEntriesNotPlayed.get(0));
+
+        for (int i = 1; i < playerCodeEntriesNotPlayed.size(); i++) {
+            playerCodeEntriesNotPlayed.get(i).setCurrentlyPlaying(false);
+            ofy().save().entity(playerCodeEntriesNotPlayed.get(i)).now();
+        }
 
 
         //Send message:

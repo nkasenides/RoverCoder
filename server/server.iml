@@ -26,10 +26,11 @@
     <orderEntry type="library" name="Response" level="project" />
     <orderEntry type="library" name="Maven: com.google.appengine:appengine-api-1.0-sdk:Release" level="project" />
     <orderEntry type="library" name="Maven: com.google.endpoints:endpoints-framework:Release" level="project" />
-    <orderEntry type="library" name="Maven: javax.servlet:jstl:1.2" level="project" />
-    <orderEntry type="library" name="Maven: javax.servlet:servlet-api:2.5" level="project" />
     <orderEntry type="library" name="com.googlecode.objectify:objectify:6.0.6" level="project" />
     <orderEntry type="library" name="ably-java-1.0.1-javadoc" level="project" />
     <orderEntry type="library" name="Java-WebSocket-1.3.1" level="project" />
+    <orderEntry type="library" name="Maven: javax.servlet:jstl:1.25" level="project" />
+    <orderEntry type="library" name="Maven: javax.servlet:servlet-api:2.52" level="project" />
+    <orderEntry type="library" name="javax.servlet.jsp:javax.servlet.jsp-api:2.3.3" level="project" />
   </component>
 </module>

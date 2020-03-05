@@ -24,7 +24,7 @@ public class ScoreboardServlet extends HttpServlet {
 
         final PrintWriter out = response.getWriter();
 
-        List<PlayerCodeEntry> playerCodeEntriesNotPlayed = ofy().load().type(PlayerCodeEntry.class).filter("played", true).order("-points").list();
+        List<PlayerCodeEntry> playerCodeEntriesNotPlayed = ofy().load().type(PlayerCodeEntry.class).filter("played", true).order("-points").order("uploadedOn").list();
         if (playerCodeEntriesNotPlayed == null) {
             out.write(new ErrorResponse("Error", "Failed to fetch scoreboard.").toJSON());
             return;
