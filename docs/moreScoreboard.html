@@ -16,8 +16,6 @@
     <script src="js/lang.js"></script>
     <script>initLanguage();</script>
 
-    <script src="//cdn.ably.io/lib/ably.min-1.js"></script>
-
 </head>
 <body class="mainPageBody">
 
@@ -98,13 +96,6 @@
     }
 
     getScores();
-
-    const ably = new Ably.Realtime('dujpIA.Oc6Olw:OZ_kAbMfRdlY5kod');
-    const channel = ably.channels.get('scores');
-    channel.subscribe(function (message) {
-        const json = JSON.parse(message.data);
-        updateTable(json);
-    });
 
     function updateTable(json) {
         console.log(json);
