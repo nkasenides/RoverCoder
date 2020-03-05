@@ -81,7 +81,7 @@ public class UpdateScoreServlet extends HttpServlet {
 
         try {
             AblyRealtime ably = new AblyRealtime("dujpIA.Oc6Olw:OZ_kAbMfRdlY5kod");
-            Channel channel = ably.channels.get(" ");
+            Channel channel = ably.channels.get("scores");
             channel.publish("response", messageData);
         } catch (AblyException e) {
             e.printStackTrace();
