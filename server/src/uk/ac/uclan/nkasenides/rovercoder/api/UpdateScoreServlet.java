@@ -17,6 +17,7 @@ import javax.servlet.http.HttpServletResponse;
 import java.io.IOException;
 import java.io.PrintWriter;
 import java.util.List;
+import java.util.logging.Logger;
 
 import static com.googlecode.objectify.ObjectifyService.ofy;
 
@@ -80,7 +81,7 @@ public class UpdateScoreServlet extends HttpServlet {
 
         try {
             AblyRealtime ably = new AblyRealtime("dujpIA.Oc6Olw:OZ_kAbMfRdlY5kod");
-            Channel channel = ably.channels.get("scores");
+            Channel channel = ably.channels.get(" ");
             channel.publish("response", messageData);
         } catch (AblyException e) {
             e.printStackTrace();
