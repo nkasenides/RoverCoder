@@ -40,6 +40,7 @@
         <th>Currently playing</th>
         <th>Points</th>
         <th>-</th>
+        <th>-</th>
     </tr>
     <%
 
@@ -49,6 +50,7 @@
         List<PlayerCodeEntry> entries = ofy().load().type(PlayerCodeEntry.class).order("uploadedOn").list();
         if (entries == null || entries.size() < 1) {
             java.lang.String stringBuilder = "<tr>" +
+                    "<td>-</td>" +
                     "<td>-</td>" +
                     "<td>-</td>" +
                     "<td>-</td>" +
@@ -70,6 +72,7 @@
                         "<td>" + e.isPlayed() + "</td>" +
                         "<td>" + e.isCurrentlyPlaying() + "</td>" +
                         "<td>" + e.getPoints() + "</td>" +
+                        "<td><a href='#' onclick='markAsNotPlayed(" + e.getId() + ")'>Mark as not played</a></td>" +
                         "<td><a href='#' onclick='deleteEntry(" + e.getId() + ")'>Delete</a></td>" +
                         "</tr>";
                 out.print(stringBuilder);
@@ -80,12 +83,18 @@
 
 <br/><br/>
 
-<a href="#" onclick="if (confirm('Are you sure you would like to delete all codes? This action cannot be undone!')) document.location.href='sciprt_clearCodes.jsp'">Delete all</a>
+<a href="#" onclick="if (confirm('Are you sure you would like to delete all codes? This action cannot be undone!')) document.location.href='script_clearCodes.jsp'">Delete all</a>
 
 <script>
     function deleteEntry(id) {
         if (confirm('Are you sure you would like to delete code entry with ID ' + id + '? This action cannot be undone!')) {
-            document.location.href = "script_deleteCode.jsp?id=" + e.getId();
+            document.location.href = "script_deleteCode.jsp?id=" + id;
+        }
+    }
+
+    function markAsNotPlayed(id) {
+        if (confirm('Are you sure you would like to mark code entry with ID ' + id + ' as not played?')) {
+            document.location.href = "script_unplayCode.jsp?id=" + id;
         }
     }
 </script>

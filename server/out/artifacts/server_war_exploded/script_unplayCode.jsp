@@ -30,6 +30,8 @@
         return;
     }
 
-    ofy().delete().entity(entry).now();
+    entry.setCurrentlyPlaying(false);
+    entry.setPlayed(false);
+    ofy().save().entity(entry).now();
     response.sendRedirect("codes.jsp");
 %>

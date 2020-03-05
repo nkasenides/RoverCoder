@@ -40,9 +40,13 @@ public class GetNextCodeServlet extends HttpServlet {
         playerCodeEntriesNotPlayed.get(0).setCurrentlyPlaying(true);
         ofy().save().entity(playerCodeEntriesNotPlayed.get(0));
 
-        for (int i = 1; i < playerCodeEntriesNotPlayed.size(); i++) {
-            playerCodeEntriesNotPlayed.get(i).setCurrentlyPlaying(false);
-            ofy().save().entity(playerCodeEntriesNotPlayed.get(i)).now();
+        //Reset other entries back to playing->false.
+        final List<PlayerCodeEntry> allEntries = ofy().load().type(PlayerCodeEntry.class).list();
+        for (PlayerCodeEntry entry : allEntries) {
+            if (!entry.getId().equals(playerCodeEntriesNotPlayed.get(0).getId())) {
+                entry.setCurrentlyPlaying(false);
+                ofy().save().entity(entry).now();
+            }
         }
 
 

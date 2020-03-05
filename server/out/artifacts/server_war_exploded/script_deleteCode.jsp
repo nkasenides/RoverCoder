@@ -30,6 +30,6 @@
         return;
     }
 
-    ofy().delete().entity(entry);
+    ofy().delete().entity(entry).now();
     response.sendRedirect("codes.jsp");
 %>
