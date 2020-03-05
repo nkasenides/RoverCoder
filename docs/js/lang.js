@@ -146,7 +146,7 @@ const LANG = {
         en: "Change name"
     },
     PLAYING_NOW: {
-        gr: "Εκτελείτε τώρα",
+        gr: "Εκτελείται τώρα",
         en: "Executing now"
     },
     WITH: {
