@@ -180,6 +180,10 @@ const LANG = {
     YOUR_POSITION: {
         gr: "Η θέση σας",
         en: "Your rank"
+    },
+    PLEASE_WAIT: {
+        gr: "Παρακαλώ περιμένετε...",
+        en: "Please wait..."
     }
 
 };
