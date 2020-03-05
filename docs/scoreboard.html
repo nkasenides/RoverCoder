@@ -73,7 +73,7 @@
                     <script>writeString("SCOREBOARD");</script>
                 </h4>
 
-                <p><script>writeString("YOUR_POSITION")</script>: <span id="playerPosition"></span></p>
+                <p id="playerPositionWrapper"><script>writeString("YOUR_POSITION")</script>: <span id="playerPosition"></span></p>
             </div>
 
             <div id="scoreTableWrapper">
@@ -127,7 +127,7 @@
             tableElement.innerHTML = "<tr><th>" + getString("POSITION") + "</th><th>" + getString("PLAYER_NAME") + "</th><th>" + getString("POINTS") + "</th></tr>";
             const scoreboard = json.data.scoreboard;
             if (scoreboard.length < 1) {
-                $("#playerPosition").hide();
+                $("#playerPositionWrapper").hide();
                 tableElement.style.display = "none";
                 document.getElementById("scoreTableWrapper").innerHTML = "<p class='center grey-text'>" + getString("NO_SCORES") + "</p>"
             } else {
@@ -172,6 +172,9 @@
                 }
 
                 $("#playerPosition").text(position);
+                if (position > 0) {
+                    $("#playerPositionWrapper").show();
+                }
             }
 
             const playingEntry = json.data.playingEntry;

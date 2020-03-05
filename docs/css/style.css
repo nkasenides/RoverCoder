@@ -116,7 +116,7 @@ th, td {
     text-align: center;
 }
 
-#signupForm, #enterNameInstruction, #playAgainHome, #nametag {
+#signupForm, #enterNameInstruction, #playAgainHome, #nametag, #playerPositionWrapper {
     display: none;
 }
 
