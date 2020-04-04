@@ -2,33 +2,8 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="2b70388a-6e3f-4ab8-87fa-0a625bb1399b" name="Default Changelist" comment="">
-      <change afterPath="$PROJECT_DIR$/../server/web/script_logout.jsp" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/js/lang.js" beforeDir="false" afterPath="$PROJECT_DIR$/js/lang.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../server/.idea/artifacts/server_war_exploded.xml" beforeDir="false" afterPath="$PROJECT_DIR$/../server/.idea/artifacts/server_war_exploded.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../server/.idea/libraries/Maven__javax_servlet_jstl_1_25.xml" beforeDir="false" afterPath="$PROJECT_DIR$/../server/.idea/libraries/Maven__javax_servlet_jstl_1_25.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../server/.idea/libraries/Maven__javax_servlet_servlet_api_2_52.xml" beforeDir="false" afterPath="$PROJECT_DIR$/../server/.idea/libraries/Maven__javax_servlet_servlet_api_2_52.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/../server/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/../server/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../server/out/artifacts/server_war_exploded/WEB-INF/appengine-web.xml" beforeDir="false" afterPath="$PROJECT_DIR$/../server/out/artifacts/server_war_exploded/WEB-INF/appengine-web.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../server/out/artifacts/server_war_exploded/WEB-INF/classes/uk/ac/uclan/nkasenides/rovercoder/api/GetNextCodeServlet.class" beforeDir="false" afterPath="$PROJECT_DIR$/../server/out/artifacts/server_war_exploded/WEB-INF/classes/uk/ac/uclan/nkasenides/rovercoder/api/GetNextCodeServlet.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../server/out/artifacts/server_war_exploded/WEB-INF/classes/uk/ac/uclan/nkasenides/rovercoder/api/ScoreboardServlet.class" beforeDir="false" afterPath="$PROJECT_DIR$/../server/out/artifacts/server_war_exploded/WEB-INF/classes/uk/ac/uclan/nkasenides/rovercoder/api/ScoreboardServlet.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../server/out/artifacts/server_war_exploded/WEB-INF/classes/uk/ac/uclan/nkasenides/rovercoder/api/UpdateScoreServlet.class" beforeDir="false" afterPath="$PROJECT_DIR$/../server/out/artifacts/server_war_exploded/WEB-INF/classes/uk/ac/uclan/nkasenides/rovercoder/api/UpdateScoreServlet.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../server/out/artifacts/server_war_exploded/WEB-INF/index.yaml" beforeDir="false" afterPath="$PROJECT_DIR$/../server/out/artifacts/server_war_exploded/WEB-INF/index.yaml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../server/out/artifacts/server_war_exploded/index.jsp" beforeDir="false" afterPath="$PROJECT_DIR$/../server/out/artifacts/server_war_exploded/index.jsp" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../server/out/production/server/uk/ac/uclan/nkasenides/rovercoder/api/GetNextCodeServlet.class" beforeDir="false" afterPath="$PROJECT_DIR$/../server/out/production/server/uk/ac/uclan/nkasenides/rovercoder/api/GetNextCodeServlet.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../server/out/production/server/uk/ac/uclan/nkasenides/rovercoder/api/ScoreboardServlet.class" beforeDir="false" afterPath="$PROJECT_DIR$/../server/out/production/server/uk/ac/uclan/nkasenides/rovercoder/api/ScoreboardServlet.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../server/out/production/server/uk/ac/uclan/nkasenides/rovercoder/api/UpdateScoreServlet.class" beforeDir="false" afterPath="$PROJECT_DIR$/../server/out/production/server/uk/ac/uclan/nkasenides/rovercoder/api/UpdateScoreServlet.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../server/server.iml" beforeDir="false" afterPath="$PROJECT_DIR$/../server/server.iml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../server/src/uk/ac/uclan/nkasenides/rovercoder/api/GetNextCodeServlet.java" beforeDir="false" afterPath="$PROJECT_DIR$/../server/src/uk/ac/uclan/nkasenides/rovercoder/api/GetNextCodeServlet.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../server/src/uk/ac/uclan/nkasenides/rovercoder/api/ScoreboardServlet.java" beforeDir="false" afterPath="$PROJECT_DIR$/../server/src/uk/ac/uclan/nkasenides/rovercoder/api/ScoreboardServlet.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../server/src/uk/ac/uclan/nkasenides/rovercoder/api/UpdateScoreServlet.java" beforeDir="false" afterPath="$PROJECT_DIR$/../server/src/uk/ac/uclan/nkasenides/rovercoder/api/UpdateScoreServlet.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../server/web/WEB-INF/appengine-web.xml" beforeDir="false" afterPath="$PROJECT_DIR$/../server/web/WEB-INF/appengine-web.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../server/web/WEB-INF/index.yaml" beforeDir="false" afterPath="$PROJECT_DIR$/../server/web/WEB-INF/index.yaml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../server/web/codes.jsp" beforeDir="false" afterPath="$PROJECT_DIR$/../server/web/codes.jsp" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../server/web/index.jsp" beforeDir="false" afterPath="$PROJECT_DIR$/../server/web/index.jsp" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../server/web/main.jsp" beforeDir="false" afterPath="$PROJECT_DIR$/../server/web/main.jsp" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../server/web/script_deleteCode.jsp" beforeDir="false" afterPath="$PROJECT_DIR$/../server/web/script_deleteCode.jsp" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../server/web/script_login.jsp" beforeDir="false" afterPath="$PROJECT_DIR$/../server/web/script_login.jsp" afterDir="false" />
     </list>
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
     <option name="SHOW_DIALOG" value="false" />
@@ -42,16 +17,16 @@
         <entry file="file://$PROJECT_DIR$/code.html">
           <provider selected="true" editor-type-id="text-editor">
             <state relative-caret-position="-157">
-              <caret line="57" column="10" lean-forward="true" selection-start-line="57" selection-start-column="10" selection-end-line="57" selection-end-column="10" />
+              <caret line="57" column="10" selection-start-line="57" selection-start-column="10" selection-end-line="57" selection-end-column="10" />
             </state>
           </provider>
         </entry>
       </file>
-      <file pinned="false" current-in-tab="false">
+      <file pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/queue.html">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="187">
-              <caret line="102" column="42" lean-forward="true" selection-start-line="102" selection-start-column="42" selection-end-line="102" selection-end-column="42" />
+            <state relative-caret-position="173">
+              <caret line="77" column="18" selection-start-line="77" selection-start-column="18" selection-end-line="77" selection-end-column="18" />
               <folding>
                 <element signature="n#style#0;n#td#0;n#tr#0;n#!!top" expanded="true" />
                 <element signature="n#style#0;n#td#1;n#tr#0;n#!!top" expanded="true" />
@@ -64,7 +39,7 @@
         <entry file="file://$PROJECT_DIR$/css/style.css">
           <provider selected="true" editor-type-id="text-editor">
             <state relative-caret-position="447">
-              <caret line="112" column="1" lean-forward="true" selection-start-line="112" selection-start-column="1" selection-end-line="112" selection-end-column="1" />
+              <caret line="112" column="1" selection-start-line="112" selection-start-column="1" selection-end-line="112" selection-end-column="1" />
             </state>
           </provider>
         </entry>
@@ -72,8 +47,8 @@
       <file pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/scoreboard.html">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="646">
-              <caret line="95" column="7" lean-forward="true" selection-start-line="95" selection-start-column="7" selection-end-line="95" selection-end-column="7" />
+            <state relative-caret-position="374">
+              <caret line="79" column="46" selection-start-line="79" selection-start-column="46" selection-end-line="79" selection-end-column="46" />
               <folding>
                 <element signature="n#style#0;n#td#0;n#tr#0;n#!!top" expanded="true" />
                 <element signature="n#style#0;n#td#1;n#tr#0;n#!!top" expanded="true" />
@@ -86,8 +61,8 @@
       <file pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/moreScoreboard.html">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="17">
-              <caret line="78" column="7" lean-forward="true" selection-start-line="78" selection-start-column="7" selection-end-line="78" selection-end-column="7" />
+            <state relative-caret-position="207">
+              <caret line="68" column="46" selection-start-line="68" selection-start-column="46" selection-end-line="68" selection-end-column="46" />
               <folding>
                 <element signature="n#style#0;n#td#0;n#tr#0;n#!!top" expanded="true" />
                 <element signature="n#style#0;n#td#1;n#tr#0;n#!!top" expanded="true" />
@@ -106,7 +81,7 @@
           </provider>
         </entry>
       </file>
-      <file pinned="false" current-in-tab="true">
+      <file pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/js/lang.js">
           <provider selected="true" editor-type-id="text-editor">
             <state relative-caret-position="452">
@@ -128,7 +103,7 @@
         <entry file="file://$PROJECT_DIR$/admin/index.html">
           <provider selected="true" editor-type-id="text-editor">
             <state relative-caret-position="136">
-              <caret line="8" column="7" lean-forward="true" selection-start-line="8" selection-start-column="7" selection-end-line="8" selection-end-column="7" />
+              <caret line="8" column="7" selection-start-line="8" selection-start-column="7" selection-end-line="8" selection-end-column="7" />
             </state>
           </provider>
         </entry>
@@ -154,8 +129,6 @@
   </component>
   <component name="FindInProjectRecents">
     <findStrings>
-      <find>console</find>
-      <find>initialize</find>
       <find>var</find>
       <find>points</find>
       <find>selectRandom</find>
@@ -183,6 +156,8 @@
       <find>queue</find>
       <find>ably</find>
       <find>scores</find>
+      <find>table</find>
+      <find>&lt;table</find>
       <find>playerPosition</find>
     </findStrings>
     <replaceStrings>
@@ -227,10 +202,10 @@
         <option value="$PROJECT_DIR$/code.html" />
         <option value="$PROJECT_DIR$/css/style.css" />
         <option value="$PROJECT_DIR$/admin/index.html" />
+        <option value="$PROJECT_DIR$/js/lang.js" />
         <option value="$PROJECT_DIR$/moreScoreboard.html" />
         <option value="$PROJECT_DIR$/scoreboard.html" />
         <option value="$PROJECT_DIR$/queue.html" />
-        <option value="$PROJECT_DIR$/js/lang.js" />
       </list>
     </option>
   </component>
@@ -341,12 +316,12 @@
       <workItem from="1583232396023" duration="6820000" />
       <workItem from="1583339357807" duration="15962000" />
       <workItem from="1583365780460" duration="1931000" />
-      <workItem from="1583411117006" duration="2785000" />
+      <workItem from="1583411117006" duration="4108000" />
     </task>
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="93580000" />
+    <option name="totallyTimeSpent" value="94903000" />
   </component>
   <component name="TodoView">
     <todo-panel id="selected-file">
@@ -361,7 +336,7 @@
     <frame x="-8" y="-8" width="1936" height="1056" extended-state="6" />
     <editor active="true" />
     <layout>
-      <window_info active="true" content_ui="combo" id="Project" order="0" visible="true" weight="0.12381454" />
+      <window_info content_ui="combo" id="Project" order="0" visible="true" weight="0.12381454" />
       <window_info id="Structure" order="1" side_tool="true" weight="0.25" />
       <window_info id="Favorites" order="2" side_tool="true" />
       <window_info anchor="bottom" id="Message" order="0" />
@@ -373,7 +348,7 @@
       <window_info anchor="bottom" id="TODO" order="6" weight="0.32936078" />
       <window_info anchor="bottom" id="Docker" order="7" show_stripe_button="false" />
       <window_info anchor="bottom" id="Version Control" order="8" weight="0.32936078" />
-      <window_info anchor="bottom" id="Terminal" order="9" visible="true" weight="0.32936078" />
+      <window_info active="true" anchor="bottom" id="Terminal" order="9" visible="true" weight="0.32936078" />
       <window_info anchor="bottom" id="Event Log" order="10" side_tool="true" />
       <window_info anchor="right" id="Commander" internal_type="SLIDING" order="0" type="SLIDING" weight="0.4" />
       <window_info anchor="right" id="Ant Build" order="1" weight="0.25" />
@@ -593,7 +568,7 @@
     <entry file="file://$PROJECT_DIR$/css/style.css">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="447">
-          <caret line="112" column="1" lean-forward="true" selection-start-line="112" selection-start-column="1" selection-end-line="112" selection-end-column="1" />
+          <caret line="112" column="1" selection-start-line="112" selection-start-column="1" selection-end-line="112" selection-end-column="1" />
         </state>
       </provider>
     </entry>
@@ -607,21 +582,40 @@
     <entry file="file://$PROJECT_DIR$/admin/index.html">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="136">
-          <caret line="8" column="7" lean-forward="true" selection-start-line="8" selection-start-column="7" selection-end-line="8" selection-end-column="7" />
+          <caret line="8" column="7" selection-start-line="8" selection-start-column="7" selection-end-line="8" selection-end-column="7" />
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/code.html">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="-157">
-          <caret line="57" column="10" lean-forward="true" selection-start-line="57" selection-start-column="10" selection-end-line="57" selection-end-column="10" />
+          <caret line="57" column="10" selection-start-line="57" selection-start-column="10" selection-end-line="57" selection-end-column="10" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/js/lang.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="452">
+          <caret line="184" column="37" selection-start-line="184" selection-start-column="37" selection-end-line="184" selection-end-column="37" />
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/moreScoreboard.html">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="17">
-          <caret line="78" column="7" lean-forward="true" selection-start-line="78" selection-start-column="7" selection-end-line="78" selection-end-column="7" />
+        <state relative-caret-position="207">
+          <caret line="68" column="46" selection-start-line="68" selection-start-column="46" selection-end-line="68" selection-end-column="46" />
+          <folding>
+            <element signature="n#style#0;n#td#0;n#tr#0;n#!!top" expanded="true" />
+            <element signature="n#style#0;n#td#1;n#tr#0;n#!!top" expanded="true" />
+            <element signature="n#style#0;n#td#2;n#tr#0;n#!!top" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/scoreboard.html">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="374">
+          <caret line="79" column="46" selection-start-line="79" selection-start-column="46" selection-end-line="79" selection-end-column="46" />
           <folding>
             <element signature="n#style#0;n#td#0;n#tr#0;n#!!top" expanded="true" />
             <element signature="n#style#0;n#td#1;n#tr#0;n#!!top" expanded="true" />
@@ -632,31 +626,12 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/queue.html">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="187">
-          <caret line="102" column="42" lean-forward="true" selection-start-line="102" selection-start-column="42" selection-end-line="102" selection-end-column="42" />
+        <state relative-caret-position="173">
+          <caret line="77" column="18" selection-start-line="77" selection-start-column="18" selection-end-line="77" selection-end-column="18" />
           <folding>
             <element signature="n#style#0;n#td#0;n#tr#0;n#!!top" expanded="true" />
             <element signature="n#style#0;n#td#1;n#tr#0;n#!!top" expanded="true" />
           </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/scoreboard.html">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="646">
-          <caret line="95" column="7" lean-forward="true" selection-start-line="95" selection-start-column="7" selection-end-line="95" selection-end-column="7" />
-          <folding>
-            <element signature="n#style#0;n#td#0;n#tr#0;n#!!top" expanded="true" />
-            <element signature="n#style#0;n#td#1;n#tr#0;n#!!top" expanded="true" />
-            <element signature="n#style#0;n#td#2;n#tr#0;n#!!top" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/js/lang.js">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="452">
-          <caret line="184" column="37" selection-start-line="184" selection-start-column="37" selection-end-line="184" selection-end-column="37" />
         </state>
       </provider>
     </entry>
