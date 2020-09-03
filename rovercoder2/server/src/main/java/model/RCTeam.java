@@ -7,7 +7,7 @@ public class RCTeam extends Team {
     //Raw material supplies:
     private int food;
     private int water;
-    private int clay;
+    private int sand;
     private int metal;
     private int knowledge;
 
