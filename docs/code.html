@@ -169,7 +169,6 @@
             Blockly.svgResize(workspace);
         };
         window.addEventListener('resize', onresize, false);
-        onresize();
         Blockly.svgResize(workspace);
 
         const existingWorkspace = getCookie(PLAYER_WORKSPACE);
@@ -178,6 +177,8 @@
             Blockly.Xml.domToWorkspace(xml, workspace);
         }
 
+        setTimeout(onresize, 100);
+        // onresize();
         return workspace;
 
     }
