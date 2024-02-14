@@ -4,6 +4,7 @@
 <%@ page import="java.io.PrintWriter" %>
 <%@ page import="java.text.SimpleDateFormat" %>
 <%@ page import="java.util.TimeZone" %>
+<%@ page import="java.util.Comparator" %>
 
 <%--
   User: hfnov
@@ -48,7 +49,12 @@
         format.setTimeZone(TimeZone.getTimeZone("Europe/Athens"));
 
         List<PlayerCodeEntry> entries = ofy().load().type(PlayerCodeEntry.class).order("uploadedOn").list();
-        if (entries == null || entries.size() < 1) {
+
+        //Sort by submission time:
+        entries.sort((o1, o2) -> (int) (o1.getUploadedOn() - o2.getUploadedOn()));
+
+
+        if (entries.size() < 1) {
             java.lang.String stringBuilder = "<tr>" +
                     "<td>-</td>" +
                     "<td>-</td>" +
