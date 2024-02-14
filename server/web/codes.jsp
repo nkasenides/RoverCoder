@@ -5,6 +5,7 @@
 <%@ page import="java.text.SimpleDateFormat" %>
 <%@ page import="java.util.TimeZone" %>
 <%@ page import="java.util.Comparator" %>
+<%@ page import="uk.ac.uclan.nkasenides.rovercoder.model.SortMethod" %>
 
 <%--
   User: hfnov
@@ -19,6 +20,33 @@
         response.sendRedirect("index.jsp?error=Please log in.");
     }
 
+    SortMethod sortMethod;
+
+    String sort = request.getParameter("sort");
+    if (sort == null) {
+        sortMethod = SortMethod.TIME;
+    }
+    else {
+        switch (sort) {
+            case "time":
+                sortMethod = SortMethod.TIME;
+                break;
+            case "points":
+                sortMethod = SortMethod.POINTS;
+                break;
+            case "played":
+                sortMethod = SortMethod.PLAYED;
+                break;
+            case "playing":
+                sortMethod = SortMethod.PLAYING;
+                break;
+            default:
+                sortMethod = SortMethod.TIME;
+                break;
+        }
+    }
+
+
 %>
 
 <html>
@@ -29,7 +57,14 @@
 
 <h1>Player codes</h1>
 
-<p>Player codes, sorted by time of upload.</p>
+<p>Player codes, sorted by <%= sortMethod %></p>
+
+<nav>
+    <a style="margin-right: 20px" href="?sort=time">Sort by upload time</a>
+    <a style="margin-right: 20px" href="?sort=points">Sort by points</a>
+    <a style="margin-right: 20px" href="?sort=played">Sort by played</a>
+    <a style="margin-right: 20px" href="?sort=playing">Sort by playing</a>
+</nav>
 
 <table border="1" cellpadding="5" cellspacing="5">
     <tr>
@@ -50,8 +85,24 @@
 
         List<PlayerCodeEntry> entries = ofy().load().type(PlayerCodeEntry.class).order("uploadedOn").list();
 
-        //Sort by submission time:
-        entries.sort((o1, o2) -> (int) (o1.getUploadedOn() - o2.getUploadedOn()));
+        //Sort:
+        switch (sortMethod) {
+            case TIME:
+                entries.sort((o1, o2) -> {
+                    long diff = o2.getUploadedOn() - o1.getUploadedOn();
+                    return diff > 0 ? 1 : 0;
+                });
+                break;
+            case POINTS:
+                entries.sort((o1, o2) -> o2.getPoints() - o1.getPoints());
+                break;
+            case PLAYED:
+                entries.sort((o1, o2) -> o1.isPlayed() ? 0 : 1);
+                break;
+            case PLAYING:
+                entries.sort((o1, o2) -> o1.isCurrentlyPlaying() ? 0 : 1);
+                break;
+        }
 
 
         if (entries.size() < 1) {
